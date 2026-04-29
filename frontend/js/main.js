@@ -199,7 +199,7 @@
         { label: "البريد",        value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
       ],
       langSelf: "AR",
-      langOther: { code: "EN", href: "../" + currentFilename() }
+      langOther: { code: "EN", href: "en/" + currentFilename() }
     } : {
       title: "Browse the report",
       label: "Menu",
