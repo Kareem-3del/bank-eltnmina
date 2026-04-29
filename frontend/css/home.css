@@ -994,6 +994,7 @@
   vertical-align: bottom;
   line-height: inherit;
 }
+
 .hero-title__inner {
   display: inline-block;
   will-change: transform;
@@ -1043,12 +1044,14 @@
 .new-hero .custom-btn {
   margin-top: 2rem;
   transition: transform var(--d-fast) var(--ease-out),
-              box-shadow var(--d-base) var(--ease-out);
+    box-shadow var(--d-base) var(--ease-out);
 }
+
 .new-hero .custom-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 32px -16px rgba(0, 131, 117, 0.45);
 }
+
 .new-hero .custom-btn:active {
   transform: translateY(0);
 }
@@ -1438,8 +1441,15 @@
   align-items: baseline;
   gap: 0;
 }
-.kpi-card__value .riyal { width: 0.78em; height: 0.78em; }
-.kpi-card__value .kpi-card__unit { margin-inline-start: var(--s-2); }
+
+.kpi-card__value .riyal {
+  width: 0.78em;
+  height: 0.78em;
+}
+
+.kpi-card__value .kpi-card__unit {
+  margin-inline-start: var(--s-2);
+}
 
 .kpi-card--accent .kpi-card__value {
   color: var(--c-primary-fixed);
@@ -1832,4 +1842,8 @@
     margin-bottom: 40px;
     /* تقليل الفراغ تحت العنوان الرئيسي */
   }
+}
+
+#chairman {
+  background-color: #fff !important;
 }
