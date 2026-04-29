@@ -1642,29 +1642,29 @@
   /* .boss-img {
     height: auto;
     /* ترك الصورة تأخذ ارتفاعها الطبيعي */
-  max-height: 400px !important;
-}
+  /* max-height: 400px !important;
+} */
 
-*/
+  */
 
-/* الـ Counters في الشاشات الصغيرة جداً */
-.hero-counter .counter-item,
-.boss-content .hero-counter .counter-item:not(.last) {
-  flex: 0 0 100%;
-  /* جعل كل عداد يأخذ العرض كاملاً (اختياري) */
-}
+  /* الـ Counters في الشاشات الصغيرة جداً */
+  .hero-counter .counter-item,
+  .boss-content .hero-counter .counter-item:not(.last) {
+    flex: 0 0 100%;
+    /* جعل كل عداد يأخذ العرض كاملاً (اختياري) */
+  }
 
-/* إذا أردت استمرار ظهور العدادات 2 في كل صف حتى في الموبايل، امسح الكود أعلاه واترك الأصلي */
+  /* إذا أردت استمرار ظهور العدادات 2 في كل صف حتى في الموبايل، امسح الكود أعلاه واترك الأصلي */
 
-.boss-letter-title h2 {
-  font-size: 24px;
-  line-height: 32px;
-}
+  .boss-letter-title h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
 
-.custom-btn {
-  width: 100%;
-  /* جعل الزر بعرض الشاشة في الموبايل */
-}
+  .custom-btn {
+    width: 100%;
+    /* جعل الزر بعرض الشاشة في الموبايل */
+  }
 }
 
 /* strategy-sec css */
