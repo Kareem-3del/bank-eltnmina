@@ -202,8 +202,8 @@
   line-height: var(--lh-snug);
 }
 
-/* Title — large, teal, with a thin teal underline accent on the keyword
-   span (wrap with <em>). */
+/* Title — large, teal, centered, with a centered teal divider beneath
+   the whole heading (not under the <em> word). */
 .message--featured .message__title {
   font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.25rem);
   font-weight: var(--fw-bold);
@@ -211,19 +211,20 @@
   letter-spacing: -0.005em;
   margin-bottom: var(--s-5);
   line-height: var(--lh-snug);
+  text-align: center;
+}
+.message--featured .message__title::after {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 3px;
+  border-radius: 9999px;
+  background: var(--c-primary);
+  margin: var(--s-3) auto 0;
 }
 .message--featured .message__title em {
   font-style: normal;
-  position: relative;
-  display: inline-block;
-}
-.message--featured .message__title em::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  bottom: -8px;
-  height: 2px;
-  background: var(--c-primary);
+  /* Centered ::after on the parent heading replaces the per-em underline. */
 }
 
 /* ==========================================================================

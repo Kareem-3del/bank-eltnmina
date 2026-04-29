@@ -332,16 +332,13 @@ input, textarea, select { font: inherit; color: inherit; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(246, 250, 248, 0.85);
-  backdrop-filter: saturate(140%) blur(10px);
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  background: #ffffff;
   border-bottom: 1px solid transparent;
-  transition: background var(--d-fast) var(--ease-out),
-              border-color var(--d-fast) var(--ease-out),
+  transition: border-color var(--d-fast) var(--ease-out),
               box-shadow var(--d-fast) var(--ease-out);
 }
 .site-header.is-scrolled {
-  background: var(--c-surface);
+  background: #ffffff;
   border-bottom-color: var(--c-outline-variant);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 }
@@ -418,9 +415,31 @@ input, textarea, select { font: inherit; color: inherit; }
   .nav__cta { gap: 0; }
 }
 
+/* On mobile: the wordmark portion of the bilingual logo (which has the
+   palm-tree icon on the right and "صندوق التنمية العقارية / REAL ESTATE
+   DEVELOPMENT FUND" text on the left, baked into a single 768×242 image)
+   is dropped — only the icon portion is shown, scaled up. We achieve this
+   without a separate icon-only file by painting `logo.webp` as a
+   background-image on the brand link with `background-position: right
+   center`, sizing the container to a square that matches the image's
+   height-only scale; the rest of the image overflows and is clipped. */
+@media (max-width: 880px) {
+  .nav__brand {
+    width: 56px;
+    height: 56px;
+    background-image: url("../assets/logo.webp");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: right center;
+    overflow: hidden;
+  }
+  .nav__brand img,
+  .nav__brand span,
+  .nav__brand small { display: none !important; }
+}
+
 @media (max-width: 420px) {
-  .nav__brand small { display: none; }
-  .nav__brand img { height: 28px; }
+  .nav__brand { width: 52px; height: 52px; }
   .nav { gap: var(--s-3); }
 }
 

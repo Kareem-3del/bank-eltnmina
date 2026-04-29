@@ -251,7 +251,7 @@
       <div class="staggered-menu__top">
         <a href="${root}${isAR ? "ar/" : ""}index.html" class="staggered-menu__brand">
           <img src="${root}assets/logo.png" alt="" />
-          <span>${config.brand}<br><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
+          <span><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
         </a>
         <button type="button" class="staggered-menu__close" data-menu-close>
           <span>${config.labelOpen}</span>
