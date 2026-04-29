@@ -1241,3 +1241,72 @@
 .rate-item img {
   transform: translateY(2px);
 }
+
+/* --- Responsive Styles --- */
+
+@media (max-width: 992px) {
+
+  /* تحويل الهيرو سكشن لعمودي */
+  .new-hero .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .new-hero .hero-counter {
+    flex-direction: column;
+  }
+
+  .new-hero .hero-content .hero-title {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+
+  .new-hero .hero-content .hero-text {
+    font-size: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .boss-letter-title {
+    margin-bottom: 2rem;
+  }
+
+  /* تحويل سكشن المدير لعمودي */
+  .boss-info {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .boss-img {
+    height: auto;
+    /* ترك الصورة تأخذ ارتفاعها الطبيعي */
+    max-height: 400px;
+  }
+
+  .boss-img img {
+    /* إلغاء الإزاحة في الموبايل لظهور الصورة كاملة */
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+
+  /* الـ Counters في الشاشات الصغيرة جداً */
+  .hero-counter .counter-item,
+  .boss-content .hero-counter .counter-item:not(.last) {
+    flex: 0 0 100%;
+    /* جعل كل عداد يأخذ العرض كاملاً (اختياري) */
+  }
+
+  /* إذا أردت استمرار ظهور العدادات 2 في كل صف حتى في الموبايل، امسح الكود أعلاه واترك الأصلي */
+
+  .boss-letter-title h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .custom-btn {
+    width: 100%;
+    /* جعل الزر بعرض الشاشة في الموبايل */
+  }
+}
