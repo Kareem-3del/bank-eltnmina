@@ -12,8 +12,12 @@
 
   <link rel="icon" type="image/png" href="../assets/logo.png" />
 
+  <link rel="preload" as="image" href="../assets/hero.webp" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Public+Sans:wght@400;500;600;700;800&display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Public+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
@@ -77,13 +81,13 @@
     <div class="container">
       <nav class="nav" data-nav aria-label="القائمة الرئيسية">
         <a href="index.html" class="nav__brand" aria-label="صندوق التنمية العقارية">
-          <img src="../assets/logo.png" alt="صندوق التنمية العقارية" />
+          <img src="../assets/logo.webp" alt="صندوق التنمية العقارية" width="768" height="242" />
         </a>
 
         <ul class="nav__list" id="primary-nav">
           <li><a class="nav__link" href="index.html">الرئيسية</a></li>
           <li><a class="nav__link" href="about.html">عن الصندوق</a></li>
-          <li><a class="nav__link" href="#strategy">الاستراتيجية</a></li>
+          <li><a class="nav__link" href="strategy.html">الاستراتيجية</a></li>
           <li><a class="nav__link" href="#impact">الأثر</a></li>
           <li><a class="nav__link" href="contact.html">تواصل معنا</a></li>
         </ul>
@@ -127,20 +131,20 @@
 
           <div class="mosaic reveal" aria-hidden="true">
             <div class="mosaic__cell mosaic__cell--photo">
-              <img src="../assets/family.jpg" alt="" loading="lazy" />
+              <img src="../assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
             </div>
             <div class="mosaic__cell mosaic__cell--solid"></div>
             <div class="mosaic__cell mosaic__cell--photo">
-              <img src="../assets/villas.jpg" alt="" loading="lazy" />
+              <img src="../assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
             </div>
 
             <div class="mosaic__cell mosaic__cell--accent"></div>
             <div class="mosaic__cell mosaic__cell--photo mosaic__cell--span2">
-              <img src="../assets/villas.jpg" alt="" loading="lazy" />
+              <img src="../assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
             </div>
 
             <div class="mosaic__cell mosaic__cell--photo">
-              <img src="../assets/family.jpg" alt="" loading="lazy" />
+              <img src="../assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
             </div>
             <div class="mosaic__cell mosaic__cell--tint"></div>
             <div class="mosaic__cell mosaic__cell--solid"></div>
@@ -201,14 +205,14 @@
           </div>
 
           <div class="hero-image">
-            <img loading="lazy" src="../assets/hero.png" alt="hero-img" />
+            <img src="../assets/hero.webp" alt="عائلة سعودية أمام منزلها الجديد" width="1166" height="1126" fetchpriority="high" decoding="async" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===================== الإستراتيجية المؤسسية ===================== -->
-    <section class="strategy-sec section">
+    <section class="strategy-sec section" data-strategy>
 
       <div class="container">
         <h2 class="strategy-title">الإستراتيجية المؤسسية</h2>
@@ -221,7 +225,7 @@
         <div class="strategy-info">
           <div class="strategy-image">
             <div class="strategy-overlay"></div>
-            <img src="../assets/st1.png" alt="">
+            <img src="../assets/st1.webp" alt="" width="916" height="744" />
           </div>
           <div class="strategy-content">
             <div class="strategy-content-item">
@@ -262,7 +266,7 @@
           </div>
           <div class="strategy-image">
             <div class="strategy-overlay"></div>
-            <img src="../assets/st2.png" alt="">
+            <img src="../assets/st2.webp" alt="" width="918" height="744" />
           </div>
         </div>
       </div>
@@ -318,11 +322,11 @@
     <!-- ===================== رسالة رئيس مجلس الإدارة ===================== -->
     <section class="section section--tight" id="chairman" style="background: var(--c-bg)">
       <div class="container">
-        <article class="message message--featured reveal">
+        <article class="message message--featured message--chair reveal" data-ceo-message>
           <aside class="message__portrait">
             <figure class="message__photo-frame">
               <div class="message__photo">
-                <img src="../assets/ceo2.png" alt="معالي الأستاذ ماجد بن عبدالله الحقيل" loading="lazy" />
+                <img src="../assets/ceo2.webp" alt="معالي الأستاذ ماجد بن عبدالله الحقيل" loading="lazy" width="1118" height="980" />
               </div>
               <figcaption class="message__nameplate">
                 <strong class="message__name">معالي الأستاذ / ماجد بن عبدالله الحقيل</strong>
@@ -373,13 +377,8 @@
     </section>
 
     <!-- ===================== رسالة الرئيس التنفذي ===================== -->
-    <section class="boss-latter-sec section">
+    <section class="boss-latter-sec section" data-ceo-letter>
       <div class="container">
-        <div class="pin">
-          <div class="circle"></div>
-          القيادة التنفيذية
-        </div>
-
         <div class="boss-letter-title">
           <h2>
             رسالة الرئيس
@@ -402,7 +401,7 @@
                   <div class="divider"></div>
                 </div>
                 <div class="boss-img">
-                  <img src="../assets/ceo.png" alt="م. لؤي بن محمد الناهض" loading="lazy" />
+                  <img src="../assets/ceo.webp" alt="م. لؤي بن محمد الناهض" loading="lazy" width="1026" height="2066" />
                 </div>
               </div>
             </div>
@@ -419,19 +418,19 @@
               <h2>أبرز الإنجازات</h2>
               <div class="rate-items">
                 <div class="rate-item">
-                  <img src="../assets/cup.svg" loading="lazy" />
+                  <img src="../assets/cup.svg" alt="" loading="lazy" width="27" height="28" aria-hidden="true" />
                   بلغ معدل تملك المساكن في المملكة %66.2
                 </div>
                 <div class="rate-item">
-                  <img src="../assets/anly.svg" loading="lazy" />
+                  <img src="../assets/anly.svg" alt="" loading="lazy" width="27" height="28" aria-hidden="true" />
                   رفع نسبة التملك السكني إلى مستويات قياسية
                 </div>
                 <div class="rate-item">
-                  <img src="../assets/hand.svg" loading="lazy" />
+                  <img src="../assets/hand.svg" alt="" loading="lazy" width="28" height="28" aria-hidden="true" />
                   مكنت برامج الصندوق من ابرام 83.014 عقد تمويل سكني خلال العام
                 </div>
                 <div class="rate-item">
-                  <img src="../assets/tv.svg" loading="lazy" />
+                  <img src="../assets/tv.svg" alt="" loading="lazy" width="28" height="28" aria-hidden="true" />
                   تم توقيع اتفاقيات مع 17 مطورًا لدعم أكثر من 3,285 وحدة سكنية
                 </div>
               </div>
@@ -470,148 +469,8 @@
       </div>
     </section>
 
-    <!-- ===================== الركائز الاستراتيجية ===================== -->
-    <section class="pillars section" id="strategy">
-      <div class="container">
-        <header class="section-header reveal">
-          <span class="eyebrow">2/2 التوجه الاستراتيجي</span>
-          <h2 class="h-1">أربع ركائز تقود سوق الإسكان السعودي</h2>
-          <p class="lead">
-            اعتُمدت الاستراتيجية في 2025 بما يتسق مع رؤية المملكة 2030، وتحدد
-            ستة عشر هدفًا موزعةً على أربع ركائز متكاملة.
-          </p>
-        </header>
 
-        <div class="pillar-rows">
-
-          <article class="pillar-row" data-pillar-row>
-            <div class="pillar-row__visual reveal" data-pillar-visual>
-              <img src="../assets/villas.jpg" alt="" loading="lazy" />
-              <div class="pillar-row__visual-tint" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">01</span> · تمكين مباشر</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>01</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-landmark" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">01</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">تمويل القطاع العقاري وتمكينه</h3>
-              <p class="lead pillar-row__desc reveal">تمكين المواطنين من التملك السكني، وتسريع وتيرة التطوير العقاري على
-                مستوى الفئات المستهدفة، عبر حلولٍ تمويليةٍ مبتكرة وتجربةٍ خدميةٍ متجددة.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">الدعم المالي والتمكين</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>حلول تمويلية مبتكرة لشرائح جديدة من السوق</li>
-                <li>تحسين تجربة المواطنين والمطورين والشركاء</li>
-                <li>توظيف تحليلات البيانات والذكاء الاصطناعي في تقديم الخدمة</li>
-                <li>تسريع التطوير العقاري للفئات المستهدفة</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="pillar-row pillar-row--reverse" data-pillar-row>
-            <div class="pillar-row__visual reveal" data-pillar-visual>
-              <img src="../assets/family.jpg" alt="" loading="lazy" />
-              <div class="pillar-row__visual-tint" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">02</span> · شراكات</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>02</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-partners" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">02</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">مشاركة القطاع الخاص</h3>
-              <p class="lead pillar-row__desc reveal">إطلاق رأس المال المشترك والتمويل البديل، وتعزيز قدرات المطورين عبر
-                شراكاتٍ نوعيةٍ مع مطورين دوليين وشركات التقنية العقارية.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">التمويل المباشر وغير المباشر</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>رأس مال مشترك وتمويل بديل</li>
-                <li>شراكات مع مطورين دوليين وشركات التقنية العقارية</li>
-                <li>أبحاث تُسهم في رسم سياسات منظومة الإسكان</li>
-                <li>رفع كفاءة منظومة الإسكان</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="pillar-row" data-pillar-row>
-            <div class="pillar-row__visual pillar-row__visual--accent reveal" data-pillar-visual>
-              <div class="pillar-row__visual-pattern" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">03</span> · استدامة</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>03</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-shield" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">03</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">المتانة والاستدامة المالية</h3>
-              <p class="lead pillar-row__desc reveal">الحفاظ على قوة الصندوق عبر التحصيل المنضبط من المحفظة التاريخية،
-                وأداء الاستثمار، وكفاءة العمليات والإنفاق.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">تمكين القطاع</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>تعزيز التحصيل من المحفظة التاريخية للإقراض المباشر</li>
-                <li>رفع كفاءة الإنفاق لتمكين القطاع</li>
-                <li>عوائد استثمارية ثابتة عند المستوى المطلوب</li>
-                <li>إيرادات من رسوم المنصات والخدمات</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="pillar-row pillar-row--reverse" data-pillar-row>
-            <div class="pillar-row__visual pillar-row__visual--inverted reveal" data-pillar-visual>
-              <div class="pillar-row__visual-grid" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">04</span> · نموذج التشغيل</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>04</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-cpu" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">04</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">التميز والكفاءة المؤسسية</h3>
-              <p class="lead pillar-row__desc reveal">بناء مؤسسة ممكَّنة رقميًا ومحوكمة جيدًا وقادرة على تلبية الطلب على
-                الإسكان لعقدٍ قادم.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">تمكين القطاع</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>تعزيز الوظائف الجوهرية ونموذج التشغيل</li>
-                <li>التحول الرقمي وتبني الذكاء الاصطناعي</li>
-                <li>التوظيف الأمثل لرأس المال البشري</li>
-                <li>حوكمة شاملة لكافة الالتزامات المالية</li>
-              </ul>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-
+    <!-- الركائز الاستراتيجية انتقلت إلى صفحة مستقلة (ar/strategy.html). -->
     <!-- الرسائل الملكية / الرؤية الوطنية للتملك انتقلت إلى صفحة "عن الصندوق" (ar/about.html). -->
 
     <!-- ===================== المؤشرات · أبرز الأرقام والإنجازات ===================== -->
@@ -929,7 +788,7 @@
               <polyline points="13 6 19 12 13 18" />
             </svg>
           </a></li>
-        <li><a href="index.html#strategy">
+        <li><a href="strategy.html">
             <span>الاستراتيجية ورؤية 2030 <span class="pdf-tag">(PDF)</span></span>
             <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
               stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">

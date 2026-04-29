@@ -68,7 +68,7 @@
   gap: var(--s-3);
 }
 .message__photo {
-  background: var(--c-divider-teal);
+  background: #ffffff;
   aspect-ratio: 4 / 5;
   overflow: hidden;
 }
@@ -163,6 +163,19 @@
   object-fit: cover;
   object-position: center top;
   filter: saturate(1.05);
+}
+
+/* Chairman variant — chairman.png is a square portrait with its own teal
+   background already baked in. Force the photo container to match the
+   image's natural ratio (1:1) and use `contain` so the keffiyeh and
+   shoulders are never cropped by the 4:5 outer frame. */
+.message--featured.message--chair .message__photo {
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+}
+.message--featured.message--chair .message__photo img {
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 /* Nameplate panel — solid teal with white text, sits beneath the photo

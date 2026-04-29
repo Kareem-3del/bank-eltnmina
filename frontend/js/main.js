@@ -190,7 +190,7 @@
       links: [
         { href: "index.html",          text: "الرئيسية",     img: "family.jpg",   caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
         { href: "about.html",          text: "عن الصندوق",   img: "chairman.png", caption: "رسالة رئيس مجلس الإدارة" },
-        { href: "index.html#strategy", text: "الاستراتيجية", img: "villas.jpg",   caption: "أربع ركائز · رؤية 2030" },
+        { href: "strategy.html",       text: "الاستراتيجية", img: "villas.jpg",   caption: "أربع ركائز · رؤية 2030" },
         { href: "index.html#impact",   text: "الأثر",        img: "family.jpg",   caption: "أكثر من 920,000 أسرة منذ 2017" },
         { href: "contact.html",        text: "تواصل معنا",   img: "cto.png",      caption: "نحن هنا لمساعدتك" }
       ],

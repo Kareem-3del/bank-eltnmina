@@ -1757,6 +1757,18 @@
   color: #556D6C;
 }
 
+/* ----- Strategy section: only hint the GPU. Initial transform / opacity
+   states are primed by GSAP via `gsap.set()` in animations.js so we don't
+   fight the JS for the destination state. */
+html.is-anim-ready [data-strategy] .strategy-image,
+html.is-anim-ready [data-strategy] .strategy-content-item,
+html.is-anim-ready [data-strategy] .strategy-content-item .title,
+html.is-anim-ready [data-strategy] .strategy-content-item p,
+html.is-anim-ready [data-strategy] .divider-2 .divider,
+html.is-anim-ready [data-strategy] .divider-2 .pin {
+  will-change: transform, opacity;
+}
+
 .divider-2 {
   display: flex;
   align-items: center;

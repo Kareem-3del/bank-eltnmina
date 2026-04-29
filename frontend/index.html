@@ -10,8 +10,11 @@
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
+  <link rel="preload" as="image" href="assets/family.webp" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/global.css" />
@@ -67,7 +70,7 @@
     <div class="container">
       <nav class="nav" data-nav aria-label="Primary">
         <a href="index.html" class="nav__brand" aria-label="Real Estate Development Fund">
-          <img src="assets/logo.png" alt="" />
+          <img src="assets/logo.webp" alt="" width="768" height="242" />
           <span>
             REDF
             <small>Annual Report 2025</small>
@@ -122,20 +125,20 @@
           <!-- Photographic mosaic — 3×3 photo + colored squares -->
           <div class="mosaic reveal" aria-hidden="true">
             <div class="mosaic__cell mosaic__cell--photo">
-              <img src="assets/family.jpg" alt="" loading="lazy" />
+              <img src="assets/family.webp" alt="" width="1137" height="910" fetchpriority="high" decoding="async" />
             </div>
             <div class="mosaic__cell mosaic__cell--solid"></div>
             <div class="mosaic__cell mosaic__cell--photo">
-              <img src="assets/villas.jpg" alt="" loading="lazy" />
+              <img src="assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
             </div>
 
             <div class="mosaic__cell mosaic__cell--accent"></div>
             <div class="mosaic__cell mosaic__cell--photo mosaic__cell--span2">
-              <img src="assets/villas.jpg" alt="" loading="lazy" />
+              <img src="assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
             </div>
 
             <div class="mosaic__cell mosaic__cell--photo">
-              <img src="assets/family.jpg" alt="" loading="lazy" />
+              <img src="assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
             </div>
             <div class="mosaic__cell mosaic__cell--tint"></div>
             <div class="mosaic__cell mosaic__cell--solid"></div>
@@ -176,11 +179,11 @@
     <!-- ===================== Chairman's Message ===================== -->
     <section class="section section--tight" id="chairman" style="background: var(--c-bg)">
       <div class="container">
-        <article class="message message--featured reveal">
+        <article class="message message--featured message--chair reveal" data-ceo-message>
           <aside class="message__portrait">
             <figure class="message__photo-frame">
               <div class="message__photo">
-                <img src="assets/chairman.png" alt="Portrait of H.E. Mr. Majed bin Abdullah Al-Hogail" loading="lazy" />
+                <img src="assets/chairman.webp" alt="Portrait of H.E. Mr. Majed bin Abdullah Al-Hogail" loading="lazy" width="326" height="326" />
               </div>
               <figcaption class="message__nameplate">
                 <strong class="message__name">H.E. / Mr. Majed bin Abdullah Al-Hogail</strong>
@@ -244,7 +247,7 @@
 
           <article class="pillar-row" data-pillar-row>
             <div class="pillar-row__visual reveal" data-pillar-visual>
-              <img src="assets/villas.jpg" alt="" loading="lazy" />
+              <img src="assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
               <div class="pillar-row__visual-tint" aria-hidden="true"></div>
               <span class="pillar-row__caption">Pillar <span class="num">01</span> · Direct empowerment</span>
               <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>01</span>
@@ -272,7 +275,7 @@
 
           <article class="pillar-row pillar-row--reverse" data-pillar-row>
             <div class="pillar-row__visual reveal" data-pillar-visual>
-              <img src="assets/family.jpg" alt="" loading="lazy" />
+              <img src="assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
               <div class="pillar-row__visual-tint" aria-hidden="true"></div>
               <span class="pillar-row__caption">Pillar <span class="num">02</span> · Partnerships</span>
               <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>02</span>
