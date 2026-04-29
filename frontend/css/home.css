@@ -697,28 +697,33 @@
 /* ------ Pull-quote interstitial (the big stat banners from the report) -- */
 .banner-stat {
   position: relative;
-  background: var(--c-divider-teal);
-  color: var(--c-on-primary);
+  background: #C0EEE1;
   padding: clamp(64px, 8vw, 112px) var(--container-pad);
   text-align: center;
   overflow: hidden;
 }
 
 .banner-stat__num {
-  font-size: clamp(3.5rem, 4vw + 2rem, var(--fs-5xl));
-  font-weight: var(--fw-display);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  margin-bottom: var(--s-3);
+  color: #019591;
+  font-family: "Cairo", sans-serif;
+  font-weight: 900;
+  font-style: Black;
+  font-size: 40px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  margin-bottom: 24px;
 }
 
 .banner-stat__caption {
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-medium);
-  max-width: 680px;
-  margin-inline: auto;
-  line-height: var(--lh-snug);
-  color: rgba(255, 255, 255, 0.92);
+  color: #019591;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+
 }
 
 /* =====================================================================
@@ -1614,5 +1619,191 @@
   .custom-btn {
     width: 100%;
     /* جعل الزر بعرض الشاشة في الموبايل */
+  }
+}
+
+/* strategy-sec css */
+.strategy-sec {
+  font-family: "Cairo", sans-serif;
+  background-color: #FFF;
+}
+
+.strategy-title {
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 40px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  color: #019591;
+  width: 100%;
+}
+
+.strategy-sec .divider-2 {
+  margin-bottom: 86px;
+}
+
+.strategy-info {
+  display: flex;
+  gap: 48px;
+}
+
+.strategy-info:not(:first-of-type) {
+  margin-top: 75px;
+}
+
+.strategy-info>div {
+  flex: 1
+}
+
+.strategy-info .strategy-image {
+  height: 400px;
+  position: relative;
+}
+
+.strategy-overlay {
+  position: absolute;
+  inset: 0;
+  background: #019591;
+  opacity: 0.5;
+}
+
+.strategy-image img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.strategy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.strategy-content-item {
+  border-bottom: 2px solid #D9D9D9;
+  padding-bottom: 32px;
+  width: fit-content;
+  max-width: 473px;
+}
+
+.strategy-content-item .title {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #fff;
+  width: 205px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #019591;
+  margin-bottom: 22px;
+}
+
+.strategy-content-item p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: #556D6C;
+}
+
+.divider-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.divider-2 .pin {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #01938E;
+}
+
+.divider-2 .divider {
+  margin: 0;
+  background: rgba(1, 147, 142, 0.3);
+  width: 64px;
+  height: 1px;
+}
+
+.divider {
+  width: 64px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #019591;
+  margin: auto;
+  margin-top: 0.75rem;
+}
+
+/* --- Strategy Section Responsive --- */
+
+@media (max-width: 992px) {
+  .strategy-info {
+    flex-direction: column;
+    /* جعل الصورة والمحتوى تحت بعض */
+    gap: 30px;
+  }
+
+  .strategy-info:last-of-type {
+    flex-direction: column-reverse;
+  }
+
+  /* عكس ترتيب العناصر في الصفوف الزوجية لو حابب الصورة تكون دايماً فوق */
+  /* .strategy-info:nth-of-type(even) {
+    flex-direction: column-reverse;
+  } */
+
+  .strategy-info:not(:first-of-type) {
+    margin-top: 50px;
+    /* تقليل المسافة بين الأقسام في الموبايل */
+  }
+
+  .strategy-info .strategy-image {
+    height: 300px;
+    /* تقليل ارتفاع الصورة في الشاشات المتوسطة */
+  }
+
+  .strategy-content-item {
+    max-width: 100%;
+    /* جعل النص يأخذ عرض الشاشة كاملاً */
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .strategy-title {
+    font-size: 28px;
+    /* تصغير حجم العنوان الرئيسي */
+  }
+}
+
+@media (max-width: 576px) {
+  .strategy-info .strategy-image {
+    height: 200px;
+    /* تقليل الارتفاع أكثر للموبايل الصغير */
+  }
+
+  .strategy-content-item .title {
+    width: 100%;
+    /* جعل عنوان العنصر بعرض الشاشة */
+    font-size: 20px;
+  }
+
+  .strategy-content-item p {
+    font-size: 16px;
+    /* تصغير حجم الخط للتناسب مع الموبايل */
+    line-height: 24px;
+  }
+
+  .strategy-sec .divider-2 {
+    margin-bottom: 40px;
+    /* تقليل الفراغ تحت العنوان الرئيسي */
   }
 }
