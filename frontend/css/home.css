@@ -1627,35 +1627,44 @@
   .boss-img {
     height: auto;
     /* ترك الصورة تأخذ ارتفاعها الطبيعي */
-    max-height: 400px;
+    /* max-height: 900px; */
   }
+
 
   .boss-img img {
     /* إلغاء الإزاحة في الموبايل لظهور الصورة كاملة */
     width: 100%;
+    transform: unset;
   }
 }
 
 @media (max-width: 576px) {
+  /* .boss-img {
+    height: auto;
+    /* ترك الصورة تأخذ ارتفاعها الطبيعي */
+  max-height: 400px !important;
+}
 
-  /* الـ Counters في الشاشات الصغيرة جداً */
-  .hero-counter .counter-item,
-  .boss-content .hero-counter .counter-item:not(.last) {
-    flex: 0 0 100%;
-    /* جعل كل عداد يأخذ العرض كاملاً (اختياري) */
-  }
+*/
 
-  /* إذا أردت استمرار ظهور العدادات 2 في كل صف حتى في الموبايل، امسح الكود أعلاه واترك الأصلي */
+/* الـ Counters في الشاشات الصغيرة جداً */
+.hero-counter .counter-item,
+.boss-content .hero-counter .counter-item:not(.last) {
+  flex: 0 0 100%;
+  /* جعل كل عداد يأخذ العرض كاملاً (اختياري) */
+}
 
-  .boss-letter-title h2 {
-    font-size: 24px;
-    line-height: 32px;
-  }
+/* إذا أردت استمرار ظهور العدادات 2 في كل صف حتى في الموبايل، امسح الكود أعلاه واترك الأصلي */
 
-  .custom-btn {
-    width: 100%;
-    /* جعل الزر بعرض الشاشة في الموبايل */
-  }
+.boss-letter-title h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.custom-btn {
+  width: 100%;
+  /* جعل الزر بعرض الشاشة في الموبايل */
+}
 }
 
 /* strategy-sec css */
