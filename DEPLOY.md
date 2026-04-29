@@ -2,7 +2,22 @@
 
 Static site (`frontend/`) is served by an `nginx:alpine` container behind the existing Traefik reverse proxy on the `zagel` host. Let's Encrypt issues the cert.
 
-## Quick redeploy
+## Auto-deploy (CI/CD)
+
+`.github/workflows/deploy.yml` runs on every push to `main` that touches `frontend/**` (or the workflow itself). The job rsyncs `frontend/` to `/opt/redf-demo/site/` on the server and verifies the site returns `200` for both EN and AR.
+
+Required GitHub repo secrets (set once via `gh secret set <NAME>`):
+
+| Secret             | Purpose                                                                     |
+|--------------------|-----------------------------------------------------------------------------|
+| `DEPLOY_SSH_KEY`   | Private half of the dedicated CI deploy keypair (`~/.ssh/redf-ci-deploy`).  |
+| `SSH_KNOWN_HOSTS`  | Output of `ssh-keyscan -p 2222 -t ed25519,rsa,ecdsa 76.13.151.228`.         |
+
+Manual trigger from the CLI: `gh workflow run "Deploy to demo.kareem-3del.com"`.
+
+Watch the latest run: `gh run watch -R Kareem-3del/bank-eltnmina`.
+
+## Quick local redeploy (bypassing CI)
 
 After editing files in `frontend/`, push them to the live server:
 

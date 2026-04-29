@@ -1,0 +1,74 @@
+name: Deploy to demo.kareem-3del.com
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+# Only one deploy at a time; cancel any in-flight run if a newer push lands.
+concurrency:
+  group: deploy-demo
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: rsync frontend → /opt/redf-demo/site
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      DEPLOY_HOST: 76.13.151.228
+      DEPLOY_PORT: '2222'
+      DEPLOY_USER: root
+      DEPLOY_PATH: /opt/redf-demo/site/
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Pre-flight (probe SSH)
+        run: |
+          ssh -i ~/.ssh/id_deploy \
+              -o IdentitiesOnly=yes \
+              -o UserKnownHostsFile=~/.ssh/known_hosts \
+              -p "$DEPLOY_PORT" \
+              "$DEPLOY_USER@$DEPLOY_HOST" \
+              'echo "ssh ok: $(whoami)@$(hostname)"; test -d /opt/redf-demo/site && echo "site dir present"'
+
+      - name: Rsync site
+        run: |
+          rsync -az --delete --human-readable --stats \
+            -e "ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o UserKnownHostsFile=~/.ssh/known_hosts -p $DEPLOY_PORT" \
+            frontend/ \
+            "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH"
+
+      - name: Verify deploy
+        run: |
+          # Hit the live HTTPS endpoint, resolving to the deploy host so we
+          # don't get fooled by DNS caches.
+          set -e
+          code=$(curl -sSk -o /dev/null -w '%{http_code}' \
+                       --resolve demo.kareem-3del.com:443:$DEPLOY_HOST \
+                       https://demo.kareem-3del.com/)
+          echo "home returned $code"
+          test "$code" = "200"
+          code_ar=$(curl -sSk -o /dev/null -w '%{http_code}' \
+                          --resolve demo.kareem-3del.com:443:$DEPLOY_HOST \
+                          https://demo.kareem-3del.com/ar/index.html)
+          echo "ar returned $code_ar"
+          test "$code_ar" = "200"
+
+      - name: Tear down SSH key
+        if: always()
+        run: shred -u ~/.ssh/id_deploy 2>/dev/null || rm -f ~/.ssh/id_deploy
