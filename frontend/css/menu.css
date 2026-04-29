@@ -1,0 +1,416 @@
+/* ==========================================================================
+   menu.css — Staggered overlay menu
+     · Two-step open: panel slides down, items stagger in
+     · Two-column layout (links + preview image) collapses to one on mobile
+     · Hover lifts the number, slides the row, fades a different preview image
+     · Works LTR + RTL because every direction-sensitive thing uses logical
+       properties or transforms (which are direction-agnostic)
+   ========================================================================== */
+
+/* ------ Trigger button (sits in nav) -------------------------------- */
+.menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 10px 18px 10px 14px;
+  background: var(--c-on-surface);
+  color: var(--c-on-primary);
+  border-radius: var(--radius);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--d-fast) var(--ease-out),
+              color var(--d-fast) var(--ease-out),
+              transform var(--d-fast) var(--ease-out);
+}
+.menu-trigger:hover {
+  background: var(--c-primary);
+  transform: translateY(-1px);
+}
+.menu-trigger:focus-visible { outline: 2px solid var(--c-primary); outline-offset: 3px; }
+
+/* Below ~380px, the trigger label takes the row apart — keep just the icon. */
+@media (max-width: 380px) {
+  .menu-trigger { padding: 10px 12px; }
+  .menu-trigger > span:first-child { display: none; }
+}
+
+.menu-trigger__icon {
+  position: relative;
+  width: 18px;
+  height: 12px;
+  display: inline-block;
+}
+.menu-trigger__icon::before,
+.menu-trigger__icon::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: transform var(--d-base) var(--ease-out),
+              width var(--d-base) var(--ease-out);
+}
+.menu-trigger__icon::before { top: 2px; }
+.menu-trigger__icon::after  { bottom: 2px; width: 12px; }
+.menu-trigger:hover .menu-trigger__icon::after { width: 18px; }
+
+/* ------ Overlay container ------------------------------------------- */
+.staggered-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  pointer-events: none;
+  visibility: hidden;
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  overflow: hidden;
+}
+/* Curtain reveal — panel slides in from the top */
+.staggered-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c-primary);
+  z-index: -1;
+  transform: translateY(-100%);
+  transition: transform var(--d-slow) var(--ease-inout);
+}
+/* Subtle accent block that slides in from the inline-end edge */
+.staggered-menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  width: 32%;
+  height: 100%;
+  background: var(--c-primary-dark);
+  z-index: -1;
+  transform: translateX(100%);
+  transition: transform var(--d-slow) var(--ease-inout);
+}
+[dir="rtl"] .staggered-menu::after { transform: translateX(-100%); }
+
+.staggered-menu.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+.staggered-menu.is-open::before { transform: translateY(0); }
+.staggered-menu.is-open::after  { transform: translateX(0); }
+
+/* ------ Top bar inside menu ----------------------------------------- */
+.staggered-menu__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-5) var(--container-pad);
+  height: var(--header-h);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.staggered-menu__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  color: var(--c-on-primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-base);
+}
+.staggered-menu__brand img {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);   /* logo to white */
+}
+
+.staggered-menu__close {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: var(--c-on-primary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--d-fast) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out);
+}
+.staggered-menu__close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--c-on-primary);
+}
+.staggered-menu__close-x {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  transition: transform var(--d-base) var(--ease-out);
+}
+.staggered-menu__close-x::before,
+.staggered-menu__close-x::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  width: 14px;
+  height: 2px;
+  background: currentColor;
+}
+.staggered-menu__close-x::before { transform: translateY(-50%) rotate(45deg); }
+.staggered-menu__close-x::after  { transform: translateY(-50%) rotate(-45deg); }
+.staggered-menu__close:hover .staggered-menu__close-x { transform: rotate(90deg); }
+
+/* ------ Body grid: links + preview image --------------------------- */
+.staggered-menu__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  padding: clamp(40px, 6vw, 96px) var(--container-pad);
+  overflow-y: auto;
+}
+@media (max-width: 880px) {
+  .staggered-menu__body {
+    grid-template-columns: 1fr;
+    padding-top: var(--s-7);
+  }
+}
+
+/* ------ Stacked oversized links ------------------------------------ */
+.staggered-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 14px);
+  align-self: center;
+}
+
+.staggered-menu__item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(56px);
+  transition: opacity var(--d-slow) var(--ease-out),
+              transform var(--d-slow) var(--ease-out);
+}
+.staggered-menu.is-open .staggered-menu__item { opacity: 1; transform: translateY(0); }
+
+/* Reverse stagger on close for a snappier dismiss */
+.staggered-menu .staggered-menu__item                         { transition-delay: 0ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(1)    { transition-delay: 320ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(2)    { transition-delay: 380ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(3)    { transition-delay: 440ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(4)    { transition-delay: 500ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(5)    { transition-delay: 560ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(6)    { transition-delay: 620ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(7)    { transition-delay: 680ms; }
+.staggered-menu.is-open .staggered-menu__item:nth-child(8)    { transition-delay: 740ms; }
+
+.staggered-menu__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: clamp(16px, 2vw, 32px);
+  padding-block: 6px;
+  color: var(--c-on-primary);
+  text-decoration: none;
+  line-height: 1;
+  font-family: var(--ff-sans);
+  font-size: clamp(2.25rem, 1.5rem + 4vw, 5.25rem);
+  font-weight: var(--fw-display);
+  letter-spacing: -0.03em;
+  transition: color var(--d-base) var(--ease-out),
+              transform var(--d-base) var(--ease-out);
+  will-change: transform;
+}
+
+/* Active page accent */
+.staggered-menu__item.is-current .staggered-menu__link { color: var(--c-primary-fixed); }
+
+.staggered-menu__num {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  font-family: "Public Sans", sans-serif;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.55);
+  align-self: start;
+  margin-block-start: 0.4em;
+  transition: color var(--d-base) var(--ease-out);
+}
+
+.staggered-menu__label {
+  display: inline-block;
+  position: relative;
+  transition: transform var(--d-base) var(--ease-out),
+              font-style var(--d-fast) var(--ease-out);
+}
+.staggered-menu__label::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  background: var(--c-primary-fixed);
+  transition: width var(--d-slow) var(--ease-out);
+}
+
+.staggered-menu__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(36px, 3vw, 56px);
+  height: clamp(36px, 3vw, 56px);
+  color: rgba(255, 255, 255, 0.35);
+  transform: rotate(-45deg);
+  transition: color var(--d-base) var(--ease-out),
+              transform var(--d-base) var(--ease-out);
+}
+[dir="rtl"] .staggered-menu__arrow { transform: rotate(-135deg); }
+.staggered-menu__arrow svg { width: 60%; height: 60%; stroke: currentColor; stroke-width: 1.6; fill: none; }
+
+.staggered-menu__link:hover .staggered-menu__num,
+.staggered-menu__link:focus-visible .staggered-menu__num {
+  color: var(--c-primary-fixed);
+}
+.staggered-menu__link:hover .staggered-menu__label,
+.staggered-menu__link:focus-visible .staggered-menu__label {
+  transform: translateX(clamp(8px, 1vw, 16px));
+  font-style: italic;
+}
+[dir="rtl"] .staggered-menu__link:hover .staggered-menu__label,
+[dir="rtl"] .staggered-menu__link:focus-visible .staggered-menu__label {
+  transform: translateX(clamp(-16px, -1vw, -8px));
+}
+.staggered-menu__link:hover .staggered-menu__label::after,
+.staggered-menu__link:focus-visible .staggered-menu__label::after { width: 100%; }
+.staggered-menu__link:hover .staggered-menu__arrow,
+.staggered-menu__link:focus-visible .staggered-menu__arrow {
+  color: var(--c-primary-fixed);
+  transform: rotate(0deg);
+}
+[dir="rtl"] .staggered-menu__link:hover .staggered-menu__arrow,
+[dir="rtl"] .staggered-menu__link:focus-visible .staggered-menu__arrow {
+  transform: rotate(-180deg);
+}
+
+/* ------ Preview image pane ----------------------------------------- */
+.staggered-menu__preview {
+  position: relative;
+  align-self: center;
+  aspect-ratio: 4 / 5;
+  background: var(--c-primary-dark);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: opacity 700ms var(--ease-out) 480ms,
+              transform 700ms var(--ease-out) 480ms;
+}
+.staggered-menu.is-open .staggered-menu__preview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 880px) {
+  .staggered-menu__preview { aspect-ratio: 16 / 10; max-height: 240px; }
+}
+
+.staggered-menu__preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 400ms var(--ease-out),
+              transform 1200ms var(--ease-out);
+}
+.staggered-menu__preview-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.staggered-menu__preview-caption {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  padding: var(--s-4) var(--s-5);
+  color: var(--c-on-primary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  z-index: 2;
+}
+
+/* ------ Bottom bar inside menu ------------------------------------- */
+.staggered-menu__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  padding: var(--s-5) var(--container-pad);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: var(--fs-sm);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--d-slow) var(--ease-out) 720ms,
+              transform var(--d-slow) var(--ease-out) 720ms;
+}
+.staggered-menu.is-open .staggered-menu__bottom { opacity: 1; transform: translateY(0); }
+
+.staggered-menu__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.staggered-menu__lang a {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  transition: color var(--d-fast) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out);
+}
+.staggered-menu__lang a:hover,
+.staggered-menu__lang a[aria-current="true"] {
+  color: var(--c-on-primary);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.staggered-menu__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  color: rgba(255, 255, 255, 0.7);
+}
+.staggered-menu__contact a { color: rgba(255, 255, 255, 0.85); }
+.staggered-menu__contact a:hover { color: var(--c-on-primary); }
+.staggered-menu__contact strong { color: var(--c-primary-fixed); font-weight: var(--fw-semi); display: block; font-size: var(--fs-xs); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
+
+/* ------ When menu is open, freeze background scroll --------------- */
+body.menu-open { overflow: hidden; }
+
+/* ------ Reduced motion --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .staggered-menu,
+  .staggered-menu *,
+  .staggered-menu::before,
+  .staggered-menu::after {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .staggered-menu__item,
+  .staggered-menu__preview,
+  .staggered-menu__bottom { opacity: 1 !important; transform: none !important; }
+}

@@ -1,0 +1,394 @@
+/* ==========================================================================
+   about.css — Page header · Vision/Mission · Messages · Board grid
+   ========================================================================== */
+
+/* ------ Page header ----------------------------------------------------- */
+.page-head {
+  padding-block: clamp(48px, 8vw, 96px) clamp(32px, 5vw, 48px);
+  background: var(--c-surface-low);
+  border-bottom: 1px solid var(--c-outline-variant);
+}
+.page-head__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-7);
+  align-items: end;
+}
+@media (max-width: 880px) { .page-head__inner { grid-template-columns: 1fr; } }
+.page-head__title { color: var(--c-on-surface); }
+.page-head__lead  { max-width: 520px; }
+
+/* ------ Vision & Mission band ----------------------------------------- */
+.vm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+}
+@media (max-width: 760px) { .vm { grid-template-columns: 1fr; } }
+
+.vm__card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-outline-variant);
+  display: flex;
+  flex-direction: column;
+}
+.vm__head {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  padding: var(--s-4) var(--s-5);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-base);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vm__body {
+  padding: var(--s-6);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-loose);
+  color: var(--c-on-surface);
+}
+
+/* ------ Leadership message blocks ------------------------------------- */
+.message {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 2.5fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+  margin-top: var(--s-7);
+  padding-block: var(--s-7);
+  border-top: 1px solid var(--c-outline-variant);
+}
+.message:first-of-type { border-top: 0; padding-top: var(--s-7); margin-top: 0; }
+@media (max-width: 880px) { .message { grid-template-columns: 1fr; } }
+
+.message__portrait {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.message__photo {
+  background: var(--c-divider-teal);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.message__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.05);
+}
+.message__name {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--c-on-surface);
+  line-height: var(--lh-snug);
+}
+.message__role {
+  font-size: var(--fs-sm);
+  color: var(--c-on-surface-variant);
+  line-height: var(--lh-snug);
+}
+
+.message__body { display: flex; flex-direction: column; gap: var(--s-4); }
+.message__title {
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, var(--fs-2xl));
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--c-primary-dark);
+}
+.message__body p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-loose);
+  color: var(--c-on-surface);
+}
+.message__pull {
+  margin-block: var(--s-4);
+  padding: var(--s-5);
+  background: var(--c-secondary-container);
+  border-inline-start: 4px solid var(--c-primary);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semi);
+  color: var(--c-primary-dark);
+  line-height: var(--lh-snug);
+}
+
+/* ==========================================================================
+   Board of Directors — editorial directory
+   · Two large "feature" panels for the Chairman and CEO
+   · A numbered roster (hairline list) for the remaining members
+   · Animations land on .reveal-up entry + per-row hairline draw (animations.js)
+   ========================================================================== */
+.board { margin-top: var(--s-7); }
+
+/* Featured: Chairman + CEO. Big composite panels with a generated index,
+   monogram block, and role-eyebrow + name + footer meta. */
+.board__featured {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+@media (max-width: 760px) { .board__featured { grid-template-columns: 1fr; } }
+
+.board-feature {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(140px, 28%) 1fr;
+  gap: clamp(20px, 2.5vw, 32px);
+  padding: clamp(24px, 3vw, 40px);
+  background: var(--c-surface);
+  border: 1px solid var(--c-outline-variant);
+  isolation: isolate;
+  overflow: hidden;
+  transition: border-color var(--d-base) var(--ease-out),
+              transform var(--d-base) var(--ease-out),
+              box-shadow var(--d-base) var(--ease-out);
+}
+.board-feature:hover {
+  border-color: var(--c-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px -18px rgba(0, 104, 92, 0.32);
+}
+
+/* Role eyebrow chip in the corner. Single eyebrow line that anchors the card. */
+.board-feature__chip {
+  position: absolute;
+  top: var(--s-4);
+  inset-inline-end: var(--s-4);
+  z-index: 2;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-on-primary);
+  background: var(--c-primary);
+  padding: 6px 12px;
+}
+.board-feature--ceo .board-feature__chip { background: var(--c-primary-dark); }
+
+/* Massive ghost numeral fades into the bottom corner. */
+.board-feature::after {
+  content: attr(data-num);
+  position: absolute;
+  bottom: -0.22em;
+  inset-inline-end: -0.05em;
+  z-index: 0;
+  font-size: clamp(120px, 22vw, 220px);
+  font-weight: var(--fw-display);
+  line-height: 0.78;
+  letter-spacing: -0.06em;
+  color: var(--c-secondary-container);
+  pointer-events: none;
+  user-select: none;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.board-feature--ceo::after { color: var(--c-tertiary-container); }
+
+/* Photo / monogram column */
+.board-feature__avatar {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: var(--fw-display);
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  isolation: isolate;
+}
+.board-feature__avatar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-dark) 100%);
+  z-index: 0;
+}
+.board-feature__avatar > * { position: relative; z-index: 1; }
+.board-feature__avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.board-feature--ceo .board-feature__avatar { background: var(--c-primary-dark); }
+.board-feature--ceo .board-feature__avatar::before {
+  background: linear-gradient(135deg, var(--c-primary-dark) 0%, #003e36 100%);
+}
+
+/* Body — eyebrow, name, role, footer meta */
+.board-feature__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.board-feature__role-eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.board-feature__role-eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--c-primary);
+  display: inline-block;
+}
+.board-feature__name {
+  font-size: clamp(1.25rem, 1rem + 0.9vw, 1.6rem);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--c-on-surface);
+  letter-spacing: -0.005em;
+}
+.board-feature__role {
+  font-size: var(--fs-base);
+  color: var(--c-on-surface-variant);
+  line-height: var(--lh-base);
+  margin: 0;
+}
+.board-feature__committees {
+  margin-top: auto;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--c-outline-variant);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-on-surface-variant);
+}
+
+/* Roster — numbered hairline list of remaining members */
+.board-roster {
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--c-outline-variant);
+}
+.board-roster__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 32px);
+  padding-block: clamp(18px, 2vw, 24px);
+  padding-inline: clamp(8px, 1.5vw, 16px);
+  border-bottom: 1px solid var(--c-outline-variant);
+  transition: background var(--d-fast) var(--ease-out),
+              padding-inline var(--d-fast) var(--ease-out);
+}
+.board-roster__row:hover {
+  background: var(--c-surface);
+  padding-inline: clamp(20px, 2.4vw, 32px);
+}
+
+/* Hairline overlay used for the GSAP "draw" animation. Sits over the
+   row's bottom border and grows scaleX 0 → 1. */
+.board-roster__row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--c-primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  transition: transform var(--d-base) var(--ease-out);
+}
+[dir="rtl"] .board-roster__row::after { transform-origin: right center; }
+.board-roster__row:hover::after { transform: scaleX(1); }
+
+.board-roster__num {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-display);
+  line-height: 1;
+  color: var(--c-divider-teal);
+  letter-spacing: 0.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  transition: color var(--d-fast) var(--ease-out);
+}
+.board-roster__row:hover .board-roster__num { color: var(--c-primary); }
+
+.board-roster__person {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.board-roster__name {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semi);
+  color: var(--c-on-surface);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.005em;
+}
+.board-roster__role {
+  font-size: var(--fs-sm);
+  color: var(--c-on-surface-variant);
+  line-height: var(--lh-base);
+}
+
+.board-roster__tag {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-primary-dark);
+  padding: 6px 12px;
+  background: var(--c-secondary-container);
+  white-space: nowrap;
+  transition: background var(--d-fast) var(--ease-out),
+              color var(--d-fast) var(--ease-out);
+}
+.board-roster__row:hover .board-roster__tag {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+}
+
+@media (max-width: 640px) {
+  .board-roster__row {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: var(--s-3);
+    padding-block: var(--s-4);
+  }
+  .board-roster__tag {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 4px;
+  }
+  .board-roster__num { font-size: var(--fs-base); }
+}
+
+/* ------ Committees row ------------------------------------------------ */
+.committees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-outline-variant);
+}
+.committee-pill {
+  padding: var(--s-2) var(--s-4);
+  background: var(--c-surface);
+  border: 1px solid var(--c-outline-variant);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-on-surface-variant);
+}
