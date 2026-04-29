@@ -89,6 +89,116 @@
     gsap.from(header, { y: -24, opacity: 0, duration: 0.7, ease: "power2.out", delay: 0.2 });
   }
 
+  /* ------ AR new-hero entrance choreography -------------------------- */
+  // The Arabic home uses a custom .new-hero block (title, lead text,
+  // counter row, CTA button + portrait image). We orchestrate a single
+  // entrance timeline on page load — the image scales in from a soft
+  // zoom while the text stack stagger-rises beside it, then the
+  // counters and button settle in. After the entrance, the image
+  // floats subtly to keep the panel feeling alive.
+  const newHero = document.querySelector(".new-hero");
+  if (newHero && !reduceMotion) {
+    const titleEl   = newHero.querySelector(".hero-title");
+    const textEl    = newHero.querySelector(".hero-text");
+    const counters  = newHero.querySelectorAll(".counter-item");
+    const btnEl     = newHero.querySelector(".custom-btn");
+    const imgEl     = newHero.querySelector(".hero-image img, .hero-image");
+    const imgFrame  = newHero.querySelector(".hero-image");
+
+    // Per-word split for the title so we can stagger the words upward
+    // out of a clip-path mask. Falls back gracefully if missing.
+    let titleWords = [];
+    if (titleEl && !titleEl.dataset.splitDone) {
+      const html = titleEl.innerHTML;
+      // Replace <br> with a delimiter we can split on, preserving line breaks.
+      const parts = html.split(/<br\s*\/?>/i);
+      titleEl.innerHTML = "";
+      parts.forEach((part, lineIdx) => {
+        const tmp = document.createElement("div");
+        tmp.innerHTML = part;
+        const text = tmp.textContent.trim();
+        text.split(/\s+/).filter(Boolean).forEach((word, i, arr) => {
+          const wrap = document.createElement("span");
+          const inner = document.createElement("span");
+          wrap.className = "hero-title__word";
+          inner.className = "hero-title__inner";
+          inner.textContent = word;
+          wrap.appendChild(inner);
+          titleEl.appendChild(wrap);
+          if (i < arr.length - 1) titleEl.appendChild(document.createTextNode(" "));
+          titleWords.push(inner);
+        });
+        if (lineIdx < parts.length - 1) titleEl.appendChild(document.createElement("br"));
+      });
+      titleEl.dataset.splitDone = "1";
+    }
+
+    const tl = gsap.timeline({ defaults: { ease: "expo.out" }, delay: 0.25 });
+
+    if (imgEl) {
+      tl.from(imgEl, {
+        opacity: 0,
+        scale: 1.08,
+        duration: 1.4,
+      }, 0);
+    }
+
+    if (titleWords.length) {
+      gsap.set(titleWords, { yPercent: 110 });
+      tl.to(titleWords, {
+        yPercent: 0,
+        duration: 1.1,
+        stagger: 0.08,
+      }, 0.15);
+    } else if (titleEl) {
+      tl.from(titleEl, { y: 40, opacity: 0, duration: 1.0 }, 0.15);
+    }
+
+    if (textEl) {
+      tl.from(textEl, {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }, "-=0.6");
+    }
+
+    if (counters.length) {
+      tl.from(counters, {
+        y: 28,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        stagger: 0.10,
+      }, "-=0.45");
+    }
+
+    if (btnEl) {
+      tl.from(btnEl, {
+        scale: 0.92,
+        opacity: 0,
+        duration: 0.6,
+        ease: "back.out(1.6)",
+      }, "-=0.30");
+    }
+
+    // Subtle ambient float on the portrait — runs forever, sine in/out.
+    if (imgFrame) {
+      gsap.to(imgFrame, {
+        y: -10,
+        duration: 3.4,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: 1.5,
+      });
+    }
+  } else if (newHero && reduceMotion) {
+    // With reduced-motion preference, snap to final state — no transforms.
+    newHero.querySelectorAll(".hero-title, .hero-text, .counter-item, .custom-btn, .hero-image img")
+      .forEach(el => gsap.set(el, { clearProps: "all", opacity: 1 }));
+  }
+
   /* ------ Reveal-on-scroll (.reveal / utility classes) --------------- */
   // Royal cards run their own choreography below; exclude them here.
   const revealEls = document.querySelectorAll(".reveal:not([data-royal]), .anim-fadeinup, .anim-zoomin");
