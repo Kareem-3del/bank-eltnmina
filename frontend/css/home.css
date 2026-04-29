@@ -955,10 +955,11 @@
 .new-hero .hero-container {
   font-family: "Cairo", sans-serif;
   display: flex;
+  gap: 42px;
 }
 
 .new-hero .container {
-  padding: 0;
+  /* padding: 0; */
 }
 
 .new-hero .hero-container>div {
@@ -1194,7 +1195,7 @@
   margin-top: 32px;
 }
 
-.boss-content .hero-counter .counter-item {
+.boss-content .hero-counter .counter-item:not(.last) {
   flex: 0 0 calc(50% - 0.625rem);
   height: 88px;
 }
