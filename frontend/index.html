@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/menu.css" />
 
   <!-- Saudi Riyal symbol — referenced as SVG sprite via <use> -->
@@ -177,11 +178,16 @@
       <div class="container">
         <article class="message message--featured reveal">
           <aside class="message__portrait">
-            <div class="message__photo">
-              <img src="assets/chairman.png" alt="Portrait of H.E. Mr. Majed bin Abdullah Al-Hogail" loading="lazy" />
-            </div>
-            <strong class="message__name">H.E. Mr. Majed bin Abdullah Al-Hogail</strong>
-            <span class="message__role">Minister of Municipalities and Housing<br>Chairman of the Board of Directors</span>
+            <figure class="message__photo-frame">
+              <div class="message__photo">
+                <img src="assets/chairman.png" alt="Portrait of H.E. Mr. Majed bin Abdullah Al-Hogail" loading="lazy" />
+              </div>
+              <figcaption class="message__nameplate">
+                <strong class="message__name">H.E. / Mr. Majed bin Abdullah Al-Hogail</strong>
+                <span class="message__role">Minister of Municipalities and Housing</span>
+                <span class="message__role">Chairman of the Board of Directors</span>
+              </figcaption>
+            </figure>
           </aside>
 
           <div class="message__body">
@@ -382,11 +388,11 @@
             </div>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value">+1,885,600</span>
+                <span class="kpi-card__value">+<span data-counter="1885600">0</span></span>
                 <p class="kpi-card__desc">Beneficiaries registered on the Real Estate Advisor platform.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">77,236</span>
+                <span class="kpi-card__value"><span data-counter="77236">0</span></span>
                 <p class="kpi-card__desc">Contracts signed in 2025.</p>
               </li>
             </ul>
@@ -401,15 +407,15 @@
             </div>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value">958.3 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="958.3" data-decimals="1">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Facilities approved for the launch of 35+ residential projects, totalling 4,586 units.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">200 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="200">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Cost-of-financing support for individuals, resulting in 344 financing contracts.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">17 <span class="kpi-card__unit">developers</span></span>
+                <span class="kpi-card__value"><span data-counter="17">0</span> <span class="kpi-card__unit">developers</span></span>
                 <p class="kpi-card__desc">Enabled and supported, with agreements covering 3,285 housing units.</p>
               </li>
             </ul>
@@ -425,15 +431,15 @@
             <p class="kpi-card__desc" style="margin-bottom: var(--s-2)">Supporting financing products and their underlying frameworks.</p>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value">241,301 <span class="kpi-card__unit">requests</span></span>
+                <span class="kpi-card__value"><span data-counter="241301">0</span> <span class="kpi-card__unit">requests</span></span>
                 <p class="kpi-card__desc">Property valuations completed, bringing the cumulative total since 2021 to 1,402,451 requests.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">139,985 <span class="kpi-card__unit">requests</span></span>
+                <span class="kpi-card__value"><span data-counter="139985">0</span> <span class="kpi-card__unit">requests</span></span>
                 <p class="kpi-card__desc">Valuations processed in 2025.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">101,316 <span class="kpi-card__unit">requests</span></span>
+                <span class="kpi-card__value"><span data-counter="101316">0</span> <span class="kpi-card__unit">requests</span></span>
                 <p class="kpi-card__desc">Property valuation requests serviced in 2025.</p>
               </li>
             </ul>
@@ -445,7 +451,7 @@
             <span class="kpi-bar__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             </span>
-            <span class="kpi-bar__value">+339,000</span>
+            <span class="kpi-bar__value">+<span data-counter="339000">0</span></span>
             <span class="kpi-bar__caption">
               <span class="kpi-bar__title">Branches &middot; 2025</span>
               <span class="kpi-bar__sub">Beneficiaries served.</span>
@@ -455,7 +461,7 @@
             <span class="kpi-bar__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
             </span>
-            <span class="kpi-bar__value">+710,400</span>
+            <span class="kpi-bar__value">+<span data-counter="710400">0</span></span>
             <span class="kpi-bar__caption">
               <span class="kpi-bar__title">Contact Center &middot; 2025</span>
               <span class="kpi-bar__sub">Beneficiaries served.</span>
@@ -482,15 +488,15 @@
             </div>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value">6,393 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
-                <p class="kpi-card__desc">Collection performance, exceeding the annual target of 5,681 SAR&nbsp;M.</p>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="6393">0</span> <span class="kpi-card__unit">Million</span></span>
+                <p class="kpi-card__desc">Collection performance, exceeding the annual target of <svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg>5,681 Million.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">596 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="596">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Collected through the early-repayment discount programme.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">19,583</span>
+                <span class="kpi-card__value"><span data-counter="19583">0</span></span>
                 <p class="kpi-card__desc">Beneficiaries who fully closed their loan in 2025.</p>
               </li>
             </ul>
@@ -505,15 +511,15 @@
             </div>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value">2,434 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="2434">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Investment income, exceeding target by 133%.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">3,383 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="3383">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Total revenue, exceeding target by 129%.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">5.11<span class="kpi-card__unit">%</span></span>
+                <span class="kpi-card__value"><span data-counter="5.11" data-decimals="2">0</span><span class="kpi-card__unit">%</span></span>
                 <p class="kpi-card__desc">Return on investment after investment income.</p>
               </li>
             </ul>
@@ -528,23 +534,23 @@
             </div>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value">180.2 <span class="kpi-card__unit">SAR&nbsp;B</span></span>
-                <p class="kpi-card__desc">Paid-in capital; authorised capital stands at 190.9 SAR&nbsp;B.</p>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="180.2" data-decimals="1">0</span> <span class="kpi-card__unit">Billion</span></span>
+                <p class="kpi-card__desc">Paid-in capital; authorised capital stands at <svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg>190.9 Billion.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">5.49<span class="kpi-card__unit">%</span></span>
+                <span class="kpi-card__value"><span data-counter="5.49" data-decimals="2">0</span><span class="kpi-card__unit">%</span></span>
                 <p class="kpi-card__desc">Annual average cost of subsidised financing.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">884 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="884">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Total approved expenditure; disbursement ratio reached 99.99%.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">113<span class="kpi-card__unit">%</span></span>
+                <span class="kpi-card__value"><span data-counter="113">0</span><span class="kpi-card__unit">%</span></span>
                 <p class="kpi-card__desc">Outperformance of the annual target on allocated amounts.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value">949.3 <span class="kpi-card__unit">SAR&nbsp;M</span></span>
+                <span class="kpi-card__value"><svg class="riyal" aria-hidden="true"><use href="#riyal"/></svg><span data-counter="949.3" data-decimals="1">0</span> <span class="kpi-card__unit">Million</span></span>
                 <p class="kpi-card__desc">Operating revenue, exceeding target by 120%.</p>
               </li>
             </ul>
