@@ -17,7 +17,7 @@
   const hasGsap = !!window.gsap;
 
   /* ------ Mobile menu toggle ------------------------------------------- */
-  const nav    = document.querySelector("[data-nav]");
+  const nav = document.querySelector("[data-nav]");
   const toggle = document.querySelector("[data-nav-toggle]");
 
   if (nav && toggle) {
@@ -111,10 +111,10 @@
   }
 
   function animateCounter(el) {
-    const target   = parseFloat(el.dataset.counter);
+    const target = parseFloat(el.dataset.counter);
     const decimals = parseInt(el.dataset.decimals || "0", 10);
     const duration = 2200;
-    const start    = performance.now();
+    const start = performance.now();
 
     function tick(now) {
       const elapsed = Math.min(1, (now - start) / duration);
@@ -188,15 +188,15 @@
       brand: "صندوق التنمية العقارية",
       brandSub: "التقرير السنوي 2025",
       links: [
-        { href: "index.html",          text: "الرئيسية",     img: "family.jpg",   caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
-        { href: "about.html",          text: "عن الصندوق",   img: "chairman.png", caption: "رسالة رئيس مجلس الإدارة" },
-        { href: "strategy.html",       text: "الاستراتيجية", img: "villas.jpg",   caption: "أربع ركائز · رؤية 2030" },
-        { href: "index.html#impact",   text: "الأثر",        img: "family.jpg",   caption: "أكثر من 920,000 أسرة منذ 2017" },
-        { href: "contact.html",        text: "تواصل معنا",   img: "cto.png",      caption: "نحن هنا لمساعدتك" }
+        { href: "index.html", text: "الرئيسية", img: "family.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
+        // { href: "about.html",          text: "عن الصندوق",   img: "chairman.png", caption: "رسالة رئيس مجلس الإدارة" },
+        { href: "strategy.html", text: "الاستراتيجية", img: "villas.jpg", caption: "أربع ركائز · رؤية 2030" },
+        { href: "index.html#impact", text: "الأثر", img: "family.jpg", caption: "أكثر من 920,000 أسرة منذ 2017" },
+        { href: "contact.html", text: "تواصل معنا", img: "cto.png", caption: "نحن هنا لمساعدتك" }
       ],
       contact: [
-        { label: "مركز الاتصال", value: "920000507",        href: "tel:920000507" },
-        { label: "البريد",        value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
+        { label: "مركز الاتصال", value: "920000507", href: "tel:920000507" },
+        { label: "البريد", value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
       ],
       langSelf: "AR",
       langOther: { code: "EN", href: "en/" + currentFilename() }
@@ -207,15 +207,15 @@
       brand: "Real Estate Development Fund",
       brandSub: "Annual Report 2025",
       links: [
-        { href: "index.html",          text: "Home",     img: "family.jpg",   caption: "Saudi families moving into new homes" },
-        { href: "about.html",          text: "About",    img: "chairman.png", caption: "Letter from the Chairman" },
-        { href: "index.html#strategy", text: "Strategy", img: "villas.jpg",   caption: "Four pillars · Vision 2030" },
-        { href: "index.html#impact",   text: "Impact",   img: "family.jpg",   caption: "920,000+ families since 2017" },
-        { href: "contact.html",        text: "Contact",  img: "cto.png",      caption: "We're here to help" }
+        { href: "index.html", text: "Home", img: "family.jpg", caption: "Saudi families moving into new homes" },
+        // { href: "about.html",          text: "About",    img: "chairman.png", caption: "Letter from the Chairman" },
+        { href: "index.html#strategy", text: "Strategy", img: "villas.jpg", caption: "Four pillars · Vision 2030" },
+        { href: "index.html#impact", text: "Impact", img: "family.jpg", caption: "920,000+ families since 2017" },
+        { href: "contact.html", text: "Contact", img: "cto.png", caption: "We're here to help" }
       ],
       contact: [
-        { label: "Contact Center", value: "920000507",        href: "tel:920000507" },
-        { label: "Email",          value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
+        { label: "Contact Center", value: "920000507", href: "tel:920000507" },
+        { label: "Email", value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
       ],
       langSelf: "EN",
       langOther: { code: "AR", href: "ar/" + currentFilename() }
@@ -339,11 +339,11 @@
     });
 
     const previewImgs = menu.querySelectorAll(".staggered-menu__preview-img");
-    const previewCap  = menu.querySelector("[data-preview-caption]");
+    const previewCap = menu.querySelector("[data-preview-caption]");
 
     const activatePreview = (link) => {
       const target = link.dataset.preview;
-      const cap    = link.dataset.caption;
+      const cap = link.dataset.caption;
       previewImgs.forEach(img => img.classList.toggle("is-active", img.dataset.img === target));
       if (previewCap && cap) previewCap.textContent = cap;
     };
@@ -358,7 +358,7 @@
       const focusable = menu.querySelectorAll('a[href], button:not([disabled])');
       if (!focusable.length) return;
       const first = focusable[0];
-      const last  = focusable[focusable.length - 1];
+      const last = focusable[focusable.length - 1];
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault();
         last.focus();
