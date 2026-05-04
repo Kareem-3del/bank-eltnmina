@@ -3,6 +3,8 @@
    Tokens, reset, type system, layout primitives, navbar, footer.
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
 /* ------ Tokens (from DESIGN.md "Visionary Trust") ------------------------- */
 :root {
   /* Brand */
@@ -1076,4 +1078,110 @@ html.lenis body {
   .pdf-fab {
     display: none;
   }
+}
+
+
+/* Common hero section */
+.c-hero {
+  position: relative;
+  height: 514px;
+}
+
+.c-hero__image-wrapper,
+.c-hero__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.c-hero__overlay {
+  z-index: 99;
+  background: linear-gradient(110.95deg, #00948F -6.17%, rgba(0, 102, 99, 0.85) 93.83%);
+}
+
+.c-hero__image-wrapper {
+  overflow: hidden;
+}
+
+.c-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-hero .container {
+  height: 100%;
+  position: relative;
+  z-index: 999;
+}
+
+.c-hero__content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  flex-direction: column;
+  padding: 2rem 0
+}
+
+.c-hero__title {
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -0.72px;
+  color: #FFFFFF;
+  margin-bottom: 4rem;
+}
+
+.c-hero__desc {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.c-hero__desc span {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: #fff;
+}
+
+.c-hero__breadcrumb-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+}
+
+.c-hero__breadcrumb-item {
+  display: flex;
+  align-items: center;
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.c-hero__breadcrumb-item:not(:last-child)::after {
+  content: "/";
+  margin: 0 8px;
+}
+
+.c-hero__breadcrumb-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.c-hero__breadcrumb-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.c-hero__breadcrumb-item--active {
+  color: #fff;
 }

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
+
+/* starting-sec */
+
+.starting-sec__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+    border-bottom: 0.8px solid rgba(218, 223, 231, 1)
+}
+
+.starting-sec__title {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.starting-sec__title::before {
+    content: "";
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(174.29deg, #008A85 0%, #1FADA9 100%);
+    border-radius: 12px;
+}
+
+.starting-sec__title h2 {
+    font-weight: 700;
+    font-size: 43px;
+    line-height: 40px;
+    letter-spacing: -0.36px;
+    color: #008A85;
+}
+
+.starting-sec__num {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: 0px;
+    color: rgba(87, 99, 117, 0.3);
+}
+
+.starting-sec__content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.starting-sec__content-wrapper>div {
+    flex: 1;
+}
+
+.starting-sec__img {
+    box-shadow: 0px 20px 60px -25px rgba(18, 37, 63, 0.25);
+}
+
+.starting-sec__img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.starting-sec__content-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.3px;
+    color: #008A85;
+    margin-bottom: 24px;
+}
+
+.starting-sec__desc {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    color: rgba(17, 28, 44, 0.85);
+    margin-bottom: 24px;
+}
+
+.starting-sec__exprt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    color: #576375;
+    margin-bottom: 24px;
+}
+
+.starting-sec__boxes {
+    display: flex;
+    gap: 1rem;
+}
+
+.starting-sec__box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #DADFE7;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 60px -25px rgba(18, 37, 63, 0.25);
+}
+
+.starting-sec__box-title {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #019591;
+}
+
+.starting-sec__box-desc {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0px;
+    color: #576375;
+}
+
+
+/* msg-sec */
+.msg-sec__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 32px;
+}
+
+.msg-sec__title h2 {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 48px;
+    color: #00948F;
+}
+
+.msg-sec__title h2 span {
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -0.48px;
+}
+
+.msg-sec__num {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: 0px;
+    color: #CBCDD1;
+}
+
+.msg-sec__container {
+    padding: 32px;
+    background: #FCFAF8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 20px 60px -25px rgba(18, 37, 63, 0.45);
+}
+
+.msg-sec_content-werapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.msg-sec_content-werapper>div:first-child {
+    flex: 2;
+}
+
+.msg-sec_content-werapper>div:last-child {
+    flex: 1;
+}
+
+.msg-sec__mark {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 60px;
+    letter-spacing: 0px;
+    line-height: 0;
+    color: #00948F;
+    margin-bottom: 24px;
+    margin-top: 32px
+}
+
+.msg-sec__content-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.3px;
+    color: #00948F;
+    margin-bottom: 24px;
+}
+
+.msg-sec__content-desc {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: 0px;
+    color: #00948F;
+    border-bottom: 1px solid #00948F;
+    padding-bottom: 64px;
+    margin-bottom: 24px;
+}
+
+.msg-sec__box {
+    padding: 16px;
+    display: flex;
+    background: #00948F;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0px 8px 30px -10px rgba(1, 147, 142, 0.18);
+}
+
+.msg-sec__box-title {
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+.msg-sec__box-desc {
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    padding-inline-start: 24px;
+    color: #FCFCFC;
+    border-inline-start: 0.4px solid #FFFFFF
+}
