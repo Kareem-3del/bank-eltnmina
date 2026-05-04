@@ -1442,3 +1442,48 @@ html.lenis body {
     font-size: 16px;
   }
 }
+
+/* sec-title */
+.sec-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  color: #008A85;
+
+  /* Responsive Font Size: Min 24px, Max 36px */
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+
+  /* Responsive Line Height: Min 30px, Max 40px */
+  line-height: clamp(1.875rem, 10vw, 2.5rem);
+
+  /* Responsive Spacing: Min 24px, Max 48px */
+  margin-bottom: clamp(1.5rem, 8vw, 3rem);
+
+  /* Responsive Gap: Min 8px, Max 12px */
+  gap: clamp(0.5rem, 2vw, 0.75rem);
+
+  padding-inline: 15px;
+}
+
+.sec-title::after {
+  content: "";
+  display: block;
+  background: #009485;
+  height: 3px;
+  border-radius: 12px;
+
+  /* Responsive Underline Width: Min 40px, Max 64px */
+  width: clamp(2.5rem, 10vw, 4rem);
+}
+
+/* التعديلات الخاصة بالشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .sec-title {
+    font-weight: 800;
+    /* زيادة السمك قليلاً للوضوح على الشاشات الصغيرة */
+    margin-bottom: 24px;
+  }
+}
