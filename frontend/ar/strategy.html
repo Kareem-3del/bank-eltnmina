@@ -2,29 +2,44 @@
 <html lang="ar" dir="rtl">
 
 <head>
+  <base href="../">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#008375" />
   <meta name="description"
-    content="الاستراتيجية ورؤية 2030 — أربع ركائز تقود سوق الإسكان السعودي ضمن خطة صندوق التنمية العقارية للعام 2025." />
+    content="تعرف على مسيرة صندوق التنمية العقارية، رؤيتنا ورسالتنا في تمكين المواطنين من التملك السكني ودورنا المحوري في تحقيق مستهدفات برنامج الإسكان ضمن رؤية السعودية 2030." />
 
-  <title>الاستراتيجية ورؤية 2030 — صندوق التنمية العقارية</title>
+  <title>
+    لمحة عامة عن الصندوق
+  </title>
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
+  <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Public+Sans:wght@400;500;600;700;800&display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Public+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/home.css" />
-  <link rel="stylesheet" href="css/about.css" />
-  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/strategy.css" />
   <link rel="stylesheet" href="css/ar.css" />
 
+
+  <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar/index.html" />
+  <link rel="alternate" hreflang="en" href="https://yourdomain.com/en/index.html" />
+
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="riyal" viewBox="0 0 1124.14 1256.39">
+      <path
+        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+      <path
+        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+    </symbol>
     <symbol id="i-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
       stroke-linecap="square" stroke-linejoin="miter">
       <line x1="3" x2="21" y1="22" y2="22" />
@@ -76,14 +91,15 @@
 
         <ul class="nav__list" id="primary-nav">
           <li><a class="nav__link" href="index.html">الرئيسية</a></li>
-          <li><a class="nav__link" href="about.html">عن الصندوق</a></li>
-          <li><a class="nav__link" href="strategy.html" aria-current="page">الاستراتيجية</a></li>
-          <li><a class="nav__link" href="index.html#impact">الأثر</a></li>
+          <li><a class="nav__link" href="introduction.html">المقدمة</a></li>
+          <!-- <li><a class="nav__link" href="about.html">عن الصندوق</a></li> -->
+          <li><a class="nav__link" href="strategy.html">الاستراتيجية</a></li>
+          <li><a class="nav__link" href="#impact">الأثر</a></li>
           <li><a class="nav__link" href="contact.html">تواصل معنا</a></li>
         </ul>
 
         <div class="nav__cta">
-          <a href="en/index.html" class="nav__lang" aria-label="English" lang="en">EN</a>
+          <a href="en/intro.html" class="nav__lang" aria-label="English" lang="en">EN</a>
           <a href="#" class="btn btn--primary btn--sm">تحميل التقرير</a>
           <button type="button" data-menu-trigger aria-label="فتح القائمة"></button>
         </div>
@@ -92,161 +108,311 @@
   </header>
 
   <main id="main">
-    <!-- ===================== ترويسة الصفحة ===================== -->
-    <section class="page-head">
-      <div class="container">
-        <div class="page-head__inner">
-          <div class="reveal">
-            <span class="chapter-indicator">
-              <span class="ci-num">2</span><span class="ci-divider">/2</span>
-              <span class="ci-title">التوجه الاستراتيجي</span>
-            </span>
-            <h1 class="h-display page-head__title" style="margin-top: var(--s-4)">
-              أربع ركائز تقود سوق الإسكان السعودي.
-            </h1>
-          </div>
-          <p class="lead page-head__lead reveal">
-            اعتُمدت الاستراتيجية في <span class="num">2025</span> بما يتسق مع
-            رؤية المملكة <span class="num">2030</span>، وتحدد ستة عشر هدفًا
-            موزعةً على أربع ركائز متكاملة تُمكّن الصندوق من قيادة منظومة
-            الإسكان لعقدٍ قادم.
+
+    <!-- ===================== Hero ===================== -->
+    <section class="c-hero">
+      <div class="c-hero__overlay"></div>
+      <div class="c-hero__image-wrapper">
+        <img src="assets/hero-about.webp" class="c-hero__img" alt="REDF About Us">
+      </div>
+      <div class="container h-100">
+        <div class="c-hero__content">
+          <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+            <ol class="c-hero__breadcrumb-list">
+              <li class="c-hero__breadcrumb-item">
+                <a href="../index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
+              </li>
+              <li class="c-hero__breadcrumb-item c-hero__breadcrumb-item--active" aria-current="page">
+                التقديم
+              </li>
+            </ol>
+          </nav>
+          <h1 class="c-hero__title">
+            التوجه االسرتاتيجي
+          </h1>
+          <p class="c-hero__desc">
+            يساهم صنـدوق التنميـة العقاريـة فـي تحقيـق عـدة أهـداف اسرتاتيجيـة على
+            <br />
+            مسـتوى رؤيـة السـعودية 2030 وبرامـج
+            تحقيـق الرؤيـة
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ===================== الركائز الاستراتيجية ===================== -->
-    <section class="pillars section" id="strategy">
+    <!-- ===================== layer ===================== -->
+    <section class="section layer-sec">
       <div class="container">
+        <div class="layer-container">
+          <div>
+            <h2 class="layer-title">
+              الإطار الإسرتاتيجي
+            </h2>
+            <p class="layer-desc">
+              يعد صنـــدوق التنميـــة العقاريـــة أحـــد المحـــركات الرئيســـية فـــي دعـــم ســـوق التمويـــل
+              العقـــاري، ودفـــع عجلـــة التنميـــة العقاريـــة فـــي المملكـــة، وقـــد تجسَ ـــد دوره فـــي تنفيـــذ
+              خطـــط لالحتياجـــات طموحـــة تســـتجيب الســـكنية المتناميـــة للمســـتفيدين. وقـــد جـــاء المرســـوم
+              الملكـــي رقـــم ــ (م/47) بتاريـــخ 1442/05/23هــ ليشـــك ّ ل محطـــة مفصليـــة فـــي مـــسرية
+              الصنـــدوق، إذ تًضمّ ـــن الموافقـــة الســـامية عىل تعديـــل نظامـــه األســـايس، بمـــا يُمكِ نـــه
+              مـــن تجـــاوز مفهـــوم التوســـع التقليـــدي، نحـــو العمـــل عىل اســـتدامة الدعـــم، والمشـــاركة
+              الفاعلـــة فـــي النمـــو العقـــاري بوجـــه عـــام، وفـــي قطـــاع اإلســـكان عىل وجـــه الخصـــوص.
+              <br />
+              ومـــع تســـارع خطـــوات المملكـــة نحـــو تحقيـــق مســـتهدفات رؤيـــة 2030، طـــوَ ر الصنـــدوق
+              اسرتاتيجيتـــه لتقـــوم عىل أربـــع ركائـــز أساســـية ترســـم مالمـــح دوره المســـتقبيل، وتحـــدِد
+              أهدافـــه مـــن خالل مـــؤرشات قيـــاس دقيقـــة، حيـــث حظيـــت اسرتاتيجيـــة العقاريـــة التنميـــة
+              صنـــدوق بالموافقـــة مـــن مجلـــس إدارة صنـــدوق التنميـــة الـــوطين فـــي عـــام 2025م، لتعكـــس
+              األهـــداف المحدثـــة للصنـــدوق بمـــا يتـــواءم مـــع رؤيـــة الســـعودية 2030، وشـــملت هـــذه
+              الركائـــز: تمويـــل وتمـــكني القطـــاع العقـــاري، ومشـــاركة القطـــاع الخـــاص، والمرونـــة والقـــوة
+              الماليـــة، والتـــمزي والكفـــاءة المؤسســـية. ويعمـــل الصنـــدوق حالي ً ـــا عىل التخطيـــط المـــرحيل
+              لتنفيـــذ هـــذه االسرتاتيجيـــة بمـــا يحقـــق األهـــداف المرجـــوة.
+              <br />
+              وتًضـــم االسرتاتيجيـــة ســـتة عرش هدف ً ـ رئيسً ـــا وأربعً ـــا وعرشيـــن مبـــادرة ً ، المســـتفيدين،
+              تجربـــة التمويليـــة الحلـــول لتحـــسني وتطويـــر المبتكـــرة، وتعظيـــم األثـــر الناتـــج عـــن
+              برامـــج الدعـــم، بمـــا يوسِ ـــع دائـــرة االســـتفادة لتشـــمل رشيحـــة أكرب مـــن المواطنني والمطور
+              يـــن . ومـــن خالل هـــذا المســـار االسرتاتيجـــي الصنـــدوق يتطلـــع المتكامـــل، العقـــاري إىل
+              اإلســـهام بـــدور فاعـــل فـــي رفـــع نســـبة تملـــك المواطـــنني للمســـاكن إىل 70% بحلـــول عـــام
+              2030م، مـــع مواصلـــة تطويـــر كفاءتـــه التشـــغيلية وترســـيخ اســـتدامته الماليـــة، بمـــا يًضمـــن
+              اســـتمرارية األثـــر والعطـــاء فـــي قطـــاع اإلســـكان
+            </p>
+          </div>
 
-        <div class="pillar-rows">
-
-          <article class="pillar-row" data-pillar-row>
-            <div class="pillar-row__visual reveal" data-pillar-visual>
-              <img src="assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
-              <div class="pillar-row__visual-tint" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">01</span> · تمكين مباشر</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>01</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-landmark" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">01</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">تمويل القطاع العقاري وتمكينه</h3>
-              <p class="lead pillar-row__desc reveal">تمكين المواطنين من التملك السكني، وتسريع وتيرة التطوير العقاري على
-                مستوى الفئات المستهدفة، عبر حلولٍ تمويليةٍ مبتكرة وتجربةٍ خدميةٍ متجددة.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">الدعم المالي والتمكين</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>حلول تمويلية مبتكرة لشرائح جديدة من السوق</li>
-                <li>تحسين تجربة المواطنين والمطورين والشركاء</li>
-                <li>توظيف تحليلات البيانات والذكاء الاصطناعي في تقديم الخدمة</li>
-                <li>تسريع التطوير العقاري للفئات المستهدفة</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="pillar-row pillar-row--reverse" data-pillar-row>
-            <div class="pillar-row__visual reveal" data-pillar-visual>
-              <img src="assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
-              <div class="pillar-row__visual-tint" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">02</span> · شراكات</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>02</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-partners" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">02</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">مشاركة القطاع الخاص</h3>
-              <p class="lead pillar-row__desc reveal">إطلاق رأس المال المشترك والتمويل البديل، وتعزيز قدرات المطورين عبر
-                شراكاتٍ نوعيةٍ مع مطورين دوليين وشركات التقنية العقارية.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">التمويل المباشر وغير المباشر</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>رأس مال مشترك وتمويل بديل</li>
-                <li>شراكات مع مطورين دوليين وشركات التقنية العقارية</li>
-                <li>أبحاث تُسهم في رسم سياسات منظومة الإسكان</li>
-                <li>رفع كفاءة منظومة الإسكان</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="pillar-row" data-pillar-row>
-            <div class="pillar-row__visual pillar-row__visual--accent reveal" data-pillar-visual>
-              <div class="pillar-row__visual-pattern" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">03</span> · استدامة</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>03</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-shield" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">03</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">المتانة والاستدامة المالية</h3>
-              <p class="lead pillar-row__desc reveal">الحفاظ على قوة الصندوق عبر التحصيل المنضبط من المحفظة التاريخية،
-                وأداء الاستثمار، وكفاءة العمليات والإنفاق.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">تمكين القطاع</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>تعزيز التحصيل من المحفظة التاريخية للإقراض المباشر</li>
-                <li>رفع كفاءة الإنفاق لتمكين القطاع</li>
-                <li>عوائد استثمارية ثابتة عند المستوى المطلوب</li>
-                <li>إيرادات من رسوم المنصات والخدمات</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="pillar-row pillar-row--reverse" data-pillar-row>
-            <div class="pillar-row__visual pillar-row__visual--inverted reveal" data-pillar-visual>
-              <div class="pillar-row__visual-grid" aria-hidden="true"></div>
-              <span class="pillar-row__caption">الركيزة <span class="num">04</span> · نموذج التشغيل</span>
-              <span class="pillar-row__big-num num" aria-hidden="true" data-pillar-num>04</span>
-              <span class="pillar-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                  <use href="#i-cpu" />
-                </svg></span>
-            </div>
-            <div class="pillar-row__content">
-              <span class="eyebrow reveal">الركيزة <span class="num">04</span> / 04</span>
-              <h3 class="h-2 pillar-row__title reveal">التميز والكفاءة المؤسسية</h3>
-              <p class="lead pillar-row__desc reveal">بناء مؤسسة ممكَّنة رقميًا ومحوكمة جيدًا وقادرة على تلبية الطلب على
-                الإسكان لعقدٍ قادم.</p>
-              <div class="pillar-row__meta reveal">
-                <div class="pillar-row__kpi">
-                  <span class="pillar-row__kpi-value num">04</span>
-                  <span class="pillar-row__kpi-label">أهداف استراتيجية</span>
-                </div>
-                <span class="pillar-row__badge">تمكين القطاع</span>
-              </div>
-              <ul class="pillar-row__list reveal">
-                <li>تعزيز الوظائف الجوهرية ونموذج التشغيل</li>
-                <li>التحول الرقمي وتبني الذكاء الاصطناعي</li>
-                <li>التوظيف الأمثل لرأس المال البشري</li>
-                <li>حوكمة شاملة لكافة الالتزامات المالية</li>
-              </ul>
-            </div>
-          </article>
-
+          <div>
+            <img src="assets/layer.webp" alt="">
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ===================== strategy ===================== -->
+    <section class="strategy-sec">
+      <div class="container">
+        <h2 class="layer-title title">
+          تتضمن الإسرتاتيجية المؤسسية
+        </h2>
+
+        <div class="strategy-box">
+          <div class="strategy-box__item">
+            <div class="box-top">
+              <div class="num-box">
+                <img src="assets/msg.svg" />
+              </div>
+              <h3>رؤيتنا</h3>
+            </div>
+            <p>
+              تمكني وتعزيز نمو سوق اإلسكان السعودي من خالل توفري حلول مالية مستدامة ومبتكرة للمواطنني والجهات المشاركة
+              في السوق
+            </p>
+          </div>
+
+          <div class="strategy-box__item">
+            <div class="box-top">
+              <div class="num-box">
+                <img src="assets/msg.svg" />
+              </div>
+              <h3>رسالتنا</h3>
+            </div>
+            <p>
+              تعزيز نسبة تملك المواطنني للمساكن من خالل توفري حلول مبتكرة ومستدامة ماليًا للمواطنني والجهات المشاركة في
+              السوق
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4 main items ===================== -->
+    <section class="section main-sec">
+      <div class="container">
+        <h2 class="layer-title title">
+          أربع ركائز لمستقبل عقاري متكامل
+        </h2>
+
+        <div class="main-box">
+          <div class="main-item">
+            <div class="num-box">
+              <img src="assets/1.svg" />
+            </div>
+            <h3>تمويل وتمكين القطاع العقاري</h3>
+
+            <ul>
+              <li>
+                <div>
+                  إدارة الدعم
+                  <br />
+                  المالي
+                </div>
+                <div>
+                  تحفيز المواطنين عىل تملك مساكن وتعزيز التطوير العقاري على مستوى الفئة المستهدفة
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تقديم حلول تمويل مبتكرة لتلبية احتياجات وتوجهات سوق الإسكان
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تحسنين تجربة المواطنين والمطورين والشركاء </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  الإستغلال الأمثل لتحليل البيانات والذكاء الإصطناعي لتحسين حلول التمويل وتقديم الخدمات </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="main-item">
+            <div class="num-box">
+              <img src="assets/2.svg" />
+            </div>
+            <h3>مشاركة القطاع الخاص</h3>
+
+            <ul>
+              <li>
+                <div>
+                  التمويل المباشر/
+                  غير المباشر
+                </div>
+                <div>
+                  إتاحة رأس مال مشرتك ورفع التمويل البديل
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  دفع وتعزيز كفاءة منظومة الإسكان
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تطوير الشركات مع مؤسسات الإسكان التنموية العالمية ومؤسسات التكنولوجيات العقارية </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  الدعم في تمكين القدرات البحثية لمنظومة الإسكان لتقديم توصيات سياسات القطاع التمويل العقاري
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="main-item">
+            <div class="num-box">
+              <img src="assets/3.svg" />
+            </div>
+            <h3>
+              المرونة والقوة المالية
+            </h3>
+
+            <ul>
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تعزيز عمليات التحصيل من محفظة الإقراض المباشر القديمة
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تقليل النفقات التشغيلية من خلال تحسين التكلفة إلى تمكين القطاع
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تعزيز عوائد الإستثمار والحفاظ على المستوى المطلوب من صافي الإستثمارات
+                </div>
+              </li>
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تحقيق إيرادات من رسوم المنصة
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="main-item">
+            <div class="num-box">
+              <img src="assets/4.svg" />
+            </div>
+            <h3>
+              التميز والكفاءة المؤسسية
+            </h3>
+
+            <ul>
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تعزيز دور الوظائف األساسية لزيادة الكفاءة والتمز
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تحقيق التحول الرقمي وتبين أحدث التقنيات
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  الإستخدام الأمثل لرأس المال البشري لتلبية الإحتياجات المؤسسية
+                </div>
+              </li>
+              <li>
+                <div>
+                  تمكين القطاع
+                </div>
+                <div>
+                  تعزيز الحوكمة لتغطية ااًللزتامات المالية وضمان اتباع التدابير المناسبة
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+    </section>
   </main>
 
   <!-- ===================== التذييل ===================== -->
@@ -262,6 +428,89 @@
         </div>
         <div class="footer__eyebrow">التقرير السنوي 2025 / 1446&ndash;1447</div>
       </div>
+
+      <ul class="footer__index" aria-label="محتويات التقرير">
+        <li><a href="index.html#highlights">
+            <span>المؤشرات المالية</span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="#chairman">
+            <span>كلمة رئيس مجلس الإدارة</span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <!-- <li><a href="about.html#board">
+            <span>أعضاء مجلس الإدارة <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="about.html#ceo">
+            <span>كلمة الرئيس التنفيذي والعضو المنتدب</span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li> -->
+        <li><a href="strategy.html">
+            <span>الاستراتيجية ورؤية 2030 <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="index.html#impact">
+            <span>الأداء والأثر <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="index.html#programs">
+            <span>البرامج والخدمات <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="#governance">
+            <span>تقرير الحوكمة المؤسسية <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="#auditor">
+            <span>تقرير مراجع الحسابات المستقل والقوائم المالية وإيضاحاتها <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+        <li><a href="#sustainability">
+            <span>إفصاح الاستدامة 2025 <span class="pdf-tag">(PDF)</span></span>
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a></li>
+      </ul>
 
       <div class="footer__bottom">
         <span>&copy; <span data-year></span> صندوق التنمية العقارية &middot; المملكة العربية السعودية &middot;
@@ -284,6 +533,40 @@
     </div>
   </footer>
 
+  <!-- زر تنزيل ملف PDF لهذه الصفحة -->
+  <a class="pdf-fab" href="assets/pdf/redf-2025-home-ar.pdf" download aria-label="تنزيل هذه الصفحة بصيغة PDF"
+    title="تنزيل هذه الصفحة (PDF)">
+    <svg class="pdf-fab__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3v12" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="4" y1="20" x2="20" y2="20" />
+    </svg>
+    <span class="pdf-fab__label">تنزيل PDF</span>
+  </a>
+
+  <ul class="actions-box">
+
+    <li class="action-box">
+      <a href="#">
+        <img src="assets/arrow-left.svg" />
+      </a>
+    </li>
+    <li class="action-box">
+      <a href="#">
+        <img src="assets/arrow-right.svg" />
+      </a>
+    </li>
+    <li class="action-box">
+      <a href="#">
+        <img src="assets/file.svg" />
+      </a>
+    </li>
+    <li class="action-box">
+      <a href="#">
+        <img src="assets/files.svg" />
+      </a>
+    </li>
+  </ul>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
