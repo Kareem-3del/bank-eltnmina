@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Cairo", sans-serif;
-}
-
 /* Section title — accent under a single highlighted word.
    When the title carries an accent, suppress the default centered underline
    from .sec-title::after so the accent reads cleanly on its own. */

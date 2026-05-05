@@ -4,6 +4,7 @@
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 
 /* ------ Tokens (from DESIGN.md "Visionary Trust") ------------------------- */
 :root {
@@ -103,6 +104,14 @@
   --d-base: 320ms;
   --d-slow: 560ms;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
 
 /* ------ Reset ------------------------------------------------------------- */
 *,
