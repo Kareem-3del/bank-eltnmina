@@ -700,10 +700,10 @@ select {
 } */
 
 @media (max-width: 420px) {
-  .nav__brand {
+  /* .nav__brand {
     width: 52px;
     height: 52px;
-  }
+  } */
 
   .nav {
     gap: var(--s-3);
