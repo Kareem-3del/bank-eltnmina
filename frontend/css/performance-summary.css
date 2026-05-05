@@ -7,10 +7,55 @@
     font-family: "Cairo", sans-serif;
 }
 
+/* Section title — accent under a single highlighted word.
+   When the title carries an accent, suppress the default centered underline
+   from .sec-title::after so the accent reads cleanly on its own. */
+.sec-title__accent {
+    text-decoration: underline;
+    text-decoration-color: #009485;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.22em;
+    text-decoration-skip-ink: none;
+}
+
+.sec-title:has(.sec-title__accent)::after {
+    display: none;
+}
+
+.img-sec {
+    padding-block: clamp(24px, 5vw, 48px);
+}
+
 .img-sec .img {
     width: 100%;
-    height: 512px;
+    height: clamp(280px, 48vw, 560px);
     object-fit: cover;
+    display: block;
+}
+
+/* Media-only card on the intro split (the picture beside the founding text) */
+.intro-box__item--media {
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+    display: block;
+    position: relative;
+    min-height: 280px;
+    align-self: stretch;
+}
+
+.intro-box__item--media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Equal-height in the row: stretch both cards so the image fills its panel */
+.intro-sec .intro-box {
+    align-items: stretch;
 }
 
 /* intro-sec */

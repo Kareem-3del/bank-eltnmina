@@ -62,7 +62,7 @@
 .staggered-menu {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  z-index: 1100;
   display: grid;
   grid-template-rows: auto 1fr auto;
   pointer-events: none;
@@ -400,6 +400,8 @@
 
 /* ------ When menu is open, freeze background scroll --------------- */
 body.menu-open { overflow: hidden; }
+body.menu-open .actions-box,
+body.menu-open .pdf-fab { display: none; }
 
 /* ------ Reduced motion --------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
