@@ -249,11 +249,51 @@
 }
 
 /* hl-sec */
+.hl-sec {
+    position: relative;
+}
+
+.hl-sec::before {
+    position: absolute;
+    z-index: 9;
+    left: 5.2%;
+    top: 60px;
+    color: rgba(0, 138, 133, 0.04);
+    font-weight: 700;
+    font-size: 320px;
+    line-height: 320px;
+}
+
+.h-1-sec-1::before {
+    content: "01";
+}
+
+.h-1-sec-2::before {
+    content: "02";
+    top: -50px;
+}
+
+
+.h-1-sec-3::before {
+    content: "03";
+}
+
+
+.h-1-sec-4::before {
+    content: "04";
+    top: -50px;
+}
+
+
+
+
 .hl-container {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 32px;
     margin-top: 65px;
+    position: relative;
+    z-index: 999;
 }
 
 .pie-sec {
@@ -402,29 +442,45 @@
 }
 
 .chart-wrap {
+    flex-grow: 1;
+    border: 1px solid rgba(220, 229, 229, 0.6);
+    box-shadow: 0px 12px 32px 0px rgba(13, 30, 38, 0.07),
+        0px 1px 3px 0px rgba(13, 30, 38, 0.05);
+    background: #FFF;
     padding: 24px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .chart-title {
-    text-align: right;
+    font-weight: 800;
     font-size: 16px;
-    font-weight: 500;
-    color: #0d9e7a;
-    margin: 0 0 20px 0;
+    line-height: 24px;
+    letter-spacing: 0px;
+    margin-top: 16px;
+    color: #008A85;
+}
+
+.chart-container {
+    flex-grow: 1;
+    padding: 60px 0;
+    border-top: 0.8px solid rgba(220, 229, 229, 0.6);
+    border-bottom: 0.8px solid rgba(220, 229, 229, 0.6);
+    display: flex;
+    align-items: center;
 }
 
 .legend {
     display: flex;
     gap: 20px;
-    justify-content: flex-end;
-    margin-bottom: 16px;
     font-size: 13px;
-    color: #555;
+    color: #5E7278;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16.5px;
+    letter-spacing: 0px;
+    margin-bottom: 16px;
 }
 
 .legend-item {
@@ -434,7 +490,129 @@
 }
 
 .legend-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.legend-item:first-child .legend-dot {
+    background: #008A85;
+}
+
+.legend-item:last-child .legend-dot {
+    background: #C3E0DF;
+}
+
+/* --- الشاشات المتوسطة (Tablets - 1024px وأقل) --- */
+@media (max-width: 1024px) {
+    .hl-container {
+        flex-direction: column;
+        /* جعل الـ Pie Chart والـ Bar Chart فوق بعض */
+        gap: 24px;
+    }
+
+    .pie-sec {
+        width: 100%;
+        /* عرض كامل */
+        flex-direction: row !important;
+        /* توزيع المحتوى أفقياً في التابلت */
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .table-char {
+        width: 100%;
+        /* الـ Sidebar الصغير في قسم الجدول يأخذ العرض كامل */
+    }
+
+    .performance-head__title {
+        font-size: 36px;
+        /* تصغير العنوان الرئيسي */
+        line-height: 40px;
+    }
+}
+
+/* --- الشاشات الصغيرة (Mobile - 768px وأقل) --- */
+@media (max-width: 768px) {
+
+    /* 1. العناوين والخلفيات الكبيرة */
+    .performance-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .performance-head__title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .hl-sec::before {
+        font-size: 150px;
+        /* تصغير أرقام الخلفية (01, 02...) */
+        line-height: 150px;
+        left: 2%;
+        top: 20px;
+    }
+
+    /* 2. الـ Pie Chart Section */
+    .pie-sec {
+        padding: 20px;
+        flex-direction: column !important;
+    }
+
+    .pie-stat {
+        width: 100%;
+        padding: 16px 0;
+    }
+
+    /* 3. الـ Bar Chart Section */
+    .chart-wrap {
+        padding: 16px;
+    }
+
+    .chart-container {
+        padding: 20px 0;
+        height: 300px;
+        /* تحديد ارتفاع ثابت للموبايل لضمان ظهور الـ Chart */
+    }
+
+    /* 4. إحصائيات الجدول الصغير */
+    .table-char__stat>div {
+        width: 100%;
+        /* جعل العناصر تحت بعضها في الموبايل */
+    }
+}
+
+/* --- شاشات الموبايل الصغيرة جداً (480px وأقل) --- */
+@media (max-width: 480px) {
+    .performance-head__title {
+        font-size: 24px;
+    }
+
+    .pie-inner p {
+        font-size: 32px;
+        /* تصغير الرقم داخل الدائرة */
+    }
+
+    .pie-inner p span {
+        font-size: 16px;
+    }
+
+    .kpi-table thead th,
+    .kpi-table td {
+        padding: 10px 8px;
+        /* تقليل المسافات داخل الجدول */
+        font-size: 12px;
+    }
+
+    .group-row-item::before {
+        height: 24px;
+        /* تصغير العلامة الخضراء الجانبية */
+    }
+}
+
+/* --- لمسة إضافية لتحسين التمرير في الجداول --- */
+.table-container {
+    -webkit-overflow-scrolling: touch;
+    /* تمرير ناعم على iOS */
 }

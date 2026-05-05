@@ -1245,6 +1245,10 @@ html.lenis body {
     height: 450px;
   }
 
+  .c-hero-perform {
+    height: auto;
+  }
+
   .c-hero__title {
     font-size: 56px;
     /* تقليل حجم العنوان */
