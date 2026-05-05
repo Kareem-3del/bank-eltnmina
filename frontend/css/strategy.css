@@ -56,6 +56,72 @@
     margin-bottom: 64px;
 }
 
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+    .layer-container {
+        gap: 40px;
+        /* تقليل الفجوة في الشاشات المتوسطة */
+    }
+
+    .layer-title {
+        font-size: 36px;
+        /* تصغير العنوان قليلاً */
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 768px) {
+    .layer-container {
+        flex-direction: column;
+        /* تحويل العناصر لتصبح فوق بعضها */
+        gap: 32px;
+    }
+
+    .layer-container>div:last-child img {
+        height: auto;
+        /* السماح للصورة بأخذ ارتفاعها الطبيعي */
+        max-height: 400px;
+        /* تحديد أقصى ارتفاع لضمان عدم استهلاك الشاشة */
+        border-radius: 12px;
+        /* اختياري: لمسة جمالية عند ترتيب العناصر عمودياً */
+    }
+
+    .layer-title {
+        font-size: 32px;
+        text-align: center;
+        /* توسيط العناوين في الموبايل غالباً ما يبدو أفضل */
+    }
+
+    .layer-desc {
+        text-align: center;
+        font-size: 15px;
+        line-height: 28px;
+    }
+
+    .layer-container>div:first-child {
+        align-items: center;
+        /* توسيط المحتوى النصي */
+        gap: 16px;
+    }
+
+    .layer-title.title {
+        margin-bottom: 32px;
+        /* تقليل الهامش السفلي للعنوان الرئيسي */
+    }
+}
+
+@media (max-width: 480px) {
+    .layer-title {
+        font-size: 28px;
+    }
+
+    .layer-sec {
+        padding: 40px 0;
+        /* تأكد من وجود padding مناسب للسكشن من الأعلى والأسفل */
+    }
+}
+
 /* .strategy-sec */
 .strategy-box {
     max-width: 1120px;
@@ -126,6 +192,72 @@
     opacity: 0.9;
 }
 
+/* Responsive Styles for Strategy Box */
+
+@media (max-width: 1024px) {
+    .strategy-box {
+        gap: 24px;
+        padding: 0 20px;
+        /* لإضافة مسافة جانبية في الشاشات المتوسطة */
+    }
+
+    .strategy-box__item h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .strategy-box__item p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .strategy-box {
+        flex-direction: column;
+        /* ترتيب العناصر تحت بعضها */
+        gap: 16px;
+    }
+
+    .strategy-box__item {
+        padding: 24px;
+        /* تقليل التبطين الداخلي للموبايل */
+        border-radius: 12px;
+        /* لإعطاء شكل أفضل عند فصل العناصر */
+    }
+
+    .strategy-box__item .box-top {
+        justify-content: flex-start;
+        /* التأكد من محاذاة الأيقونة مع العنوان */
+    }
+
+    .strategy-box__item:first-child {
+        /* اختياري: لتمييز العنصر الأول أكثر في الموبايل */
+        box-shadow: 0 10px 15px -3px rgba(15, 132, 129, 0.2);
+    }
+}
+
+@media (max-width: 480px) {
+    .strategy-box__item {
+        padding: 20px;
+    }
+
+    .strategy-box__item h3 {
+        font-size: 18px;
+    }
+
+    .strategy-box__item p {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .strategy-box__item .box-top .num-box {
+        height: 40px;
+        /* تصغير حجم المربع قليلاً */
+        width: 40px;
+    }
+}
+
 /* .main-sec */
 .main-sec .container {
     max-width: 100%;
@@ -180,11 +312,11 @@
     padding: 4px;
     background: #00948F;
     color: #FFF;
-    font-weight: 800;
-    font-size: 5px;
-    line-height: 7px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
     letter-spacing: 0px;
-    width: 50px;
+    width: 90px;
     text-align: center;
     flex-shrink: 0;
 }
@@ -194,4 +326,510 @@
     font-size: 10px;
     line-height: 15px;
     letter-spacing: 0px;
+}
+
+/* Responsive Styles for Main Section */
+
+@media (max-width: 1024px) {
+    .main-box {
+        flex-wrap: wrap;
+        /* السماح للعناصر بالنزول لسطر جديد إذا ضاق المساحة */
+        gap: 20px;
+    }
+
+    .main-item {
+        flex: 1 1 calc(50% - 20px);
+        /* عرض عنصرين في السطر الواحد بالشاشات المتوسطة */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-box {
+        flex-direction: column;
+        /* عنصر واحد في كل سطر */
+    }
+
+    .main-item {
+        padding: 24px 20px;
+        gap: 24px;
+    }
+
+    /* تحسين الخطوط الصغيرة لتناسب القراءة على الموبايل */
+    .main-item ul li div:last-child {
+        font-size: 13px;
+        /* زيادة من 10px إلى 13px لسهولة القراءة */
+        line-height: 20px;
+    }
+
+    .main-item ul li div:first-child {
+        font-size: 8px;
+        /* زيادة طفيفة في الخط الصغير داخل المربع */
+        width: 80px;
+    }
+
+    .main-item h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-sec .container {
+        padding: 0 16px;
+        /* ضمان وجود هامش بسيط عن حواف الشاشة */
+    }
+
+    .main-item {
+        padding: 20px 16px;
+    }
+
+    .main-item .num-box {
+        height: 48px;
+        width: 48px;
+    }
+
+    .main-item ul {
+        gap: 12px;
+    }
+
+    .main-item ul li {
+        align-items: flex-start;
+        /* محاذاة المربع الصغير مع بداية النص إذا كان النص طويلاً */
+    }
+
+    .main-item ul li div:first-child {
+        margin-top: 4px;
+        /* موازنة المربع مع السطر الأول من النص */
+    }
+}
+
+/* vision-sec */
+.vision-sec {
+    background: linear-gradient(106.97deg, #005C59 0%, #008F85 50%, #1FAD9F 100%);
+}
+
+.vision-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.vision-left,
+.vision-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.vision-right {
+    align-items: flex-end;
+    gap: 12px;
+    position: relative;
+}
+
+.vision-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 288px;
+    height: 288px;
+    top: -40px;
+    left: -40px;
+    border-radius: 50%;
+    background: #00948F;
+    filter: blur(64px)
+}
+
+.vision-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    padding: 8px 16px;
+    width: 146px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.vision-left h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -0.48px;
+    color: #FFFFFF;
+}
+
+.vision-content p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+.vision-content p span {
+    font-weight: 800;
+}
+
+.vision-precent {
+    font-weight: 700;
+    font-size: 224px;
+    line-height: 224px;
+    color: #FFFFFF;
+    display: flex;
+    position: relative;
+    z-index: 999
+}
+
+[dir="rtl"] .vision-precent {
+    flex-direction: row-reverse;
+}
+
+.vision-precent span:last-child {
+    color: #22C3B3;
+}
+
+.vision-right p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+[dir="rtl"] .vision-right p {
+    text-align: left;
+}
+
+/* Responsive Styles for Vision Section */
+
+@media (max-width: 1200px) {
+    .vision-precent {
+        font-size: 160px;
+        /* تصغير الرقم قليلاً في الشاشات المتوسطة */
+        line-height: 160px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .vision-content {
+        flex-direction: column;
+        /* ترتيب العناصر عمودياً */
+        text-align: center;
+        gap: 48px;
+    }
+
+    .vision-left,
+    .vision-right {
+        align-items: center;
+        /* توسيط المحتوى */
+        width: 100%;
+    }
+
+    [dir="rtl"] .vision-right p {
+        text-align: center;
+        /* توسيط النص في التابلت والموبايل */
+    }
+
+    .vision-right::before {
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* توسيط تأثير الـ Blur خلف الرقم */
+    }
+}
+
+@media (max-width: 768px) {
+    .vision-left h2 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .vision-content p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .vision-precent {
+        font-size: 120px;
+        /* تصغير الرقم ليناسب عرض الجوال */
+        line-height: 120px;
+    }
+
+    .vision-right p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vision-sec {
+        padding: 60px 0;
+    }
+
+    .vision-precent {
+        font-size: 80px;
+        /* حجم مناسب جداً لشاشات الجوال الصغيرة */
+        line-height: 80px;
+    }
+
+    .vision-box {
+        width: 120px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .vision-right::before {
+        width: 150px;
+        height: 150px;
+        filter: blur(40px);
+        /* تقليل الـ blur لزيادة الأداء على الجوالات القديمة */
+    }
+}
+
+/* goals-sec */
+.goals-steps-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.goals-steps-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 64px;
+    left: 0;
+    /* transform: translateY(-50%); */
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(270deg, rgba(0, 143, 133, 0) 0%, rgba(0, 143, 133, 0.3) 50%, rgba(0, 143, 133, 0) 100%);
+}
+
+.goal-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    z-index: 999;
+}
+
+.goal-step .icon-box {
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.goal-step .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00948F 0%, #008F85 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.goal-step h3 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24.75px;
+    letter-spacing: -0.18px;
+    text-align: center;
+    color: #00948F;
+}
+
+.goals-steps-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.goals-steps-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 64px;
+    left: 0;
+    /* transform: translateY(-50%); */
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(270deg, rgba(0, 143, 133, 0) 0%, rgba(0, 143, 133, 0.3) 50%, rgba(0, 143, 133, 0) 100%);
+}
+
+.goal-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    z-index: 999;
+}
+
+.goal-step .icon-box {
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.goal-step .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00948F 0%, #008F85 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.goal-step h3 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24.75px;
+    letter-spacing: -0.18px;
+    text-align: center;
+    color: #00948F;
+}
+
+/* Responsive Styles for Goals Steps */
+
+@media (max-width: 1024px) {
+    .goals-steps-wrapper {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .goal-step .icon-box {
+        height: 100px;
+        /* تصغير حجم الدائرة قليلاً للتابلت */
+        width: 100px;
+    }
+
+    .goal-step h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .goals-steps-wrapper {
+        flex-direction: column;
+        /* تحويل العناصر تحت بعضها */
+        align-items: flex-start;
+        /* محاذاة العناصر لليمين أو اليسار */
+        gap: 40px;
+        padding-left: 40px;
+        /* مسافة للخط الرأسي */
+    }
+
+    /* تحويل الخط من أفقي إلى رأسي */
+    .goals-steps-wrapper::before {
+        top: 0;
+        left: 64px;
+        /* توسيط الخط مع مركز الأيقونة (128px / 2) */
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 143, 133, 0) 0%, rgba(0, 143, 133, 0.3) 50%, rgba(0, 143, 133, 0) 100%);
+    }
+
+    .goal-step {
+        flex-direction: row;
+        /* الأيقونة بجانب النص في الموبايل */
+        align-items: center;
+        text-align: left;
+        gap: 20px;
+        width: 100%;
+    }
+
+    [dir="rtl"] .goal-step {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+
+    [dir="rtl"] .goals-steps-wrapper {
+        padding-left: 0;
+        padding-right: 40px;
+    }
+
+    [dir="rtl"] .goals-steps-wrapper::before {
+        left: auto;
+        right: 64px;
+    }
+
+    .goal-step .icon-box {
+        height: 80px;
+        /* حجم أصغر للموبايل */
+        width: 80px;
+        flex-shrink: 0;
+    }
+
+    .goal-step h3 {
+        text-align: inherit;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .goal-step .badge {
+        height: 28px;
+        width: 28px;
+        font-size: 12px;
+    }
+
+    .goal-step .icon-box img {
+        max-width: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .goals-steps-wrapper {
+        padding-left: 20px;
+    }
+
+    [dir="rtl"] .goals-steps-wrapper {
+        padding-right: 20px;
+    }
+
+    .goals-steps-wrapper::before {
+        left: 45px;
+        /* موازنة الخط مع حجم الأيقونة الجديد (80px / 2 + padding) */
+    }
+
+    [dir="rtl"] .goals-steps-wrapper::before {
+        right: 45px;
+    }
+
+    .goal-step .icon-box {
+        height: 70px;
+        width: 70px;
+    }
 }

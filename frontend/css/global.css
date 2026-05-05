@@ -1195,8 +1195,8 @@ html.lenis body {
 /* --- الشاشات المتوسطة (Tablets - 1024px) --- */
 @media (max-width: 1024px) {
   .c-hero {
-    height: auto;
-    min-height: 450px;
+    /* height: auto; */
+    height: 450px;
   }
 
   .c-hero__title {
@@ -1222,7 +1222,7 @@ html.lenis body {
   .c-hero__content {
     padding: 3rem 1rem;
     /* زيادة البادينج الجانبي */
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     /* دفع المحتوى للأسفل قليلاً لجمالية التصميم */
   }
 
@@ -1244,7 +1244,7 @@ html.lenis body {
 
 @media (max-width: 480px) {
   .c-hero {
-    min-height: 380px;
+    height: 380px;
   }
 
   .c-hero__title {
