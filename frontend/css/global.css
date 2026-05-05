@@ -1265,7 +1265,7 @@ html.lenis body {
 
 .actions-box {
   position: fixed;
-  z-index: 99999;
+  z-index: 1050;
   top: 50%;
   transform: translateY(-50%);
   left: 24px;
