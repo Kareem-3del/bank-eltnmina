@@ -1153,7 +1153,7 @@ html.lenis body {
 .c-hero__desc span a {
   font-weight: 400;
   font-size: 15px;
-  line-height: 40px;
+  /* line-height: 40px; */
   letter-spacing: 0px;
   color: #fff;
 }
@@ -1266,11 +1266,14 @@ html.lenis body {
 /* --- الشاشات الصغيرة (Mobile Landscape - 768px) --- */
 @media (max-width: 768px) {
   .c-hero {
-    min-height: 400px;
+    height: auto;
+    display: flex;
+    align-items: center;
   }
 
   .c-hero__content {
     padding: 3rem 1rem;
+
     /* زيادة البادينج الجانبي */
     /* justify-content: flex-end; */
     /* دفع المحتوى للأسفل قليلاً لجمالية التصميم */
@@ -1302,9 +1305,9 @@ html.lenis body {
 }
 
 @media (max-width: 480px) {
-  .c-hero {
+  /* .c-hero {
     height: 500px;
-  }
+  } */
 
   .c-hero__title {
     font-size: 32px;
