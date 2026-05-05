@@ -1481,8 +1481,9 @@ html.lenis body {
   content: "";
   display: block;
   background: #009485;
-  height: 3px;
+  height: 4px;
   border-radius: 12px;
+  margin-top: 12px;
 
   /* Responsive Underline Width: Min 40px, Max 64px */
   width: clamp(2.5rem, 10vw, 4rem);
