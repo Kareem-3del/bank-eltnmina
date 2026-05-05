@@ -188,11 +188,12 @@
       brand: "صندوق التنمية العقارية",
       brandSub: "التقرير السنوي 2025",
       links: [
-        { href: "index.html", text: "الرئيسية", img: "family.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
-        // { href: "about.html",          text: "عن الصندوق",   img: "chairman.png", caption: "رسالة رئيس مجلس الإدارة" },
-        { href: "strategy.html", text: "الاستراتيجية", img: "villas.jpg", caption: "أربع ركائز · رؤية 2030" },
-        { href: "index.html#impact", text: "الأثر", img: "family.jpg", caption: "أكثر من 920,000 أسرة منذ 2017" },
-        { href: "contact.html", text: "تواصل معنا", img: "cto.png", caption: "نحن هنا لمساعدتك" }
+        { href: "index.html", text: "الرئيسية", img: "home.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
+        { href: "executive-summary.html", text: "الملخص التنفيذي", img: "summary.jpg", caption: "نظرة شاملة على إنجازات العام" },
+        { href: "introduction.html", text: "المقدمة", img: "intro.jpg", caption: "كلمة عن مسيرة الصندوق" },
+        { href: "strategy.html", text: "التوجه الاستراتيجي", img: "strategy.jpg", caption: "أربع ركائز · رؤية 2030" },
+        { href: "performance-summary.html", text: "موجز الأداء", img: "performance.jpg", caption: "أكثر من 920,000 أسرة منذ 2017" },
+        { href: "contact.html", text: "تواصل معنا", img: "contact.jpg", caption: "نحن هنا لمساعدتك" }
       ],
       contact: [
         { label: "مركز الاتصال", value: "920000507", href: "tel:920000507" },
@@ -207,11 +208,12 @@
       brand: "Real Estate Development Fund",
       brandSub: "Annual Report 2025",
       links: [
-        { href: "index.html", text: "Home", img: "family.jpg", caption: "Saudi families moving into new homes" },
-        // { href: "about.html",          text: "About",    img: "chairman.png", caption: "Letter from the Chairman" },
-        { href: "index.html#strategy", text: "Strategy", img: "villas.jpg", caption: "Four pillars · Vision 2030" },
-        { href: "index.html#impact", text: "Impact", img: "family.jpg", caption: "920,000+ families since 2017" },
-        { href: "contact.html", text: "Contact", img: "cto.png", caption: "We're here to help" }
+        { href: "index.html", text: "Home", img: "home.jpg", caption: "Families moving into their new homes" },
+        { href: "executive-summary.html", text: "Executive Summary", img: "summary.jpg", caption: "A comprehensive look at the year's achievements" },
+        { href: "introduction.html", text: "Introduction", img: "intro.jpg", caption: "A word on the Fund's journey" },
+        { href: "strategy.html", text: "Strategic Direction", img: "strategy.jpg", caption: "Four Pillars · Vision 2030" },
+        { href: "performance-summary.html", text: "Performance Summary", img: "performance.jpg", caption: "Over 920,000 families since 2017" },
+        { href: "contact.html", text: "Contact Us", img: "contact.jpg", caption: "We're here to help you" }
       ],
       contact: [
         { label: "Contact Center", value: "920000507", href: "tel:920000507" },
