@@ -700,10 +700,10 @@ select {
 } */
 
 @media (max-width: 420px) {
-  .nav__brand {
+  /* .nav__brand {
     width: 52px;
     height: 52px;
-  }
+  } */
 
   .nav {
     gap: var(--s-3);
@@ -1153,7 +1153,7 @@ html.lenis body {
 .c-hero__desc span a {
   font-weight: 400;
   font-size: 15px;
-  line-height: 40px;
+  /* line-height: 40px; */
   letter-spacing: 0px;
   color: #fff;
 }
@@ -1187,6 +1187,10 @@ html.lenis body {
   transition: color 0.3s ease;
 }
 
+.c-hero__desc a:hover {
+  text-decoration: underline;
+}
+
 .c-hero__breadcrumb-link:hover {
   color: #fff;
   text-decoration: underline;
@@ -1201,11 +1205,52 @@ html.lenis body {
   padding-bottom: 0 !important;
 }
 
+.c-hero__boxes {
+  display: flex;
+  gap: 16px;
+  max-width: 672px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.c-hero__boxes>div {
+  padding: 16px;
+  box-shadow: 0px 4px 16px 0px rgba(31, 71, 70, 0.04);
+  box-shadow: 0px 1px 2px 0px rgba(31, 71, 70, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(220, 229, 229, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.c-hero__boxes>div p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #5E7278;
+}
+
+.c-hero__boxes>div h4 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #008A85;
+}
+
 /* --- الشاشات المتوسطة (Tablets - 1024px) --- */
 @media (max-width: 1024px) {
   .c-hero {
     /* height: auto; */
     height: 450px;
+  }
+
+  .c-hero-perform {
+    height: auto;
   }
 
   .c-hero__title {
@@ -1225,11 +1270,14 @@ html.lenis body {
 /* --- الشاشات الصغيرة (Mobile Landscape - 768px) --- */
 @media (max-width: 768px) {
   .c-hero {
-    min-height: 400px;
+    height: auto;
+    display: flex;
+    align-items: center;
   }
 
   .c-hero__content {
     padding: 3rem 1rem;
+
     /* زيادة البادينج الجانبي */
     /* justify-content: flex-end; */
     /* دفع المحتوى للأسفل قليلاً لجمالية التصميم */
@@ -1249,12 +1297,21 @@ html.lenis body {
   .c-hero__breadcrumb-list {
     margin-bottom: 0.5rem;
   }
+
+  .c-hero__boxes {
+    flex-wrap: wrap;
+  }
+
+  .c-hero__boxes>div {
+    flex: unset;
+    width: calc(50% - 16px);
+  }
 }
 
 @media (max-width: 480px) {
-  .c-hero {
-    height: 380px;
-  }
+  /* .c-hero {
+    height: 500px;
+  } */
 
   .c-hero__title {
     font-size: 32px;
@@ -1307,6 +1364,12 @@ html.lenis body {
 .action-box:first-child a,
 .action-box:nth-child(2) a {
   border: none;
+}
+
+@media (max-width: 880px) {
+  .actions-box {
+    display: none;
+  }
 }
 
 /* last-sec */
@@ -1496,4 +1559,11 @@ html.lenis body {
     /* زيادة السمك قليلاً للوضوح على الشاشات الصغيرة */
     margin-bottom: 24px;
   }
+}
+
+/* common */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }

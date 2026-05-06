@@ -193,6 +193,7 @@
         { href: "introduction.html", text: "المقدمة", img: "intro.jpg", caption: "كلمة عن مسيرة الصندوق" },
         { href: "strategy.html", text: "التوجه الاستراتيجي", img: "strategy.jpg", caption: "أربع ركائز · رؤية 2030" },
         { href: "performance-summary.html", text: "موجز الأداء", img: "performance.jpg", caption: "أكثر من 920,000 أسرة منذ 2017" },
+        { href: "conclusion.html", text: "الخاتمة", img: "hero-about.webp", caption: "خلاصة عام 2025م" },
         { href: "contact.html", text: "تواصل معنا", img: "contact.jpg", caption: "نحن هنا لمساعدتك" }
       ],
       contact: [
@@ -213,6 +214,7 @@
         { href: "introduction.html", text: "Introduction", img: "intro.jpg", caption: "A word on the Fund's journey" },
         { href: "strategy.html", text: "Strategic Direction", img: "strategy.jpg", caption: "Four Pillars · Vision 2030" },
         { href: "performance-summary.html", text: "Performance Summary", img: "performance.jpg", caption: "Over 920,000 families since 2017" },
+        { href: "conclusion.html", text: "Conclusion", img: "hero-about.webp", caption: "A look back at 2025" },
         { href: "contact.html", text: "Contact Us", img: "contact.jpg", caption: "We're here to help you" }
       ],
       contact: [
