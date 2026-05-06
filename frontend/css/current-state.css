@@ -776,7 +776,6 @@
 }
 
 .row-2 .t-col {
-    font-family: Cairo;
     font-weight: 700;
     letter-spacing: 0px;
     color: #777A7A;
@@ -787,4 +786,168 @@
     font-weight: 700;
     letter-spacing: 0px;
     color: #777A7A;
+}
+
+/* --- إضافات للتجاوب الكامل (Full Responsive) --- */
+@media (max-width: 980px) {
+    .budget-content__wrap {
+        flex-direction: column;
+        /* تحويل سكشن الميزانية لرأسي */
+    }
+
+    .budget-info {
+        width: 100%;
+        /* الميزانية تأخذ العرض كامل */
+    }
+
+    .org-wrap {
+        flex-direction: column;
+        /* الهيكل التنظيمي */
+    }
+
+    .org-aside {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* تحسين الـ Banner */
+    .banner-sec {
+        padding: 24px;
+        gap: 20px;
+    }
+
+    /* تحسين صناديق المستخدمين */
+    .users-boxes {
+        flex-direction: column;
+    }
+
+    .user-box {
+        height: auto;
+        gap: 16px;
+    }
+
+    /* تحسين سكشن الـ Gain (الإيرادات) */
+    .gain-sec .budget-content__wrap {
+        flex-direction: column;
+    }
+
+    .gain-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .gain-box .left,
+    .gain-box .right {
+        align-items: center;
+    }
+
+    /* الجداول في الموبايل */
+    .table-col .head {
+        height: 80px;
+        /* تقليل الارتفاع */
+        font-size: 9px;
+    }
+
+    .table-col .t-body {
+        font-size: 16px;
+    }
+
+    /* الهيكل التنظيمي في الموبايل */
+    .org-chart {
+        padding: 20px;
+        overflow-x: auto;
+        /* السماح بالتمرير الأفقي للهيكل إذا كان كبيراً */
+    }
+
+    /* تعديل أحجام الخطوط الكبيرة */
+    .org-sec-title_title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .user-content .precent {
+        font-size: 32px;
+        line-height: 32px;
+    }
+}
+
+/* التجاوب للهيكل التنظيمي */
+@media (max-width: 1024px) {
+    .org-wrap {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+
+    .org-aside {
+        width: 100%;
+        /* الجانب يأخذ العرض كامل في التابلت والموبايل */
+    }
+
+    .org-chart {
+        padding: 24px;
+        /* تقليل الحشوة الداخلية */
+        overflow-x: auto;
+        /* السماح بالتمرير الأفقي إذا ظل الهيكل عريضاً */
+    }
+}
+
+@media (max-width: 768px) {
+
+    .crr-aside__list {
+        flex-wrap: wrap;
+    }
+
+    .crr-aside__list-item {
+        flex: 0 0 calc((100% - (12px * 2)) / 3);
+
+        max-width: calc((100% - (12px * 2)) / 3);
+    }
+
+    /* تحويل الهيكل من أفقي إلى رأسي تماماً */
+    .org-chart__level-2,
+    .org-chart__level-3 {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    /* إخفاء الخطوط الواصلة المعقدة في الموبايل لأنها ستتشوه */
+    .chart-divider,
+    .level-arrow,
+    .divider-line-hr,
+    .level-arrow-hr {
+        display: none !important;
+    }
+
+    /* إضافة خط بسيط رأسي بديل في الموبايل */
+    .org-chart__level-1,
+    .org-chart__level-2 {
+        margin-bottom: 40px;
+    }
+
+    .main-level-box::after {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        width: 2px;
+        height: 40px;
+        background: linear-gradient(180deg, #008A85 0%, transparent 100%);
+    }
+
+    /* إلغاء الخط لآخر عنصر */
+    .org-chart__level-3 .sub-level-box:last-child::after {
+        display: none;
+    }
+
+    .org-chart__level-2 .main-level-box,
+    .sub-level-box {
+        width: 100%;
+        max-width: 300px;
+        min-width: unset;
+    }
 }

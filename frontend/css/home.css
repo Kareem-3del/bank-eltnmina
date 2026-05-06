@@ -945,7 +945,7 @@
    inner translate slides in from below without disturbing layout. */
 .split-word {
   display: inline-block;
-  overflow: hidden;
+  /* overflow: hidden; */
   vertical-align: bottom;
   line-height: inherit;
 }
@@ -1018,7 +1018,7 @@
 .hero-counter .counter-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 1;
   height: 88px;
   padding: 1rem;
@@ -1460,7 +1460,7 @@
 }
 
 .kpi-card__unit {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-lg);
   font-weight: var(--fw-semi);
   letter-spacing: 0.06em;
   color: var(--c-on-surface-variant);
@@ -1663,6 +1663,7 @@
   .boss-img {
     height: 300px;
   }
+
   .boss-img img {
     object-position: top center;
   }
@@ -1845,6 +1846,7 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
   .strategy-info .strategy-content {
     order: 1;
   }
+
   .strategy-info .strategy-image {
     order: 2;
   }

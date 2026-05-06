@@ -1187,6 +1187,10 @@ html.lenis body {
   transition: color 0.3s ease;
 }
 
+.c-hero__desc a:hover {
+  text-decoration: underline;
+}
+
 .c-hero__breadcrumb-link:hover {
   color: #fff;
   text-decoration: underline;

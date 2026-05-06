@@ -269,22 +269,22 @@
 }
 
 .h-1-sec-1::before {
-    content: "01";
+    content: "02";
 }
 
 .h-1-sec-2::before {
-    content: "02";
+    content: "03";
     top: -50px;
 }
 
 
 .h-1-sec-3::before {
-    content: "03";
+    content: "04";
 }
 
 
 .h-1-sec-4::before {
-    content: "04";
+    content: "05";
     top: -50px;
 }
 

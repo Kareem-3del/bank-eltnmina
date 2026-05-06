@@ -126,7 +126,7 @@
     background: rgba(255, 255, 255, 0.8);
     display: flex;
     /* align-items: center; */
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     border: 1px solid #E2E8F0;
     gap: 10px
@@ -430,6 +430,11 @@
     border-radius: 50%;
     background: #00948F;
     filter: blur(64px)
+}
+
+[dir="ltr"] .vision-right::before {
+    right: -40px;
+    left: auto;
 }
 
 .vision-box {
