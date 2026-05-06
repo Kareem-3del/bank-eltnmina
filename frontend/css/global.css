@@ -1366,6 +1366,12 @@ html.lenis body {
   border: none;
 }
 
+@media (max-width: 880px) {
+  .actions-box {
+    display: none;
+  }
+}
+
 /* last-sec */
 .last-sec__wrapper {
   position: relative;

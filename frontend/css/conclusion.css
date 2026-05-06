@@ -270,7 +270,7 @@
     }
 
     .conc-ahead__icon {
-        max-width: 280px;
+        max-width: 240px;
         margin: 0 auto;
     }
 
@@ -285,18 +285,43 @@
 }
 
 @media (max-width: 600px) {
-    .conc-article__head {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+    .conc-article__body {
+        padding: 24px 16px;
+        gap: 20px;
     }
 
-    .conc-article__tab {
-        align-self: flex-start;
+    .conc-article__body p,
+    .conc-ahead__text p {
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    .conc-article__body .conc-callout {
+        padding: 18px;
+        gap: 14px;
+    }
+
+    .conc-ahead__icon {
+        max-width: 200px;
+    }
+
+    .conc-cta__card {
+        padding: 40px 20px;
+    }
+
+    .conc-cta__title {
+        font-size: 22px;
+        line-height: 36px;
+    }
+
+    .conc-cta__sub {
+        font-size: 14px;
+        line-height: 24px;
     }
 
     .conc-cta__actions {
         flex-direction: column;
+        gap: 12px;
     }
 
     .conc-cta__actions .btn {
