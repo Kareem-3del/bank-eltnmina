@@ -1,0 +1,83 @@
+/* ==========================================================================
+   executive-summary-en.css — English (LTR) overrides
+   ==========================================================================
+   This page reuses the same section structure and base styles from
+   `css/executive-summary.css` (built for the Arabic version), while flipping
+   direction/alignment where needed for English.
+*/
+
+.es-page--en {
+  direction: ltr;
+}
+
+.es-page--en .es-hero,
+.es-page--en .es-section,
+.es-page--en .es-intro-card,
+.es-page--en .es-monthly,
+.es-page--en .es-dev,
+.es-page--en .es-services {
+  direction: ltr;
+}
+
+.es-page--en .es-intro-card p,
+.es-page--en .es-monthly__desc,
+.es-page--en .es-dev__desc,
+.es-page--en .es-services__desc,
+.es-page--en .es-channel-card__kpi-label {
+  text-align: left;
+}
+
+.es-page--en .es-monthly__title,
+.es-page--en .es-dev__title,
+.es-page--en .es-services__title,
+.es-page--en .es-services__subtitle {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.es-page--en .es-services__kpi,
+.es-page--en .es-channel-card__kpi {
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* Ensure Latin numerals keep their formatting (e.g., 52.7, 613.6). */
+.es-page--en .es-num {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* In English, percent comes after number (e.g. 86%). */
+.es-page--en .es-percent-card strong {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Flip the % marker from prefix to suffix for EN. */
+.es-page--en .es-percent-card strong[data-pct]::before,
+.es-page--en .es-digital-card__pct[data-pct]::before {
+  content: none;
+}
+
+.es-page--en .es-percent-card strong[data-pct]::after,
+.es-page--en .es-digital-card__pct[data-pct]::after {
+  content: "%";
+}
+
+/* Breadcrumb aligns left in LTR. */
+.es-page--en .c-hero__breadcrumb {
+  justify-content: flex-start;
+}
+
+/* Title rule image should not be mirrored in LTR contexts. */
+.es-page--en img {
+  transform: none !important;
+}
+
+@media (max-width: 640px) {
+  .es-page--en .es-financing-banner__num {
+    padding-inline: 6px;
+  }
+}
+

@@ -1,68 +1,1677 @@
-/* intro-sec */
-.intro-sec .container {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+/* ==========================================================================
+   executive-summary.css — Arabic executive summary page
+   ========================================================================== */
+
+:root {
+  --es-teal: #00948f;
+  --es-teal-dark: #006c67;
+  --es-teal-soft: #e4f3f1;
+  --es-mint: #b9ded9;
+  --es-ink: #18302f;
+  --es-muted: #58706d;
+  --es-line: rgba(0, 148, 143, 0.22);
+  --es-shadow: 0 18px 46px -32px rgba(13, 78, 73, 0.45);
 }
 
-.intro-top {
-    display: flex;
-    gap: 24px;
+.executive-summary {
+  background: #ffffff;
+  color: var(--es-ink);
 }
 
-.intro-top>div {
-    background: #FFF;
-    border: 1px solid #DAE7E6;
-    box-shadow: 0px 8px 30px -10px rgba(1, 147, 142, 0.18);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    padding: 40px;
+/* Hero: no desc under title — drop extra title margin from global .c-hero__title */
+.executive-summary .c-hero__title {
+  margin-bottom: 0;
 }
 
-.intro-top h2 {
-    color: #01938E;
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 60px;
-    letter-spacing: 0px;
+.executive-summary + .site-footer {
+  margin-top: 0;
 }
 
-.intro-top p {
-    color: #6B7280;
-    font-weight: 400;
+.es-section {
+  padding-block: clamp(58px, 8vw, 112px);
+}
+
+.es-section.section--tight {
+  padding-block: clamp(40px, 6vw, 76px);
+}
+
+.es-section--soft {
+  background: linear-gradient(180deg, #eef7f5 0%, #ffffff 100%);
+}
+
+/* Tighter gap before «برامج الدعم السكني» (impact strip → next section) */
+#strategy-products.es-section {
+  padding-block: clamp(58px, 8vw, 112px) clamp(20px, 3vw, 36px);
+}
+
+#housing-support.es-section {
+  padding-block: clamp(20px, 3vw, 36px) clamp(34px, 6vw, 72px);
+}
+
+.es-section--tint {
+  background: #eef8f6;
+}
+
+.es-section--teal {
+  background: linear-gradient(135deg, #00948f 0%, #22a99e 100%);
+  color: #ffffff;
+}
+
+.es-section__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.es-title {
+  margin: 0;
+  color: var(--es-teal);
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+/* Figma: centered housing-support title (Cairo 800, 44/28, #01938E) */
+#housing-support .es-section__head {
+  justify-content: center;
+  text-align: center;
+}
+
+#housing-support .es-title {
+  display: block;
+  width: 100%;
+  margin-inline: auto;
+  margin-bottom: 10px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 44px;
+  /* Figma uses 28px line-height for a single line; in the browser the title
+     may wrap, so keep a safe readable line-height to avoid overlap. */
+  line-height: 1.15;
+  color: #01938e;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Desktop: let the title be full-bleed so it doesn't wrap due to container */
+@media (min-width: 1024px) {
+  #housing-support .es-section__head {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+  }
+
+  #housing-support .es-title {
+    max-width: none;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+}
+
+/* Decorative centered rule under housing-support title */
+#housing-support .es-title-rule {
+  display: block;
+  width: min(680px, 100%);
+  height: auto;
+  margin: 14px auto 22px;
+}
+
+.es-section__eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--es-teal);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.es-section--teal .es-section__eyebrow {
+  color: #ccf3ee;
+}
+
+.es-section--teal .es-title,
+.es-photo-band .es-title {
+  color: #ffffff;
+}
+
+.es-subtitle {
+  max-width: 680px;
+  margin: 12px 0 0;
+  color: var(--es-muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.es-section--teal .es-subtitle,
+.es-photo-band .es-subtitle {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.es-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.es-intro-card {
+  min-height: 220px;
+  padding: clamp(24px, 4vw, 42px);
+  background: #ffffff;
+  border: 1px solid var(--es-line);
+  box-shadow: var(--es-shadow);
+}
+
+.es-intro-card__label {
+  display: block;
+  padding-bottom: 0;
+  margin-bottom: 18px;
+  border-bottom: none;
+  color: var(--es-teal);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 800;
+}
+
+/* Short gradient rule under card titles (not full title width) */
+.es-intro-card__label::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--es-mint) 0%,
+    var(--es-teal) 45%,
+    var(--es-teal-dark) 100%
+  );
+}
+
+.es-intro-card p {
+  margin: 0;
+  color: var(--es-muted);
+  font-size: 17px;
+  line-height: 1.95;
+}
+
+.es-impact-strip {
+  margin-top: 34px;
+  text-align: center;
+}
+
+/* Figma: الأثر التراكمي — Cairo 600, 30/31, #6B7280, centered, ~540×57 */
+.es-impact-strip__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 540px;
+  min-height: 57px;
+  margin: 0 auto 18px;
+  padding: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 31px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* Figma Rectangle 18 ×2: 322×168, #01938E */
+.es-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 322px);
+  gap: 14px;
+  justify-content: center;
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* Figma: #01938E box + mint figure + white caption */
+.es-impact-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 322px;
+  height: 168px;
+  max-width: 100%;
+  padding: 12px 20px;
+  background: #01938e;
+  color: #ffffff;
+  text-align: center;
+}
+
+.es-impact-card__value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  flex-grow: 0;
+  width: 100%;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 28px;
+  text-align: center;
+  color: #7de5d6;
+}
+
+/* Western digits: LTR so 920,126 stays centered in RTL page */
+.es-impact-card__value--families {
+  flex-shrink: 0;
+  direction: ltr;
+}
+
+/* AR: number on the right, «مليار» on the left (RTL flex order) */
+.es-impact-card__value--finance {
+  flex-shrink: 0;
+  direction: rtl;
+}
+
+.es-impact-card__suffix {
+  font: inherit;
+  color: inherit;
+}
+
+.es-impact-card__label {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.es-impact-card__label--families,
+.es-impact-card__label--finance {
+  width: 100%;
+  max-width: 268px;
+  min-height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.es-stat-grid {
+  display: grid;
+  /* Figma Group 16: 2×2 on desktop */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 34px);
+  row-gap: clamp(44px, 6vw, 84px);
+  align-items: start;
+  max-width: 930px;
+  margin-inline: auto;
+}
+
+/* Figma-style KPI item (icon + faded big number + two lines) */
+.es-item {
+  min-width: 0;
+  display: grid;
+  /* Reduce perceived whitespace by narrowing icon column + aligning text
+     to the column start (not centered). */
+  grid-template-columns: 86px 1fr;
+  column-gap: 6px;
+  align-items: center;
+  justify-items: start;
+}
+
+.es-item__icon {
+  display: block;
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  margin: 0;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: center;
+  justify-self: center;
+}
+
+.es-item__value {
+  width: 100%;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 75px;
+  line-height: 31px; /* single-line figure */
+  /* Keep Western digits LTR, but align the number to the RTL start edge */
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: right;
+  color: rgba(1, 147, 142, 0.3);
+  margin: 0 0 20px;
+  grid-column: 2;
+}
+
+.es-item__unit {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 31px;
+  color: #6b7280;
+  margin: 0 0 6px;
+  grid-column: 2;
+  text-align: start;
+}
+
+.es-item__desc {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  color: #6b7280;
+  margin: 0;
+  grid-column: 2;
+  text-align: start;
+}
+
+@media (max-width: 540px) {
+  /* On very small screens stack icon above text */
+  .es-item {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+
+  .es-item__icon {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+.es-financing-banner {
+  margin-top: 0;
+  /* Keep the gap to the monthly-support section tight */
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+  background: #e8f5f3;
+  border-block: 1px solid rgba(1, 147, 142, 0.16);
+  padding-block: clamp(26px, 3.5vw, 44px);
+}
+
+.es-financing-banner__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(16px, 3vw, 44px);
+  padding-block: clamp(26px, 4vw, 44px);
+  /* use the normal container padding only */
+  padding-inline: 0;
+}
+
+.es-financing-banner__title {
+  max-width: 734px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 61px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: #01938e;
+}
+
+.es-financing-banner__figure {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.es-financing-banner__num {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 146px;
+  line-height: 1;
+  color: #6b7280;
+}
+
+.es-financing-banner__unit {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 31px;
+  color: #159690;
+  display: flex;
+  align-items: center;
+}
+
+.es-financing-banner__riyal {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  color: #159690;
+  transform: translateY(6px);
+}
+
+.es-support-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.7fr);
+  align-items: center;
+  gap: 24px;
+  width: min(760px, 100%);
+  margin-inline: auto;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid var(--es-line);
+  background: #ffffff;
+  box-shadow: var(--es-shadow);
+}
+
+.es-support-card__label {
+  color: var(--es-teal);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+}
+
+.es-support-card__value {
+  color: #8acbc3;
+  font-size: clamp(52px, 8vw, 86px);
+  line-height: 1;
+  font-family: "Almarai", sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Monthly support (Figma: half number, half bordered box) */
+.es-monthly {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(18px, 4vw, 44px);
+  width: 100%;
+  padding-inline: clamp(12px, 2vw, 24px);
+}
+
+@media (max-width: 820px) {
+  .es-monthly {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 18px;
+  }
+}
+
+.es-monthly__pct {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.es-monthly__pct-inner {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 167px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #8dcfc5;
+  letter-spacing: -0.02em;
+}
+
+.es-monthly__box {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(229, 233, 231, 0.9);
+  box-shadow: 0px 20px 60px -25px rgba(0, 0, 0, 0.18);
+  padding: clamp(20px, 3vw, 34px);
+  text-align: right;
+}
+
+.es-monthly__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: right;
+  color: #01938e;
+}
+
+.es-monthly__rule {
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 12px 0 16px;
+  background: linear-gradient(
+    90deg,
+    var(--es-mint) 0%,
+    var(--es-teal) 45%,
+    var(--es-teal-dark) 100%
+  );
+}
+
+.es-monthly__desc {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  max-width: 534px;
+  text-align: right;
+  color: #6b7280;
+}
+
+/* Tighten spacing around monthly-support section */
+#monthly-support.es-section.section--tight {
+  padding-block: clamp(16px, 2.5vw, 24px);
+}
+
+/* Match the same vertical spacing after monthly-support (before services) */
+#services.es-section {
+  /* keep section padding, add external spacing */
+  padding-top: unset;
+  margin-top: clamp(22px, 3vw, 40px);
+}
+
+.es-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 4vw, 42px);
+}
+
+/* Services section — matches Figma green gradient block */
+.es-services {
+  background: linear-gradient(107.41deg, #42b7b0 0%, #019591 81.73%, #019591 100%);
+  color: #ffffff;
+  padding-block: clamp(44px, 6vw, 84px);
+}
+
+.es-services__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 46px);
+}
+
+.es-services__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 12px;
+  width: 100%;
+}
+
+.es-services__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 69px;
+  line-height: 1.05;
+  color: #ffffff;
+  width: 100%;
+  text-align: right;
+}
+
+.es-services__sub {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.25;
+  color: #ffffff;
+  width: 100%;
+  text-align: right;
+}
+
+.es-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 4vw, 54px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .es-services__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.es-services__item {
+  text-align: right;
+}
+
+.es-services__value {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 73px;
+  line-height: 1;
+  color: #8dcfc5;
+}
+
+.es-services__unit {
+  margin-top: 10px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.es-services__desc {
+  margin: 14px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 52px;
+  color: #ffffff;
+  /* Browsers justify by stretching spaces; avoid that entirely for Arabic. */
+  text-align: right;
+  text-justify: auto;
+  word-spacing: normal;
+  letter-spacing: normal;
+  /* Produce a more “Figma-like” rag without space stretching. */
+  text-wrap: balance;
+  hyphens: none;
+}
+
+/* Developer support section (matches screenshot) */
+.es-dev {
+  padding-block: clamp(44px, 6vw, 84px);
+  background: #ffffff;
+}
+
+.es-dev__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 4vw, 38px);
+}
+
+.es-dev__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 10px;
+  width: 100%;
+}
+
+.es-dev__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1.05;
+  color: #01938e;
+  width: 100%;
+  text-align: right;
+}
+
+.es-dev__sub {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #01938e;
+  width: 100%;
+  text-align: right;
+}
+
+.es-dev__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 4vw, 54px);
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .es-dev__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.es-dev__item {
+  text-align: right;
+}
+
+.es-dev__value {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 73px;
+  line-height: 1;
+  color: #8dcfc5;
+}
+
+.es-dev__unit {
+  margin-top: 10px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1;
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.es-dev__riyal {
+  width: 28px;
+  height: 28px;
+  color: #01938e;
+  transform: translateY(2px);
+}
+
+.es-dev__desc {
+  margin: 14px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 52px;
+  color: #6b7280;
+  text-align: right;
+  text-wrap: balance;
+}
+
+.es-advisor {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(20px, 5vw, 58px);
+}
+
+.es-advisor__stat {
+  text-align: center;
+}
+
+.es-advisor__stat strong {
+  display: block;
+  color: #d4f3ee;
+  font-size: clamp(36px, 6vw, 66px);
+  line-height: 1;
+  font-family: "Almarai", sans-serif;
+  font-weight: 800;
+}
+
+/* Advisor section (matches screenshot with boxed title + two stats) */
+.es-advisor2 {
+  background: linear-gradient(107.41deg, #42b7b0 0%, #019591 81.73%, #019591 100%);
+  color: #ffffff;
+  padding-block: clamp(44px, 6vw, 84px);
+  position: relative;
+  overflow: hidden;
+}
+
+.es-advisor2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.10), transparent 45%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.08), transparent 50%);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.es-advisor2__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(22px, 4vw, 40px);
+  direction: rtl;
+}
+
+.es-advisor2__head {
+  display: flex;
+  /* In RTL, start = right */
+  justify-content: flex-start;
+}
+
+.es-advisor2__titlebox {
+  border: 1px solid transparent;
+  padding: 0;
+  text-align: right;
+  max-width: 720px;
+  background: transparent;
+}
+
+.es-advisor2__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 69px;
+  line-height: 73px;
+  color: #ffffff;
+}
+
+.es-advisor2__range {
+  margin-top: 6px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.es-advisor2__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(18px, 4vw, 56px);
+  justify-content: start;
+  align-items: start;
+  max-width: 920px;
+  /* In RTL, inline-end is the left side; auto there pushes to the right */
+  margin-inline-end: auto;
+}
+
+@media (max-width: 860px) {
+  .es-advisor2__stats {
+    grid-template-columns: 1fr;
+    margin-inline: 0;
+    max-width: none;
+  }
+}
+
+.es-advisor2__stat {
+  text-align: right;
+}
+
+.es-advisor2__value {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 1;
+  color: #8dcfc5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.es-advisor2__label {
+  margin-top: 10px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.es-advisor2__desc {
+  margin-top: 10px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 52px;
+  color: #ffffff;
+  text-align: right;
+}
+
+.es-advisor__stat span {
+  display: block;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.es-advisor__divider {
+  width: 1px;
+  height: 86px;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.es-channel-grid,
+.es-company-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 322px);
+  gap: 18px;
+  justify-content: center;
+}
+
+.es-channels-rule {
+  display: block;
+  width: min(680px, 100%);
+  height: auto;
+  margin: 48px auto 0;
+}
+
+.es-channel-card,
+.es-company-card {
+  width: 322px;
+  height: 168px;
+  padding: 10px 12px;
+  background: #01938e;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.es-channel-card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.es-channel-card__title {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 28px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+.es-channel-card__label {
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.es-channel-card strong,
+.es-company-card strong {
+  display: block;
+  color: #7de5d6;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.es-company-card span {
+  display: block;
+  margin-top: 12px;
+  color: #ffffff;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.es-percent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 378px);
+  gap: 18px;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Satisfaction title: gradient text (Figma) */
+.es-satisfaction__head {
+  justify-content: center;
+  text-align: center;
+}
+
+.es-satisfaction__head .es-title {
+  width: min(1102px, 100%);
+  margin-inline: auto;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 53px;
+  line-height: 81px;
+  text-align: center;
+  background: linear-gradient(180deg, #8dcfc5 50%, #01938e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
+}
+
+.es-percent-card {
+  width: 378px;
+  height: 253px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  background: #e8f5f3;
+  text-align: center;
+}
+
+.es-percent-card strong {
+  color: #01938e;
+  font-size: 100px;
+  /* Figma lists 36px, but browsers will clip at that value.
+     Use a safe line-height so the 100px glyph renders full-size. */
+  line-height: 1;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Figma: 218×130 centered block; render as %86 (percent then number) */
+  width: 218px;
+  height: 130px;
+  margin-inline: auto;
+  direction: ltr;
+}
+
+.es-percent-card strong[data-pct]::before {
+  content: "%";
+  margin: 0;
+}
+
+.es-percent-card strong > span {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font: inherit;
+}
+
+.es-percent-card > span {
+  margin-top: 18px;
+  color: #6b7280;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.75px;
+}
+
+/* Satisfaction section tweaks */
+#satisfaction.es-section {
+  /* Override global .es-section padding-block for this section */
+  padding-top: 0 !important;
+  /* Keep it tight before the digital section */
+  padding-bottom: clamp(10px, 2vw, 18px) !important;
+  margin-top: 0 !important;
+}
+
+/* Remove the default big top padding on the following section */
+#digital.es-section {
+  padding-top: clamp(22px, 3vw, 40px) !important;
+  padding-bottom: clamp(22px, 3vw, 40px) !important;
+}
+
+/* Reduce gap coming from the section before satisfaction */
+#channels.es-section.section--tight {
+  padding-bottom: 0 !important;
+  margin-bottom: 32px !important;
+}
+
+.es-channels-rule {
+  /* keep the rule but don't push the next section down too much */
+  margin-bottom: 0 !important;
+}
+
+.es-satisfaction__head {
+  margin-bottom: clamp(14px, 2.5vw, 24px);
+}
+
+.es-digital-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 755px);
+  gap: 18px;
+  justify-content: center;
+  background: transparent;
+}
+
+.es-digital-card {
+  width: 755px;
+  height: 253px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #e8f5f3;
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------------
+   Responsive overrides (mobile/tablet)
+   Keep desktop as designed; below breakpoints, switch to fluid layouts.
+   ----------------------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+  /* KPI cards: reduce excessive fixed widths */
+  .es-digital-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .es-digital-card {
+    width: 100%;
+  }
+
+  .es-percent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .es-percent-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Stack the big 2× cards */
+  .es-digital-grid,
+  .es-percent-grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .es-digital-card,
+  .es-percent-card {
+    width: 100%;
+    height: auto;
+    padding: 24px 18px;
+  }
+
+  /* Scale down very large headings in mobile */
+  .es-services__title {
+    font-size: clamp(34px, 6vw, 48px);
+    line-height: 1.15;
+  }
+
+  .es-services__sub {
+    font-size: clamp(18px, 3.4vw, 24px);
+    line-height: 1.35;
+  }
+
+  .es-dev__title {
+    font-size: clamp(34px, 6vw, 48px);
+    line-height: 1.15;
+  }
+
+  .es-dev__sub {
+    font-size: clamp(18px, 3.4vw, 24px);
+    line-height: 1.35;
+  }
+
+  .es-advisor2__title {
+    font-size: clamp(36px, 6vw, 52px);
+    line-height: 1.15;
+  }
+
+  .es-advisor2__range {
+    font-size: clamp(16px, 3vw, 22px);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Services/dev columns stack; keep spacing */
+  .es-services__grid,
+  .es-dev__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .es-services__value,
+  .es-dev__value {
+    font-size: clamp(42px, 10vw, 64px);
+  }
+
+  .es-services__unit,
+  .es-dev__unit {
+    font-size: clamp(22px, 5vw, 30px);
+  }
+
+  .es-services__desc,
+  .es-dev__desc {
+    font-size: clamp(16px, 3.8vw, 20px);
+    line-height: 1.7;
+  }
+
+  /* Monthly support: stack % and box */
+  .es-monthly {
+    grid-template-columns: 1fr;
+  }
+
+  .es-monthly__pct-inner {
+    font-size: clamp(72px, 16vw, 120px);
+  }
+
+  .es-monthly__title {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.25;
+  }
+
+  /* Financing banner: avoid overflow from 146px number */
+  .es-financing-banner__inner {
+    grid-template-columns: 1fr;
+    justify-items: end;
+    gap: 16px;
+  }
+
+  .es-financing-banner__title {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: 24px;
+    line-height: 34px;
+    padding-inline: 6px;
+  }
+
+  .es-financing-banner__figure {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .es-financing-banner__num {
+    flex: 1 1 100%;
+    text-align: right;
+    padding-inline: 6px;
+  }
+
+  .es-financing-banner__num {
+    font-size: clamp(64px, 18vw, 110px);
+  }
+
+  .es-financing-banner__unit {
+    font-size: clamp(26px, 7vw, 40px);
+    line-height: 1.1;
+  }
+
+  .es-financing-banner__riyal {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Channels cards: allow fluid width */
+  .es-channel-grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .es-channel-card {
+    width: 100%;
+    max-width: 322px;
+    margin-inline: auto;
+  }
+
+  /* Housing-support items: scale down for mobile */
+  .es-stat-grid {
+    row-gap: 28px;
+  }
+
+  .es-item {
+    grid-template-columns: 64px 1fr;
+    column-gap: 10px;
+  }
+
+  .es-item__icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .es-item__value {
+    font-size: clamp(44px, 12vw, 58px);
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+
+  .es-item__unit {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .es-item__desc {
     font-size: 18px;
-    line-height: 28px;
+    line-height: 1.35;
+  }
 }
 
-.intro-top .divider {
-    background: linear-gradient(270deg, #01938E 0%, rgba(1, 147, 142, 0) 100%);
-    width: 48px;
-    height: 2px;
-    border-radius: 16px;
+@media (max-width: 420px) {
+  /* Percent blocks: keep readable on small phones */
+  .es-percent-card strong {
+    font-size: 72px;
+  }
+
+  .es-percent-card strong {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Extra tightening for very small phones */
+  .es-item {
+    grid-template-columns: 56px 1fr;
+    column-gap: 8px;
+  }
+
+  .es-item__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .es-item__value {
+    font-size: 44px;
+  }
 }
 
-.intro-milddle h2 {
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 31px;
-    text-align: center;
-    color: #6B7280;
+/* Digital title: gradient text like satisfaction */
+.es-digital__head {
+  justify-content: center;
+  text-align: center;
+  margin-bottom: clamp(14px, 2.5vw, 24px);
 }
 
-.intro-middle__boxes {
-    display: flex;
-    gap: 12px;
+.es-digital__head .es-title {
+  width: min(1102px, 100%);
+  margin-inline: auto;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 53px;
+  line-height: 81px;
+  text-align: center;
+  background: linear-gradient(180deg, #8dcfc5 44.57%, #01938e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
 }
 
-.intro-middle__boxes>div {
-    flex: 1;
-    background: #01938E;
-    display: flex;
-    align-items: center;
+.es-digital-card__pct {
+  color: #01938e;
+  font-size: 100px;
+  line-height: 1;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  direction: ltr; /* render as %100 */
+}
+
+.es-digital-card__pct--wide {
+  width: 277px;
+  height: 130px;
+}
+
+.es-digital-card__pct--narrow {
+  width: 218px;
+  height: 130px;
+}
+
+.es-digital-card__pct[data-pct]::before {
+  content: "%";
+  margin: 0;
+}
+
+.es-digital-card__pct > span {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font: inherit;
+}
+
+.es-digital-card > span {
+  margin-top: 18px;
+  color: #6b7280;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.75px;
+  width: min(416px, 100%);
+}
+
+.es-photo-band {
+  min-height: clamp(260px, 34vw, 430px);
+  display: grid;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  isolation: isolate;
+}
+
+.es-photo-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 98, 91, 0.48), rgba(0, 148, 143, 0.92)),
+    var(--band-image, url("../assets/strategy.webp")) center / cover no-repeat;
+  z-index: -1;
+}
+
+.es-photo-band--financial {
+  --band-image: url("../assets/strategy.webp");
+}
+
+.es-photo-band--people {
+  --band-image: url("../assets/intro.webp");
+}
+
+.es-photo-band--subsidiaries {
+  --band-image: url("../assets/about.webp");
+}
+
+.es-photo-band .container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.es-photo-band__content {
+  width: min(520px, 100%);
+}
+
+.es-financial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr 1.25fr;
+  gap: 18px;
+}
+
+.es-panel {
+  background: #e3f2f0;
+  border: 1px solid rgba(0, 148, 143, 0.14);
+}
+
+.es-panel__head {
+  padding: 15px 20px;
+  background: rgba(0, 148, 143, 0.64);
+  color: #ffffff;
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.3;
+  font-weight: 800;
+  text-align: center;
+}
+
+.es-panel__body {
+  display: grid;
+  gap: 26px;
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.es-metric {
+  display: grid;
+  gap: 8px;
+  text-align: start;
+}
+
+.es-metric strong {
+  color: var(--es-teal);
+  font-family: "Almarai", sans-serif;
+  font-size: clamp(27px, 4vw, 40px);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.es-metric span {
+  color: var(--es-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.es-hr-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 18px;
+}
+
+.es-hr-metrics {
+  display: grid;
+  gap: 20px;
+}
+
+.es-hr-metric {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 18px;
+}
+
+.es-hr-metric strong {
+  color: var(--es-teal);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1;
+  font-family: "Almarai", sans-serif;
+}
+
+.es-company-card {
+  min-height: 250px;
+}
+
+.es-company-card__brand {
+  min-height: 60px;
+  margin-bottom: 28px;
+  color: var(--es-ink);
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.es-company-card__brand small {
+  display: block;
+  margin-top: 6px;
+  color: var(--es-muted);
+  font-size: 14px;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 600;
+}
+
+.es-company-card p {
+  margin: 20px 0 0;
+  color: var(--es-muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+@media (max-width: 1040px) {
+  .es-stat-grid,
+  .es-percent-grid {
+    grid-template-columns: repeat(2, 378px);
     justify-content: center;
-    padding: 16px;
-    min-height: 168px;
+  }
+
+  .es-digital-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .es-financial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .es-section__head,
+  .es-financing-banner__inner {
+    display: block;
+  }
+
+  .es-financing-banner__title {
+    max-width: none;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .es-financing-banner__figure {
+    justify-content: center;
+  }
+
+  .es-intro-grid,
+  .es-service-grid,
+  .es-channel-grid,
+  .es-company-grid,
+  .es-digital-grid,
+  .es-hr-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .es-impact-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .es-advisor {
+    grid-template-columns: 1fr;
+  }
+
+  .es-advisor__divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .es-support-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .es-section {
+    padding-block: 48px;
+  }
+
+  .es-stat-grid,
+  .es-percent-grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .es-digital-card {
+    width: 100%;
+  }
+
+  .es-percent-card,
+  .es-digital-card {
+    min-height: 150px;
+  }
+
+  .es-hr-metric {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
