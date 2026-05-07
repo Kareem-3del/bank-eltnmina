@@ -135,18 +135,10 @@
   color: #ffffff;
 }
 
-[dir="rtl"] .oe-panel__item {
+[dir="rtl"] .oe-panel--impact .oe-panel__item {
   text-align: justify;
-  text-align-last: justify;
+  text-align-last: right;
   text-justify: inter-word;
-}
-
-[dir="rtl"] .oe-panel__item::after {
-  content: "";
-  display: inline-block;
-  width: 100%;
-  font-size: 0;
-  line-height: 0;
 }
 
 [dir="ltr"] .oe-panel__item {
