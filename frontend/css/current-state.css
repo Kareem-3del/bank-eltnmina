@@ -9,6 +9,14 @@
     width: var(--box-width);
 }
 
+.es-financing-banner__riyal {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transform: translateY(6px);
+    display: inline;
+}
+
 /* common */
 .org-sec-title,
 .org-wrap {
