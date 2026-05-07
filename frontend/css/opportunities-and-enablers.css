@@ -135,11 +135,25 @@
   color: #ffffff;
 }
 
+[dir="rtl"] .oe-panel__item {
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-word;
+}
+
+[dir="rtl"] .oe-panel__item::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  font-size: 0;
+  line-height: 0;
+}
+
 [dir="ltr"] .oe-panel__item {
-  padding-inline-start: 0;
-  padding-inline-end: 16px;
-  border-inline-start: 0;
-  border-inline-end: 1.06667px solid rgba(255, 255, 255, 0.7);
+  padding-inline-start: 16px;
+  padding-inline-end: 0;
+  border-inline-end: 0;
+  border-inline-start: 1.06667px solid rgba(255, 255, 255, 0.7);
   text-align: left;
 }
 
@@ -149,7 +163,7 @@
 }
 
 [dir="ltr"] .oe-panel__item--muted {
-  border-inline-end-color: #6b7280;
+  border-inline-start-color: #6b7280;
 }
 
 /* Opportunity (teal block) */
