@@ -188,13 +188,17 @@
       brand: "صندوق التنمية العقارية",
       brandSub: "التقرير السنوي 2025",
       links: [
-        { href: "index.html", text: "الرئيسية", img: "home.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
-        { href: "executive-summary.html", text: "الملخص التنفيذي", img: "summary.jpg", caption: "نظرة شاملة على إنجازات العام" },
-        { href: "introduction.html", text: "المقدمة", img: "intro.jpg", caption: "كلمة عن مسيرة الصندوق" },
-        { href: "strategy.html", text: "التوجه الاستراتيجي", img: "strategy.jpg", caption: "أربع ركائز · رؤية 2030" },
-        { href: "performance-summary.html", text: "موجز الأداء", img: "performance.jpg", caption: "أكثر من 920,000 أسرة منذ 2017" },
+        { href: "index.html", text: "الرئيسية", img: "family.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
+        { href: "ceos-message.html", text: "كلمة الرئيس التنفيذي", img: "chairman.webp", caption: "رسالة من الرئيس التنفيذي" },
+        { href: "introduction.html", text: "المقدمة", img: "intro.webp", caption: "كلمة عن مسيرة الصندوق" },
+        { href: "executive-summary.html", text: "الملخص التنفيذي", img: "executive-summary.webp", caption: "نظرة شاملة على إنجازات العام" },
+        { href: "fund-role.html", text: "دور الصندوق", img: "about.webp", caption: "دور الصندوق في منظومة الإسكان" },
+        { href: "current-state.html", text: "الوضع الراهن", img: "current-state-hero.webp", caption: "الوضع الحالي لقطاع الإسكان" },
+        { href: "strategy.html", text: "التوجه الاستراتيجي", img: "strategy.webp", caption: "أربع ركائز · رؤية 2030" },
+        { href: "performance-summary.html", text: "موجز الأداء", img: "performance-summary.webp", caption: "أكثر من 920,000 أسرة منذ 2017" },
+        { href: "challenges-and-support.html", text: "التحديات والدعم", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
         { href: "conclusion.html", text: "الخاتمة", img: "hero-about.webp", caption: "خلاصة عام 2025م" },
-        { href: "contact.html", text: "تواصل معنا", img: "contact.jpg", caption: "نحن هنا لمساعدتك" }
+        { href: "contact.html", text: "تواصل معنا", img: "cto.webp", caption: "نحن هنا لمساعدتك" }
       ],
       contact: [
         { label: "مركز الاتصال", value: "920000507", href: "tel:920000507" },
@@ -209,13 +213,17 @@
       brand: "Real Estate Development Fund",
       brandSub: "Annual Report 2025",
       links: [
-        { href: "index.html", text: "Home", img: "home.jpg", caption: "Families moving into their new homes" },
-        { href: "executive-summary.html", text: "Executive Summary", img: "summary.jpg", caption: "A comprehensive look at the year's achievements" },
-        { href: "introduction.html", text: "Introduction", img: "intro.jpg", caption: "A word on the Fund's journey" },
-        { href: "strategy.html", text: "Strategic Direction", img: "strategy.jpg", caption: "Four Pillars · Vision 2030" },
-        { href: "performance-summary.html", text: "Performance Summary", img: "performance.jpg", caption: "Over 920,000 families since 2017" },
+        { href: "index.html", text: "Home", img: "family.jpg", caption: "Families moving into their new homes" },
+        { href: "ceos-message.html", text: "CEO's Message", img: "chairman.webp", caption: "A message from the CEO" },
+        { href: "introduction.html", text: "Introduction", img: "intro.webp", caption: "A word on the Fund's journey" },
+        { href: "executive-summary.html", text: "Executive Summary", img: "executive-summary.webp", caption: "A comprehensive look at the year's achievements" },
+        { href: "fund-role.html", text: "Fund Role", img: "about.webp", caption: "REDF's role in the housing ecosystem" },
+        { href: "current-state.html", text: "Current State", img: "current-state-hero.webp", caption: "Today's housing landscape" },
+        { href: "strategy.html", text: "Strategic Direction", img: "strategy.webp", caption: "Four Pillars · Vision 2030" },
+        { href: "performance-summary.html", text: "Performance Summary", img: "performance-summary.webp", caption: "Over 920,000 families since 2017" },
+        { href: "challenges-and-support.html", text: "Challenges & Support", img: "challenges-hero.webp", caption: "Challenges and the support offered" },
         { href: "conclusion.html", text: "Conclusion", img: "hero-about.webp", caption: "A look back at 2025" },
-        { href: "contact.html", text: "Contact Us", img: "contact.jpg", caption: "We're here to help you" }
+        { href: "contact.html", text: "Contact Us", img: "cto.webp", caption: "We're here to help you" }
       ],
       contact: [
         { label: "Contact Center", value: "920000507", href: "tel:920000507" },

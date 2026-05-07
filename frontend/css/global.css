@@ -1366,9 +1366,54 @@ html.lenis body {
   border: none;
 }
 
+.actions-box .action-box__link {
+  color: rgba(5, 142, 138, 1);
+}
+
+.actions-box .action-box__link:hover {
+  background-color: rgba(5, 142, 138, 1);
+  color: #fff;
+}
+
+.actions-box .action-box__link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.actions-box .action-box__link.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 @media (max-width: 880px) {
   .actions-box {
-    display: none;
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 8px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(5, 142, 138, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(6px);
+  }
+
+  [dir="ltr"] .actions-box {
+    right: auto;
+    left: 50%;
+  }
+
+  .actions-box a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .actions-box .action-box__link svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
