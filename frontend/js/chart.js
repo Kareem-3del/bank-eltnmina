@@ -56,7 +56,7 @@ const alwaysShowStateValues = {
     afterDatasetsDraw(chart) {
         const { ctx } = chart;
         ctx.save();
-        ctx.font = 'bold 10px Segoe UI, Arial';
+        ctx.font = windowWidth < 767 ? 'bold 10px Segoe UI, Arial' : 'bold 10px Segoe UI, Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle'; // غيرناها لـ middle عشان التوسيط جوه الـ Box
 
@@ -68,9 +68,9 @@ const alwaysShowStateValues = {
 
                 // 1. حساب أبعاد النص عشان نحدد حجم الـ Box
                 const textWidth = ctx.measureText(value).width;
-                const padding = 6;
+                const padding = windowWidth < 767 ? 5 : 6;
                 const boxWidth = textWidth + padding * 2;
-                const boxHeight = 18; // ارتفاع ثابت للـ Box
+                const boxHeight = windowWidth < 767 ? 16 : 18; // ارتفاع ثابت للـ Box
 
                 // 2. تحديد مكان الـ Box (فوق العمود بمسافة 10px)
                 const x = bar.x;
@@ -213,7 +213,7 @@ function createStateChart(target, actual, id) {
                     data: target,
                     backgroundColor: '#008A85',
                     barPercentage: 0.3,
-                    categoryPercentage: 0.8,
+                    categoryPercentage: windowWidth < 767 ? 0.97 : 0.8,
                     order: 1,
                 },
                 {
@@ -221,7 +221,7 @@ function createStateChart(target, actual, id) {
                     data: actual,
                     backgroundColor: '#C3E0DF',
                     barPercentage: 0.3,
-                    categoryPercentage: 0.8,
+                    categoryPercentage: windowWidth < 767 ? 0.97 : 0.8,
                     order: 2,
                 }
             ]
@@ -253,7 +253,7 @@ function createStateChart(target, actual, id) {
                     grid: { display: false },
                     border: { display: false },
                     ticks: {
-                        font: { size: 14 },
+                        font: { size: windowWidth < 767 ? 10 : 14 },
                         color: '#061415',
                         autoSkip: false
                     }
