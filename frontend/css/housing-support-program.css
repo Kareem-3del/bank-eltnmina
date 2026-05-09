@@ -301,7 +301,7 @@
     grid-template-columns: repeat(16, 1fr);
     font-family: Cairo;
     font-weight: 700;
-    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
     line-height: 1.5;
     letter-spacing: 0px;
     border-bottom: 0.8px solid #E2E9E9
@@ -324,7 +324,6 @@
 
 .support-table .t-row>div:nth-child(2) {
     grid-column: span 9;
-    text-align: right;
 }
 
 .support-table .t-row>div:nth-child(3),
@@ -382,7 +381,7 @@
 }
 
 .support-table p {
-    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
     line-height: 1.5;
     line-height: 19.5px;
     letter-spacing: 0px;
@@ -401,8 +400,8 @@
     line-height: 16px;
     letter-spacing: 0px;
     color: #1D7C79;
-    width: 80px;
-    height: 36px;
+    width: 120px;
+    height: 40px;
 }
 
 .support-table .state.not-support {
@@ -494,6 +493,10 @@
         gap: 1rem;
     }
 
+    .appl-boxes p {
+        text-align: center;
+    }
+
     .appl-boxes>div {
         flex: 1 1 100%;
         /* صندوق واحد في الصف في الموبايل */
@@ -516,5 +519,544 @@
     .appl-sec .note span {
         font-size: 1.75rem;
         /* حجم مناسب للموبايلات الصغيرة جداً */
+    }
+}
+
+
+/* women-sec  */
+
+.women-sec .wrap {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.women-sec .wrap .stack {
+    width: calc(40% - .75rem);
+}
+
+.women-sec .wrap .women-table-container {
+    width: calc(60% - .75rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.women-sec h3 {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    color: var(--title-color);
+}
+
+.women-sec p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: var(--text-color);
+}
+
+.women-sec p span {
+    background-color: #E0F5F3;
+    color: #1D7C79;
+    padding: 0 8px;
+    font-weight: 700;
+}
+
+.women-sec .boxes {
+    display: flex;
+    gap: 1rem;
+}
+
+.women-sec .boxes .box {
+    background: #FFF;
+    padding: 20px;
+    border: 1px solid rgba(29, 124, 121, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: var(--text-color);
+    width: 204px;
+}
+
+.women-sec .boxes .box span {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0px;
+    color: #1D7C79;
+}
+
+.women-table-head {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(94.05deg, #1D7C79 0%, #30A69E 100%);
+}
+
+.women-table-head h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #FFF;
+}
+
+.women-table {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-shadow: 0px 2px 12px -4px rgba(31, 71, 71, 0.08);
+
+}
+
+.women-table::-webkit-scrollbar {
+    display: none;
+}
+
+.women-row {
+    display: flex;
+    min-width: 920px;
+}
+
+.women-row:nth-of-type(even) {
+    background-color: #FFF;
+}
+
+.women-row>div {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-top: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #0E4E4E;
+}
+
+.women-table .main {
+    color: #1D7C79;
+}
+
+.women-row .stack {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0px;
+    text-align: center;
+    gap: 8px;
+}
+
+.women-row .stack span {
+    font-size: 7px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #008A85;
+}
+
+
+.women-table-container p {
+    font-weight: 400;
+    font-size: clamp(0.9375rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    letter-spacing: 0px;
+    color: var(--text-color);
+    margin-top: clamp(1rem, 4vh, 2rem);
+}
+
+/* --- تعديلات إضافية للموبايل --- */
+@media (max-width: 768px) {
+    .women-table-container p {
+        text-align: center;
+        /* توسيط النص في الشاشات الصغيرة يعطي توازناً أفضل */
+        padding: 0 1rem;
+        /* إضافة مساحة جانبية لكي لا يلتصق النص بحواف الشاشة */
+    }
+}
+
+/* --- Responsive Updates --- */
+
+@media (max-width: 1100px) {
+
+    .women-sec .wrap {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .women-sec .wrap .stack,
+    .women-sec .wrap .women-table-container {
+        width: 100%;
+    }
+
+    .women-sec .boxes {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .women-sec .boxes .box {
+        width: calc(50% - 0.5rem);
+        /* صندوقين في الصف في التابلت */
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* تصغير العناوين الضخمة لتناسب الموبايل */
+    .women-sec h3 {
+        font-size: 28px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+    .women-sec p {
+        font-size: 14px;
+        line-height: 26px;
+        text-align: center;
+    }
+
+    /* جعل الصناديق تأخذ العرض الكامل في الموبايل */
+    .women-sec .boxes .box {
+        width: 100%;
+    }
+
+    .women-sec .boxes .box span {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    /* تحسين شكل جدول النساء في الموبايل */
+    .women-table-head {
+        padding: 1rem;
+    }
+
+    .women-table-head h3 {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* ضبط الحواف والمسافات للموبايلات الصغيرة جداً */
+    .women-sec .wrap {
+        gap: 1.5rem;
+    }
+
+    .women-row>div {
+        padding: 12px 8px;
+        /* تقليل البادينج الداخلي للجدول */
+        font-size: 11px;
+    }
+}
+
+/* support-signal-sec */
+.support-signal-sec {
+    background-color: #FFF;
+}
+
+.support-signal-sec .wrap {
+    display: flex;
+    gap: 12px;
+}
+
+.support-signal-sec .wrap>div {
+    flex: 1
+}
+
+
+.support-signal-sec .wrap>div:last-child {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    display: flex;
+}
+
+.signal,
+.signal>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signal>div {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 12px solid var(--title-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-direction: column;
+}
+
+
+.signal>div span {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0px;
+    color: #00948F;
+}
+
+.signal>div p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: var(--text-color);
+}
+
+.support-signal-sec .boxes {
+    display: flex;
+    gap: 8px;
+}
+
+.support-signal-sec .boxes .box {
+    border: 1px solid #E2E9E9;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: #F6F8F8;
+    flex: 1;
+}
+
+.support-signal-sec .boxes .box:last-child {
+    background: #E0F5F3;
+    border: 1px solid rgba(29, 124, 121, 0.3)
+}
+
+
+.support-signal-sec .boxes .box p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: var(--text-color);
+}
+
+.support-signal-sec .boxes .box span {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #008A85;
+}
+
+/* --- Responsive Updates for Support Signal Section --- */
+
+@media (max-width: 1024px) {
+
+    /* تحويل العناصر لتصبح فوق بعضها في التابلت والموبايل */
+    .support-signal-sec .wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .support-signal-sec .wrap>div {
+        width: 100%;
+    }
+
+    /* ضمان تمركز الدائرة عند التحول لوضع العمود */
+    .signal {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* جعل الصناديق الصغيرة تنزل تحت بعضها لسهولة القراءة */
+    .support-signal-sec .boxes {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .support-signal-sec .boxes .box {
+        width: 100%;
+        text-align: center;
+        /* توسيط النص ليعطي شكلاً أفضل في الموبايل */
+    }
+
+    /* تصغير الدائرة قليلاً لتناسب شاشات الموبايل الصغيرة */
+    .signal>div {
+        width: clamp(200px, 50vw, 260px);
+        height: clamp(200px, 50vw, 260px);
+        border-width: 8px;
+        /* تقليل سمك الإطار قليلاً */
+    }
+
+    .signal>div span {
+        font-size: clamp(32px, 8vw, 48px);
+        line-height: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .support-signal-sec .wrap>div:last-child {
+        gap: 1.5rem;
+    }
+
+    /* ضبط المسافات الداخلية للصناديق */
+    .support-signal-sec .boxes .box {
+        padding: 1.25rem;
+    }
+}
+
+/* banner-sec */
+/* --- Responsive Banner Section --- */
+
+.banner-sec {
+    background: linear-gradient(110.04deg, #048F8B 0%, #008A85 55%, #30A69E 100%);
+}
+
+.banner-sec .stack {
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-sec h2 {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #FFF;
+}
+
+.banner-sec p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: clamp(3rem, 12vw, 8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #FFF;
+    text-align: center;
+    word-break: break-word;
+}
+
+.banner-sec p span {
+    color: #30A69E;
+}
+
+@media (max-width: 768px) {
+    .banner-sec .stack {
+        gap: 1rem;
+    }
+
+    .banner-sec p {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-sec {
+        padding: 3rem 0.5rem;
+    }
+
+    .banner-sec h2 {
+        font-weight: 500;
+    }
+}
+
+/* .last-sec */
+.last-sec .wrap {
+    display: flex;
+    gap: 24px;
+}
+
+.last-sec .wrap>div {
+    flex: 1;
+    justify-content: center;
+}
+
+.last-sec h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    color: #008A85;
+}
+
+.last-sec p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    color: var(--text-color);
+}
+
+.last-sec p span {
+    font-weight: 700;
+}
+
+.last-sec .image {
+    max-height: 277px;
+}
+
+.last-sec .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* --- Responsive Last Section --- */
+
+@media (max-width: 1024px) {
+    .last-sec .wrap {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .last-sec .wrap>div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .last-sec .image {
+        max-height: none;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .last-sec h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .last-sec p {
+        font-size: clamp(1rem, 4vw, 1.125rem);
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .last-sec .wrap {
+        gap: 1.5rem;
+    }
+
+    .last-sec .image {
+        max-width: 100%;
+        height: auto;
     }
 }
