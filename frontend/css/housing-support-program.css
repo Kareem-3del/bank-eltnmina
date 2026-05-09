@@ -1,6 +1,8 @@
 :root {
     --title-color: #008A85;
-    --text-color: #5C7070
+    --text-color: #5C7070;
+    --main-teal-gradient: linear-gradient(109.83deg, #1D7C79 0%, #30A69E 100%);
+    --overlay-gradient: linear-gradient(45deg, rgba(14, 78, 78, 0.6) 0%, rgba(29, 124, 121, 0.2) 50%, rgba(29, 124, 121, 0) 100%);
 }
 
 .sc-title {
@@ -23,6 +25,10 @@
     line-height: 1.44;
     letter-spacing: 0px;
     color: var(--text-color);
+}
+
+.sc-title__dec span {
+    color: var(--title-color);
 }
 
 /* --- Responsive Optimization --- */
@@ -52,12 +58,13 @@
     background-image: linear-gradient(45deg, rgba(14, 78, 78, 0.6) 0%, rgba(29, 124, 121, 0.2) 50%, rgba(29, 124, 121, 0) 100%), url(../assets/s-fm.webp);
     background-size: cover;
     background-position: center;
-    height: 636px;
-    width: 636px;
+    height: 600px;
+    width: 600px;
     box-shadow: 0px 20px 50px -25px rgba(14, 78, 78, 0.25);
     padding: 1.5rem;
     display: flex;
     align-items: flex-end;
+    flex-shrink: 0;
 }
 
 .img-content {
@@ -135,7 +142,7 @@
 }
 
 .content-boxes>div {
-    width: calc(50% - 1.5rem);
+    flex: 1 1 calc(50% - 0.75rem);
 }
 
 .content-box {
@@ -152,9 +159,12 @@
     flex-shrink: 0;
 }
 
-.content-box .box img,
+.content-box .box img {
+    max-width: 20px;
+}
+
 .content-icons img {
-    max-width: 24px;
+    max-width: 27px;
 }
 
 .content-box .stack {
@@ -182,6 +192,7 @@
     padding: 1rem;
     gap: 4px;
     display: flex;
+    justify-content: space-between;
 }
 
 .content-icons .stack {
@@ -199,4 +210,311 @@
     letter-spacing: 0px;
     color: var(--title-color);
     text-align: center;
+}
+
+/* --- Media Queries --- */
+
+/* للشاشات المتوسطة (التابلت) */
+@media (max-width: 1200px) {
+    .intro-sec .sc-wrap {
+        flex-direction: column;
+        /* الصورة فوق والكلام تحت */
+        gap: 40px;
+        /* تقليل الفجوة الكبيرة قليلاً */
+    }
+
+    .intro-sec .img-part {
+        width: 100%;
+        /* الصورة تأخذ العرض الكامل المتاح */
+        max-width: 600px;
+        /* لا تتجاوز عرضها الأصلي */
+        height: 500px;
+        /* تقليل الارتفاع قليلاً للتابلت */
+        flex-shrink: 1;
+    }
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+    .intro-sec .img-part {
+        height: 400px;
+        /* ارتفاع مناسب للموبايل */
+        padding: 1rem;
+    }
+
+    .img-content {
+        padding: 1rem;
+        flex-direction: row;
+        /* الحفاظ على التصميم الجانبي */
+    }
+
+    .img-content p:last-child {
+        font-size: 20px;
+        /* تصغير الخط قليلاً */
+        line-height: 28px;
+    }
+
+    .content-boxes>div {
+        flex: 1 1 100%;
+        /* العناصر تحت بعضها (واحد في الصف) */
+    }
+
+    .content-part__head h3 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .content-icons {
+        gap: 12px;
+    }
+
+    .content-icons .stack {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+}
+
+/* للموبايل الصغير جداً */
+@media (max-width: 480px) {
+    .img-content {
+        /* العناصر تحت بعضها داخل الصندوق الأبيض */
+        text-align: center;
+        gap: 12px;
+    }
+
+    .intro-sec .img-part {
+        height: 350px;
+    }
+}
+
+/* support-table */
+.support-table {
+    width: 100%;
+    margin-top: 5vh;
+    box-shadow: 0px 2px 12px -4px rgba(31, 71, 71, 0.08);
+    border: 1px solid #E2E9E9;
+    border-bottom: 0;
+}
+
+.support-table .t-row {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    font-family: Cairo;
+    font-weight: 700;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    line-height: 1.5;
+    letter-spacing: 0px;
+    border-bottom: 0.8px solid #E2E9E9
+}
+
+.support-table .t-row>div {
+    padding: clamp(0.5rem, 2vw, 1.25rem);
+}
+
+.support-table .t-head {
+    background: var(--title-color, #0E7C78);
+    color: #FFF;
+    font-weight: 700;
+}
+
+.support-table .t-row>div:nth-child(1) {
+    grid-column: span 1;
+    text-align: center;
+}
+
+.support-table .t-row>div:nth-child(2) {
+    grid-column: span 9;
+    text-align: right;
+}
+
+.support-table .t-row>div:nth-child(3),
+.support-table .t-row>div:nth-child(4),
+.support-table .t-row>div:nth-child(5) {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.support-table .t-body>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: var(--text-color);
+}
+
+.support-table .t-body:nth-child(even) {
+    background: #FFF;
+}
+
+.support-table .t-body>div:nth-child(2) {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.support-table .t-body .box {
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E0F5F3;
+    flex-shrink: 0;
+}
+
+.support-table .t-body .box img {
+    max-width: 16px;
+}
+
+.support-table .t-body .stack {
+    gap: 4px;
+}
+
+.support-table .t-body h3 {
+    font-weight: 700;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: var(--title-color);
+}
+
+.support-table p {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    line-height: 1.5;
+    line-height: 19.5px;
+    letter-spacing: 0px;
+    color: var(--text-color);
+}
+
+.support-table .state {
+    padding: 16px 12px;
+    background: rgba(29, 124, 121, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #1D7C79;
+    width: 80px;
+    height: 36px;
+}
+
+.support-table .state.not-support {
+    color: var(--text-color);
+}
+
+/* Media Query للموبايل لضمان عدم تداخل الكلام */
+@media (max-width: 992px) {
+    .support-table {
+        overflow-x: auto;
+    }
+
+    .support-table .t-row {
+        min-width: 1000px;
+    }
+}
+
+/* appl-sec */
+.appl-sec {
+    background-color: #FFF;
+}
+
+.appl-boxes {
+    margin-top: 5vh;
+    display: flex;
+    align-items: stretch;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.appl-boxes>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid #E2E9E9;
+    box-shadow: 0px 2px 12px -4px rgba(31, 71, 71, 0.08);
+}
+
+.apple-img {
+    height: 56px;
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E0F5F3;
+    border: 1px solid rgba(29, 124, 121, 0.2)
+}
+
+.apple-img img {
+    max-width: 35px;
+}
+
+.apple-img p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    color: var(--text-color);
+}
+
+.appl-sec .note {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5E7278;
+}
+
+.appl-sec .divider {
+    border-top: 0.8px solid #E2E9E9
+}
+
+
+.appl-sec .note span {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    display: inline-block;
+    font-weight: 700;
+    background: linear-gradient(106.81deg, #1D7C79 0%, #30A69E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+@media (max-width: 768px) {
+    .appl-boxes {
+        gap: 1rem;
+    }
+
+    .appl-boxes>div {
+        flex: 1 1 100%;
+        /* صندوق واحد في الصف في الموبايل */
+        gap: 1.5rem;
+    }
+
+    .appl-sec .note {
+        font-size: 14px;
+        text-align: center;
+        /* اختياري: توسيط النص في الموبايل */
+    }
+
+    .apple-img {
+        margin: 0 auto;
+        /* توسيط الأيقونة في الموبايل */
+    }
+}
+
+@media (max-width: 480px) {
+    .appl-sec .note span {
+        font-size: 1.75rem;
+        /* حجم مناسب للموبايلات الصغيرة جداً */
+    }
 }
