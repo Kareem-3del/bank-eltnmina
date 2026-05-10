@@ -347,8 +347,26 @@
     height: 165px;
     width: 165px;
     background: #FFF;
-
 }
+
+.h-1-sec-1 .pie-chart::after {
+    background: conic-gradient(from 180deg, #E0F5F3 0% 86%, rgba(0, 138, 133, 1) 86% 100%);
+}
+
+.h-1-sec-2 .pie-chart::after {
+    background: conic-gradient(from 180deg, #E0F5F3 0% 75%, rgba(0, 138, 133, 1) 75% 100%);
+}
+
+.h-1-sec-3 .pie-chart::after {
+    background: conic-gradient(from 180deg, #E0F5F3 0% 86%, rgba(0, 138, 133, 1) 86% 100%);
+}
+
+.h-1-sec-4 .pie-chart::after {
+    background: conic-gradient(from 180deg, #E0F5F3 0% 84%, rgba(0, 138, 133, 1) 84% 100%);
+}
+
+
+
 
 
 .pie-inner {

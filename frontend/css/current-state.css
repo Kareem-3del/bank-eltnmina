@@ -668,8 +668,7 @@
 }
 
 .budget-info {
-    width: 480px;
-    flex-shrink: 0;
+    flex: 1;
     gap: 24px;
 }
 

@@ -7,7 +7,7 @@ const target_2 = [68, 68, 68, 68, 68];
 const actual_2 = [75, 75, 75, 80, 73];
 
 const target_3 = [82, 82, 82, 82, 82];
-const actual_3 = [86, 82, 82, 82, 82];
+const actual_3 = [86, 82, 82, 81, 80];
 
 const target_4 = [80, 80, 80, 80, 80];
 const actual_4 = [84, 80, 79, 81, 81];

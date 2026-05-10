@@ -1,0 +1,353 @@
+:root {
+    --title-color: #008A85;
+    --text-color: #5C7070;
+    --main-teal-gradient: linear-gradient(109.83deg, #1D7C79 0%, #30A69E 100%);
+    --overlay-gradient: linear-gradient(45deg, rgba(14, 78, 78, 0.6) 0%, rgba(29, 124, 121, 0.2) 50%, rgba(29, 124, 121, 0) 100%);
+}
+
+.sc-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sc-title__title {
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: 0px;
+    color: var(--title-color);
+}
+
+.sc-title__dec {
+    font-weight: 400;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.44;
+    letter-spacing: 0px;
+    color: var(--text-color);
+}
+
+.sc-title__dec span {
+    color: var(--title-color);
+}
+
+/* --- Responsive Optimization --- */
+
+@media (max-width: 768px) {
+    .sc-title {
+        text-align: center;
+        align-items: center;
+    }
+
+    .sc-title__dec {
+        line-height: 1.5;
+    }
+}
+
+.intro-boxes,
+.tech-boxes {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.intro-boxes>div,
+.tech-boxes>div {
+    flex: 1;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+/* intro-boxes */
+.intro-box {
+    box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
+    border: 1px solid rgba(223, 244, 246, 0.6);
+    padding: 1.5rem;
+    background: linear-gradient(126.64deg, #FFFFFF 0%, #F3FBFC 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-box .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.intro-box .icon-box {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F3FBFC;
+}
+
+.intro-box .year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #167C83;
+    background: #F3FBFC;
+}
+
+.intro-box .num {
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: -1.5px;
+    color: #008A85;
+}
+
+.intro-box .num span {
+    font-size: 24px;
+}
+
+.intro-box p {
+    color: rgba(15, 38, 46, 0.75);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22.75px;
+    letter-spacing: 0px;
+}
+
+/* channel and tech sec */
+.tech-boxes {
+    position: relative;
+}
+
+.tech-boxes::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(270deg, #BAE5E8 0%, #167C83 50%, #BAE5E8 100%);
+    height: 1px;
+    display: block;
+    width: 100%;
+    top: 60px;
+}
+
+.tech-box {
+    position: relative;
+    z-index: 999;
+    border: 1px solid rgba(223, 244, 246, 0.6);
+    background: linear-gradient(140.8deg, #FFFFFF 0%, #F3FBFC 100%);
+    padding: 1.75rem;
+    position: relative;
+}
+
+.tech-box::before {
+    position: absolute;
+    font-weight: 900;
+    font-size: 110px;
+    line-height: 110px;
+    letter-spacing: 0px;
+    color: rgba(223, 244, 246, 0.8);
+    inset-inline-end: 1.75rem;
+}
+
+.tech-box:first-child::before {
+    content: "1";
+}
+
+.tech-box:nth-child(2)::before {
+    content: "2";
+}
+
+.tech-box:nth-child(3)::before {
+    content: "3";
+}
+
+.tech-box .top {
+    position: relative;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 24px;
+}
+
+.tech-box .top h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #008A85;
+}
+
+.tech-box .icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
+    background: #008A85;
+}
+
+.tech-box .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: rgba(15, 38, 46, 0.8);
+}
+
+.tech-box .check-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F3FBFC;
+    height: 21px;
+    width: 21px;
+    border: 1px solid #BAE5E8;
+    border-radius: 50%;
+}
+
+.banner-sec {
+    background-color: #008A85;
+}
+
+.banner-sec h2 {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #FFFFFF;
+}
+
+.banner-sec p {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gov-sec {
+    padding: 4rem 2rem;
+}
+
+.gov-sec .sc-title__title {
+    margin-bottom: 3rem;
+}
+
+.gov-sec h2 {
+    text-align: center;
+}
+
+.gov-sec .image {
+    max-width: 1100px;
+    margin: auto;
+    border: 1px solid rgba(226, 233, 233, 1);
+    background: #FFF;
+    box-shadow: 0px 2px 12px -4px rgba(31, 71, 71, 0.08);
+
+}
+
+.gov-sec .image img {
+    width: 100%;
+}
+
+/* --- Digital Transformation Responsive Optimization --- */
+
+@media (max-width: 1024px) {
+
+    /* تحويل الصناديق لتصبح فوق بعضها في التابلت والموبايل */
+    .intro-boxes,
+    .tech-boxes {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+
+    .intro-boxes>div,
+    .tech-boxes>div {
+        width: 100%;
+    }
+
+    /* إخفاء الخط الجمالي الخلفي في التابلت لأنه لن يمر عبر الصناديق بشكل عرضي */
+    .tech-boxes::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* ضبط الأرقام الكبيرة في صناديق الإحصائيات */
+    .intro-box .num {
+        font-size: 48px;
+        line-height: 1;
+    }
+
+    /* تصغير الأرقام الخلفية (1, 2, 3) لكي لا تغطي على النص في الموبايل */
+    .tech-box::before {
+        font-size: 80px;
+        line-height: 80px;
+        opacity: 0.5;
+        /* تقليل الشفافية لزيادة وضوح النص فوقه */
+    }
+
+    /* ضبط الـ Banner الخاص بالقسم */
+    .banner-sec {
+        padding: 3rem 1.5rem;
+    }
+
+    .banner-sec h2 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .banner-sec p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    /* ضبط قسم الصورة (Gov Sec) */
+    .gov-sec {
+        padding: 2.5rem 1rem;
+    }
+
+    .gov-sec .image {
+        border: none;
+        box-shadow: none;
+        /* تخفيف الظلال في الموبايل لسرعة التصفح */
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* ضبط الحشوة الداخلية للصناديق لتوفير مساحة */
+    .intro-box,
+    .tech-box {
+        padding: 1.25rem;
+    }
+
+    .tech-box .top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .tech-box .top h3 {
+        font-size: 18px;
+    }
+
+    .intro-box .num {
+        font-size: 40px;
+    }
+}
