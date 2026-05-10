@@ -138,6 +138,10 @@
   color: #6b7280;
 }
 
+html[dir="ltr"] .subs-co__desc {
+  text-align: left;
+}
+
 .subs-co__desc-wrap {
   max-width: 690px;
   justify-self: start;
@@ -205,6 +209,10 @@
     max-width: none;
     justify-self: stretch;
     text-align: right;
+  }
+
+  html[dir="ltr"] .subs-co__desc {
+    text-align: left;
   }
 
   .subs-co__desc-wrap {
