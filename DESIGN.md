@@ -235,3 +235,4 @@ Editorial photography of Saudi families, employees, and homes is presented in **
 
 ### Progress & Charts
 Lines used in charts and organizational connectors are thin (1–2px) and use the secondary or primary green. Connectors are rectilinear, reinforcing the structured, grid-based nature of the fund. Bar and column charts default to teal-on-tinted-teal; only diverge to status colors when comparing on/off-track data.
+
