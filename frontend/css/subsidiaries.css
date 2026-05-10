@@ -1,0 +1,214 @@
+/* الشركات التابعة */
+
+.page-subs .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.page-subs .site-footer {
+  margin-top: clamp(24px, 4vw, 48px);
+}
+
+.c-hero--subsidiaries .c-hero__title {
+  max-width: 100%;
+}
+
+/* —— قسم شركة (ضمانات) —— */
+.subs-co {
+  padding-top: clamp(20px, 4vw, 36px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+.subs-co--follow {
+  padding-top: 0;
+}
+
+.subs-co--follow .subs-co__title {
+  margin-top: clamp(6px, 1.5vw, 14px);
+}
+
+.subs-co:has(.subs-co__pagination--between) {
+  padding-bottom: clamp(12px, 2.5vw, 24px);
+}
+
+.subs-co__title {
+  margin: clamp(16px, 2.5vw, 28px) auto clamp(28px, 4vw, 40px);
+  max-width: 1252px;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  text-align: center;
+  color: #00948f;
+}
+
+.subs-co__title--alt {
+  color: #01938e;
+}
+
+.subs-co__card {
+  box-sizing: border-box;
+  max-width: 1203px;
+  margin-inline: auto;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dae7e6;
+  box-shadow: 0px 8px 30px -10px rgba(1, 147, 142, 0.18);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.subs-co__card-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(12px, 2.4vw, 20px) clamp(16px, 3vw, 40px);
+  border-bottom: 1px solid #000000;
+}
+
+.subs-co__card-logo {
+  display: block;
+  width: auto;
+  max-width: min(300px, 100%);
+  height: auto;
+  max-height: 170px;
+  object-fit: contain;
+}
+
+.subs-co--follow .subs-co__card-head {
+  padding-block: clamp(20px, 4vw, 40px);
+}
+
+.subs-co--follow .subs-co__card-logo {
+  max-width: min(560px, 96%);
+  max-height: min(360px, 42vw);
+}
+
+.subs-co__card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) 1px minmax(0, 1fr);
+  column-gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 40px) clamp(20px, 3vw, 48px);
+}
+
+.subs-co__divider {
+  width: 1px;
+  min-height: 220px;
+  align-self: stretch;
+  background: #000000;
+  margin-block: auto;
+}
+
+.subs-co__ownership {
+  width: 100%;
+  max-width: 340px;
+  justify-self: center;
+  text-align: center;
+}
+
+.subs-co__label {
+  margin: 0 0 12px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 34px);
+  line-height: 1.2;
+  color: #01938e;
+}
+
+.subs-co__pct {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: clamp(56px, 10vw, 98px);
+  line-height: 1;
+  color: #b3dfde;
+}
+
+.subs-co__desc {
+  margin: 0;
+  max-width: 690px;
+  justify-self: start;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: right;
+  color: #6b7280;
+}
+
+.subs-co__desc-wrap {
+  max-width: 690px;
+  justify-self: start;
+}
+
+.subs-co__desc-wrap .subs-co__desc {
+  max-width: none;
+}
+
+.subs-co__pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding-block: 8px;
+}
+
+.subs-co__pagination--between {
+  margin-top: clamp(36px, 5.5vw, 64px);
+  margin-bottom: 0;
+  padding-top: clamp(8px, 1.5vw, 16px);
+  padding-bottom: 2px;
+}
+
+.subs-co__pagination::before,
+.subs-co__pagination::after {
+  content: "";
+  width: 64px;
+  height: 1px;
+  background: rgba(1, 147, 142, 0.3);
+  flex: 0 0 auto;
+}
+
+.subs-co__pagination-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #01938e;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .subs-co__card-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .subs-co__divider {
+    width: 100%;
+    min-height: 0;
+    height: 1px;
+    margin-block: 8px;
+    background: #000000;
+  }
+
+  .subs-co__ownership {
+    max-width: none;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .subs-co__desc {
+    max-width: none;
+    justify-self: stretch;
+    text-align: right;
+  }
+
+  .subs-co__desc-wrap {
+    max-width: none;
+    justify-self: stretch;
+  }
+}
