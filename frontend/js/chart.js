@@ -18,6 +18,12 @@ const state_en = ["Employee Compensation", "Goods and Services", "Projects"];
 const target_5 = [561, 129, 194];
 const actual_5 = [561, 129, 194];
 
+//program-chart
+const prog_cart_ar = ["الدورات الفنية", "الشهادات المهنية", "الدورات القيادية"]
+const prog_cart_en = ["Technical Courses", "Professional Certifications", "Leadership Courses"];
+const prog_target = [629, 111, 156]
+const prog_actual = [570, 30, 115];
+
 const isAR = (document.documentElement.getAttribute("lang") || "en").toLowerCase().startsWith("ar");
 
 const windowWidth = window.innerWidth;
@@ -102,6 +108,37 @@ const alwaysShowStateValues = {
         ctx.restore();
     }
 };
+
+
+const alwaysShowProgramValues = {
+    id: 'alwaysShowProgramValues',
+    // afterDatasetsDraw بتضمن إن الرسم يحصل فوق الأعمدة في كل تحديث (حتى الـ Hover)
+    afterDatasetsDraw(chart) {
+        const { ctx } = chart;
+        ctx.save();
+        ctx.font = 'bold 10px Segoe UI, Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+
+        chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            if (i === 0) {
+                ctx.fillStyle = "#008A85";
+            } else {
+                ctx.fillStyle = "#5E7278";
+            }
+            // ✅ بنحدد لون النص هنا بناءً على لون الـ Dataset (العمود)
+            meta.data.forEach((bar, j) => {
+                const value = dataset.data[j];
+
+                // الرسم بيعتمد على إحداثيات العمود الحالية (bar.x, bar.y)
+                ctx.fillText(value + '', bar.x, bar.y - 5);
+            });
+        });
+        ctx.restore();
+    }
+};
+
 
 function createChart(target, actual, id) {
     const ele = document.getElementById(id);
@@ -283,9 +320,99 @@ function createStateChart(target, actual, id) {
     });
 }
 
+function createProgramChart(target, actual, id) {
+    const ele = document.getElementById(id);
+    if (!ele)
+        return;
+
+    new Chart(ele, {
+        type: 'bar',
+        plugins: [alwaysShowProgramValues],
+        data: {
+            labels: isAR ? prog_cart_ar : prog_cart_en,
+            datasets: [
+                {
+                    label: isAR ? 'المستهدف السنوي' : "Annual Target",
+                    data: target,
+                    backgroundColor: '#008A85',
+                    barPercentage: 0.3,
+                    categoryPercentage: 0.5,
+                    order: 2,
+                    borderRadius: {
+                        topLeft: 4,
+                        topRight: 4,
+                        bottomLeft: 0,
+                        bottomRight: 0
+                    },
+                },
+                {
+                    label: isAR ? 'الفعلي بالسنوات' : "Actual by Years",
+                    data: actual,
+                    backgroundColor: '#A9D3D2',
+                    barPercentage: 0.3,
+                    categoryPercentage: 0.5,
+                    order: 1,
+                    borderRadius: {
+                        topLeft: 4,
+                        topRight: 4,
+                        bottomLeft: 0,
+                        bottomRight: 0
+                    },
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    rtl: true,
+                    callbacks: {
+                        label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%`
+                    }
+                },
+                datalabels: false
+            },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    border: { display: false },
+                    ticks: {
+                        font: { size: 14 },
+                        color: '#008A85',
+                        autoSkip: false
+                    }
+                },
+                y: {
+                    min: 0,
+                    max: 700,
+                    grid: {
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        color: '#DCE5E5',
+                        lineWidth: 1, // زود السمك شوية عشان النقط تبان
+                        borderDash: [10, 8], // نقطة 1 بكسل وفراغ كبير 8 بكسل
+                    },
+
+                    border: { display: false },
+                    ticks: {
+                        stepSize: 100,
+                        font: { size: 10 },
+                        color: '#5E7278'
+                    }
+                }
+            }
+        }
+    });
+}
+
 createChart(target_1, actual_1, "char-1")
 createChart(target_2, actual_2, "char-2")
 createChart(target_3, actual_3, "char-3")
 createChart(target_4, actual_4, "char-4")
 
 createStateChart(target_5, actual_5, "char-5")
+
+createProgramChart(prog_target, prog_actual, "program-chart")
