@@ -1,0 +1,1364 @@
+/* أبرز الأعمال والإنجازات / Notable works and achievements */
+
+.page-notable .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.page-notable .site-footer {
+  margin-top: clamp(24px, 4vw, 48px);
+}
+
+/* Larger header wordmark; beats ar.css `[lang="ar"] .nav__brand img` load order */
+html[lang="ar"] body.page-notable .nav__brand img,
+html[lang="en"] body.page-notable .nav__brand img {
+  height: clamp(52px, 8vw, 96px);
+  width: auto;
+}
+
+.notable-achievements {
+  background: #ffffff;
+}
+
+.c-hero--notable .c-hero__title {
+  max-width: 100%;
+}
+
+.notable-achievements .c-hero__title {
+  margin-bottom: 0;
+}
+
+/* Tight vertical rhythm between stacked `.section` blocks (overrides global `.section` padding-block) */
+.notable-achievements .na-comm.section {
+  padding-top: clamp(16px, 2.5vw, 40px);
+  padding-bottom: clamp(18px, 2.8vw, 40px);
+}
+
+.notable-achievements .na-agre.section {
+  padding-top: clamp(8px, 1.5vw, 20px);
+  padding-bottom: clamp(18px, 2.8vw, 40px);
+}
+
+.notable-achievements .na-fin.section {
+  padding-top: clamp(8px, 1.5vw, 20px);
+  padding-bottom: clamp(18px, 2.8vw, 40px);
+}
+
+.notable-achievements .na-sus.section {
+  padding-top: clamp(28px, 5vw, 64px);
+  padding-bottom: clamp(24px, 3.5vw, 48px);
+}
+
+.notable-achievements .na-inv.section {
+  padding-top: clamp(48px, 6.5vw, 88px);
+  padding-bottom: clamp(18px, 2.8vw, 40px);
+}
+
+.notable-achievements .na-sfc.section {
+  padding-top: clamp(40px, 5.5vw, 72px);
+  padding-bottom: clamp(28px, 4vw, 52px);
+}
+
+.notable-achievements .na-kpi.section {
+  padding-top: clamp(32px, 4.5vw, 56px);
+  padding-bottom: clamp(18px, 2.8vw, 40px);
+}
+
+.notable-achievements .na-tres.section {
+  padding-top: clamp(32px, 4.5vw, 56px);
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+
+.notable-achievements .na-invperf.section {
+  padding-top: clamp(28px, 5vw, 64px);
+  padding-bottom: clamp(24px, 3.5vw, 48px);
+}
+
+.notable-achievements .na-coll.section {
+  padding-top: clamp(32px, 4.5vw, 56px);
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+
+/* —— Communication campaigns (أبرز أعمال الحملات الاتصالية) —— */
+.na-comm {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-comm__bg {
+  position: absolute;
+  inset: -20% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -0.21%, #f7f8f8 23.75%, #fcfcfc 47.71%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-comm__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-comm__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  align-items: start;
+  gap: clamp(28px, 4vw, 48px);
+}
+
+@media (max-width: 900px) {
+  .na-comm__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .na-comm__intro {
+    display: block;
+  }
+
+  .na-comm__card {
+    flex: none;
+    display: block;
+    padding: clamp(22px, 3vw, 36px) clamp(12px, 1.75vw, 24px);
+  }
+}
+
+.na-comm__title {
+  margin: 0 0 clamp(20px, 3vw, 36px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.2vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+  text-align: start;
+}
+
+.na-comm__rule {
+  height: 1px;
+  margin-block: clamp(16px, 2.5vw, 24px);
+  background: linear-gradient(
+    90deg,
+    rgba(41, 139, 129, 0) 0%,
+    rgba(41, 139, 129, 0.4) 50%,
+    rgba(41, 139, 129, 0) 100%
+  );
+}
+
+.na-comm__card {
+  box-sizing: border-box;
+  padding: clamp(22px, 3vw, 36px) clamp(12px, 1.75vw, 24px);
+  background: #ffffff;
+  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient rules sit inside the card, above and below the paragraph */
+.na-comm__card .na-comm__rule--inset {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+.na-comm__card .na-comm__rule--inset:first-child {
+  margin-bottom: clamp(22px, 3.5vw, 40px);
+}
+
+.na-comm__card .na-comm__rule--inset:last-child {
+  margin-top: clamp(22px, 3.5vw, 40px);
+}
+
+.na-comm__card p {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2;
+  color: #576767;
+  text-align: start;
+}
+
+.na-comm__card strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+@media (min-width: 901px) {
+  .na-comm__grid {
+    align-items: stretch;
+  }
+
+  .na-comm__intro {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .na-comm__title {
+    flex-shrink: 0;
+  }
+
+  .na-comm__card {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+    padding-block: clamp(40px, 5vw, 88px);
+    padding-inline: clamp(12px, 1.75vw, 24px);
+  }
+}
+
+.na-comm__aside {
+  min-width: 0;
+}
+
+.na-comm__list-head {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 49.6px;
+  padding: 11px 12px;
+  margin-bottom: 10px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #ffffff;
+  text-align: start;
+  background: #008a85;
+  border: none;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.06);
+}
+
+.na-comm__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-inline: 6px;
+}
+
+.na-comm__item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding-block: 10px;
+  padding-inline: 10px;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #008a85;
+  text-align: start;
+  background: #ffffff;
+  border: 1px solid #8dcfc5;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.06);
+}
+
+.na-comm__item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* LTR hashtag inside RTL rows: isolate bidi without dir="ltr" on the whole cell (keeps alignment with other lines). */
+.na-comm__hashtag {
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+
+.na-comm__item-icon {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+/* RTL: main-start is the physical right — without order, [text][icon] puts the icon on the left.
+   Pull icon to the visual right (inline-start) to match the design. */
+html[dir="rtl"] .na-comm__item-icon {
+  order: -1;
+}
+
+/* LTR: keep the icon on the physical right (inline-end). */
+html[dir="ltr"] .na-comm__item-icon {
+  margin-inline-start: auto;
+}
+
+.na-comm__item-icon img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+html[dir="ltr"] .na-comm__list-head,
+html[dir="ltr"] .na-comm__title,
+html[dir="ltr"] .na-comm__card p,
+html[dir="ltr"] .na-comm__card strong,
+html[dir="ltr"] .na-comm__item {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+/* —— أبرز الاتفاقيات ومذكرات التعاون —— */
+.na-agre {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-agre__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -20.55%, #f7f8f8 3.41%, #fcfcfc 27.36%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-agre__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-agre__title {
+  margin: 0 0 clamp(20px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  text-align: start;
+}
+
+.na-agre__title-line {
+  display: block;
+}
+
+.na-agre__title-line--primary {
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+}
+
+.na-agre__title-line--secondary {
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2.8vw, 30px);
+  line-height: 2;
+  color: #008a85;
+}
+
+.na-agre__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: clamp(20px, 3vw, 48px);
+  max-width: min(100%, 1242px);
+  margin-inline: auto;
+  padding: clamp(22px, 3vw, 40px) clamp(18px, 2.5vw, 36px);
+  background: #ffffff;
+  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
+}
+
+html[dir="ltr"] .na-agre__card {
+  flex-direction: row-reverse;
+}
+
+.na-agre__icon {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background: #008a85;
+}
+
+.na-agre__icon img {
+  display: block;
+  width: auto;
+  max-width: 48px;
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
+}
+
+.na-agre__text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 2;
+  color: #576375;
+  text-align: start;
+}
+
+.na-agre__text strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+html[dir="ltr"] .na-agre__title-line--primary,
+html[dir="ltr"] .na-agre__title-line--secondary,
+html[dir="ltr"] .na-agre__text,
+html[dir="ltr"] .na-agre__text strong {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+/* —— معلومات عن الأداء المالي للصندوق —— */
+.na-fin {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-fin__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -0.21%, #f7f8f8 23.75%, #fcfcfc 47.71%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-fin__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-fin__title {
+  margin: 0 0 clamp(20px, 3vw, 36px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 60px;
+  color: #008a85;
+  text-align: start;
+}
+
+@media (max-width: 520px) {
+  .na-fin__title {
+    line-height: 1.25;
+  }
+}
+
+.na-fin__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  max-width: min(100%, 1242px);
+  margin-inline: auto;
+  min-height: 144px;
+  padding: clamp(18px, 2.5vw, 28px) clamp(18px, 2.5vw, 36px);
+  background: #ffffff;
+  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
+}
+
+html[dir="ltr"] .na-fin__card {
+  flex-direction: row-reverse;
+}
+
+.na-fin__icon {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background: #008a85;
+}
+
+.na-fin__icon img {
+  display: block;
+  width: auto;
+  max-width: 60px;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.na-fin__text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 2;
+  color: #576375;
+  text-align: start;
+}
+
+.na-fin__text strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Inline SAR: same glyph paths as `es-financing-banner__riyal` on executive-summary / current-state */
+.na-fin__text .na-fin__riyal-svg {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-inline: 0.08em 0.04em;
+  vertical-align: -0.18em;
+  color: #576375;
+  flex-shrink: 0;
+}
+
+.na-fin__num {
+  font-variant-numeric: tabular-nums;
+}
+
+html[dir="ltr"] .na-fin__title,
+html[dir="ltr"] .na-fin__text,
+html[dir="ltr"] .na-fin__text strong,
+html[dir="ltr"] .na-fin__num {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+/* —— الاستدامة المالية / Financial sustainability —— */
+/* —— أداء الاستثمارات / Investment performance (same band treatment) —— */
+.na-sus,
+.na-invperf {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #008a85;
+}
+
+.na-sus__inner,
+.na-invperf__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.na-sus__title,
+.na-invperf__title {
+  margin: 0 0 clamp(16px, 2.5vw, 28px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.na-sus__text,
+.na-invperf__text {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 2;
+  color: #ffffff;
+  text-align: center;
+}
+
+html[dir="ltr"] .na-sus__title,
+html[dir="ltr"] .na-sus__text,
+html[dir="ltr"] .na-invperf__title,
+html[dir="ltr"] .na-invperf__text {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+@media (max-width: 520px) {
+  .na-sus__title,
+  .na-invperf__title {
+    line-height: 1.2;
+  }
+}
+
+/* —— التحصيل / Collection —— */
+.na-coll {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-coll__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -20.55%, #f7f8f8 3.41%, #fcfcfc 27.36%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-coll__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-coll__title {
+  margin: 0 0 clamp(20px, 3vw, 36px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+  text-align: start;
+}
+
+.na-coll__grid {
+  display: grid;
+  /* Desktop: chart 45%, text card 55% (proportional tracks after gap). */
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  align-items: stretch;
+  gap: clamp(20px, 3vw, 40px);
+  max-width: min(100%, 1242px);
+  margin-inline: auto;
+  direction: ltr;
+}
+
+.na-coll__chart {
+  margin: 0;
+  min-width: 0;
+}
+
+@media (min-width: 901px) {
+  /* Size to chart only, align to row bottom with the card — avoids empty band inside the figure */
+  .na-coll__chart {
+    align-self: end;
+    min-height: 0;
+  }
+
+  .na-coll__card {
+    height: 100%;
+  }
+}
+
+.na-coll__chart img,
+.na-coll__chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(720px, 76vh);
+}
+
+.na-coll__chart-svg {
+  background: transparent;
+}
+
+.na-coll__bar-group text {
+  pointer-events: none;
+}
+
+.na-coll__card {
+  position: relative;
+  box-sizing: border-box;
+  min-height: min(330px, 100%);
+  margin: 0;
+  padding-block-end: clamp(18px, 2.5vw, 28px);
+  /* RTL (AR): icon top-right → room on inline-start (right) */
+  padding-inline-start: calc(64px + clamp(20px, 2.5vw, 28px));
+  padding-block-start: clamp(24px, 3vw, 34px);
+  padding-inline-end: clamp(18px, 2.5vw, 32px);
+  background: #ffffff;
+  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid uses direction:ltr for column order; restore RTL inside the card so Arabic aligns right. */
+html[dir="rtl"] .na-coll__card {
+  direction: rtl;
+}
+
+.na-coll__icon {
+  position: absolute;
+  top: clamp(22px, 2.8vw, 30px);
+  /* RTL (AR): top-right */
+  inset-inline-start: clamp(12px, 1.8vw, 16px);
+  inset-inline-end: auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #008a85;
+}
+
+.na-coll__icon img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(62px, 96%);
+  max-height: min(62px, 96%);
+  object-fit: contain;
+}
+
+html[dir="ltr"] .na-coll__card {
+  padding-inline-end: clamp(18px, 2.5vw, 32px);
+  padding-inline-start: calc(64px + clamp(20px, 2.5vw, 28px));
+  padding-block-start: clamp(24px, 3vw, 34px);
+  padding-block-end: clamp(18px, 2.5vw, 28px);
+}
+
+html[dir="ltr"] .na-coll__card .na-coll__icon {
+  inset-inline-end: auto;
+  inset-inline-start: clamp(12px, 1.8vw, 16px);
+}
+
+.na-coll__text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  color: #576767;
+  text-align: start;
+}
+
+html[dir="ltr"] .na-coll__title,
+html[dir="ltr"] .na-coll__text {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .na-coll__grid {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .na-coll__chart {
+    order: 2;
+  }
+
+  .na-coll__card {
+    order: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .na-coll__title {
+    line-height: 1.2;
+  }
+
+  .na-coll__text {
+    line-height: 1.75;
+  }
+}
+
+/* —— أعمال الاستثمار العقاري —— */
+.na-inv {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-inv__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -0.21%, #f7f8f8 23.75%, #fcfcfc 47.71%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-inv__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-inv__title {
+  margin: 0 auto clamp(24px, 3.5vw, 40px);
+  max-width: min(100%, 952px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+  text-align: center;
+}
+
+.na-inv__title-line {
+  display: block;
+}
+
+.na-inv__grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 1.4vw, 14px);
+  max-width: min(100%, 1242px);
+  direction: rtl;
+}
+
+.na-inv__item {
+  margin: 0;
+}
+
+.na-inv__card {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 250px;
+  margin: 0;
+  padding-block-end: clamp(18px, 2.5vw, 24px);
+  padding-inline-end: clamp(18px, 2.5vw, 24px);
+  padding-block-start: clamp(16px, 2vw, 22px);
+  /* Room for badge on inline-start (visual top-right in RTL) */
+  padding-inline-start: calc(64px + clamp(20px, 2.5vw, 28px));
+  background: #ffffff;
+  box-shadow: 0 4px 24px rgba(0, 91, 85, 0.15);
+}
+
+.na-inv__badge {
+  position: absolute;
+  top: clamp(14px, 2vw, 20px);
+  inset-inline-start: clamp(12px, 1.8vw, 16px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #008a85;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1;
+  color: rgba(223, 244, 246, 0.78);
+}
+
+/* LTR: badge on visual top-right (inline-end), mirror padding */
+html[dir="ltr"] .na-inv__card {
+  padding-inline-start: clamp(18px, 2.5vw, 24px);
+  padding-inline-end: calc(64px + clamp(20px, 2.5vw, 28px));
+  padding-block-start: clamp(16px, 2vw, 22px);
+  padding-block-end: clamp(18px, 2.5vw, 24px);
+}
+
+html[dir="ltr"] .na-inv__card .na-inv__badge {
+  inset-inline-start: auto;
+  inset-inline-end: clamp(12px, 1.8vw, 16px);
+}
+
+.na-inv__text {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 2;
+  color: #576767;
+  text-align: start;
+}
+
+.na-inv__text strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+.na-inv__text .na-inv__riyal {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-inline: 0.06em 0.04em;
+  vertical-align: -0.15em;
+  color: #576767;
+}
+
+.na-inv__item--span {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: min(406px, 100%);
+}
+
+@media (max-width: 900px) {
+  .na-inv__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .na-inv__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .na-inv__item--span {
+    max-width: 100%;
+  }
+}
+
+html[dir="ltr"] .na-inv__grid {
+  direction: ltr;
+}
+
+html[dir="ltr"] .na-inv__title,
+html[dir="ltr"] .na-inv__text,
+html[dir="ltr"] .na-inv__text strong {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+@media (max-width: 520px) {
+  .na-inv__title {
+    line-height: 1.2;
+  }
+}
+
+/* Mobile: title reads as one paragraph (no forced break between the two lines). */
+@media (max-width: 560px) {
+  .na-inv__title-line {
+    display: inline;
+  }
+}
+
+/* —— متوسط تكلفة التمويل المدعوم / Average subsidized financing cost —— */
+.na-sfc {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-sfc__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -20.55%, #f7f8f8 3.41%, #fcfcfc 27.36%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-sfc__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-sfc__title {
+  margin: 0 auto clamp(20px, 3vw, 36px);
+  max-width: min(100%, 720px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+  text-align: center;
+}
+
+.na-sfc__sheet-wrap {
+  max-width: min(100%, 1226px);
+  margin-inline: auto;
+  overflow-x: auto;
+  box-shadow: 0 4px 21px rgba(0, 0, 0, 0.16);
+  -webkit-overflow-scrolling: touch;
+}
+
+.na-sfc__table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #ffffff;
+}
+
+.na-sfc__stub {
+  box-sizing: border-box;
+  width: 22%;
+  min-width: 140px;
+  padding: clamp(12px, 2vw, 20px) clamp(10px, 1.5vw, 16px);
+  background: #1d7c79;
+  color: #ffffff;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 40px);
+  line-height: 1.2;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #048f8b;
+}
+
+.na-sfc__table tbody tr:first-child .na-sfc__stub {
+  border-block-end: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.na-sfc__table tbody tr:nth-child(2) .na-sfc__stub {
+  border-block-start: 0;
+}
+
+.na-sfc__cell {
+  box-sizing: border-box;
+  padding: clamp(12px, 2vw, 20px) clamp(8px, 1.2vw, 14px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(16px, 2vw, 23px);
+  line-height: 1.35;
+  color: #576375;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #048f8b;
+  background: linear-gradient(273.55deg, #e5f3f2 -46.43%, #ffffff 106.28%);
+}
+
+.na-sfc__cell--num {
+  font-variant-numeric: tabular-nums;
+}
+
+html[dir="ltr"] .na-sfc__title,
+html[dir="ltr"] .na-sfc__stub,
+html[dir="ltr"] .na-sfc__cell {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+@media (max-width: 520px) {
+  .na-sfc__title {
+    line-height: 1.2;
+  }
+}
+
+/* Stack table into stub row + 2×2 data cells on small screens (no horizontal scroll). */
+@media (max-width: 720px) {
+  .na-sfc__sheet-wrap {
+    overflow-x: visible;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .na-sfc__table {
+    min-width: 0;
+    width: 100%;
+    display: block;
+    table-layout: auto;
+  }
+
+  .na-sfc__table tbody {
+    display: block;
+  }
+
+  .na-sfc__table tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(6px, 2vw, 10px);
+    margin-bottom: clamp(8px, 2vw, 12px);
+  }
+
+  .na-sfc__table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .na-sfc__table .na-sfc__stub {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    font-size: clamp(16px, 4vw, 22px);
+    padding: clamp(10px, 2.5vw, 16px);
+  }
+
+  .na-sfc__table .na-sfc__cell {
+    min-width: 0;
+    font-size: clamp(14px, 3.6vw, 18px);
+    padding: clamp(10px, 2.5vw, 14px) clamp(8px, 2vw, 12px);
+    line-height: 1.35;
+  }
+
+  .na-sfc__table tbody tr:first-child .na-sfc__stub {
+    border-block-end: 1px solid rgba(255, 255, 255, 0.45);
+  }
+}
+
+/* —— العائد على الاستثمار / الإيرادات التشغيلية —— */
+.na-kpi {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-kpi__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -20.55%, #f7f8f8 3.41%, #fcfcfc 27.36%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-kpi__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.na-kpi__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(20px, 3vw, 40px);
+  max-width: min(100%, 1242px);
+  margin-inline: auto;
+  direction: rtl;
+}
+
+.na-kpi__col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 28px);
+  min-width: 0;
+  height: 100%;
+}
+
+.na-kpi__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+  text-align: start;
+}
+
+.na-kpi__title--split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0.15em;
+}
+
+.na-kpi__title-main {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.na-kpi__title-suffix {
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: 27px;
+  line-height: 60px;
+  color: #008a85;
+}
+
+.na-kpi__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 28px);
+  flex: 1 1 auto;
+  min-height: 165px;
+  height: 100%;
+  padding: clamp(18px, 2.5vw, 28px) clamp(18px, 2.5vw, 32px);
+  background: #ffffff;
+  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
+}
+
+html[dir="ltr"] .na-kpi__card {
+  flex-direction: row-reverse;
+}
+
+.na-kpi__icon {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  background: #008a85;
+  color: #ffffff;
+}
+
+.na-kpi__icon img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(68px, 100%);
+  max-height: min(68px, 100%);
+  object-fit: contain;
+}
+
+.na-kpi__text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2;
+  color: #576767;
+  text-align: start;
+}
+
+.na-kpi__text strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Same pattern as na-sfc table (AR): % before digits inside dir="ltr". EN: n% after digits. */
+.na-kpi__text .na-kpi__pct {
+  display: inline-block;
+  unicode-bidi: isolate;
+}
+
+.na-kpi__text .na-kpi__pct-inner {
+  font-weight: inherit;
+  white-space: nowrap;
+}
+
+.na-kpi__text .na-kpi__riyal {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-inline: 0.06em 0.04em;
+  vertical-align: -0.15em;
+  color: #576767;
+}
+
+html[dir="ltr"] .na-kpi__grid {
+  direction: ltr;
+}
+
+html[dir="ltr"] .na-kpi__title,
+html[dir="ltr"] .na-kpi__title-main,
+html[dir="ltr"] .na-kpi__title-suffix,
+html[dir="ltr"] .na-kpi__text,
+html[dir="ltr"] .na-kpi__text strong,
+html[dir="ltr"] .na-kpi__text .na-kpi__pct-inner {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+@media (max-width: 720px) {
+  .na-kpi__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .na-kpi__title {
+    line-height: 1.2;
+  }
+
+  .na-kpi__title-suffix {
+    line-height: 1.2;
+  }
+}
+
+/* —— قطاع الخزينة / Treasury sector highlights —— */
+.na-tres {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.na-tres__bg {
+  position: absolute;
+  inset: -15% -8%;
+  z-index: -1;
+  background: linear-gradient(197.49deg, #dbf0ee -20.55%, #f7f8f8 3.41%, #fcfcfc 27.36%);
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.na-tres__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.na-tres__title {
+  box-sizing: border-box;
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  width: min(100%, 760px);
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 48px);
+  line-height: 1.25;
+  color: #008a85;
+  text-align: center;
+}
+
+.na-tres__title-line {
+  display: block;
+}
+
+.na-tres__list {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(100%, 760px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.na-tres__item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(12px, 2vw, 20px);
+  min-height: 54px;
+  padding: 11px clamp(14px, 2vw, 20px);
+  background: #ffffff;
+  border: 1px solid #8dcfc5;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.06);
+}
+
+.na-tres__check {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: #f3fbfc;
+  border: 1px solid #bae5e8;
+  border-radius: 14px;
+  color: #167c83;
+}
+
+.na-tres__check-icon {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+.na-tres__text {
+  flex: 1;
+  min-width: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+  color: #576375;
+  text-align: start;
+}
+
+html[dir="ltr"] .na-tres__title,
+html[dir="ltr"] .na-tres__text {
+  font-family: "Public Sans", "Cairo", system-ui, sans-serif;
+}
+
+@media (max-width: 520px) {
+  .na-tres__title {
+    line-height: 1.2;
+  }
+
+  .na-tres__text {
+    line-height: 1.5;
+  }
+}
