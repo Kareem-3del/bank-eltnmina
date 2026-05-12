@@ -138,6 +138,15 @@
   color: #6b7280;
 }
 
+.subs-co__riyal {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-inline: 0.06em 0.04em;
+  vertical-align: -0.15em;
+  color: currentColor;
+}
+
 html[dir="ltr"] .subs-co__desc {
   text-align: left;
 }
