@@ -424,6 +424,7 @@
     }
 
     .box-sec .box h3 {
+        margin: auto;
         margin-bottom: 0.75rem;
     }
 }
