@@ -576,6 +576,8 @@ select {
   padding: 8px 2rem;
 }
 
+
+
 .nav__brand {
   display: inline-flex;
   align-items: center;
@@ -668,6 +670,9 @@ select {
    in favor of the staggered overlay menu, so we don't render any drawer here. */
 
 @media (max-width: 880px) {
+  .nav {
+    padding: 10px 12px;
+  }
 
   /* Inline links collapse — staggered overlay carries navigation. */
   .nav__list {
