@@ -73,22 +73,22 @@
   }
 
   /* ------ Reveal on scroll -------------------------------------------- */
-  // const revealEls = document.querySelectorAll(".reveal");
-  // if (revealEls.length && !hasGsap) {
-  //   if (reduceMotion || !("IntersectionObserver" in window)) {
-  //     revealEls.forEach(el => el.classList.add("is-visible"));
-  //   } else {
-  //     const io = new IntersectionObserver((entries) => {
-  //       entries.forEach(entry => {
-  //         if (entry.isIntersecting) {
-  //           entry.target.classList.add("is-visible");
-  //           io.unobserve(entry.target);
-  //         }
-  //       });
-  //     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-  //     revealEls.forEach(el => io.observe(el));
-  //   }
-  // }
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length && !hasGsap) {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealEls.forEach(el => el.classList.add("is-visible"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      revealEls.forEach(el => io.observe(el));
+    }
+  }
 
   /* ------ Animated counters ------------------------------------------- */
   const counters = document.querySelectorAll("[data-counter]");
@@ -273,6 +273,7 @@
     };
 
     const menu = document.createElement("div");
+    menu.setAttribute("data-lenis-prevent", "");
     menu.className = "staggered-menu";
     menu.id = "staggered-menu";
     menu.setAttribute("role", "dialog");
@@ -367,18 +368,25 @@
     const open = () => {
       lastFocused = document.activeElement;
       menu.removeAttribute("hidden");
+
+      if (window?.__lenis) window.__lenis.stop();
+
       requestAnimationFrame(() => menu.classList.add("is-open"));
       document.body.classList.add("menu-open");
       triggers.forEach(t => t.setAttribute("aria-expanded", "true"));
       setTimeout(() => {
         const first = menu.querySelector(".staggered-menu__link");
-        // if (first) first.focus({ preventScroll: true });
+        if (first) first.focus({ preventScroll: true });
       }, reduceMotion ? 0 : 480);
     };
 
     const close = () => {
       menu.classList.remove("is-open");
       document.body.classList.remove("menu-open");
+      document.body.classList.remove("menu-open");
+
+      // إعادة تشغيل Lenis
+      if (window?.__lenis) window?.__lenis.start();
       triggers.forEach(t => t.setAttribute("aria-expanded", "false"));
       setTimeout(() => {
         menu.setAttribute("hidden", "");

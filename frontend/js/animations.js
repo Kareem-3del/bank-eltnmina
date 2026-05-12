@@ -17,19 +17,20 @@
   if (!window.gsap) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isMobile     = window.matchMedia("(max-width: 880px)").matches;
-  const isRTL        = document.documentElement.dir === "rtl";
+  const isMobile = window.matchMedia("(max-width: 880px)").matches;
+  const isRTL = document.documentElement.dir === "rtl";
 
   const { gsap } = window;
   const ScrollTrigger = window.ScrollTrigger;
   const ScrollToPlugin = window.ScrollToPlugin;
-  if (ScrollTrigger)  gsap.registerPlugin(ScrollTrigger);
+  if (ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
   if (ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
 
   document.documentElement.classList.add("is-anim-ready");
 
   /* ------ Lenis smooth scroll ----------------------------------------- */
   let lenis = null;
+  const staggeredMenu = document.querySelector("staggered-menu")
   if (window.Lenis && !reduceMotion && !isMobile) {
     lenis = new window.Lenis({
       duration: 1.15,
@@ -57,8 +58,10 @@
     tlEnter.fromTo(
       curtain,
       { scaleY: 1 },
-      { scaleY: 0, duration: 1.1, ease: "expo.inOut",
-        onComplete: () => curtain.classList.add("is-done") }
+      {
+        scaleY: 0, duration: 1.1, ease: "expo.inOut",
+        onComplete: () => curtain.classList.add("is-done")
+      }
     );
   } else if (curtain) {
     curtain.classList.add("is-done");
@@ -73,18 +76,18 @@
   const hero = document.querySelector(".hero, .page-head, .contact-hero");
   if (hero && !reduceMotion) {
     const heading = hero.querySelector(".h-display, .h-1");
-    const lead    = hero.querySelector(".lead, .hero__lead, .page-head__lead");
+    const lead = hero.querySelector(".lead, .hero__lead, .page-head__lead");
     const eyebrow = hero.querySelector(".eyebrow, .chapter-indicator");
     const actions = hero.querySelector(".hero__actions");
-    const meta    = hero.querySelector(".hero__meta");
-    const visual  = hero.querySelector(".mosaic, .vm, .hero__visual");
+    const meta = hero.querySelector(".hero__meta");
+    const visual = hero.querySelector(".mosaic, .vm, .hero__visual");
 
     if (eyebrow) tlEnter.from(eyebrow, { y: 20, opacity: 0, duration: 0.7, ease: "power2.out" }, "-=0.6");
-    if (heading) tlEnter.from(heading, { y: 40, opacity: 0, duration: 1.0, ease: "expo.out" },   "-=0.5");
-    if (lead)    tlEnter.from(lead,    { y: 24, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.7");
+    if (heading) tlEnter.from(heading, { y: 40, opacity: 0, duration: 1.0, ease: "expo.out" }, "-=0.5");
+    if (lead) tlEnter.from(lead, { y: 24, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.7");
     if (actions) tlEnter.from(actions, { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
-    if (meta)    tlEnter.from(meta,    { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.5");
-    if (visual)  tlEnter.from(visual,  { y: 60, opacity: 0, scale: 1.05, duration: 1.2, ease: "expo.out" }, "-=0.9");
+    if (meta) tlEnter.from(meta, { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.5");
+    if (visual) tlEnter.from(visual, { y: 60, opacity: 0, scale: 1.05, duration: 1.2, ease: "expo.out" }, "-=0.9");
   }
 
   /* ------ Header drop-in --------------------------------------------- */
@@ -102,12 +105,12 @@
   // floats subtly to keep the panel feeling alive.
   const newHero = document.querySelector(".new-hero");
   if (newHero && !reduceMotion) {
-    const titleEl   = newHero.querySelector(".hero-title");
-    const textEl    = newHero.querySelector(".hero-text");
-    const counters  = newHero.querySelectorAll(".counter-item");
-    const btnEl     = newHero.querySelector(".custom-btn");
-    const imgEl     = newHero.querySelector(".hero-image img, .hero-image");
-    const imgFrame  = newHero.querySelector(".hero-image");
+    const titleEl = newHero.querySelector(".hero-title");
+    const textEl = newHero.querySelector(".hero-text");
+    const counters = newHero.querySelectorAll(".counter-item");
+    const btnEl = newHero.querySelector(".custom-btn");
+    const imgEl = newHero.querySelector(".hero-image img, .hero-image");
+    const imgFrame = newHero.querySelector(".hero-image");
 
     // Per-word split for the title so we can stagger the words upward
     // out of a clip-path mask. Falls back gracefully if missing.
@@ -221,7 +224,7 @@
           : { opacity: 0, y: 60 };
         const toVars = isZoom
           ? { opacity: 1, scale: 1, duration: 1.6, ease: "expo.out" }
-          : { opacity: 1, y: 0,     duration: 1.4, ease: "expo.out" };
+          : { opacity: 1, y: 0, duration: 1.4, ease: "expo.out" };
 
         gsap.fromTo(el, fromVars, {
           ...toVars,
@@ -240,14 +243,14 @@
   /* ------ Stagger groups --------------------------------------------- */
   if (ScrollTrigger && !reduceMotion) {
     const staggerGroups = [
-      { sel: ".pillar-rows", child: ".pillar-row"  },
+      { sel: ".pillar-rows", child: ".pillar-row" },
       { sel: ".board__featured", child: ".board-feature" },
-      { sel: ".quote-grid",   child: ".quote"      },
-      { sel: ".channels",     child: ".channel"    },
-      { sel: ".vm",           child: ".vm__card"   },
-      { sel: ".committees",   child: ".committee-pill" },
+      { sel: ".quote-grid", child: ".quote" },
+      { sel: ".channels", child: ".channel" },
+      { sel: ".vm", child: ".vm__card" },
+      { sel: ".committees", child: ".committee-pill" },
       { sel: ".office__grid", child: ".office__col" },
-      { sel: ".footer__grid", child: ":scope > *"  },
+      { sel: ".footer__grid", child: ":scope > *" },
     ];
     staggerGroups.forEach(({ sel, child }) => {
       document.querySelectorAll(sel).forEach(group => {
@@ -297,9 +300,9 @@
     el.textContent = "";
     const inners = [];
     text.split(/\s+/).forEach((word, i, arr) => {
-      const wrap  = document.createElement("span");
+      const wrap = document.createElement("span");
       const inner = document.createElement("span");
-      wrap.className  = "split-word";
+      wrap.className = "split-word";
       inner.className = "split-word__inner";
       inner.textContent = word;
       wrap.appendChild(inner);
@@ -342,7 +345,7 @@
           } else {
             const wrap = document.createElement("span");
             const inner = document.createElement("span");
-            wrap.className  = "split-word";
+            wrap.className = "split-word";
             inner.className = "split-word__inner";
             inner.textContent = p;
             wrap.appendChild(inner);
@@ -384,12 +387,12 @@
   }
 
   const royalsSection = document.querySelector(".royals");
-  const royalCards    = document.querySelectorAll("[data-royal]");
+  const royalCards = document.querySelectorAll("[data-royal]");
 
   if (royalsSection && ScrollTrigger) {
-    const title    = royalsSection.querySelector(".section-header h2");
-    const eyebrow  = royalsSection.querySelector(".section-header .eyebrow");
-    const lead     = royalsSection.querySelector(".section-header .lead");
+    const title = royalsSection.querySelector(".section-header h2");
+    const eyebrow = royalsSection.querySelector(".section-header .eyebrow");
+    const lead = royalsSection.querySelector(".section-header .lead");
     const titleWords = title ? splitIntoWords(title) : [];
 
     if (reduceMotion) {
@@ -423,13 +426,13 @@
 
       royalCards.forEach((card, i) => {
         const portrait = card.querySelector(".royal-card__portrait");
-        const img      = card.querySelector(".royal-card__portrait img");
-        const crown    = card.querySelector(".royal-card__crown");
-        const badge    = card.querySelector(".royal-card__badge");
-        const rank     = card.querySelector(".royal-card__rank");
-        const name     = card.querySelector(".royal-card__name");
-        const role     = card.querySelector(".royal-card__role");
-        const quote    = card.querySelector(".royal-card__quote");
+        const img = card.querySelector(".royal-card__portrait img");
+        const crown = card.querySelector(".royal-card__crown");
+        const badge = card.querySelector(".royal-card__badge");
+        const rank = card.querySelector(".royal-card__rank");
+        const name = card.querySelector(".royal-card__name");
+        const role = card.querySelector(".royal-card__role");
+        const quote = card.querySelector(".royal-card__quote");
 
         // Make the name write itself word-by-word too.
         const nameWords = splitIntoWords(name);
@@ -466,7 +469,7 @@
         } else if (name) {
           cardTl.from(name, { y: 18, opacity: 0, duration: 0.4 }, "-=0.2");
         }
-        if (role)  cardTl.from(role,  { y: 14, opacity: 0, duration: 0.35 }, "-=0.25");
+        if (role) cardTl.from(role, { y: 14, opacity: 0, duration: 0.35 }, "-=0.25");
         if (quote) cardTl.from(quote, { y: 16, opacity: 0, duration: 0.45 }, "-=0.2");
 
         // Cards animate with strong overlap: Crown Prince begins while King
@@ -495,18 +498,18 @@
 
     const isChair = article.classList.contains("message--chair");
     if (isChair) runChairTimeline(article);
-    else         runMessageTimeline(article);
+    else runMessageTimeline(article);
   });
 
   function runMessageTimeline(article) {
     const photoWrap = article.querySelector(".message__photo");
-    const photoImg  = article.querySelector(".message__photo img");
-    const name      = article.querySelector(".message__name");
-    const role      = article.querySelector(".message__role");
-    const eyebrow   = article.querySelector(".eyebrow");
-    const titleEl   = article.querySelector(".message__title");
-    const paras     = article.querySelectorAll(".message__body > p");
-    const pull      = article.querySelector(".message__pull");
+    const photoImg = article.querySelector(".message__photo img");
+    const name = article.querySelector(".message__name");
+    const role = article.querySelector(".message__role");
+    const eyebrow = article.querySelector(".eyebrow");
+    const titleEl = article.querySelector(".message__title");
+    const paras = article.querySelectorAll(".message__body > p");
+    const pull = article.querySelector(".message__pull");
     const titleWords = titleEl ? splitIntoWords(titleEl) : [];
 
     const tl = gsap.timeline({
@@ -550,7 +553,8 @@
     if (photoImg) {
       gsap.fromTo(photoImg,
         { yPercent: -3 },
-        { yPercent: 5, ease: "none",
+        {
+          yPercent: 5, ease: "none",
           scrollTrigger: { trigger: article, start: "top bottom", end: "bottom top", scrub: true }
         }
       );
@@ -570,17 +574,17 @@
   //  7. A long, gentle scrub keeps the portrait drifting inside the frame
   //     as the section passes through view.
   function runChairTimeline(article) {
-    const frame      = article.querySelector(".message__photo-frame");
-    const photoWrap  = article.querySelector(".message__photo");
-    const photoImg   = article.querySelector(".message__photo img");
-    const nameplate  = article.querySelector(".message__nameplate");
-    const name       = article.querySelector(".message__name");
-    const roles      = article.querySelectorAll(".message__nameplate .message__role");
-    const titleEl    = article.querySelector(".message__title");
-    const titleEm    = titleEl ? titleEl.querySelector("em") : null;
-    const paras      = article.querySelectorAll(".message__body > p");
-    const riyals     = article.querySelectorAll(".message__body .riyal");
-    const pull       = article.querySelector(".message__pull");
+    const frame = article.querySelector(".message__photo-frame");
+    const photoWrap = article.querySelector(".message__photo");
+    const photoImg = article.querySelector(".message__photo img");
+    const nameplate = article.querySelector(".message__nameplate");
+    const name = article.querySelector(".message__name");
+    const roles = article.querySelectorAll(".message__nameplate .message__role");
+    const titleEl = article.querySelector(".message__title");
+    const titleEm = titleEl ? titleEl.querySelector("em") : null;
+    const paras = article.querySelectorAll(".message__body > p");
+    const riyals = article.querySelectorAll(".message__body .riyal");
+    const pull = article.querySelector(".message__pull");
 
     // Per-word split for the title — preserves the <em> wrapper so we can
     // style/animate it as a single unit AFTER the words land.
@@ -602,9 +606,9 @@
         const container = frag.kind === "em" ? document.createElement("em") : null;
         const target = container || titleEl;
         wordsArr.forEach((word, i) => {
-          const wrap  = document.createElement("span");
+          const wrap = document.createElement("span");
           const inner = document.createElement("span");
-          wrap.className  = "split-word";
+          wrap.className = "split-word";
           inner.className = "split-word__inner";
           inner.textContent = word;
           wrap.appendChild(inner);
@@ -764,7 +768,8 @@
     if (photoImg) {
       gsap.fromTo(photoImg,
         { yPercent: -4 },
-        { yPercent: 6, ease: "none",
+        {
+          yPercent: 6, ease: "none",
           scrollTrigger: { trigger: article, start: "top bottom", end: "bottom top", scrub: 0.8 }
         }
       );
@@ -789,21 +794,21 @@
   //     animated by the global [data-counter] pass.
   //  6. A gentle scrub keeps the portrait drifting inside its frame.
   document.querySelectorAll("[data-ceo-letter]").forEach((section) => {
-    const titleEl    = section.querySelector(".boss-letter-title h2");
-    const titleDiv   = section.querySelector(".boss-letter-title .divider");
-    const imgFrame   = section.querySelector(".boss-image-container");
-    const imgWrap    = section.querySelector(".boss-img");
-    const imgEl      = section.querySelector(".boss-img img");
-    const overlay    = section.querySelector(".boss-inner .overlay");
+    const titleEl = section.querySelector(".boss-letter-title h2");
+    const titleDiv = section.querySelector(".boss-letter-title .divider");
+    const imgFrame = section.querySelector(".boss-image-container");
+    const imgWrap = section.querySelector(".boss-img");
+    const imgEl = section.querySelector(".boss-img img");
+    const overlay = section.querySelector(".boss-inner .overlay");
     const innerTitle = section.querySelector(".boss-inner .title");
-    const innerName  = section.querySelector(".boss-inner .title h2");
-    const innerRole  = section.querySelector(".boss-inner .title p");
-    const innerDiv   = section.querySelector(".boss-inner .title .divider");
-    const bodyPara   = section.querySelector(".boss-content > p");
-    const rateHead   = section.querySelector(".boss-rate h2");
-    const rateItems  = section.querySelectorAll(".rate-item");
-    const rateIcons  = section.querySelectorAll(".rate-item img");
-    const counters   = section.querySelectorAll(".hero-counter .counter-item");
+    const innerName = section.querySelector(".boss-inner .title h2");
+    const innerRole = section.querySelector(".boss-inner .title p");
+    const innerDiv = section.querySelector(".boss-inner .title .divider");
+    const bodyPara = section.querySelector(".boss-content > p");
+    const rateHead = section.querySelector(".boss-rate h2");
+    const rateItems = section.querySelectorAll(".rate-item");
+    const rateIcons = section.querySelectorAll(".rate-item img");
+    const counters = section.querySelectorAll(".hero-counter .counter-item");
 
     if (reduceMotion || !ScrollTrigger) {
       section.classList.add("is-visible");
@@ -826,9 +831,9 @@
         const text = tmp.textContent.trim();
         const words = text.split(/\s+/).filter(Boolean);
         words.forEach((word, i) => {
-          const wrap  = document.createElement("span");
+          const wrap = document.createElement("span");
           const inner = document.createElement("span");
-          wrap.className  = "split-word";
+          wrap.className = "split-word";
           inner.className = "split-word__inner";
           inner.textContent = word;
           wrap.appendChild(inner);
@@ -949,7 +954,8 @@
     if (imgEl) {
       gsap.fromTo(imgEl,
         { yPercent: -3 },
-        { yPercent: 5, ease: "none",
+        {
+          yPercent: 5, ease: "none",
           scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 0.8 }
         }
       );
@@ -970,10 +976,10 @@
   //   3. A gentle scrub keeps each photo drifting inside its card while
   //      the section travels through the viewport.
   document.querySelectorAll("[data-strategy]").forEach((section) => {
-    const titleEl    = section.querySelector(".strategy-title");
-    const dividers   = section.querySelectorAll(".divider-2 > .divider");
-    const pin        = section.querySelector(".divider-2 > .pin");
-    const rows       = section.querySelectorAll(".strategy-info");
+    const titleEl = section.querySelector(".strategy-title");
+    const dividers = section.querySelectorAll(".divider-2 > .divider");
+    const pin = section.querySelector(".divider-2 > .pin");
+    const rows = section.querySelectorAll(".strategy-info");
 
     if (reduceMotion || !ScrollTrigger) {
       section.classList.add("is-visible");
@@ -984,13 +990,13 @@
     // Per-word split for the section title.
     let titleWords = [];
     if (titleEl && !titleEl.dataset.splitDone) {
-      const text  = (titleEl.textContent || "").trim();
+      const text = (titleEl.textContent || "").trim();
       const words = text.split(/\s+/).filter(Boolean);
       titleEl.textContent = "";
       words.forEach((word, i) => {
-        const wrap  = document.createElement("span");
+        const wrap = document.createElement("span");
         const inner = document.createElement("span");
-        wrap.className  = "split-word";
+        wrap.className = "split-word";
         inner.className = "split-word__inner";
         inner.textContent = word;
         wrap.appendChild(inner);
@@ -1004,8 +1010,8 @@
     // Prime initial states explicitly via inline styles so the destination
     // (natural state) is unambiguous and not dictated by CSS gating.
     if (titleWords.length) gsap.set(titleWords, { yPercent: 110, opacity: 0 });
-    if (dividers.length)   gsap.set(dividers,   { scaleX: 0, transformOrigin: "center center" });
-    if (pin)               gsap.set(pin,        { scale: 0, opacity: 0 });
+    if (dividers.length) gsap.set(dividers, { scaleX: 0, transformOrigin: "center center" });
+    if (pin) gsap.set(pin, { scale: 0, opacity: 0 });
 
     // Title + divider timeline
     const headTl = gsap.timeline({
@@ -1033,22 +1039,22 @@
 
     // Per-row choreography
     rows.forEach((row) => {
-      const imageEl  = row.querySelector(".strategy-image");
+      const imageEl = row.querySelector(".strategy-image");
       const imgInner = row.querySelector(".strategy-image img");
-      const overlay  = row.querySelector(".strategy-overlay");
-      const items    = row.querySelectorAll(".strategy-content-item");
-      const titles   = row.querySelectorAll(".strategy-content-item .title");
-      const paras    = row.querySelectorAll(".strategy-content-item p");
+      const overlay = row.querySelector(".strategy-overlay");
+      const items = row.querySelectorAll(".strategy-content-item");
+      const titles = row.querySelectorAll(".strategy-content-item .title");
+      const paras = row.querySelectorAll(".strategy-content-item p");
 
       if (imageEl) gsap.set(imageEl, { overflow: "hidden" });
 
       // Prime initial states for the row.
-      if (imageEl)       gsap.set(imageEl,  { clipPath: "inset(0 0 100% 0)", y: 28, opacity: 0 });
-      if (imgInner)      gsap.set(imgInner, { scale: 1.15 });
-      if (overlay)       gsap.set(overlay,  { opacity: 0 });
-      if (items.length)  gsap.set(items,    { y: 24, opacity: 0 });
-      if (titles.length) gsap.set(titles,   { y: 12, opacity: 0 });
-      if (paras.length)  gsap.set(paras,    { y: 16, opacity: 0 });
+      if (imageEl) gsap.set(imageEl, { clipPath: "inset(0 0 100% 0)", y: 28, opacity: 0 });
+      if (imgInner) gsap.set(imgInner, { scale: 1.15 });
+      if (overlay) gsap.set(overlay, { opacity: 0 });
+      if (items.length) gsap.set(items, { y: 24, opacity: 0 });
+      if (titles.length) gsap.set(titles, { y: 12, opacity: 0 });
+      if (paras.length) gsap.set(paras, { y: 16, opacity: 0 });
 
       const tl = gsap.timeline({
         defaults: { ease: "expo.out" },
@@ -1108,7 +1114,7 @@
   /* ------ Animated counters (replaces main.js) ----------------------- */
   const counters = document.querySelectorAll("[data-counter]");
   counters.forEach(el => {
-    const target   = parseFloat(el.dataset.counter);
+    const target = parseFloat(el.dataset.counter);
     const decimals = parseInt(el.dataset.decimals || "0", 10);
 
     if (reduceMotion || !ScrollTrigger) {
@@ -1203,7 +1209,7 @@
     const yCopy = copy ? gsap.quickTo(copy, "y", { duration: 1.0, ease: "power2.out" }) : null;
 
     window.addEventListener("mousemove", (e) => {
-      const cx = window.innerWidth  / 2;
+      const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
       const dx = (e.clientX - cx) / cx;
       const dy = (e.clientY - cy) / cy;
@@ -1235,8 +1241,8 @@
   });
 
   /* ------ Mobile menu item stagger ----------------------------------- */
-  const navEl    = document.querySelector("[data-nav]");
-  const navTog   = document.querySelector("[data-nav-toggle]");
+  const navEl = document.querySelector("[data-nav]");
+  const navTog = document.querySelector("[data-nav-toggle]");
   const navItems = navEl ? navEl.querySelectorAll(".nav__link") : [];
   if (navEl && navTog && navItems.length && !reduceMotion) {
     const xFrom = isRTL ? -40 : 40;
@@ -1260,10 +1266,10 @@
   if (ScrollTrigger && !reduceMotion) {
     document.querySelectorAll("[data-pillar-row]").forEach((row) => {
       const visual = row.querySelector("[data-pillar-visual]");
-      const img    = visual ? visual.querySelector("img") : null;
+      const img = visual ? visual.querySelector("img") : null;
       const bigNum = row.querySelector("[data-pillar-num]");
-      const list   = row.querySelector(".pillar-row__list");
-      const items  = list ? list.querySelectorAll("li") : [];
+      const list = row.querySelector(".pillar-row__list");
+      const items = list ? list.querySelectorAll("li") : [];
 
       // Subtle ken-burns style image drift while the row passes through.
       if (img) {
