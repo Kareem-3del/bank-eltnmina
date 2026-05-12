@@ -73,22 +73,22 @@
   }
 
   /* ------ Reveal on scroll -------------------------------------------- */
-  const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length && !hasGsap) {
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      revealEls.forEach(el => el.classList.add("is-visible"));
-    } else {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-      revealEls.forEach(el => io.observe(el));
-    }
-  }
+  // const revealEls = document.querySelectorAll(".reveal");
+  // if (revealEls.length && !hasGsap) {
+  //   if (reduceMotion || !("IntersectionObserver" in window)) {
+  //     revealEls.forEach(el => el.classList.add("is-visible"));
+  //   } else {
+  //     const io = new IntersectionObserver((entries) => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("is-visible");
+  //           io.unobserve(entry.target);
+  //         }
+  //       });
+  //     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  //     revealEls.forEach(el => io.observe(el));
+  //   }
+  // }
 
   /* ------ Animated counters ------------------------------------------- */
   const counters = document.querySelectorAll("[data-counter]");
@@ -189,14 +189,34 @@
       brandSub: "التقرير السنوي 2025",
       links: [
         { href: "index.html", text: "الرئيسية", img: "family.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
-        { href: "ceos-message.html", text: "كلمة الرئيس التنفيذي", img: "chairman.webp", caption: "رسالة من الرئيس التنفيذي" },
-        { href: "introduction.html", text: "المقدمة", img: "intro.webp", caption: "كلمة عن مسيرة الصندوق" },
-        { href: "executive-summary.html", text: "الملخص التنفيذي", img: "executive-summary.webp", caption: "نظرة شاملة على إنجازات العام" },
-        { href: "fund-role.html", text: "دور الصندوق", img: "about.webp", caption: "دور الصندوق في منظومة الإسكان" },
-        { href: "current-state.html", text: "الوضع الراهن", img: "current-state-hero.webp", caption: "الوضع الحالي لقطاع الإسكان" },
+        {
+          text: "الملخص التنفيذي", sublinks: [
+            { href: "executive-summary.html", text: "الملخص التنفيذي 1", img: "executive-summary.webp", caption: "نظرة شاملة على إنجازات العام" },
+            { href: "executive-summary-1.html", text: "الملخص التنفيذي 2", img: "executive-summary.webp", caption: "نظرة شاملة على إنجازات العام" }
+          ]
+        },
+        {
+          text: "التقديم", sublinks: [
+            { href: "fund-role.html", text: "المقدمة", img: "about.webp", caption: "دور الصندوق في منظومة الإسكان" },
+            { href: "introduction.html", text: "رسالة رئيس مجلس الادارة", img: "intro.webp", caption: "كلمة عن مسيرة الصندوق" },
+            { href: "ceos-message.html", text: "رسالة الرئيس التنفيذي", img: "chairman.webp", caption: "رسالة من الرئيس التنفيذي" }
+          ]
+        },
         { href: "strategy.html", text: "التوجه الاستراتيجي", img: "strategy.webp", caption: "أربع ركائز · رؤية 2030" },
-        { href: "performance-summary.html", text: "موجز الأداء", img: "performance-summary.webp", caption: "أكثر من 920,000 أسرة منذ 2017" },
-        { href: "challenges-and-support.html", text: "التحديات والدعم", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+        { href: "performance-summary.html", text: "موجز الاداء", img: "performance-summary.webp", caption: "أكثر من 920,000 أسرة منذ 2017" },
+        { href: "current-state.html", text: "الوضع الراهن", img: "current-state-hero.webp", caption: "الوضع الحالي لقطاع الإسكان" },
+        {
+          text: "أبرز الأعمال والإنجازات", sublinks: [
+            { href: "housing-support-program.html", text: "برنامج الدعم السكني", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "digital-achievements.html", text: "إنجازات التحول الرقمي", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "government-enablers.html", text: "مُمكِّنات الحوكمة", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "training-programs.html", text: "النشاطات الاجتماعية والجوائز", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "notable-achievements.html", text: "الاستدامة المالية", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" }
+          ]
+        },
+        { href: "opportunities-and-enablers.html", text: "الفرص و العوامل المسا..", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+        { href: "subsidiaries.html", text: "الشركات التابعة", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+        { href: "challenges-and-support.html", text: "التحديات و الدعم المطلوب", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
         { href: "conclusion.html", text: "الخاتمة", img: "hero-about.webp", caption: "خلاصة عام 2025م" },
         { href: "contact.html", text: "تواصل معنا", img: "cto.webp", caption: "نحن هنا لمساعدتك" }
       ],
@@ -262,7 +282,7 @@
     menu.innerHTML = `
       <div class="staggered-menu__top">
         <a href="${root}${isAR ? "ar/" : ""}index.html" class="staggered-menu__brand">
-          <img src="${root}assets/logo.png" alt="" />
+          <img src="assets/logo.png" alt="" />
           <span><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
         </a>
         <button type="button" class="staggered-menu__close" data-menu-close>
@@ -273,27 +293,57 @@
 
       <div class="staggered-menu__body">
         <ul class="staggered-menu__list" role="list">
-          ${config.links.map((link, i) => `
-            <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
-              <a class="staggered-menu__link" href="${link.href}"
-                 data-preview="${link.img}" data-caption="${link.caption}">
-                <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
-                <span class="staggered-menu__label">${link.text}</span>
-                <span class="staggered-menu__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </a>
-            </li>
-          `).join("")}
+          ${config.links.map((link, i) => {
+      if (link.sublinks) {
+        return `
+                <li class="staggered-menu__item staggered-menu__dropdown">
+                  <button class="staggered-menu__link staggered-menu__dropdown-toggle" data-dropdown-toggle>
+                    <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
+                    <span class="staggered-menu__label">${link.text}</span>
+                    <span class="staggered-menu__arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  </button>
+                  <ul class="staggered-menu__dropdown-menu">
+                    ${link.sublinks.map((sublink, j) => `
+                      <li class="staggered-menu__dropdown-item${isCurrentLink(sublink.href) ? " is-current" : ""}">
+                        <a class="staggered-menu__dropdown-link" href="${sublink.href}"
+                           data-preview="${sublink.img}" data-caption="${sublink.caption}">
+                          <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
+                          <span class="staggered-menu__label">${sublink.text}</span>
+                          <span class="staggered-menu__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                      </li>
+                    `).join("")}
+                  </ul>
+                </li>
+              `;
+      } else {
+        return `
+                <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
+                  <a class="staggered-menu__link" href="${link.href}"
+                     data-preview="${link.img}" data-caption="${link.caption}">
+                    <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
+                    <span class="staggered-menu__label">${link.text}</span>
+                    <span class="staggered-menu__arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  </a>
+                </li>
+              `;
+      }
+    }).join("")}
         </ul>
 
         <aside class="staggered-menu__preview" aria-hidden="true">
-          ${config.links.map((link, i) => `
+          ${config.links.flatMap(link => link.sublinks ? link.sublinks : [link]).map((item, i) => `
             <img class="staggered-menu__preview-img${i === 0 ? " is-active" : ""}"
-                 data-img="${link.img}"
-                 src="${root}assets/${link.img}" alt="" loading="lazy" />
+                 data-img="${item.img}"
+                 src="assets/${item.img}" alt="" loading="lazy" />
           `).join("")}
-          <div class="staggered-menu__preview-caption" data-preview-caption>${config.links[0].caption}</div>
+          <div class="staggered-menu__preview-caption" data-preview-caption>${config.links.flatMap(link => link.sublinks ? link.sublinks : [link])[0].caption}</div>
         </aside>
       </div>
 
@@ -322,7 +372,7 @@
       triggers.forEach(t => t.setAttribute("aria-expanded", "true"));
       setTimeout(() => {
         const first = menu.querySelector(".staggered-menu__link");
-        if (first) first.focus({ preventScroll: true });
+        // if (first) first.focus({ preventScroll: true });
       }, reduceMotion ? 0 : 480);
     };
 
@@ -350,6 +400,19 @@
       });
     });
 
+    // Dropdown toggles
+    menu.querySelectorAll("[data-dropdown-toggle]").forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        const item = toggle.closest(".staggered-menu__item");
+        item.classList.toggle("is-open");
+        const arrow = toggle.querySelector(".staggered-menu__arrow svg");
+        if (arrow) {
+          arrow.style.transform = item.classList.contains("is-open") ? "rotate(180deg)" : "rotate(0deg)";
+        }
+      });
+    });
+
     const previewImgs = menu.querySelectorAll(".staggered-menu__preview-img");
     const previewCap = menu.querySelector("[data-preview-caption]");
 
@@ -360,7 +423,7 @@
       if (previewCap && cap) previewCap.textContent = cap;
     };
 
-    menu.querySelectorAll(".staggered-menu__link").forEach(link => {
+    menu.querySelectorAll(".staggered-menu__link, .staggered-menu__dropdown-link").forEach(link => {
       link.addEventListener("mouseenter", () => activatePreview(link));
       link.addEventListener("focus", () => activatePreview(link));
     });
