@@ -190,9 +190,11 @@
       links: [
         { href: "index.html", text: "الرئيسية", img: "family.jpg", caption: "أسرٌ تنتقل إلى منازلها الجديدة" },
         {
-          text: "الملخص التنفيذي", sublinks: [
-            { href: "executive-summary.html", text: "الملخص التنفيذي 1", img: "executive-summary.webp", caption: "نظرة شاملة على إنجازات العام" },
-            { href: "executive-summary-1.html", text: "الملخص التنفيذي 2", img: "executive-summary.webp", caption: "نظرة شاملة على إنجازات العام" }
+          text: "الملخص التنفيذي",
+          img: "executive-summary-1-hero.webp",
+          sublinks: [
+            { href: "executive-summary.html", text: "الملخص التنفيذي 1", img: "executive-summary-1-hero.webp", caption: "نظرة شاملة على إنجازات العام" },
+            { href: "executive-summary.html", text: "الملخص التنفيذي 2", img: "image%20(33).png", caption: "نظرة شاملة على إنجازات العام" }
           ]
         },
         {
@@ -298,7 +300,7 @@
       if (link.sublinks) {
         return `
                 <li class="staggered-menu__item staggered-menu__dropdown">
-                  <button class="staggered-menu__link staggered-menu__dropdown-toggle" data-dropdown-toggle>
+                  <button data-caption="${link?.caption || ""}" data-preview="${link?.img}" class="staggered-menu__link staggered-menu__dropdown-toggle" data-dropdown-toggle>
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>
                     <span class="staggered-menu__arrow" aria-hidden="true">
@@ -308,7 +310,7 @@
                   <ul class="staggered-menu__dropdown-menu">
                     ${link.sublinks.map((sublink, j) => `
                       <li class="staggered-menu__dropdown-item${isCurrentLink(sublink.href) ? " is-current" : ""}">
-                        <a class="staggered-menu__dropdown-link" href="${sublink.href}"
+                        <a class="staggered-menu__dropdown-link"  href="${isAR ? `ar/${sublink.href}` : `en/${sublink.href}`}"
                            data-preview="${sublink.img}" data-caption="${sublink.caption}">
                           <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
                           <span class="staggered-menu__label">${sublink.text}</span>
@@ -324,7 +326,7 @@
       } else {
         return `
                 <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
-                  <a class="staggered-menu__link" href="${link.href}"
+                  <a class="staggered-menu__link" href="${isAR ? `ar/${link.href}` : `en/${link.href}`}"
                      data-preview="${link.img}" data-caption="${link.caption}">
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>
