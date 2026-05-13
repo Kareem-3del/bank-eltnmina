@@ -137,12 +137,10 @@ html[lang="en"] body.page-notable .nav__brand img {
 .na-comm__rule {
   height: 1px;
   margin-block: clamp(16px, 2.5vw, 24px);
-  background: linear-gradient(
-    90deg,
-    rgba(41, 139, 129, 0) 0%,
-    rgba(41, 139, 129, 0.4) 50%,
-    rgba(41, 139, 129, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(41, 139, 129, 0) 0%,
+      rgba(41, 139, 129, 0.4) 50%,
+      rgba(41, 139, 129, 0) 100%);
 }
 
 .na-comm__card {
@@ -374,9 +372,9 @@ html[dir="ltr"] .na-comm__item {
   box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
 }
 
-html[dir="ltr"] .na-agre__card {
+/* html[dir="ltr"] .na-agre__card {
   flex-direction: row-reverse;
-}
+} */
 
 .na-agre__icon {
   box-sizing: border-box;
@@ -473,9 +471,9 @@ html[dir="ltr"] .na-agre__text strong {
   box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
 }
 
-html[dir="ltr"] .na-fin__card {
+/* html[dir="ltr"] .na-fin__card {
   flex-direction: row-reverse;
-}
+} */
 
 .na-fin__icon {
   box-sizing: border-box;
@@ -582,6 +580,7 @@ html[dir="ltr"] .na-invperf__text {
 }
 
 @media (max-width: 520px) {
+
   .na-sus__title,
   .na-invperf__title {
     line-height: 1.2;
@@ -636,6 +635,7 @@ html[dir="ltr"] .na-invperf__text {
 }
 
 @media (min-width: 901px) {
+
   /* Size to chart only, align to row bottom with the card — avoids empty band inside the figure */
   .na-coll__chart {
     align-self: end;
@@ -845,7 +845,7 @@ html[dir="ltr"] .na-coll__text {
 }
 
 /* LTR: badge on visual top-right (inline-end), mirror padding */
-html[dir="ltr"] .na-inv__card {
+/* html[dir="ltr"] .na-inv__card {
   padding-inline-start: clamp(18px, 2.5vw, 24px);
   padding-inline-end: calc(64px + clamp(20px, 2.5vw, 28px));
   padding-block-start: clamp(16px, 2vw, 22px);
@@ -855,7 +855,7 @@ html[dir="ltr"] .na-inv__card {
 html[dir="ltr"] .na-inv__card .na-inv__badge {
   inset-inline-start: auto;
   inset-inline-end: clamp(12px, 1.8vw, 16px);
-}
+} */
 
 .na-inv__text {
   margin: 0;
@@ -1162,9 +1162,9 @@ html[dir="ltr"] .na-sfc__cell {
   box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
 }
 
-html[dir="ltr"] .na-kpi__card {
+/* html[dir="ltr"] .na-kpi__card {
   flex-direction: row-reverse;
-}
+} */
 
 .na-kpi__icon {
   box-sizing: border-box;
