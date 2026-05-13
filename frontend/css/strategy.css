@@ -188,8 +188,7 @@
 @media (max-width: 1024px) {
     .strategy-box {
         gap: 24px;
-        padding: 0 20px;
-        /* لإضافة مسافة جانبية في الشاشات المتوسطة */
+        /* padding: 0 20px; */
     }
 
     .strategy-box__item h3 {

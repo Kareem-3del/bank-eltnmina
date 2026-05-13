@@ -134,7 +134,7 @@
 
 @media (max-width: 1024px) {
     .intro-box {
-        max-width: 90%;
+        /* max-width: 90%; */
         gap: 24px;
     }
 }

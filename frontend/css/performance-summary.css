@@ -531,10 +531,16 @@
 
 /* --- الشاشات المتوسطة (Tablets - 1024px وأقل) --- */
 @media (max-width: 1024px) {
-    .hl-container {
+
+    .hl-container,
+    .performance-head {
         flex-direction: column;
         /* جعل الـ Pie Chart والـ Bar Chart فوق بعض */
         gap: 24px;
+    }
+
+    .performance-head {
+        align-items: flex-start;
     }
 
     .pie-sec {
