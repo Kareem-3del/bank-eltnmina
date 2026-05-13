@@ -198,25 +198,29 @@
           ]
         },
         {
-          text: "التقديم", sublinks: [
+          text: "التقديم",
+          img: "about.webp",
+          sublinks: [
             { href: "fund-role.html", text: "المقدمة", img: "about.webp", caption: "دور الصندوق في منظومة الإسكان" },
-            { href: "introduction.html", text: "رسالة رئيس مجلس الادارة", img: "intro.webp", caption: "كلمة عن مسيرة الصندوق" },
-            { href: "ceos-message.html", text: "رسالة الرئيس التنفيذي", img: "chairman.webp", caption: "رسالة من الرئيس التنفيذي" }
+            { href: "introduction.html", text: "رسالة رئيس مجلس الادارة", img: "hero-about.webp", caption: "كلمة عن مسيرة الصندوق" },
+            { href: "ceos-message.html", text: "رسالة الرئيس التنفيذي", img: "hero-about.webp", caption: "رسالة من الرئيس التنفيذي" }
           ]
         },
         { href: "strategy.html", text: "التوجه الاستراتيجي", img: "strategy.webp", caption: "أربع ركائز · رؤية 2030" },
         { href: "performance-summary.html", text: "موجز الاداء", img: "performance-summary.webp", caption: "أكثر من 920,000 أسرة منذ 2017" },
         { href: "current-state.html", text: "الوضع الراهن", img: "current-state-hero.webp", caption: "الوضع الحالي لقطاع الإسكان" },
         {
-          text: "أبرز الأعمال والإنجازات", sublinks: [
-            { href: "housing-support-program.html", text: "برنامج الدعم السكني", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
-            { href: "digital-achievements.html", text: "إنجازات التحول الرقمي", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
-            { href: "government-enablers.html", text: "مُمكِّنات الحوكمة", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
-            { href: "training-programs.html", text: "النشاطات الاجتماعية والجوائز", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
-            { href: "notable-achievements.html", text: "الاستدامة المالية", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" }
+          text: "أبرز الأعمال والإنجازات",
+          img: "challenges-hero.webp",
+          sublinks: [
+            { href: "housing-support-program.html", text: "برنامج الدعم السكني", img: "housing-support-program.webp", caption: "التحديات والدعم المقدم" },
+            { href: "digital-achievements.html", text: "إنجازات التحول الرقمي", img: "digital-achievements-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "government-enablers.html", text: "مُمكِّنات الحوكمة", img: "government-enablers-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "training-programs.html", text: "النشاطات الاجتماعية والجوائز", img: "government-enablers-hero.webp", caption: "التحديات والدعم المقدم" },
+            { href: "notable-achievements.html", text: "الاستدامة المالية", img: "image%20(54).png", caption: "التحديات والدعم المقدم" }
           ]
         },
-        { href: "opportunities-and-enablers.html", text: "الفرص و العوامل المسا..", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
+        { href: "opportunities-and-enablers.html", text: "الفرص و العوامل المسا..", img: "image%20(41).png", caption: "التحديات والدعم المقدم" },
         { href: "subsidiaries.html", text: "الشركات التابعة", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
         { href: "challenges-and-support.html", text: "التحديات و الدعم المطلوب", img: "challenges-hero.webp", caption: "التحديات والدعم المقدم" },
         { href: "conclusion.html", text: "الخاتمة", img: "hero-about.webp", caption: "خلاصة عام 2025م" },
