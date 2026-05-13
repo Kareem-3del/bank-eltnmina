@@ -12,7 +12,8 @@
 [lang="ar"] {
   --c-ar-highlight: #f1e48c;
   --ff-sans: "Almarai", "Public Sans", "Segoe UI", Tahoma, sans-serif;
-  --lh-base: 1.75;     /* +15% looser per DESIGN.md typography rule */
+  --lh-base: 1.75;
+  /* +15% looser per DESIGN.md typography rule */
   --lh-snug: 1.45;
 }
 
@@ -61,7 +62,10 @@
   font-family: "Public Sans", sans-serif;
   margin-inline-end: 0.05em;
 }
-[lang="ar"] .pct .pct-suffix { display: none; }
+
+[lang="ar"] .pct .pct-suffix {
+  display: none;
+}
 
 /* For the legacy "85%" pattern, mark with [data-pct] and let CSS hide the
    trailing % and prepend it instead. */
@@ -109,7 +113,10 @@
 
 /* ------ Mosaic: AR layout swaps spans so the photographic anchor sits
    on the leading (right) edge — matches printed cover (page-001 AR). --- */
-[lang="ar"] .mosaic { margin-inline-start: 0; margin-inline-end: auto; }
+[lang="ar"] .mosaic {
+  margin-inline-start: 0;
+  margin-inline-end: auto;
+}
 
 /* ------ Footer brand mark sits at trailing edge in AR (mirrors cover) - */
 /* Already handled by logical grid column order; no override needed. */
@@ -135,26 +142,38 @@
 }
 
 /* ------ Subtle: shrink hero meta separators on AR (denser script) ---- */
-[lang="ar"] .hero__meta { gap: var(--s-4); }
+[lang="ar"] .hero__meta {
+  gap: var(--s-4);
+}
 
 /* ------ AR navbar tweaks --------------------------------------------- */
 /* AR brand uses logo-only (text labels stripped); enlarge to fill the header. */
-[lang="ar"] .nav__brand img { height: 70px; width: auto; }
+/* [lang="ar"] .nav__brand img { height: 70px; width: auto; } */
 
 /* AR brand img must shrink with the header on small screens, otherwise the
    70px mark crowds the menu trigger. */
-@media (max-width: 720px) {
-  [lang="ar"] .nav__brand img { height: 56px; }
-}
-@media (max-width: 480px) {
-  [lang="ar"] .nav__brand img { height: 44px; }
-}
-@media (max-width: 360px) {
-  [lang="ar"] .nav__brand img { height: 36px; }
-}
+/* @media (max-width: 720px) {
+  [lang="ar"] .nav__brand img {
+    height: 56px;
+  }
+} */
+
+/* @media (max-width: 480px) {
+  [lang="ar"] .nav__brand img {
+    height: 44px;
+  }
+} */
+
+/* @media (max-width: 360px) {
+  [lang="ar"] .nav__brand img {
+    height: 36px;
+  }
+} */
 
 /* ------ Accessibility: make sure focus ring is offset symmetrically --- */
-[lang="ar"] .btn:focus-visible { outline-offset: 2px; }
+[lang="ar"] .btn:focus-visible {
+  outline-offset: 2px;
+}
 
 /* ------ Pillar feature rows (strategy): AR typography refinements ---- */
 /* Arabic glyphs connect, so wide tracking (letter-spacing) breaks ligatures.
@@ -176,6 +195,6 @@
 }
 
 /* Inverted visual panel: ensure title in AR stays heavy (Almarai 800) */
-[lang="ar"] .pillar-row__visual--inverted ~ .pillar-row__content .pillar-row__title {
+[lang="ar"] .pillar-row__visual--inverted~.pillar-row__content .pillar-row__title {
   font-weight: 800;
 }

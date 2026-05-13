@@ -589,8 +589,9 @@ select {
 }
 
 .nav__brand img {
-  height: 32px;
-  width: auto;
+  height: auto;
+  width: 170px;
+  max-width: unset;
 }
 
 .nav__brand span {
@@ -986,7 +987,7 @@ html.lenis body {
   justify-content: space-between;
   align-items: center;
   gap: var(--s-4);
-  margin-top: var(--s-7);
+  /* margin-top: var(--s-7); */
   padding-top: var(--s-5);
   border-top: 1px solid rgba(255, 255, 255, 0.22);
   font-size: var(--fs-xs);
