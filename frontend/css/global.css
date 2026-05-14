@@ -854,7 +854,7 @@ html.lenis body {
   background: var(--c-primary);
   color: var(--c-on-primary);
   padding-block: var(--s-9) var(--s-6);
-  margin-top: var(--s-10);
+  /* margin-top: var(--s-10); */
 }
 
 .site-footer a {
