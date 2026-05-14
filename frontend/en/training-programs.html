@@ -81,28 +81,78 @@
 
     <!-- ===================== Header ===================== -->
     <header class="site-header" data-header>
-        <div class="container">
-            <nav class="nav" data-nav aria-label="Main navigation">
-                <a href="en/index.html" class="nav__brand" aria-label="Real Estate Development Fund">
-                    <img src="assets/logo.webp" alt="Real Estate Development Fund" width="768" height="242" />
-                </a>
+        <nav class="nav" data-nav aria-label="Main Menu">
+            <a href="en/index.html" class="nav__brand" aria-label="Real Estate Development Fund">
+                <img src="assets/logo.webp" alt="Real Estate Development Fund" width="768" height="242" />
+            </a>
 
-                <ul class="nav__list" id="primary-nav">
-                    <li><a class="nav__link" href="en/index.html">Home</a></li>
-                    <li><a class="nav__link" href="en/executive-summary.html">Executive Summary</a></li>
-                    <li><a class="nav__link" href="en/introduction.html">Introduction</a></li>
-                    <li><a class="nav__link" href="en/strategy.html">Strategic Direction</a></li>
-                    <li><a class="nav__link" href="en/performance-summary.html">Performance Summary</a></li>
-                    <li><a class="nav__link" href="en/contact.html">Contact Us</a></li>
-                </ul>
+            <ul class="nav__list" id="primary-nav">
+                <li><a class="nav__link" href="en/index.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="nav__link" href="en/executive-summary-1.html">Executive Summary <span
+                            class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav__link" href="en/executive-summary-1.html">Executive Summary 1</a></li>
+                        <li><a href="en/executive-summary.html">Executive Summary 2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="nav__link" href="en/introduction.html">Presentation<span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="nav__link" href="en/introduction.html">
+                                Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav__link" href="en/chairman-message.html">
+                                Chairman's Message
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav__link" href="en/ceo-message.html">
+                                CEO's Message
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav__link" href="en/strategic-direction.html">Strategic Direction</a></li>
+                <li><a class="nav__link" href="en/performance-summary.html">Performance Summary</a></li>
+                <li><a class="nav__link" href="en/current-state.html">Current State</a></li>
+                <li class="dropdown">
+                    <a class="nav__link" href="en/training-programs.html">Key Achievements <span
+                            class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav__link" href="en/housing-support-program.html">Housing Support Program</a></li>
+                        <li><a class="nav__link" href="en/digital-achievements.html">Digital Transformation</a></li>
+                        <li><a class="nav__link" href="en/government-enablers.html">Governance Enablers</a></li>
+                        <li><a class="nav__link" href="en/training-programs.html">Social Activities & Awards</a></li>
+                        <li><a class="nav__link" href="en/notable-achievements.html">Communication Campaigns</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav__link" href="en/opportunities-and-enablers.html">Opportunities & Enablers</a>
+                </li>
+                <li>
+                    <a class="nav__link" href="en/subsidiaries.html">
+                        Subsidiaries
+                    </a>
+                </li>
+                <li>
+                    <a class="nav__link" href="en/challenges-and-support.html">
+                        Challenges & Support
+                    </a>
+                </li>
+                <li><a class="nav__link" href="en/conclusion.html">Conclusion</a></li>
+            </ul>
 
-                <div class="nav__cta">
-                    <a href="ar/training-programs.html" class="nav__lang" aria-label="العربية" lang="ar">AR</a>
-                    <button type="button" data-menu-trigger aria-label="Open menu"></button>
-                </div>
-            </nav>
-        </div>
+            <div class="nav__cta">
+                <a href="ar/training-programs.html" class="nav__lang" aria-label="Arabic" lang="ar">AR</a>
+                <button type="button" data-menu-trigger aria-label="Open Menu"></button>
+            </div>
+        </nav>
     </header>
+
 
     <main id="main">
 
