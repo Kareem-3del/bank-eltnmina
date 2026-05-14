@@ -269,6 +269,12 @@
                 caption: "أبرز الأعمال والإنجازات",
               },
               {
+                href: "housing-support-empowerment-achievements.html",
+                text: " إنجازات تمكين مستفيدي برامج الدعم السكني",
+                img: "challenges-and-support.webp",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
                 href: "digital-achievements.html",
                 text: "إنجازات التحول الرقمي",
                 img: "digital-achievements-.webp",
@@ -289,6 +295,12 @@
               {
                 href: "notable-achievements.html",
                 text: "أعمال الحملات الاتصالية",
+                img: "government-enablers.webp",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "subsidized-finance-cost.html",
+                text: "تكلفة التمويل المدعوم",
                 img: "government-enablers.webp",
                 caption: "أبرز الأعمال والإنجازات",
               }
@@ -414,6 +426,12 @@
                 caption: "Major works and accomplishments",
               },
               {
+                href: "housing-support-empowerment-achievements.html",
+                text: "Empowering Housing Support Beneficiaries",
+                img: "challenges-and-support.webp",
+                caption: "Major works and accomplishments",
+              },
+              {
                 href: "digital-achievements.html",
                 text: "Digital Transformation",
                 img: "digital-achievements-.webp",
@@ -436,6 +454,12 @@
                 text: "Communication Campaigns",
                 img: "government-enablers.webp",
                 caption: "Major works and accomplishments",
+              },
+              {
+                href: "subsidized-finance-cost.html",
+                text: "Subsidized Finance Cost",
+                img: "government-enablers.webp",
+                caption: "Subsidized Finance Cost",
               }
             ]
           },
