@@ -857,6 +857,10 @@ html.lenis body {
   /* margin-top: var(--s-10); */
 }
 
+.m-footer {
+  margin-top: var(--s-10);
+}
+
 .site-footer a {
   color: var(--c-on-primary);
 }
