@@ -86,27 +86,76 @@
 
   <!-- ===================== الترويسة ===================== -->
   <header class="site-header" data-header>
-    <div class="container">
-      <nav class="nav" data-nav aria-label="القائمة الرئيسية">
-        <a href="index.html" class="nav__brand" aria-label="صندوق التنمية العقارية">
-          <img src="assets/logo.webp" alt="Real Estate Development Fund" width="768" height="242" />
-        </a>
+    <!-- <div class="container"> -->
+    <nav class="nav" data-nav aria-label="القائمة الرئيسية">
+      <a href="index.html" class="nav__brand" aria-label="صندوق التنمية العقارية">
+        <img src="assets/logo.webp" alt="صندوق التنمية العقارية" width="768" height="242" />
+      </a>
 
-        <ul class="nav__list" id="primary-nav">
-          <li><a class="nav__link" href="ar/index.html">الرئيسية</a></li>
-          <li><a class="nav__link" href="ar/executive-summary.html">الملخص التنفيذي</a></li>
-          <li><a class="nav__link" href="ar/introduction.html">التقديم</a></li>
-          <li><a class="nav__link" href="ar/strategy.html">التوجه الاستراتيجي</a></li>
-          <li><a class="nav__link" href="ar/performance-summary.html">موجز الاداء</a></li>
-          <li><a class="nav__link" href="ar/contact.html">تواصل معنا</a></li>
-        </ul>
+      <ul class="nav__list" id="primary-nav">
+        <li><a class="nav__link" href="ar/index.html">الرئيسية</a></li>
+        <li class="dropdown">
+          <a class="nav__link" href="#">الملخص التنفيذي<span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="ar/executive-summary-1.html">الملخص التنفيذي 1</a></li>
+            <li><a href="ar/executive-summary.html">الملخص التنفيذي 2</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="nav__link" href="ar/chairman-message.html">التقديم <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="ar/introduction.html">
+                المقدمة
+              </a>
+            </li>
+            <li>
+              <a class="nav__link" href="ar/chairman-message.html">
+                رسالة رئيس مجلس الادارة
+              </a>
+            </li>
+            <li>
+              <a class="nav__link" href="ar/ceo-message.html">
+                رسالة الرئيس التنفيذي
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a class="nav__link" href="ar/strategic-direction.html">التوجه الاستراتيجي</a></li>
+        <li><a class="nav__link" href="ar/performance-summary.html">موجز الاداء</a></li>
+        <li><a class="nav__link" href="ar/current-state.html">الوضع الراهن</a></li>
+        <li class="dropdown">
+          <a class="nav__link" href="#">أبرز الأعمال والإنجازات <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="ar/housing-support-program.html">برنامج الدعم السكني</a></li>
+            <li><a href="ar/digital-achievements.html">إنجازات التحول الرقمي</a></li>
+            <li><a href="ar/government-enablers.html">مُمكِّنات الحوكمة</a></li>
+            <li><a href="ar/training-programs.html">النشاطات الاجتماعية والجوائز</a></li>
+            <li><a href="ar/notable-achievements.html">أعمال الحملات الاتصالية</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="nav__link" href="ar/opportunities-and-enablers.html">الفرص و العوامل المسا..</a>
+        </li>
+        <li>
+          <a class="nav__link" href="ar/subsidiaries.html">
+            الشركات التابعة
+          </a>
+        </li>
+        <li>
+          <a class="nav__link" href="ar/challenges-and-support.html">
+            التحديات و الدعم المطلوب
+          </a>
+        </li>
+        <li><a class="nav__link" href="ar/conclusion.html">الخاتمة</a></li>
+      </ul>
 
-        <div class="nav__cta">
-          <a href="en/chairman-message.html" class="nav__lang" aria-label="English" lang="en">EN</a>
-          <button type="button" data-menu-trigger aria-label="فتح القائمة"></button>
-        </div>
-      </nav>
-    </div>
+      <div class="nav__cta">
+        <a href="en/chairman-message.html" class="nav__lang" aria-label="English" lang="en">EN</a>
+        <button type="button" data-menu-trigger aria-label="فتح القائمة"></button>
+      </div>
+    </nav>
+    <!-- </div> -->
   </header>
 
   <main id="main">
@@ -439,16 +488,6 @@
     </div>
   </footer>
 
-  <!-- زر تنزيل ملف PDF لهذه الصفحة -->
-  <a class="pdf-fab" href="assets/pdf/redf-2025-home-ar.pdf" download aria-label="تنزيل هذه الصفحة بصيغة PDF"
-    title="تنزيل هذه الصفحة (PDF)">
-    <svg class="pdf-fab__icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3v12" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="4" y1="20" x2="20" y2="20" />
-    </svg>
-    <span class="pdf-fab__label">تنزيل PDF</span>
-  </a>
 
   <ul class="actions-box">
 

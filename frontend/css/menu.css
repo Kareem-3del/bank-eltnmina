@@ -730,6 +730,11 @@ body.menu-open .pdf-fab {
   /* لون اختياري متماشى مع هوية الصناديق الحكومية */
 }
 
+html[dir="ltr"] .dropdown-menu {
+  right: auto;
+  left: 0;
+}
+
 /* إظهار القائمة عند الـ Hover */
 .dropdown:hover .dropdown-menu {
   display: block;
@@ -742,7 +747,7 @@ body.menu-open .pdf-fab {
   text-decoration: none;
   display: block;
   font-size: 14px;
-  text-align: right;
+  /* text-align: right; */
   /* محاذاة النص لليمين */
   transition: background 0.3s;
 }

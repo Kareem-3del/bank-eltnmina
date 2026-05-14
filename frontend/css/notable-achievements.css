@@ -11,11 +11,11 @@
 }
 
 /* Larger header wordmark; beats ar.css `[lang="ar"] .nav__brand img` load order */
-html[lang="ar"] body.page-notable .nav__brand img,
+/* html[lang="ar"] body.page-notable .nav__brand img,
 html[lang="en"] body.page-notable .nav__brand img {
   height: clamp(52px, 8vw, 96px);
   width: auto;
-}
+} */
 
 .notable-achievements {
   background: #ffffff;
