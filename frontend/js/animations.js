@@ -1325,3 +1325,44 @@
     });
   }
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  // التأكد من أن GSAP و ScrollTrigger تم تحميلهما في الصفحة
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+
+    // تسجيل الـ Plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // التقاط كل حاويات الصور في الصفحة برمجياً
+    const imgWrappers = document.querySelectorAll("[data-gsap-img]");
+
+    imgWrappers.forEach((wrapper) => {
+      const img = wrapper.querySelector("img");
+      if (!img) return;
+
+      // إنشاء التايم لاين للأنيميشن
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrapper,       // يبدأ الأنيميشن عند الوصول للحاوية
+          start: "top 85%",       // يبدأ عندما يصل أعلى الحاوية إلى 85% من الشاشة
+          toggleActions: "play none none none" // يشتغل مرة واحدة فقط لضمان الأداء
+        }
+      });
+
+      // حركة دخول الصورة (تكبير بسيط + ظهور تدريجي ناعم)
+      tl.fromTo(img,
+        {
+          scale: 1.2,             // تبدأ الصورة مكبرة قليلاً داخل الحاوية
+          opacity: 0
+        },
+        {
+          scale: 1,               // تعود لحجمها الطبيعي 100%
+          opacity: 1,
+          duration: 1.4,          // مدة الحركة ثانية ونصف تقريباً لعرض فخم
+          ease: "power2.out"      // تنعيم الحركة في النهاية
+        }
+      );
+    });
+
+  }
+});
