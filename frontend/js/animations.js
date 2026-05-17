@@ -209,6 +209,9 @@
   /* ------ Reveal-on-scroll (.reveal / utility classes) --------------- */
   // Royal cards and the CEO message run their own choreography below; exclude
   // them from the generic reveal pass so they don't double-animate.
+  /* ------ Reveal-on-scroll (.reveal / utility classes) --------------- */
+  // Royal cards and the CEO message run their own choreography below; exclude
+  // them from the generic reveal pass so they don't double-animate.
   const revealEls = document.querySelectorAll(".reveal:not([data-royal]):not([data-ceo-message]), .anim-fadeinup, .anim-zoomin");
   if (revealEls.length && ScrollTrigger) {
     if (reduceMotion) {
@@ -219,25 +222,64 @@
     } else {
       revealEls.forEach(el => {
         const isZoom = el.classList.contains("anim-zoomin");
+
+        // تعديل ذكي: تقليل مسافة الـ y من 60 إلى 30 لتقليل جهد الحسابات (Reflow) للمتصفح أثناء السكرول السريع
         const fromVars = isZoom
           ? { opacity: 0, scale: 1.12 }
-          : { opacity: 0, y: 60 };
+          : { opacity: 0, y: 30 };
+
         const toVars = isZoom
-          ? { opacity: 1, scale: 1, duration: 1.6, ease: "expo.out" }
-          : { opacity: 1, y: 0, duration: 1.4, ease: "expo.out" };
+          ? { opacity: 1, scale: 1, duration: 1.4, ease: "power2.out" } // استبدال expo بـ power2 لسرعة الاستجابة اللحظية
+          : { opacity: 1, y: 0, duration: 1.1, ease: "power2.out" };
+
+        // إيقاف الـ CSS transitions برمجياً قبل بدء التحريك لمنع التلعثم
+        gsap.set(el, { transition: "none" });
 
         gsap.fromTo(el, fromVars, {
           ...toVars,
+          lazy: false, // يمنع GSAP من تأجيل رندر العنصر للدورة القادمة
           scrollTrigger: {
             trigger: el,
-            start: "top 88%",
+            start: "top 90%", // جعلناه يبدأ مبكراً (90% بدل 88%) ليتفادى قفزة السكرول السريع
             toggleActions: "play none none none",
             once: true,
+            fastScrollEnd: true, // ينهي الأنيميشن فوراً لو تخطاه المستخدم بسرعة خارقة
           },
           onStart: () => el.classList.add("is-visible"),
+          onComplete: () => {
+            // تنظيف الـ transform بعد انتهاء الحركة لثبات الـ DOM
+            gsap.set(el, { clearProps: "transform,scale" });
+          }
         });
       });
     }
+  }
+
+  /* ------ Specialized Image Zoom Reveal (Anti-Jump) ------------------ */
+  const gsapImages = document.querySelectorAll("[data-gsap-img]");
+  if (gsapImages.length && ScrollTrigger && !reduceMotion) {
+    gsapImages.forEach(wrapper => {
+      const img = wrapper.querySelector("img");
+      if (!img) return;
+
+      gsap.fromTo(img,
+        { scale: 1.15, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.3,
+          ease: "power1.out",
+          lazy: false,
+          scrollTrigger: {
+            trigger: wrapper,
+            start: "top 92%", // يبدأ التحريك قبل ظهور الحاوية تماماً للعين
+            toggleActions: "play none none none",
+            once: true,
+            fastScrollEnd: true
+          }
+        }
+      );
+    });
   }
 
   /* ------ Stagger groups --------------------------------------------- */
@@ -1326,43 +1368,42 @@
   }
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
-  // التأكد من أن GSAP و ScrollTrigger تم تحميلهما في الصفحة
-  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+// document.addEventListener("DOMContentLoaded", () => {
+//   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+//     gsap.registerPlugin(ScrollTrigger);
 
-    // تسجيل الـ Plugin
-    gsap.registerPlugin(ScrollTrigger);
+//     const imgWrappers = document.querySelectorAll("[data-gsap-img]");
 
-    // التقاط كل حاويات الصور في الصفحة برمجياً
-    const imgWrappers = document.querySelectorAll("[data-gsap-img]");
+//     imgWrappers.forEach((wrapper) => {
+//       const img = wrapper.querySelector("img");
+//       if (!img) return;
 
-    imgWrappers.forEach((wrapper) => {
-      const img = wrapper.querySelector("img");
-      if (!img) return;
+//       // الحل السحري للسكرول السريع: استخدام fromTo مباشر مع تخصيص الأداء
+//       gsap.fromTo(img,
+//         {
+//           scale: 1.15, // قللنا النسبة قليلاً لتقليل مجهود كرت الشاشة أثناء الحركة السريعة
+//           opacity: 0
+//         },
+//         {
+//           scale: 1,
+//           opacity: 1,
+//           duration: 1.2,
+//           ease: "power1.out", // تم تغيير الـ Ease ليكون أسرع في البداية فيلحق السكرول السريع
+//           lazy: false,        // يجبر GSAP على تفعيل الأنيميشن فوراً دون انتظار الدورة القادمة للمتصفح
+//           scrollTrigger: {
+//             trigger: wrapper,
+//             start: "top 92%",       // جعلناه يبدأ مبكراً قليلاً (92% بدل 88%) ليعطي الصورة وقتاً للاستعداد قبل أن تراها العين
+//             toggleActions: "play none none none",
+//             once: true,
+//             fastScrollEnd: true,    // ميزة رهيبة: لو المستخدم سكرول بسرعة فظيعة، GSAP ينهي الأنيميشن فوراً ويمنع الـ Jump
+//           }
+//         }
+//       );
+//     });
 
-      // إنشاء التايم لاين للأنيميشن
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: wrapper,       // يبدأ الأنيميشن عند الوصول للحاوية
-          start: "top 85%",       // يبدأ عندما يصل أعلى الحاوية إلى 85% من الشاشة
-          toggleActions: "play none none none" // يشتغل مرة واحدة فقط لضمان الأداء
-        }
-      });
-
-      // حركة دخول الصورة (تكبير بسيط + ظهور تدريجي ناعم)
-      tl.fromTo(img,
-        {
-          scale: 1.2,             // تبدأ الصورة مكبرة قليلاً داخل الحاوية
-          opacity: 0
-        },
-        {
-          scale: 1,               // تعود لحجمها الطبيعي 100%
-          opacity: 1,
-          duration: 1.4,          // مدة الحركة ثانية ونصف تقريباً لعرض فخم
-          ease: "power2.out"      // تنعيم الحركة في النهاية
-        }
-      );
-    });
-
-  }
-});
+//     // إجبار المتصفح على إعادة حساب كل الـ Triggers بعد تحميل الصفحة تماماً لضمان دقة الأبعاد
+//     window.addEventListener("load", () => {
+//       ScrollTrigger.refresh();
+//     });
+//   }
+// });

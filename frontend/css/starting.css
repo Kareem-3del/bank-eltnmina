@@ -343,7 +343,8 @@
     display: block;
 }
 
-.msg-sec_img .gs-img-wrapper {
+.msg-sec_img .gs-img-wrapper,
+.msg-sec_img2 .gs-img-wrapper {
     height: 100%;
 }
 
