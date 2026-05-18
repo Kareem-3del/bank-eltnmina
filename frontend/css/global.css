@@ -857,6 +857,10 @@ html.lenis body {
   /* margin-top: var(--s-10); */
 }
 
+.site-footer .nav__link[aria-current="page"] {
+  color: #FFF;
+}
+
 .m-footer {
   margin-top: var(--s-10);
 }
@@ -884,11 +888,86 @@ html.lenis body {
   }
 }
 
+.site-footer .dropdown {
+  width: 100%;
+}
+
+.site-footer .dropdown>a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  pointer-events: all
+}
+
+.site-footer .footer__index .dropdown {
+  position: static;
+}
+
+.site-footer .footer__index .dropdown>a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-footer .footer__index .dropdown-menu {
+  position: static;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height var(--d-fast) var(--ease-out), opacity var(--d-fast) var(--ease-out), padding var(--d-fast) var(--ease-out);
+}
+
+.site-footer .footer__index .dropdown:hover .dropdown-menu {
+  display: none;
+}
+
+.site-footer .footer__index .dropdown.is-open .dropdown-menu {
+  display: block;
+  opacity: 1;
+  max-height: 720px;
+  padding-block: var(--s-3);
+  padding: 8px 16px;
+}
+
+.site-footer .footer__index .dropdown .dropdown-menu li {
+  border-bottom: 0;
+}
+
+.site-footer .footer__index .dropdown .dropdown-menu li a {
+  color: var(--c-on-primary);
+  padding-inline: 0;
+  padding-block: var(--s-3);
+  display: block;
+}
+
+.site-footer .footer__index .dropdown .dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--c-on-primary);
+}
+
+.site-footer .footer__index .dropdown.is-open>a .icon-arrow {
+  transform: rotate(90deg) scaleX(-1);
+}
+
 .footer__brand {
   display: flex;
   flex-direction: column;
   gap: var(--s-3);
-  max-width: 460px;
+  max-width: 300px;
+}
+
+.footer__brand img {
+  max-width: 100%;
+  height: auto;
 }
 
 .footer__brand strong {
@@ -941,9 +1020,29 @@ html.lenis body {
     color var(--d-fast) var(--ease-out);
 }
 
-.footer__index a>span:first-child {
+/* .footer__index a>span:first-child {
   min-width: 0;
   flex: 1 1 auto;
+} */
+
+.footer-download__link {
+  min-width: 250px;
+  min-height: 48px;
+  padding: 16px;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #00948F;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 24px;
+  border-radius: 60px;
 }
 
 .footer__index a:hover {

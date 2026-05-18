@@ -695,4 +695,39 @@
     });
   }
 
+  /* ------ Footer Dropdown Accordion (Fixed Toggle) ---------------------- */
+  const footerDropdowns = document.querySelectorAll(".site-footer .dropdown");
+
+  footerDropdowns.forEach(dropdown => {
+    const toggleBtn = dropdown.querySelector(".nav__link");
+    const arrow = dropdown.querySelector(".arrow svg");
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", (e) => {
+        // إلغاء الانتقال بالرابط تماماً ليعمل الزر كـ مـُفتاح فقط
+        e.preventDefault();
+
+        const isOpen = dropdown.classList.contains("is-open");
+
+        // 1. إغلاق جميع الأكورديونات الأخرى في الفوتر
+        footerDropdowns.forEach(otherDropdown => {
+          if (otherDropdown !== dropdown) {
+            otherDropdown.classList.remove("is-open");
+            const otherArrow = otherDropdown.querySelector(".arrow svg");
+            if (otherArrow) otherArrow.style.transform = "rotate(0deg)";
+          }
+        });
+
+        // 2. التبديل بين الفتح والإغلاق للقائمة الحالية بسلاسة
+        if (!isOpen) {
+          dropdown.classList.add("is-open");
+          if (arrow) arrow.style.transform = "rotate(180deg)";
+        } else {
+          dropdown.classList.remove("is-open");
+          if (arrow) arrow.style.transform = "rotate(0deg)";
+        }
+      });
+    }
+  });
+
 })();

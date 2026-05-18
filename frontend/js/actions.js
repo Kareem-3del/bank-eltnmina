@@ -84,8 +84,8 @@
   const urlFor = (s) => `${lang}/${s}.html`;
 
   // PDF assets — naming convention assets/pdf/redf-2025-<slug>-<lang>.pdf.
-  const pagePdf = `assets/pdf/redf-2025-${slug}-${lang}.pdf`;
-  const fullPdf = `assets/pdf/redf-2025-full-${lang}.pdf`;
+  const pagePdf = `assets/pdf/${isAR ? "ar" : "en"}/${slug}.pdf`;
+  const fullPdf = `assets/pdf/${isAR ? "ar" : "en"}/MT-final.pdf`;
 
   const ICONS = {
     prev: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>`,
@@ -98,6 +98,7 @@
   // (Visually: previous in AR looks like →, next looks like ←.)
   const prevIcon = isAR ? ICONS.next : ICONS.prev;
   const nextIcon = isAR ? ICONS.prev : ICONS.next;
+
 
   function injectMarkup() {
     let box = document.querySelector(".actions-box");
@@ -118,20 +119,20 @@
         </a>
       </li>
       <li class="action-box">
-        <a class="action-box__link" data-action="next"
-           ${nextSlug ? `href="${urlFor(nextSlug)}"` : 'href="#" aria-disabled="true"'}
-           aria-label="${labels.next}${nextSlug ? ` — ${labels[nextSlug]}` : ''}"
-           title="${labels.next}${nextSlug ? ` — ${labels[nextSlug]}` : ''}">
+        <a class="action-box__link">
           ${nextIcon}
         </a>
       </li>
+      ${slug !== "index" ? `
       <li class="action-box">
         <a class="action-box__link" data-action="download-page"
-           href="${pagePdf}" download
-           aria-label="${labels.dlPage}" title="${labels.dlPage}">
+           href="${pagePdf}" download>
           ${ICONS.dlPage}
         </a>
       </li>
+      `
+        : ""
+      }
       <li class="action-box">
         <a class="action-box__link" data-action="download-all"
            href="${fullPdf}" download
