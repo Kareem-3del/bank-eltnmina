@@ -159,7 +159,10 @@
   // so it works the same in /index.html and /ar/index.html.
   const here = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
   document.querySelectorAll(".nav__link").forEach(link => {
+
     const href = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
+    console.log("href = ", href)
+
     if (href && href === here) link.setAttribute("aria-current", "page");
   });
 
@@ -358,7 +361,7 @@
             caption: "A comprehensive look at the year's achievements",
             sublinks: [
               {
-                href: "executive-summary.html",
+                href: "executive-summary-1.html",
                 text: "Executive Summary 1",
                 img: "executive-summary.webp",
                 caption: "A comprehensive look at the year's achievements"
@@ -539,35 +542,47 @@
         <ul class="staggered-menu__list" role="list">
           ${config.links.map((link, i) => {
       if (link.sublinks) {
+        const activeSublink = link.sublinks.find(sub => isCurrentLink(sub.href));
+
+        const parentHref = activeSublink ? (isAR ? `ar/${activeSublink.href}` : `en/${activeSublink.href}`) : "#";
+        const parentImg = activeSublink ? activeSublink.img : link.img;
+        const parentCaption = activeSublink ? activeSublink.caption : (link.caption || "");
+        const hasActiveChild = activeSublink ? " is-current" : "";
+
         return `
-                <li class="staggered-menu__item staggered-menu__dropdown">
-                  <button data-caption="${link?.caption || ""}" data-preview="${link?.img}" class="staggered-menu__link staggered-menu__dropdown-toggle" data-dropdown-toggle>
+                <li class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
+                  <a href="${parentHref}" data-caption="${parentCaption}" data-preview="${parentImg}" class="staggered-menu__link staggered-menu__dropdown-toggle${hasActiveChild}" data-dropdown-toggle>
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>
                     <span class="staggered-menu__arrow" aria-hidden="true">
                       <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                  </button>
+                  </a>
                   <ul class="staggered-menu__dropdown-menu">
-                    ${link.sublinks.map((sublink, j) => `
-                      <li class="staggered-menu__dropdown-item${isCurrentLink(sublink.href) ? " is-current" : ""}">
-                        <a class="staggered-menu__dropdown-link"  href="${isAR ? `ar/${sublink.href}` : `en/${sublink.href}`}"
-                           data-preview="${sublink.img}" data-caption="${sublink.caption}">
-                          <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
-                          <span class="staggered-menu__label">${sublink.text}</span>
-                          <span class="staggered-menu__arrow" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                          </span>
-                        </a>
-                      </li>
-                    `).join("")}
+                    ${link.sublinks.map((sublink, j) => {
+          // فحص حالة الرابط الفرعي الحالي هنا
+          const isSubActive = isCurrentLink(sublink.href) ? " is-current" : "";
+
+          return `
+                        <li class="staggered-menu__dropdown-item${isSubActive}">
+                          <a class="staggered-menu__dropdown-link${isSubActive}" href="${isAR ? `ar/${sublink.href}` : `en/${sublink.href}`}"
+                             data-preview="${sublink.img}" data-caption="${sublink.caption}">
+                            <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
+                            <span class="staggered-menu__label">${sublink.text}</span>
+                            <span class="staggered-menu__arrow" aria-hidden="true">
+                              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                          </a>
+                        </li>
+                      `;
+        }).join("")}
                   </ul>
                 </li>
               `;
       } else {
         return `
                 <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
-                  <a class="staggered-menu__link" href="${isAR ? `ar/${link.href}` : `en/${link.href}`}"
+                  <a class="staggered-menu__link${isCurrentLink(link.href) ? " is-current" : ""}" href="${isAR ? `ar/${link.href}` : `en/${link.href}`}"
                      data-preview="${link.img}" data-caption="${link.caption}">
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>
@@ -604,6 +619,87 @@
         </div>
       </div>
     `;
+    // menu.innerHTML = `
+    //   <div class="staggered-menu__top">
+    //     <a href="${root}${isAR ? "ar/" : ""}index.html" class="staggered-menu__brand">
+    //       <img src="assets/logo.png" alt="" />
+    //       <span><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
+    //     </a>
+    //     <button type="button" class="staggered-menu__close" data-menu-close>
+    //       <span>${config.labelOpen}</span>
+    //       <span class="staggered-menu__close-x" aria-hidden="true"></span>
+    //     </button>
+    //   </div>
+
+    //   <div class="staggered-menu__body">
+    //     <ul class="staggered-menu__list" role="list">
+    //       ${config.links.map((link, i) => {
+    //   if (link.sublinks) {
+    //     return `
+    //             <li class="staggered-menu__item staggered-menu__dropdown">
+    //               <button data-caption="${link?.caption || ""}" data-preview="${link?.img}" class="staggered-menu__link staggered-menu__dropdown-toggle" data-dropdown-toggle>
+    //                 <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
+    //                 <span class="staggered-menu__label">${link.text}</span>
+    //                 <span class="staggered-menu__arrow" aria-hidden="true">
+    //                   <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    //                 </span>
+    //               </button>
+    //               <ul class="staggered-menu__dropdown-menu">
+    //                 ${link.sublinks.map((sublink, j) => `
+    //                   <li class="staggered-menu__dropdown-item${isCurrentLink(sublink.href) ? " is-current" : ""}">
+    //                     <a class="staggered-menu__dropdown-link"  href="${isAR ? `ar/${sublink.href}` : `en/${sublink.href}`}"
+    //                        data-preview="${sublink.img}" data-caption="${sublink.caption}">
+    //                       <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
+    //                       <span class="staggered-menu__label">${sublink.text}</span>
+    //                       <span class="staggered-menu__arrow" aria-hidden="true">
+    //                         <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    //                       </span>
+    //                     </a>
+    //                   </li>
+    //                 `).join("")}
+    //               </ul>
+    //             </li>
+    //           `;
+    //   } else {
+    //     return `
+    //             <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
+    //               <a class="staggered-menu__link" href="${isAR ? `ar/${link.href}` : `en/${link.href}`}"
+    //                  data-preview="${link.img}" data-caption="${link.caption}">
+    //                 <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
+    //                 <span class="staggered-menu__label">${link.text}</span>
+    //                 <span class="staggered-menu__arrow" aria-hidden="true">
+    //                   <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    //                 </span>
+    //               </a>
+    //             </li>
+    //           `;
+    //   }
+    // }).join("")}
+    //     </ul>
+
+    //     <aside class="staggered-menu__preview" aria-hidden="true">
+    //       ${config.links.flatMap(link => link.sublinks ? link.sublinks : [link]).map((item, i) => `
+    //         <img class="staggered-menu__preview-img${i === 0 ? " is-active" : ""}"
+    //              data-img="${item.img}"
+    //              src="assets/${item.img}" alt="" loading="lazy" />
+    //       `).join("")}
+    //       <div class="staggered-menu__preview-caption" data-preview-caption>${config.links.flatMap(link => link.sublinks ? link.sublinks : [link])[0].caption}</div>
+    //     </aside>
+    //   </div>
+
+    //   <div class="staggered-menu__bottom">
+    //     <div class="staggered-menu__lang" aria-label="Language">
+    //       <a href="#" aria-current="true">${config.langSelf}</a>
+    //       <span style="opacity:.4">·</span>
+    //       <a href="${config.langOther.href}">${config.langOther.code}</a>
+    //     </div>
+    //     <div class="staggered-menu__contact">
+    //       ${config.contact.map(c => `
+    //         <span><strong>${c.label}</strong><a href="${c.href}">${c.value}</a></span>
+    //       `).join("")}
+    //     </div>
+    //   </div>
+    // `;
     document.body.appendChild(menu);
 
     let lastFocused = null;
@@ -652,18 +748,16 @@
     });
 
     // Dropdown toggles
-    menu.querySelectorAll("[data-dropdown-toggle]").forEach(toggle => {
-      toggle.addEventListener("click", (e) => {
+    document.querySelectorAll('[data-dropdown-toggle]').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        // منع الرابط من الانتقال لصفحة أخرى عند الضغط لفتح القائمة
         e.preventDefault();
-        const item = toggle.closest(".staggered-menu__item");
-        item.classList.toggle("is-open");
-        const arrow = toggle.querySelector(".staggered-menu__arrow svg");
-        if (arrow) {
-          arrow.style.transform = item.classList.contains("is-open") ? "rotate(180deg)" : "rotate(0deg)";
-        }
+
+        // كود فتح وإغلاق القائمة المنسدلة الخاص بك هنا، مثال:
+        const parentLi = toggle.closest('.staggered-menu__dropdown');
+        parentLi.classList.toggle('is-open'); // أو الكلاس المسؤول عن الفتح عندك
       });
     });
-
     const previewImgs = menu.querySelectorAll(".staggered-menu__preview-img");
     const previewCap = menu.querySelector("[data-preview-caption]");
 

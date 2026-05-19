@@ -373,7 +373,8 @@
 }
 
 /* Active page accent */
-.staggered-menu__item.is-current .staggered-menu__link {
+.staggered-menu__item.is-current .staggered-menu__link,
+.staggered-menu__dropdown-menu .is-current span {
   color: var(--c-primary-fixed);
 }
 

@@ -858,7 +858,7 @@ html.lenis body {
 }
 
 .site-footer .nav__link[aria-current="page"] {
-  color: #FFF;
+  color: #8dcfc5 !important;
 }
 
 .m-footer {
@@ -885,6 +885,10 @@ html.lenis body {
 @media (max-width: 720px) {
   .footer__head {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    padding-bottom: 100px;
   }
 }
 
@@ -1270,6 +1274,10 @@ html.lenis body {
   margin-bottom: 4rem;
 }
 
+[dir="rtl"] .c-hero__title {
+  line-height: 92px;
+}
+
 .c-hero__desc {
   font-weight: 400;
   font-size: 20px;
@@ -1287,12 +1295,18 @@ html.lenis body {
   color: #fff;
 }
 
+.c-hero__breadcrumb {
+  z-index: 99;
+  margin-bottom: 1rem;
+}
+
 .c-hero__breadcrumb-list {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
+  flex-wrap: wrap;
 }
 
 .c-hero__breadcrumb-item {

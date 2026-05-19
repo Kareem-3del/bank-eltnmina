@@ -653,7 +653,48 @@
 }
 
 /* --- لمسة إضافية لتحسين التمرير في الجداول --- */
-.table-container {
+/* .table-container {
     -webkit-overflow-scrolling: touch;
-    /* تمرير ناعم على iOS */
+} */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+
+    /* تفعيل ميزة السكرول السلس على هواتف الآيفون */
+    -webkit-overflow-scrolling: touch;
+
+    /* للمتصفحات الحديثة جداً مثل Firefox: نحدد لون الـ Thumb ثم لون الـ Track */
+    scrollbar-width: thin;
+    scrollbar-color: #01938e #f4f9f8;
+}
+
+/* تخصيص الـ Scrollbar لمتصفحات Webkit (Chrome, Safari, Edge, Opera) */
+
+/* 1. الحجم الكلي للشريط (ارتفاعه في السكرول الأفقي) */
+.table-container::-webkit-scrollbar {
+    height: 6px;
+    /* جعل الشريط نحيفاً وأنيقاً بدلاً من الشكل العريض الافتراضي */
+}
+
+/* 2. خلفية مسار الشريط (Track) */
+.table-container::-webkit-scrollbar-track {
+    background: #f4f9f8;
+    /* نفس لون الخلفية الهادئة المستخدم في موقعك */
+    border-radius: 10px;
+}
+
+/* 3. الجزء المتحرك الذي يمسكه المستخدم (Thumb) */
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #01938e;
+    /* اللون الأخضر الأساسي للموقع */
+    border-radius: 10px;
+    border: 1px solid #f4f9f8;
+    /* إضافة حافة صغيرة ليعطي تأثيراً عائماً ونظيفاً */
+}
+
+/* 4. تأثير عند تمرير الماوس فوق الجزء المتحرك (Hover) */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #8dcfc5;
+    /* يتحول للأخضر الفاتح ليعطي استجابة تفاعلية (Feedback) للمستخدم */
 }
