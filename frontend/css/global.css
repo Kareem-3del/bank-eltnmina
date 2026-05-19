@@ -1389,7 +1389,7 @@ html.lenis body {
 @media (max-width: 1024px) {
   .c-hero {
     /* height: auto; */
-    height: 450px;
+    min-height: 450px;
   }
 
   .c-hero-perform {
@@ -1416,6 +1416,7 @@ html.lenis body {
     height: auto;
     display: flex;
     align-items: center;
+    min-height: unset;
   }
 
   .c-hero__content {
