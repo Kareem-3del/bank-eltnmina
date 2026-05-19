@@ -197,25 +197,7 @@
             img: "hero.webp",
             caption: "أسرٌ تنتقل إلى منازلها الجديدة"
           },
-          {
-            text: "الملخص التنفيذي",
-            img: "executive-summary.webp",
-            caption: "نظرة شاملة على إنجازات العام",
-            sublinks: [
-              {
-                href: "executive-summary-1.html",
-                text: "الملخص التنفيذي 1",
-                img: "executive-summary.webp",
-                caption: "نظرة شاملة على إنجازات العام"
-              },
-              {
-                href: "executive-summary.html",
-                text: "الملخص التنفيذي 2",
-                img: "executive-summary.webp",
-                caption: "نظرة شاملة على إنجازات العام"
-              }
-            ]
-          },
+
           {
             text: "التقديم",
             img: "introduction.webp",
@@ -238,6 +220,25 @@
                 text: "رسالة الرئيس التنفيذي",
                 img: "chairman-message.webp",
                 caption: "رسالة من الرئيس التنفيذي"
+              }
+            ]
+          },
+          {
+            text: "الملخص التنفيذي",
+            img: "executive-summary.webp",
+            caption: "نظرة شاملة على إنجازات العام",
+            sublinks: [
+              {
+                href: "executive-summary-1.html",
+                text: "الملخص التنفيذي 1",
+                img: "executive-summary.webp",
+                caption: "نظرة شاملة على إنجازات العام"
+              },
+              {
+                href: "executive-summary.html",
+                text: "الملخص التنفيذي 2",
+                img: "executive-summary.webp",
+                caption: "نظرة شاملة على إنجازات العام"
               }
             ]
           },
@@ -354,25 +355,7 @@
             img: "hero-en.webp",
             caption: "Families moving into their new homes"
           },
-          {
-            text: "Executive Summary",
-            img: "executive-summary.webp",
-            caption: "A comprehensive look at the year's achievements",
-            sublinks: [
-              {
-                href: "executive-summary-1.html",
-                text: "Executive Summary 1",
-                img: "executive-summary.webp",
-                caption: "A comprehensive look at the year's achievements"
-              },
-              {
-                href: "executive-summary.html",
-                text: "Executive Summary 2",
-                img: "executive-summary.webp",
-                caption: "A comprehensive look at the year's achievements"
-              }
-            ]
-          },
+
           {
             text: "Presentation",
             img: "introduction.webp",
@@ -395,6 +378,25 @@
                 text: "CEO's Message",
                 img: "chairman-message.webp",
                 caption: "A message from the CEO"
+              }
+            ]
+          },
+          {
+            text: "Executive Summary",
+            img: "executive-summary.webp",
+            caption: "A comprehensive look at the year's achievements",
+            sublinks: [
+              {
+                href: "executive-summary-1.html",
+                text: "Executive Summary 1",
+                img: "executive-summary.webp",
+                caption: "A comprehensive look at the year's achievements"
+              },
+              {
+                href: "executive-summary.html",
+                text: "Executive Summary 2",
+                img: "executive-summary.webp",
+                caption: "A comprehensive look at the year's achievements"
               }
             ]
           },
