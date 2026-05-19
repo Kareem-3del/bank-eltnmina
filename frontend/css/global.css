@@ -1330,6 +1330,7 @@ html.lenis body {
   transition: color 0.3s ease;
   display: flex;
   align-items: center;
+  line-height: unset;
 }
 
 .c-hero__desc a:hover {
