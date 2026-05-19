@@ -1226,7 +1226,7 @@ html.lenis body {
 /* Common hero section */
 .c-hero {
   position: relative;
-  height: 514px;
+  min-height: 514px;
 }
 
 .c-hero__image-wrapper,
@@ -1275,7 +1275,7 @@ html.lenis body {
 }
 
 [dir="rtl"] .c-hero__title {
-  line-height: 92px;
+  line-height: 1.2;
 }
 
 .c-hero__desc {
