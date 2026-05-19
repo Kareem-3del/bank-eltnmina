@@ -379,7 +379,7 @@ function createProgramChart(target, actual, id) {
                     grid: { display: false },
                     border: { display: false },
                     ticks: {
-                        font: { size: 14 },
+                        font: { size: isAR ? 14 : 7 },
                         color: '#008A85',
                         autoSkip: false
                     }

@@ -1432,7 +1432,7 @@
 
 .es-digital-card__pct {
   color: #01938e;
-  font-size: 100px;
+  font-size: clamp(60px, 8vw, 100px);
   line-height: 1;
   font-family: "Cairo", sans-serif;
   font-style: normal;
@@ -1639,6 +1639,10 @@
 }
 
 @media (max-width: 820px) {
+
+  .es-digital-card__pct--wide {
+    height: auto;
+  }
 
   .es-section__head,
   .es-financing-banner__inner {

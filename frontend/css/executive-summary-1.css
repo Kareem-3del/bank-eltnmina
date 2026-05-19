@@ -95,7 +95,7 @@
 
 @media (max-width: 1024px) {
     .banner-sec {
-        min-height: clamp(300px, 60vh, 510px);
+        min-height: clamp(200px, 50vh, 510px);
         justify-content: center;
     }
 

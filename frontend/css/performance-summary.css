@@ -586,6 +586,15 @@
         top: 20px;
     }
 
+    .h-1-sec-2::before {
+        top: -20px;
+    }
+
+    .h-1-sec-4::before {
+        top: -20px;
+    }
+
+
     /* 2. الـ Pie Chart Section */
     .pie-sec {
         padding: 20px;
