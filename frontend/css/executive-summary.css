@@ -87,14 +87,15 @@
   font-family: "Cairo", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 44px;
+  font-size: clamp(28px, 4vw, 44px);
   /* Figma uses 28px line-height for a single line; in the browser the title
      may wrap, so keep a safe readable line-height to avoid overlap. */
-  line-height: 1.15;
+  line-height: 1.25;
   color: #01938e;
   text-align: center;
   white-space: normal;
-  overflow-wrap: anywhere;
+  /* overflow-wrap: anywhere; */
+  overflow-wrap: break-word;
 }
 
 /* Desktop: let the title be full-bleed so it doesn't wrap due to container */
@@ -204,14 +205,28 @@
   align-items: center;
   justify-content: center;
   max-width: 540px;
-  min-height: 57px;
+
+  /* تحويل الـ min-height لقيمة مرنة تناسب الموبايل عند نزول النص لسطر جديد */
+  min-height: clamp(45px, 6vw, 57px);
+
   margin: 0 auto 18px;
-  padding: 0;
+
+  /* إضافة padding جانبي صغير لحماية النص من الالتصاق بحواف الشاشة في الموبايل */
+  padding-inline: 15px;
+
   font-family: "Cairo", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 30px;
-  line-height: 31px;
+
+  /* جعل حجم الخط مرناً:
+     - الحد الأدنى للموبايل: 22px
+     - الحجم المرن: 3.5vw
+     - الحد الأقصى للديسكتوب: 30px */
+  font-size: clamp(22px, 3.5vw, 30px);
+
+  /* تحويل الـ line-height لقيمة نسبية لتعطي أسطر مريحة ومتباعدة بشكل متناسق */
+  line-height: 1.3;
+
   text-align: center;
   color: #6b7280;
 }
@@ -341,9 +356,9 @@
   line-height: 31px;
   /* single-line figure */
   /* Keep Western digits LTR, but align the number to the RTL start edge */
-  direction: ltr;
+  /* direction: ltr; */
   unicode-bidi: isolate;
-  text-align: right;
+  /* text-align: right; */
   color: rgba(1, 147, 142, 0.3);
   margin: 0 0 20px;
   grid-column: 2;
@@ -697,7 +712,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  text-align: right;
+  /* text-align: right; */
   gap: 10px;
   width: 100%;
 }
@@ -723,7 +738,7 @@
   line-height: 1.1;
   color: #01938e;
   width: 100%;
-  text-align: right;
+  /* text-align: right; */
 }
 
 .es-dev__grid {
@@ -1040,8 +1055,8 @@
   font-family: "Cairo", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 53px;
-  line-height: 81px;
+  font-size: clamp(32px, 5vw, 53px);
+  line-height: 1.3;
   text-align: center;
   background: linear-gradient(180deg, #8dcfc5 50%, #01938e 100%);
   -webkit-background-clip: text;
@@ -1064,21 +1079,28 @@
 
 .es-percent-card strong {
   color: #01938e;
-  font-size: 100px;
-  /* Figma lists 36px, but browsers will clip at that value.
-     Use a safe line-height so the 100px glyph renders full-size. */
-  line-height: 1;
   font-family: "Cairo", sans-serif;
   font-weight: 800;
   letter-spacing: -0.75px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Figma: 218×130 centered block; render as %86 (percent then number) */
-  width: 218px;
-  height: 130px;
   margin-inline: auto;
   direction: ltr;
+
+  /* 1. جعل حجم الخط عملاقاً على الديسكتوب ومرناً جداً على الموبايل */
+  font-size: clamp(60px, 8vw, 100px);
+  line-height: 1;
+
+  /* 2. تحويل الأبعاد الثابتة إلى أبعاد مرنة باستخدام max-width و aspect-ratio أو clamp */
+  width: 100%;
+  max-width: 218px;
+
+  /* استخدام aspect-ratio يضمن الحفاظ على التناسب المثالي (218x130) في كل الشاشات */
+  aspect-ratio: 218 / 130;
+
+  /* إلغاء الـ height الثابت ليعتمد على الـ aspect-ratio الذكي */
+  height: auto;
 }
 
 .es-percent-card strong[data-pct]::before {
@@ -1228,6 +1250,10 @@
 
 @media (max-width: 640px) {
 
+  .es-percent-card strong {
+    aspect-ratio: unset;
+  }
+
   /* Services/dev columns stack; keep spacing */
   .es-services__grid,
   .es-dev__grid {
@@ -1289,7 +1315,7 @@
 
   .es-financing-banner__num {
     flex: 1 1 100%;
-    text-align: right;
+    text-align: center;
     padding-inline: 6px;
   }
 
@@ -1337,7 +1363,7 @@
   .es-item__value {
     font-size: clamp(44px, 12vw, 58px);
     line-height: 1.05;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .es-item__unit {
@@ -1356,8 +1382,9 @@
 
   /* Percent blocks: keep readable on small phones */
   .es-percent-card strong {
-    font-size: 72px;
+    aspect-ratio: unset;
   }
+
 
   .es-percent-card strong {
     width: 100%;
@@ -1393,8 +1420,8 @@
   font-family: "Cairo", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 53px;
-  line-height: 81px;
+  font-size: clamp(32px, 5vw, 53px);
+  line-height: 1.3;
   text-align: center;
   background: linear-gradient(180deg, #8dcfc5 44.57%, #01938e 100%);
   -webkit-background-clip: text;

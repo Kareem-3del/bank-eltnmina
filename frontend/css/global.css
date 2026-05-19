@@ -1760,7 +1760,7 @@ html.lenis body {
   height: 100%;
   object-fit: cover;
   display: block;
-  will-change: transform, scale, opacity;
+  /* will-change: transform, scale, opacity; */
   position: absolute;
   inset: 0;
 }

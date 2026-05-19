@@ -164,7 +164,8 @@
 }
 
 .content-icons img {
-    max-width: 27px;
+    width: 27px;
+    height: 32px;
 }
 
 .content-box .stack {

@@ -43,7 +43,7 @@
 
 /* Ensure Latin numerals keep their formatting (e.g., 52.7, 613.6). */
 .es-page--en .es-num {
-  direction: ltr;
+  /* direction: ltr; */
   unicode-bidi: isolate;
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
@@ -80,4 +80,3 @@
     padding-inline: 6px;
   }
 }
-
