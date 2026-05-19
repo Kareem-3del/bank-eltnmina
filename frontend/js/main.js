@@ -619,87 +619,8 @@
         </div>
       </div>
     `;
-    // menu.innerHTML = `
-    //   <div class="staggered-menu__top">
-    //     <a href="${root}${isAR ? "ar/" : ""}index.html" class="staggered-menu__brand">
-    //       <img src="assets/logo.png" alt="" />
-    //       <span><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
-    //     </a>
-    //     <button type="button" class="staggered-menu__close" data-menu-close>
-    //       <span>${config.labelOpen}</span>
-    //       <span class="staggered-menu__close-x" aria-hidden="true"></span>
-    //     </button>
-    //   </div>
 
-    //   <div class="staggered-menu__body">
-    //     <ul class="staggered-menu__list" role="list">
-    //       ${config.links.map((link, i) => {
-    //   if (link.sublinks) {
-    //     return `
-    //             <li class="staggered-menu__item staggered-menu__dropdown">
-    //               <button data-caption="${link?.caption || ""}" data-preview="${link?.img}" class="staggered-menu__link staggered-menu__dropdown-toggle" data-dropdown-toggle>
-    //                 <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
-    //                 <span class="staggered-menu__label">${link.text}</span>
-    //                 <span class="staggered-menu__arrow" aria-hidden="true">
-    //                   <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    //                 </span>
-    //               </button>
-    //               <ul class="staggered-menu__dropdown-menu">
-    //                 ${link.sublinks.map((sublink, j) => `
-    //                   <li class="staggered-menu__dropdown-item${isCurrentLink(sublink.href) ? " is-current" : ""}">
-    //                     <a class="staggered-menu__dropdown-link"  href="${isAR ? `ar/${sublink.href}` : `en/${sublink.href}`}"
-    //                        data-preview="${sublink.img}" data-caption="${sublink.caption}">
-    //                       <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
-    //                       <span class="staggered-menu__label">${sublink.text}</span>
-    //                       <span class="staggered-menu__arrow" aria-hidden="true">
-    //                         <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    //                       </span>
-    //                     </a>
-    //                   </li>
-    //                 `).join("")}
-    //               </ul>
-    //             </li>
-    //           `;
-    //   } else {
-    //     return `
-    //             <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
-    //               <a class="staggered-menu__link" href="${isAR ? `ar/${link.href}` : `en/${link.href}`}"
-    //                  data-preview="${link.img}" data-caption="${link.caption}">
-    //                 <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
-    //                 <span class="staggered-menu__label">${link.text}</span>
-    //                 <span class="staggered-menu__arrow" aria-hidden="true">
-    //                   <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    //                 </span>
-    //               </a>
-    //             </li>
-    //           `;
-    //   }
-    // }).join("")}
-    //     </ul>
 
-    //     <aside class="staggered-menu__preview" aria-hidden="true">
-    //       ${config.links.flatMap(link => link.sublinks ? link.sublinks : [link]).map((item, i) => `
-    //         <img class="staggered-menu__preview-img${i === 0 ? " is-active" : ""}"
-    //              data-img="${item.img}"
-    //              src="assets/${item.img}" alt="" loading="lazy" />
-    //       `).join("")}
-    //       <div class="staggered-menu__preview-caption" data-preview-caption>${config.links.flatMap(link => link.sublinks ? link.sublinks : [link])[0].caption}</div>
-    //     </aside>
-    //   </div>
-
-    //   <div class="staggered-menu__bottom">
-    //     <div class="staggered-menu__lang" aria-label="Language">
-    //       <a href="#" aria-current="true">${config.langSelf}</a>
-    //       <span style="opacity:.4">·</span>
-    //       <a href="${config.langOther.href}">${config.langOther.code}</a>
-    //     </div>
-    //     <div class="staggered-menu__contact">
-    //       ${config.contact.map(c => `
-    //         <span><strong>${c.label}</strong><a href="${c.href}">${c.value}</a></span>
-    //       `).join("")}
-    //     </div>
-    //   </div>
-    // `;
     document.body.appendChild(menu);
 
     let lastFocused = null;
