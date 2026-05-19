@@ -1226,7 +1226,7 @@ html.lenis body {
 /* Common hero section */
 .c-hero {
   position: relative;
-  min-height: 514px;
+  height: 514px;
 }
 
 .c-hero__image-wrapper,
