@@ -203,7 +203,7 @@
             caption: "نظرة شاملة على إنجازات العام",
             sublinks: [
               {
-                href: "executive-summary.html",
+                href: "executive-summary-1.html",
                 text: "الملخص التنفيذي 1",
                 img: "executive-summary.webp",
                 caption: "نظرة شاملة على إنجازات العام"
