@@ -161,7 +161,6 @@
   document.querySelectorAll(".nav__link").forEach(link => {
 
     const href = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
-    console.log("href = ", href)
 
     if (href && href === here) link.setAttribute("aria-current", "page");
   });
@@ -544,7 +543,7 @@
       if (link.sublinks) {
         const activeSublink = link.sublinks.find(sub => isCurrentLink(sub.href));
 
-        const parentHref = activeSublink ? (isAR ? `ar/${activeSublink.href}` : `en/${activeSublink.href}`) : "#";
+        const parentHref = activeSublink ? (isAR ? `ar/${activeSublink.href}` : `en/${activeSublink.href}`) : "index.html";
         const parentImg = activeSublink ? activeSublink.img : link.img;
         const parentCaption = activeSublink ? activeSublink.caption : (link.caption || "");
         const hasActiveChild = activeSublink ? " is-current" : "";
@@ -670,6 +669,7 @@
 
     // Dropdown toggles
     document.querySelectorAll('[data-dropdown-toggle]').forEach(toggle => {
+      console.log("toggle = ", toggle)
       toggle.addEventListener('click', (e) => {
         // منع الرابط من الانتقال لصفحة أخرى عند الضغط لفتح القائمة
         e.preventDefault();
