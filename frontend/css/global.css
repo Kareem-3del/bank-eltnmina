@@ -1791,3 +1791,55 @@ html.lenis body {
   font-feature-settings: "tnum";
   flex-shrink: 0;
 }
+
+/* Base styles for the button */
+.back-to-top-js {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #019591;
+  /* Change to your brand color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Smooth transition for fading in/out */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+[dir="ltr"] .back-to-top-js {
+  left: 30px;
+  right: unset;
+}
+
+/* Class triggered by JavaScript when scrolling past 300px */
+.back-to-top-js.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover effects */
+.back-to-top-js:hover {
+  background-color: #007c79;
+  transform: translateY(-5px);
+}
+
+/* Responsive tweak for mobile screens */
+@media (max-width: 768px) {
+  .back-to-top-js {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+}

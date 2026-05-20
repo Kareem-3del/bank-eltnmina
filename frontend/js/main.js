@@ -747,4 +747,43 @@
     }
   });
 
+  // Ensure the DOM is fully loaded before creating the button
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. Create the button element dynamically
+    const backToTopBtn = document.createElement("button");
+
+    // 2. Set the inner content (arrow) and accessibility attributes
+    // Modern minimalist SVG arrow inside your JS file
+    backToTopBtn.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+`;
+    backToTopBtn.className = "back-to-top-js"; // The class you will style in your global CSS
+    backToTopBtn.setAttribute("aria-label", "Back to top");
+
+    // 3. Inject the button into the end of the body text
+    document.body.appendChild(backToTopBtn);
+
+    // 4. Monitor the window scroll event to show/hide the button
+    window.addEventListener("scroll", () => {
+      // If the user scrolls down more than 300px, show the button
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
+
+    // 5. Add smooth scroll-to-top functionality on click
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Native smooth scrolling animation
+      });
+    });
+
+  });
+
 })();
