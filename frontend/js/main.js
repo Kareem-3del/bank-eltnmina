@@ -750,37 +750,61 @@
   // Ensure the DOM is fully loaded before creating the button
   document.addEventListener("DOMContentLoaded", () => {
 
-    // 1. Create the button element dynamically
+    // 1. إنشاء الزر ديناميكياً وتجهيز السهم الداخلي
     const backToTopBtn = document.createElement("button");
-
-    // 2. Set the inner content (arrow) and accessibility attributes
-    // Modern minimalist SVG arrow inside your JS file
     backToTopBtn.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
-`;
-    backToTopBtn.className = "back-to-top-js"; // The class you will style in your global CSS
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  `;
+    backToTopBtn.className = "back-to-top-js";
     backToTopBtn.setAttribute("aria-label", "Back to top");
 
-    // 3. Inject the button into the end of the body text
+    // 2. حقن الزر داخل الجسم (body)
     document.body.appendChild(backToTopBtn);
 
-    // 4. Monitor the window scroll event to show/hide the button
+    // متغير للتحكم في حالة ظهور الفوتر
+    let isFooterVisible = false;
+
+    // 3. مراقبة حركة السكرول لإظهار/إخفاء الزر بناءً على الارتفاع والفوتر
     window.addEventListener("scroll", () => {
-      // If the user scrolls down more than 300px, show the button
-      if (window.scrollY > 300) {
+      // يظهر الزر فقط إذا تجاوز السكرول 300px ولم يصل المستخدم للفوتر بعد
+      if (window.scrollY > 300 && !isFooterVisible) {
         backToTopBtn.classList.add("show");
       } else {
         backToTopBtn.classList.remove("show");
       }
     });
 
-    // 5. Add smooth scroll-to-top functionality on click
+    // 4. آلية الاختفاء الذكي عند الوصول للفوتر باستخدام IntersectionObserver
+    const footer = document.querySelector(".site-footer");
+    if (footer) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // تحديث المتغير بناءً على ما إذا كان الفوتر مرئياً في الشاشة أم لا
+          isFooterVisible = entry.isIntersecting;
+
+          // إذا ظهر الفوتر، نسحب كلاس الظهور فوراً ليختفي الزر
+          if (isFooterVisible) {
+            backToTopBtn.classList.remove("show");
+          } else if (window.scrollY > 300) {
+            // إذا صعد المستخدم لأعلى واختفى الفوتر وكان السكرول فوق الـ 300px يعود الزر للظهور
+            backToTopBtn.classList.add("show");
+          }
+        });
+      }, {
+        root: null,      // يراقب نافذة التصفح (Viewport) بالكامل
+        threshold: 0.05  // يختفي الزر بمجرد ظهور أول 5% من الفوتر لضمان استجابة سريعة
+      });
+
+      observer.observe(footer);
+    }
+
+    // 5. وظيفة الصعود السلس إلى الأعلى عند الضغط
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth" // Native smooth scrolling animation
+        behavior: "smooth"
       });
     });
 
