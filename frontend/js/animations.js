@@ -1158,7 +1158,9 @@
   counters.forEach(el => {
     const target = parseFloat(el.dataset.counter);
     const decimals = parseInt(el.dataset.decimals || "0", 10);
+    const duration = parseFloat(el.dataset.duration || "2.4");
 
+    console.log("duration = ", duration)
     if (reduceMotion || !ScrollTrigger) {
       el.textContent = formatNumber(target, decimals);
       return;
@@ -1167,7 +1169,7 @@
     const proxy = { value: 0 };
     gsap.to(proxy, {
       value: target,
-      duration: 2.4,
+      duration: duration,
       ease: "power1.inOut",
       onUpdate: () => { el.textContent = formatNumber(proxy.value, decimals); },
       scrollTrigger: {
