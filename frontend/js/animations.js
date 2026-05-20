@@ -1154,32 +1154,61 @@
   });
 
   /* ------ Animated counters (replaces main.js) ----------------------- */
-  const counters = document.querySelectorAll("[data-counter]");
-  counters.forEach(el => {
-    const target = parseFloat(el.dataset.counter);
-    const decimals = parseInt(el.dataset.decimals || "0", 10);
-    const duration = parseFloat(el.dataset.duration || "3.5");
+  // إجبار الكود ينتظر لحد ما المتصفح ينتهي تماماً من تحميل وتطبيق كل الخطوط (Fonts)
+  document.fonts.ready.then(() => {
+    const counters = document.querySelectorAll("[data-counter]");
 
-    console.log("duration = ", duration)
-    if (reduceMotion || !ScrollTrigger) {
-      el.textContent = formatNumber(target, decimals);
-      return;
-    }
+    counters.forEach(el => {
+      const target = parseFloat(el.dataset.counter);
+      const decimals = parseInt(el.dataset.decimals || "0", 10);
+      const duration = parseFloat(el.dataset.duration || "3.5");
 
-    const proxy = { value: 0 };
-    gsap.to(proxy, {
-      value: target,
-      duration: duration,
-      ease: "power1.inOut",
-      onUpdate: () => { el.textContent = formatNumber(proxy.value, decimals); },
-      scrollTrigger: {
-        trigger: el,
-        start: "top 90%",
-        once: true,
-      },
+      const finalFormattedText = formatNumber(target, decimals);
+
+      // إنشاء العنصر الوهمي
+      const clone = el.cloneNode(false);
+      clone.style.visibility = "hidden";
+      clone.style.position = "absolute";
+      clone.style.whiteSpace = "nowrap";
+      clone.style.width = "auto";
+      clone.style.pointerEvents = "none";
+      clone.textContent = finalFormattedText;
+
+      // حقنه في نفس الأب ليرث الخطوط المطبقة حالياً
+      el.parentNode.appendChild(clone);
+
+      // قياس العرض الفعلي بعد تحميل الخط الحقيقي
+      const finalWidth = clone.getBoundingClientRect().width;
+
+      // تطبيق العرض (مع إضافة 1px احتياطي للأمان وتجنب تقريب المتصفحات للأرقام العشرية)
+      el.style.width = `${Math.ceil(finalWidth) + 1}px`;
+      el.style.display = "inline-block";
+      el.style.whiteSpace = "nowrap";
+
+      clone.remove();
+
+      // تشغيل أنميشن GSAP
+      if (reduceMotion || !ScrollTrigger) {
+        el.textContent = finalFormattedText;
+        return;
+      }
+
+      const proxy = { value: 0 };
+      gsap.to(proxy, {
+        value: target,
+        duration: duration,
+        ease: "power1.inOut",
+        onUpdate: () => {
+          el.textContent = formatNumber(proxy.value, decimals);
+        },
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          once: true,
+        },
+      });
     });
   });
-
   function formatNumber(value, decimals) {
     const fixed = value.toFixed(decimals);
     return Number(fixed).toLocaleString("en-US", {

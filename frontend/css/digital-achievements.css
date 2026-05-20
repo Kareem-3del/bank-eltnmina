@@ -101,12 +101,15 @@
     font-weight: 800;
     font-size: 60px;
     line-height: 60px;
-    letter-spacing: -1.5px;
+    /* letter-spacing: -1.5px; */
     color: #008A85;
+    display: flex;
+    align-items: center;
 }
 
 .intro-box .num span:last-child {
     font-size: 24px;
+    display: inline-block;
 }
 
 .intro-box p {

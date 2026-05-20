@@ -1783,3 +1783,11 @@ html.lenis body {
   position: absolute;
   inset: 0;
 }
+
+/* حط الكلاس بتاع العداد بتاعك هنا */
+.msg-sec__box-counter,
+[data-counter] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  flex-shrink: 0;
+}
