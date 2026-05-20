@@ -267,6 +267,20 @@
 
 /* --- Digital Transformation Responsive Optimization --- */
 
+.lap {
+    display: none;
+}
+
+@media(min-width:981px) {
+    .lap {
+        display: flex;
+    }
+
+    .mob {
+        display: none;
+    }
+}
+
 @media (max-width: 1024px) {
 
     /* تحويل الصناديق لتصبح فوق بعضها في التابلت والموبايل */

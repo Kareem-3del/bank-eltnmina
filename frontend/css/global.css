@@ -855,6 +855,8 @@ html.lenis body {
   color: var(--c-on-primary);
   padding-block: var(--s-9) var(--s-6);
   /* margin-top: var(--s-10); */
+  /* position: relative; */
+  /* z-index: 99999; */
 }
 
 .site-footer .nav__link[aria-current="page"] {
@@ -1477,6 +1479,10 @@ html.lenis body {
   }
 }
 
+/* ==========================================================================
+   actions.js — Dynamic Sliding Action Box Styling (Fixed Icon Anchor)
+   ========================================================================== */
+
 .actions-box {
   position: fixed;
   z-index: 1050;
@@ -1486,67 +1492,180 @@ html.lenis body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  direction: ltr;
 }
 
+/* 1. التثبيت والتموضع للـ LTR (يمين الشاشة) */
 [dir="ltr"] .actions-box {
   left: auto;
   right: 24px;
+  direction: rtl;
 }
 
+/* 2. التنسيق الأساسي الموحد للرابط (الزرار) */
 .actions-box a {
   overflow: hidden;
-  /* margin-bottom: 12px; */
-  width: 38px;
   height: 38px;
-  border-radius: 50%;
+  min-width: 38px;
+  /* يضمن الحفاظ على شكل الدائرة في الحالة العادية */
+  width: auto;
+  /* يسمح بالتمدد الأفقي */
+  border-radius: 24px;
   background-color: #fff;
   border: 2px solid rgba(5, 142, 138, 1);
   display: flex;
   align-items: center;
-  justify-content: center;
   text-decoration: none;
   font-size: 20px;
-  transition: background-color var(--d-fast) var(--ease-out);
+  box-shadow: 0 4px 12px rgba(5, 142, 138, 0.08);
+  max-width: 38px;
+  /* مقفول دائرياً في البداية */
+  position: relative;
+
+  /* أنميشن فيزيائي ناعم للغاية للتمدد */
+  transition:
+    background-color var(--d-fast, 0.25s) var(--ease-out, ease),
+    border-color var(--d-fast, 0.25s) var(--ease-out, ease),
+    box-shadow var(--d-fast, 0.25s) var(--ease-out, ease),
+    max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ضبط تدفق العناصر داخل الزرار بناءً على اتجاه الموقع لثبات الأيقونة */
+[dir="rtl"] .actions-box a {
+  flex-direction: row;
+  /* الأيقونة على اليسار والنص يفتح لليمين */
+  /* justify-content: flex-start; */
+  gap: 4px;
+  padding: 0 8px;
+}
+
+[dir="ltr"] .actions-box a {
+  flex-direction: row;
+  gap: 4px;
+  /* الأيقونة تظل أول عنصر حتى لا تتحرك من مكانها */
+  justify-content: flex-end;
+  padding: 0 8px;
+}
+
+.action-box__link-arrow {
+  justify-content: center !important;
+  gap: 0 !important;
+  /* padding: 0 8px !important; */
+}
+
+.action-box__link-arrow svg {
+  padding: 0 4px;
+  width: 26px !important;
+  height: 26px !important;
+}
+
+/* الحفاظ على أزرار الأسهم بدون بوردر كطلبك الأصلي */
 .action-box:first-child a,
 .action-box:nth-child(2) a {
   border: none;
+  background-color: #fff;
 }
 
 .actions-box .action-box__link {
   color: rgba(5, 142, 138, 1);
 }
 
-.actions-box .action-box__link:hover {
-  background-color: rgba(5, 142, 138, 1);
-  color: #fff;
-}
-
 .actions-box .action-box__link svg {
   width: 18px;
   height: 18px;
+  flex-shrink: 0;
+  /* يمنع انضغاط الأيقونة نهائياً */
 }
+
+/* 3. أنميشن النص المخفي داخلياً والتحكم في ترتيب ظهوره بالـ CSS */
+.actions-box .action-text {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: inherit;
+  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+
+/* السحر الحقيقي للـ LTR: نقوم بتبديل الترتيب البصري للنص ليصبح قبل الأيقونة دون تحريك الأيقونة برمجياً */
+[dir="ltr"] .actions-box .action-text {
+  order: -1;
+  /* يجبر النص على الظهور يسار الأيقونة بصرياً */
+}
+
+[dir="ltr"] .actions-box .action-text {
+  direction: ltr;
+}
+
+[dir="ltr"] .actions-box .action-text {
+  direction: rtl;
+}
+
+/* ==========================================================================
+   HOVER STATES — فتح وتمدد الكبسولة للداخل بدقة 100%
+   ========================================================================== */
+
+.actions-box .action-box__link:hover {
+  background-color: rgba(5, 142, 138, 1);
+  color: #fff;
+  max-width: 260px;
+  /* تفتح المساحة الكلية بأمان */
+  box-shadow: 0 6px 16px rgba(5, 142, 138, 0.25);
+}
+
+.actions-box .action-box__link:hover .action-text {
+  max-width: 200px;
+  opacity: 1;
+}
+
+/* إضافة مسافات أمان وهوامش بين النص والأيقونة عند الفتح */
+/* [dir="rtl"] .actions-box .action-box__link:hover .action-text {
+  margin-right: 8px;
+  margin-left: 0;
+} */
+
+/* [dir="ltr"] .actions-box .action-box__link:hover .action-text {
+  margin-left: 0;
+  margin-right: 8px;
+} */
+
+
+/* ==========================================================================
+   DISABLED STATE
+   ========================================================================== */
 
 .actions-box .action-box__link.is-disabled {
   opacity: 0.4;
   cursor: not-allowed;
   pointer-events: none;
+  box-shadow: none;
 }
+
+
+/* ==========================================================================
+   RESPONSIVE (Mobile view untouched)
+   ========================================================================== */
 
 @media (max-width: 880px) {
   .actions-box {
     top: auto;
     bottom: 16px;
     left: 50%;
-    transform: translateX(-50%);
-    flex-direction: row;
+    transform: translateX(-50%) !important;
+    flex-direction: row !important;
     gap: 8px;
     padding: 6px 10px;
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid rgba(5, 142, 138, 0.15);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     backdrop-filter: blur(6px);
+    border-radius: 30px;
   }
 
   [dir="ltr"] .actions-box {
@@ -1555,8 +1674,18 @@ html.lenis body {
   }
 
   .actions-box a {
-    width: 36px;
-    height: 36px;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    flex-direction: row !important;
+    border-radius: 50% !important;
+  }
+
+  .actions-box .action-text {
+    display: none !important;
   }
 
   .actions-box .action-box__link svg {
