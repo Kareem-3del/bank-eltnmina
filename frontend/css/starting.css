@@ -324,9 +324,6 @@
     font-size: 34px;
     line-height: 36px;
     color: #FFFFFF;
-    min-width: 85px;
-    width: 85px;
-    flex-shrink: 0;
 }
 
 .msg-sec__box-desc {
@@ -590,8 +587,8 @@
     line-height: 36px;
     letter-spacing: -0.75px;
     color: #00948F;
-    width: 90px;
-    display: inline-block
+    /* width: 90px; */
+    /* display: inline-block */
 }
 
 .msg-sec__box-desc2 {
