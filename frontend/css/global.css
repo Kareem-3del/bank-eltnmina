@@ -1560,12 +1560,13 @@ html.lenis body {
   padding: 0 4px;
   width: 26px !important;
   height: 26px !important;
+  max-width: 26px;
 }
 
 /* الحفاظ على أزرار الأسهم بدون بوردر كطلبك الأصلي */
 .action-box:first-child a,
 .action-box:nth-child(2) a {
-  border: none;
+  /* border: none; */
   background-color: #fff;
 }
 
@@ -1603,7 +1604,7 @@ html.lenis body {
   direction: ltr;
 }
 
-[dir="ltr"] .actions-box .action-text {
+[dir="rtl"] .actions-box .action-text {
   direction: rtl;
 }
 
@@ -1612,11 +1613,15 @@ html.lenis body {
    ========================================================================== */
 
 .actions-box .action-box__link:hover {
-  background-color: rgba(5, 142, 138, 1);
   color: #fff;
   max-width: 260px;
   /* تفتح المساحة الكلية بأمان */
   box-shadow: 0 6px 16px rgba(5, 142, 138, 0.25);
+  background-color: #ffffff;
+  /* يقلب الخلفية بيضاء تماماً */
+  color: rgba(5, 142, 138, 1);
+  /* تقلب الأيقونة بلونك الأخضر */
+  border-color: rgba(5, 142, 138, 1);
 }
 
 .actions-box .action-box__link:hover .action-text {
