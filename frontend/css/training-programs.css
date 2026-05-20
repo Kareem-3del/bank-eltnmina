@@ -328,7 +328,7 @@
     color: #FCFCFC;
 }
 
-.boxes-sec .box:first-child span {
+.boxes-sec .box:first-child span:last-child {
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
@@ -471,7 +471,7 @@
     letter-spacing: 0px;
 }
 
-.banner-sec .note span {
+.banner-sec .note span:last-child {
     font-weight: 600;
     font-size: clamp(16px, 3vw, 25px);
     line-height: 1.3;

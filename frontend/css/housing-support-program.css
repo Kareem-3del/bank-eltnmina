@@ -952,7 +952,7 @@
     word-break: break-word;
 }
 
-.banner-sec p span {
+.banner-sec p span:last-child {
     color: #30A69E;
 }
 
