@@ -1158,7 +1158,7 @@
   counters.forEach(el => {
     const target = parseFloat(el.dataset.counter);
     const decimals = parseInt(el.dataset.decimals || "0", 10);
-    const duration = parseFloat(el.dataset.duration || "4");
+    const duration = parseFloat(el.dataset.duration || "3.5");
 
     console.log("duration = ", duration)
     if (reduceMotion || !ScrollTrigger) {
