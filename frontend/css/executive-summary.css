@@ -174,17 +174,8 @@
   font-weight: 800;
 }
 
-/* Short gradient rule under card titles (not full title width) */
 .es-intro-card__label::after {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 3px;
-  margin-top: 10px;
-  background: linear-gradient(90deg,
-      var(--es-mint) 0%,
-      var(--es-teal) 45%,
-      var(--es-teal-dark) 100%);
+  display: none;
 }
 
 .es-intro-card p {

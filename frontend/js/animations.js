@@ -332,6 +332,65 @@
         },
       });
     });
+
+    /* ------ Auto-reveal: catch-all for body content -------------------- */
+    // Sweeps every page so paragraphs, headings, list items, images, cards
+    // and section blocks get a gentle scroll-triggered reveal even when the
+    // markup hasn't been hand-tagged with `.reveal`. Anything already wired
+    // into a bespoke timeline (royal cards, CEO message, hero, counters)
+    // opts out via the :not(...) chain below.
+    const autoSelectors = [
+      "section p",
+      "section h1", "section h2", "section h3", "section h4",
+      "section li",
+      "section figure",
+      "section blockquote",
+      "section img:not([data-gsap-img] img)",
+      ".card", ".kpi-card", ".kpi-bar", ".na-inv__card", ".na-kpi__card",
+      ".starting-sec__box", ".gov-enbl-sec .box", ".pillar-row",
+      ".msg-sec__content-desc, .msg-sec__content-desc2",
+      ".banner-stat", ".intro-box__item",
+    ].join(",");
+
+    const skipMatcher = [
+      ".reveal", ".anim-fadeinup", ".anim-zoomin",
+      ".no-auto-reveal", "[data-royal]", "[data-ceo-message]",
+      ".hero *", ".page-head *", ".contact-hero *", ".new-hero *",
+      ".banner-stat__num *", "[data-counter]",
+      "[data-auto-reveal-done]",
+    ].join(",");
+
+    const autoEls = Array.from(document.querySelectorAll(autoSelectors))
+      .filter(el => {
+        if (el.matches(skipMatcher)) return false;
+        // skip if any ancestor already owns a timeline
+        if (el.closest("[data-royal], [data-ceo-message], .hero, .page-head, .contact-hero, .new-hero")) return false;
+        // skip tiny inline elements (icons inside paragraphs already moved)
+        const r = el.getBoundingClientRect();
+        if (r.width < 24 && r.height < 24) return false;
+        return true;
+      });
+
+    if (autoEls.length && ScrollTrigger.batch) {
+      ScrollTrigger.batch(autoEls, {
+        start: "top 92%",
+        once: true,
+        onEnter: batch => {
+          gsap.fromTo(batch,
+            { opacity: 0, y: 24 },
+            {
+              opacity: 1, y: 0,
+              duration: 0.9,
+              ease: "power2.out",
+              stagger: 0.06,
+              overwrite: "auto",
+              onStart: () => batch.forEach(el => el.setAttribute("data-auto-reveal-done", "1")),
+              onComplete: () => batch.forEach(el => gsap.set(el, { clearProps: "transform" })),
+            }
+          );
+        },
+      });
+    }
   }
 
   /* ------ Royal Endorsement choreography ----------------------------- */
@@ -1154,13 +1213,81 @@
   });
 
   /* ------ Animated counters (replaces main.js) ----------------------- */
-  // إجبار الكود ينتظر لحد ما المتصفح ينتهي تماماً من تحميل وتطبيق كل الخطوط (Fonts)
+  // Auto-expand abbreviated values: when a counter sits next to a
+  // "million / billion / M / B / مليون / مليار / thousand / ألف" unit,
+  // multiply the value to full numeric form and strip the unit so the
+  // display reads e.g. "1,800,000" instead of "1.8 million".
+  const WORD_UNITS = [
+    { re: /\b(billion|بليون|بلیون|مليار)\b/i, scale: 1e9 },
+    { re: /\b(million|مليون|ملايين|مليوناً|مليونًا|مليوناَ)\b/i, scale: 1e6 },
+    { re: /\b(thousand|ألف|الف)\b/i, scale: 1e3 },
+  ];
+  // Single-letter abbreviations only match when the unit text contains
+  // nothing else (e.g. the entire unit span is just "M" or "B"/"K").
+  const LETTER_UNITS = [
+    { re: /^\s*B\s*$/, scale: 1e9 },
+    { re: /^\s*M\s*$/, scale: 1e6 },
+    { re: /^\s*K\s*$/, scale: 1e3 },
+  ];
+
+  function matchUnit(txt, allowLetter) {
+    for (const u of WORD_UNITS) if (u.re.test(txt)) return u;
+    if (allowLetter) for (const u of LETTER_UNITS) if (u.re.test(txt)) return u;
+    return null;
+  }
+
+  function expandUnitForCounter(el) {
+    if (el.dataset.expanded === "1") return { scale: 1 };
+    if (el.dataset.noExpand === "1") return { scale: 1 };
+
+    // Search the parent (and one level up) for a unit text node or a
+    // .kpi-card__unit span that immediately follows the counter span.
+    const containers = [el.parentNode, el.parentNode && el.parentNode.parentNode].filter(Boolean);
+
+    for (const container of containers) {
+      if (!container) continue;
+      // explicit unit spans
+      const unitSpan = container.querySelector(".kpi-card__unit");
+      if (unitSpan && container.contains(el) && unitSpan !== el) {
+        const txt = unitSpan.textContent || "";
+        const hit = matchUnit(txt, true);
+        if (hit) {
+          unitSpan.textContent = txt.replace(hit.re, "").replace(/\s+/g, " ").trim();
+          if (!unitSpan.textContent) unitSpan.style.display = "none";
+          el.dataset.expanded = "1";
+          return { scale: hit.scale };
+        }
+      }
+
+      // text-node siblings inside the same container
+      let sib = el.nextSibling;
+      let probed = 0;
+      while (sib && probed < 4) {
+        if (sib.nodeType === 3) {
+          const txt = sib.textContent;
+          const hit = matchUnit(txt, true);
+          if (hit) {
+            sib.textContent = txt.replace(hit.re, "").replace(/\s+/g, " ");
+            el.dataset.expanded = "1";
+            return { scale: hit.scale };
+          }
+        }
+        sib = sib.nextSibling;
+        probed++;
+      }
+    }
+    return { scale: 1 };
+  }
+
   document.fonts.ready.then(() => {
     const counters = document.querySelectorAll("[data-counter]");
 
     counters.forEach(el => {
-      const target = parseFloat(el.dataset.counter);
-      const decimals = parseInt(el.dataset.decimals || "0", 10);
+      const { scale } = expandUnitForCounter(el);
+      let target = parseFloat(el.dataset.counter) * scale;
+      let decimals = parseInt(el.dataset.decimals || "0", 10);
+      // expanded numbers should be shown as integers
+      if (scale > 1) decimals = 0;
       const duration = parseFloat(el.dataset.duration || "3.5");
 
       const finalFormattedText = formatNumber(target, decimals);

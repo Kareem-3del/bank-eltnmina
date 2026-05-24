@@ -1870,15 +1870,7 @@ html.lenis body {
 }
 
 .sec-title::after {
-  content: "";
-  display: block;
-  background: #009485;
-  height: 4px;
-  border-radius: 12px;
-  margin-top: 12px;
-
-  /* Responsive Underline Width: Min 40px, Max 64px */
-  width: clamp(2.5rem, 10vw, 4rem);
+  display: none;
 }
 
 /* التعديلات الخاصة بالشاشات الصغيرة جداً */

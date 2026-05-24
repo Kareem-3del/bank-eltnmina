@@ -1308,13 +1308,7 @@
    on the heading itself so it is always centered relative to the title
    block (text-align is already centered on the parent). */
 .kpi-section__head .h-1::after {
-  content: "";
-  display: block;
-  width: 96px;
-  height: 3px;
-  border-radius: 9999px;
-  background: var(--c-primary);
-  margin: var(--s-3) auto 0;
+  display: none;
 }
 
 .kpi-section__head .lead {

@@ -276,13 +276,7 @@
 }
 
 .message--featured .message__title::after {
-  content: "";
-  display: block;
-  width: 96px;
-  height: 3px;
-  border-radius: 9999px;
-  background: var(--c-primary);
-  margin: var(--s-3) auto 0;
+  display: none;
 }
 
 .message--featured .message__title em {
