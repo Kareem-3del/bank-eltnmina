@@ -28,6 +28,12 @@
 
   document.documentElement.classList.add("is-anim-ready");
 
+  // Recompute trigger positions once everything (images, fonts) has settled,
+  // so reveals fire at the right scroll offsets even on image-heavy pages.
+  if (ScrollTrigger) {
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+  }
+
   /* ------ Lenis smooth scroll ----------------------------------------- */
   let lenis = null;
   const staggeredMenu = document.querySelector("staggered-menu")
@@ -140,7 +146,18 @@
       titleEl.dataset.splitDone = "1";
     }
 
-    const tl = gsap.timeline({ defaults: { ease: "expo.out" }, delay: 0.25 });
+    // Scroll-tied so the hero replays its entrance whenever it re-enters the
+    // viewport: plays on load, reverses once it's fully scrolled past (off
+    // screen, so no visible jump), and plays again when you scroll back up.
+    const tl = gsap.timeline({
+      defaults: { ease: "expo.out" },
+      scrollTrigger: {
+        trigger: newHero,
+        start: "top bottom",   // counts as entered as soon as any part shows (true on load)
+        end: "bottom top",     // only "left" once fully scrolled past
+        toggleActions: "play reverse play reverse",
+      },
+    });
 
     if (imgEl) {
       tl.from(imgEl, {
@@ -241,15 +258,11 @@
           scrollTrigger: {
             trigger: el,
             start: "top 90%", // جعلناه يبدأ مبكراً (90% بدل 88%) ليتفادى قفزة السكرول السريع
-            toggleActions: "play none none none",
-            once: true,
+            // ثنائي الاتجاه: يظهر عند النزول ويُعكَس عند الصعود ثم يتكرر
+            toggleActions: "play none none reverse",
             fastScrollEnd: true, // ينهي الأنيميشن فوراً لو تخطاه المستخدم بسرعة خارقة
           },
           onStart: () => el.classList.add("is-visible"),
-          onComplete: () => {
-            // تنظيف الـ transform بعد انتهاء الحركة لثبات الـ DOM
-            gsap.set(el, { clearProps: "transform,scale" });
-          }
         });
       });
     }
@@ -273,8 +286,7 @@
           scrollTrigger: {
             trigger: wrapper,
             start: "top 92%", // يبدأ التحريك قبل ظهور الحاوية تماماً للعين
-            toggleActions: "play none none none",
-            once: true,
+            toggleActions: "play none none reverse",
             fastScrollEnd: true
           }
         }
@@ -307,7 +319,7 @@
           scrollTrigger: {
             trigger: group,
             start: "top 85%",
-            once: true,
+            toggleActions: "play none none reverse",
           },
         });
       });
@@ -328,17 +340,24 @@
         scrollTrigger: {
           trigger: roster,
           start: "top 88%",
-          once: true,
+          toggleActions: "play none none reverse",
         },
       });
     });
 
     /* ------ Auto-reveal: catch-all for body content -------------------- */
-    // Sweeps every page so paragraphs, headings, list items, images, cards
-    // and section blocks get a gentle scroll-triggered reveal even when the
-    // markup hasn't been hand-tagged with `.reveal`. Anything already wired
-    // into a bespoke timeline (royal cards, CEO message, hero, counters)
-    // opts out via the :not(...) chain below.
+    // Sweeps every page so headings, paragraphs, list items, images, cards,
+    // boxes and CTAs get a scroll-triggered entrance even when the markup
+    // hasn't been hand-tagged with `.reveal`. Direction varies by element
+    // TYPE so each page reads like the reference report's WOW.js vocabulary:
+    //   · headings / labels → drop in from above   (fadeInDown)
+    //   · images / figures / buttons → zoom in       (zoomIn)
+    //   · cards / boxes → rise + alternate side-drift (fadeInUp/Left/Right)
+    //   · body copy → rise from below                 (fadeInUp)
+    // Anything already wired into a bespoke timeline opts out below, and
+    // content INSIDE a revealing card rides with the card (no double-move).
+    const CARD_SEL = ".card,.kpi-card,.kpi-bar,.box,.finbox,.na-inv__card,.na-kpi__card,.starting-sec__box,.intro-box__item,.banner-stat";
+
     const autoSelectors = [
       "section p",
       "section h1", "section h2", "section h3", "section h4",
@@ -346,10 +365,11 @@
       "section figure",
       "section blockquote",
       "section img:not([data-gsap-img] img)",
+      "section .btn", "section .rmbtn", "section .cta",
       ".card", ".kpi-card", ".kpi-bar", ".na-inv__card", ".na-kpi__card",
-      ".starting-sec__box", ".gov-enbl-sec .box", ".pillar-row",
+      ".starting-sec__box", ".gov-enbl-sec .box", ".box", ".finbox", ".pillar-row",
       ".msg-sec__content-desc, .msg-sec__content-desc2",
-      ".banner-stat", ".intro-box__item",
+      ".banner-stat", ".intro-box__item", ".stat", ".kpi-card__label",
     ].join(",");
 
     const skipMatcher = [
@@ -360,37 +380,82 @@
       "[data-auto-reveal-done]",
     ].join(",");
 
+    // Pick a direction-aware from-state for one element. `i` is its index
+    // among its siblings, used to alternate the side-drift on cards so a
+    // row of boxes fans in from left/right rather than all from one axis.
+    const slideX = isRTL ? -34 : 34;
+    function autoRevealFrom(el, i) {
+      if (el.matches("h1,h2,h3,h4,.eyebrow,.section-header h2,.kpi-card__label,.stat__label")) {
+        return { opacity: 0, y: -26 };                       // fadeInDown
+      }
+      if (el.matches("img,figure,picture,.btn,.rmbtn,.cta")) {
+        return { opacity: 0, scale: 1.08, y: 10 };           // zoomIn
+      }
+      if (el.matches(CARD_SEL)) {
+        const drift = (i % 2 === 0) ? -slideX : slideX;      // fadeInUp + alt side
+        return { opacity: 0, y: 30, x: drift, scale: 1.02 };
+      }
+      return { opacity: 0, y: 28 };                          // fadeInUp (default)
+    }
+
     const autoEls = Array.from(document.querySelectorAll(autoSelectors))
       .filter(el => {
         if (el.matches(skipMatcher)) return false;
         // skip if any ancestor already owns a timeline
         if (el.closest("[data-royal], [data-ceo-message], .hero, .page-head, .contact-hero, .new-hero")) return false;
+        // content inside a revealing card rides WITH the card — don't move it too
+        const cardAncestor = el.closest(CARD_SEL);
+        if (cardAncestor && cardAncestor !== el) return false;
         // skip tiny inline elements (icons inside paragraphs already moved)
         const r = el.getBoundingClientRect();
         if (r.width < 24 && r.height < 24) return false;
         return true;
       });
 
-    if (autoEls.length && ScrollTrigger.batch) {
-      ScrollTrigger.batch(autoEls, {
-        start: "top 92%",
-        once: true,
-        onEnter: batch => {
-          gsap.fromTo(batch,
-            { opacity: 0, y: 24 },
-            {
-              opacity: 1, y: 0,
-              duration: 0.9,
-              ease: "power2.out",
-              stagger: 0.06,
-              overwrite: "auto",
-              onStart: () => batch.forEach(el => el.setAttribute("data-auto-reveal-done", "1")),
-              onComplete: () => batch.forEach(el => gsap.set(el, { clearProps: "transform" })),
-            }
-          );
+    // Each element gets its OWN ScrollTrigger-owned fromTo — the same proven
+    // pattern as the `.reveal` pass and stagger groups above. This fires
+    // correctly for elements already in the viewport at load (a batch would
+    // not), and survives ScrollTrigger.refresh() without freezing mid-tween.
+    // A small per-sibling delay gives a row of items a staggered feel.
+    autoEls.forEach(el => {
+      const sibIdx = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+      gsap.fromTo(el, autoRevealFrom(el, sibIdx), {
+        opacity: 1, y: 0, x: 0, scale: 1,
+        duration: 0.95,
+        ease: "power2.out",
+        delay: (sibIdx % 6) * 0.05,
+        overwrite: "auto",
+        lazy: false,
+        onStart: () => el.setAttribute("data-auto-reveal-done", "1"),
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          // ثنائي الاتجاه: يظهر عند النزول ويُعكَس عند الصعود
+          toggleActions: "play none none reverse",
+          fastScrollEnd: true,
         },
       });
-    }
+    });
+
+    /* ------ Table-row reveal (financial tables) ------------------------ */
+    // Each data table's body rows stagger up as the table enters view —
+    // gives the dense financial pages a sense of the numbers populating.
+    document.querySelectorAll("table tbody").forEach(tbody => {
+      const rows = tbody.querySelectorAll("tr");
+      if (rows.length < 2) return;
+      gsap.from(rows, {
+        opacity: 0,
+        y: 16,
+        duration: 0.55,
+        ease: "power2.out",
+        stagger: 0.045,
+        scrollTrigger: {
+          trigger: tbody.closest("table") || tbody,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
   }
 
   /* ------ Royal Endorsement choreography ----------------------------- */
@@ -509,7 +574,7 @@
         scrollTrigger: {
           trigger: royalsSection,
           start: "top 70%",
-          once: true,
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -615,7 +680,7 @@
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: article, start: "top 78%", once: true },
+      scrollTrigger: { trigger: article, start: "top 78%", toggleActions: "play none none reverse" },
     });
 
     if (photoWrap) {
@@ -732,7 +797,7 @@
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: article, start: "top 80%", once: true },
+      scrollTrigger: { trigger: article, start: "top 80%", toggleActions: "play none none reverse" },
     });
 
     if (frame) {
@@ -949,7 +1014,7 @@
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: section, start: "top 78%", once: true },
+      scrollTrigger: { trigger: section, start: "top 78%", toggleActions: "play none none reverse" },
     });
 
     // 1. Title + divider
@@ -1117,7 +1182,7 @@
     // Title + divider timeline
     const headTl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: section, start: "top 80%", once: true },
+      scrollTrigger: { trigger: section, start: "top 80%", toggleActions: "play none none reverse" },
     });
 
     if (titleWords.length) {
@@ -1159,7 +1224,7 @@
 
       const tl = gsap.timeline({
         defaults: { ease: "expo.out" },
-        scrollTrigger: { trigger: row, start: "top 85%", once: true },
+        scrollTrigger: { trigger: row, start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       // Photo card: clip-path wipe + soft zoom-out + overlay fade.
@@ -1331,7 +1396,8 @@
         scrollTrigger: {
           trigger: el,
           start: "top 90%",
-          once: true,
+          // العدّاد يتصاعد عند النزول ويتناقص عند الصعود ثم يتكرر
+          toggleActions: "play none none reverse",
         },
       });
     });
@@ -1518,7 +1584,7 @@
           scrollTrigger: {
             trigger: list,
             start: "top 88%",
-            once: true,
+            toggleActions: "play none none reverse",
           },
         });
       }
