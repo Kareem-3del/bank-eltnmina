@@ -19,6 +19,10 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobile = window.matchMedia("(max-width: 880px)").matches;
   const isRTL = document.documentElement.dir === "rtl";
+  // The home page (identified by its bespoke .new-hero block) gets a
+  // deliberately MORE AGGRESSIVE motion treatment — bigger travel, harder
+  // zoom, 3D tilt and overshoot — than the restrained inner pages.
+  const isHome = !!document.querySelector(".new-hero");
 
   const { gsap } = window;
   const ScrollTrigger = window.ScrollTrigger;
@@ -162,8 +166,10 @@
     if (imgEl) {
       tl.from(imgEl, {
         opacity: 0,
-        scale: 1.08,
-        duration: 1.4,
+        scale: 1.32,
+        rotation: 1.5,
+        duration: 1.5,
+        ease: "expo.out",
       }, 0);
     }
 
@@ -189,20 +195,24 @@
 
     if (counters.length) {
       tl.from(counters, {
-        y: 28,
+        y: 70,
+        scale: 0.8,
+        rotationX: -60,
+        transformPerspective: 700,
+        transformOrigin: "50% 100%",
         opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.10,
+        duration: 0.9,
+        ease: "back.out(1.8)",
+        stagger: 0.12,
       }, "-=0.45");
     }
 
     if (btnEl) {
       tl.from(btnEl, {
-        scale: 0.92,
+        scale: 0.7,
         opacity: 0,
-        duration: 0.6,
-        ease: "back.out(1.6)",
+        duration: 0.7,
+        ease: "back.out(2.4)",
       }, "-=0.30");
     }
 
@@ -216,6 +226,25 @@
         yoyo: true,
         delay: 1.5,
       });
+    }
+
+    // Cinematic scroll parallax: the portrait drifts up as you scroll past the
+    // hero. Uses yPercent only — the entrance owns scale/opacity/rotation and
+    // the float owns the frame's y, so there is no transform clash.
+    if (imgEl && ScrollTrigger) {
+      gsap.fromTo(imgEl,
+        { yPercent: 0 },
+        {
+          yPercent: -24,
+          ease: "none",
+          scrollTrigger: {
+            trigger: newHero,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
     }
   } else if (newHero && reduceMotion) {
     // With reduced-motion preference, snap to final state — no transforms.
@@ -383,19 +412,28 @@
     // Pick a direction-aware from-state for one element. `i` is its index
     // among its siblings, used to alternate the side-drift on cards so a
     // row of boxes fans in from left/right rather than all from one axis.
-    const slideX = isRTL ? -34 : 34;
+    const slideX = isRTL ? (isHome ? -70 : -34) : (isHome ? 70 : 34);
     function autoRevealFrom(el, i) {
       if (el.matches("h1,h2,h3,h4,.eyebrow,.section-header h2,.kpi-card__label,.stat__label")) {
-        return { opacity: 0, y: -26 };                       // fadeInDown
+        // headings: drop in from above — on home they tilt down in 3D
+        return isHome
+          ? { opacity: 0, y: -64, rotationX: -55, transformPerspective: 800, transformOrigin: "50% 100%" }
+          : { opacity: 0, y: -26 };                          // fadeInDown
       }
       if (el.matches("img,figure,picture,.btn,.rmbtn,.cta")) {
-        return { opacity: 0, scale: 1.08, y: 10 };           // zoomIn
+        return isHome
+          ? { opacity: 0, scale: 1.28, y: 26 }
+          : { opacity: 0, scale: 1.08, y: 10 };              // zoomIn
       }
       if (el.matches(CARD_SEL)) {
         const drift = (i % 2 === 0) ? -slideX : slideX;      // fadeInUp + alt side
-        return { opacity: 0, y: 30, x: drift, scale: 1.02 };
+        return isHome
+          ? { opacity: 0, y: 80, x: drift, scale: 0.86, rotationY: (i % 2 === 0 ? -22 : 22), transformPerspective: 900 }
+          : { opacity: 0, y: 30, x: drift, scale: 1.02 };
       }
-      return { opacity: 0, y: 28 };                          // fadeInUp (default)
+      return isHome
+        ? { opacity: 0, y: 64, scale: 0.94 }
+        : { opacity: 0, y: 28 };                             // fadeInUp (default)
     }
 
     const autoEls = Array.from(document.querySelectorAll(autoSelectors))
@@ -419,11 +457,12 @@
     // A small per-sibling delay gives a row of items a staggered feel.
     autoEls.forEach(el => {
       const sibIdx = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
-      gsap.fromTo(el, autoRevealFrom(el, sibIdx), {
+      const toVars = {
         opacity: 1, y: 0, x: 0, scale: 1,
-        duration: 0.95,
-        ease: "power2.out",
-        delay: (sibIdx % 6) * 0.05,
+        // home overshoots hard (back.out) and runs a touch longer for drama
+        duration: isHome ? 1.2 : 0.95,
+        ease: isHome ? "back.out(1.6)" : "power2.out",
+        delay: (sibIdx % 6) * (isHome ? 0.08 : 0.05),
         overwrite: "auto",
         lazy: false,
         onStart: () => el.setAttribute("data-auto-reveal-done", "1"),
@@ -434,7 +473,10 @@
           toggleActions: "play none none reverse",
           fastScrollEnd: true,
         },
-      });
+      };
+      // flatten any 3D tilt the home from-state introduced
+      if (isHome) { toVars.rotationX = 0; toVars.rotationY = 0; }
+      gsap.fromTo(el, autoRevealFrom(el, sibIdx), toVars);
     });
 
     /* ------ Table-row reveal (financial tables) ------------------------ */
@@ -1449,15 +1491,16 @@
     const bannerNum = document.querySelector(".banner-stat__num");
     if (bannerNum) {
       gsap.fromTo(bannerNum,
-        { yPercent: 30, opacity: 0.4 },
+        { yPercent: 45, opacity: 0.25, scale: isHome ? 0.55 : 0.9 },
         {
-          yPercent: -10,
+          yPercent: -14,
           opacity: 1,
+          scale: isHome ? 1.08 : 1,
           ease: "none",
           scrollTrigger: {
             trigger: ".banner-stat",
             start: "top bottom",
-            end: "bottom top",
+            end: "center center",
             scrub: true,
           },
         }
