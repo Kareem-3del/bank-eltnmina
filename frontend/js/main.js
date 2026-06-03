@@ -811,12 +811,3 @@
   });
 
 })();
-
-
-
-window.addEventListener('load', () => {
-  // تأخير إضافي لمدة ثانية واحدة قبل بدء الـ animation عند فتح الصفحة
-  setTimeout(() => {
-    document.getElementById('hero-grid').classList.add('loaded');
-  }, 0);
-});

@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/ar.css" />
+  <link rel="stylesheet" href="css/starting.css" />
 
 
   <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar/index.html" />
@@ -172,69 +173,20 @@
   </header>
 
   <main id="main">
-    <!-- ===================== Hero ===================== -->
-    <!-- <section class="hero">
-      <div class="container">
-        <div class="hero__grid">
-          <div class="hero__copy reveal">
-            <span class="eyebrow">التقرير السنوي 2025 · 1446 – <mark class="ar-mark">1447 هـ</mark></span>
-            <h1 class="h-display hero__title">
-              التملك السكني <em>لأجيالٍ واعدة</em>
-            </h1>
-            <p class="lead hero__lead">
-              يسهم صندوق التنمية العقارية في تمكين نمو سوق الإسكان السعودي عبر
-              حلولٍ تمويليةٍ مبتكرةٍ ومستدامة للمواطنين والمشاركين في السوق،
-              في انسجامٍ تامٍ مع مستهدفات رؤية المملكة 2030.
-            </p>
 
-            <div class="hero__actions">
-              <a href="#impact" class="btn btn--primary btn--lg">استعرض إنجازات العام</a>
-              <a href="about.html" class="btn btn--secondary btn--lg">رسالتا الرئيس والرئيس التنفيذي</a>
-            </div>
-
-            <div class="hero__meta">
-              <span><strong class="num">66.2%</strong> نسبة التملك السكني الوطنية</span>
-              <span><strong class="num">+920,000</strong> أسرة مستفيدة منذ 2017</span>
-              <span><strong class="num">83,014</strong> عقد دعم خلال 2025</span>
-            </div>
-          </div>
-
-          <div class="mosaic reveal" aria-hidden="true">
-            <div class="mosaic__cell mosaic__cell--photo">
-              <img src="assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
-            </div>
-            <div class="mosaic__cell mosaic__cell--solid"></div>
-            <div class="mosaic__cell mosaic__cell--photo">
-              <img src="assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
-            </div>
-
-            <div class="mosaic__cell mosaic__cell--accent"></div>
-            <div class="mosaic__cell mosaic__cell--photo mosaic__cell--span2">
-              <img src="assets/villas.webp" alt="" loading="lazy" width="1138" height="910" />
-            </div>
-
-            <div class="mosaic__cell mosaic__cell--photo">
-              <img src="assets/family.webp" alt="" loading="lazy" width="1137" height="910" />
-            </div>
-            <div class="mosaic__cell mosaic__cell--tint"></div>
-            <div class="mosaic__cell mosaic__cell--solid"></div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- ===================== New Hero ===================== -->
     <section class="new-hero hero">
       <div class="container">
         <div class="hero-container">
           <div class="hero-content">
-            <h1 class="hero-title">
+            <h1 class="hero-title anim-element" data-anim="fade-up">
               التملك السكني
               <br />
               لاجيال واعدة
             </h1>
 
-            <p class="hero-text">
+            <p class="hero-text anim-element" data-anim="fade-up" data-delay="0.2">
               نُمكّن الأسر السعودية من بناء مستقبلٍ أكثر استقراراً
               عبر حلول تمويلية مرنة ومنتجات سكنية متنوّعة، تُلبّي
               تطلّعات الأجيال القادمة وتُسهم في رفع جودة الحياة
@@ -242,7 +194,7 @@
             </p>
 
             <div class="hero-counter">
-              <div class="counter-item">
+              <div class="counter-item anim-element" data-anim="zoom-in" data-delay="0.4">
                 <h2 class="counter-title">
                   <span data-counter="83014" data-duration="5.0">0</span>
                 </h2>
@@ -251,7 +203,7 @@
                 </p>
               </div>
 
-              <div class="counter-item">
+              <div class="counter-item anim-element" data-anim="zoom-in" data-delay="0.5">
                 <h2 class="counter-title">
                   <span data-counter="66.2" data-decimals="1" data-duration="5.0">0</span>%
                 </h2>
@@ -260,7 +212,7 @@
                 </p>
               </div>
 
-              <div class="counter-item">
+              <div class="counter-item anim-element" data-anim="zoom-in" data-delay="0.6">
                 <h2 class="counter-title">
                   <span data-counter="920126" data-duration="5.0">0</span>
                 </h2>
@@ -270,78 +222,52 @@
               </div>
             </div>
 
-            <a href="assets/pdf/ar/MT-final.pdf" download class="custom-btn">التقرير السنوي 2025م</a>
+            <a class="custom-btn anim-element" data-anim="fade-up" data-delay="0.6" href="assets/pdf/ar/MT-final.pdf"
+              download class="custom-btn">
+              التقرير السنوي 2025م
+            </a>
 
           </div>
-
-          <!-- <div class="hero-image">
-            <img src="assets/hero.webp" alt="عائلة سعودية أمام منزلها الجديد" width="1166" height="1126"
-              fetchpriority="high" decoding="async" />
-          </div> -->
           <div class="hero-grid" id="hero-grid">
-            <div class="grid-item item-family"><img src="assets/intro-family.webp" alt="Family"></div>
-            <div class="grid-item item-square-1"></div>
-            <div class="grid-item item-text">
-              <!-- <h2>
-                <span>
-                  التمـلك
-                </span>
-                <span>
-                  السكـني
-                </span>
-                <span class="bolded">
-                  لأجيـال
-                </span>
-                <span class="bolded">واعـدة</span>
-              </h2> -->
+            <div class="grid-item item-family anim-element" data-anim="fade-up" data-delay="0.2">
+              <img src="assets/intro-family.webp" alt="Family">
+            </div>
+            <div class="grid-item item-square-1 anim-element" data-anim="fade-in" data-delay="0.3">
+
+            </div>
+            <div class="grid-item item-text anim-element" data-anim="zoom-in" data-delay="0.4">
               <img src="assets/hero-t-ar.png" alt="House">
             </div>
-            <div class="grid-item item-house"><img src="assets/start-last.webp" alt="House"></div>
-            <div class="grid-item item-square-2"></div>
-            <div class="grid-item item-couple"><img src="assets/intro.webp" alt="Couple"></div>
+            <div class="grid-item item-house anim-element" data-anim="slide-right" data-delay="0.5">
+              <img src="assets/start-last.webp" alt="House">
+            </div>
+            <div class="grid-item item-square-2 anim-element" data-anim="fade-in" data-delay="0.6">
+
+            </div>
+            <div class="grid-item item-couple anim-element" data-anim="slide-left" data-delay="0.7">
+              <img src="assets/intro.webp" alt="Couple">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===================== الإستراتيجية المؤسسية ===================== -->
-    <section class="strategy-sec section" data-strategy>
-
+    <section class="strategy-sec bg-main section" data-strategy>
       <div class="container">
-        <h2 class="strategy-title">الإستراتيجية المؤسسية</h2>
-        <div class="divider-2">
-          <div class="divider"></div>
-          <div class="pin"></div>
-          <div class="divider"></div>
-        </div>
+        <h2 class="strategy-title anim-element" data-anim="fade-up">
+          الإستراتيجية المؤسسية
+        </h2>
+
+
 
         <div class="strategy-info">
-          <div class="strategy-content">
-            <div class="strategy-content-item">
-              <div class="title">
-                المقدمة
-              </div>
-              <p>
-                تأُسِّس صندوق التنمية العقارية بموجب المرسوم الملكي رقم 23/م بتاريخ 11/06/1394هـ الموافق 01/07/1974م،
-                حيث بدأ نشاطه بهدف المساهمة في تحقيق التنمية العمرانية في المملكة العربية السعودية من خلال تمكين
-                المواطنين من تملك المساكن، وذلك عن طريق تقديم القروض التمويلية اللازمة، بما يواكب التحولات التنموية
-                ومتطلبات النمو السكاني، ويحقق مستهدفات الإسكان وفق رؤية السعودية 2030
-              </p>
-            </div>
-          </div>
-          <div class="strategy-image">
-            <div class="strategy-overlay"></div>
-            <img src="assets/st2.webp" alt="" width="918" height="744" />
-          </div>
-        </div>
-
-        <div class="strategy-info">
-          <div class="strategy-image">
+          <div class="strategy-image anim-element" data-anim="slide-left">
             <div class="strategy-overlay"></div>
             <img src="assets/st1.webp" alt="" width="916" height="744" />
           </div>
           <div class="strategy-content">
-            <div class="strategy-content-item">
+            <div class="strategy-content-item anim-element" data-anim="fade-up" data-delay="0.2">
               <div class="title">
                 الرؤية
               </div>
@@ -350,7 +276,7 @@
                 مالية مستدامة ومبتكرة للمواطنين والجهات المشاركة في السوق
               </p>
             </div>
-            <div class="strategy-content-item">
+            <div class="strategy-content-item anim-element" data-anim="fade-up" data-delay="0.4">
               <div class="title">
                 الرسالة
               </div>
@@ -363,177 +289,211 @@
 
         </div>
 
+        <div class="strategy-info">
+          <div class="strategy-content">
+            <div class="strategy-content-item anim-element" data-anim="fade-up" data-delay="0.2">
+              <div class="title">
+                المقدمة
+              </div>
+              <p>
+                تأُسِّس صندوق التنمية العقارية بموجب المرسوم الملكي رقم 23/م بتاريخ 11/06/1394هـ الموافق 01/07/1974م،
+                حيث بدأ نشاطه بهدف المساهمة في تحقيق التنمية العمرانية في المملكة العربية السعودية من خلال تمكين
+                المواطنين من تملك المساكن، وذلك عن طريق تقديم القروض التمويلية اللازمة، بما يواكب التحولات التنموية
+                ومتطلبات النمو السكاني، ويحقق مستهدفات الإسكان وفق رؤية السعودية 2030
+              </p>
+            </div>
+          </div>
+          <div class="strategy-image anim-element" data-anim="slide-right" data-delay="0.3">
+            <div class="strategy-overlay"></div>
+            <img src="assets/st2.webp" alt="" width="918" height="744" />
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ===================== Stat banner interstitial ===================== -->
-    <section class="banner-stat reveal" aria-label="إنجاز رئيسي">
-      <div class="banner-stat__num" dir="ltr">
+    <section class="banner-stat anim-element" data-anim="zoom-in" aria-label="إنجاز رئيسي">
+      <div class="banner-stat__num anim-element" data-anim="fade-in" data-delay="0.3" dir="ltr">
         <span class="plus-sign">+</span>
         <span data-counter="1800000">0</span>
       </div>
-      <p class="banner-stat__caption">
+      <p class="banner-stat__caption anim-element" data-anim="fade-up" data-delay="0.5">
         مستفيد من برامج الاسكان منذ عام 2019 - ركيزة راسخة
         <br />
         للتملك السكني السعودي
       </p>
     </section>
 
-    <!-- ===================== شريط الأرقام ===================== -->
-
-
-    <!-- ===================== رسالة رئيس مجلس الإدارة ===================== -->
-    <section class="section section--tight" id="chairman" style="background: var(--c-bg)">
-      <div class="container">
-        <article class="message message--featured message--chair reveal" data-ceo-message>
-          <aside class="message__portrait">
-            <figure class="message__photo-frame">
-              <div class="message__photo">
-                <img src="assets/ceo2.webp" alt="معالي الأستاذ ماجد بن عبدالله الحقيل" loading="lazy" width="1118"
-                  height="980" />
-              </div>
-              <figcaption class="message__nameplate">
-                <strong class="message__name">معالي الأستاذ / ماجد بن عبدالله الحقيل</strong>
-                <span class="message__role">وزير البلديات والإسكان</span>
-                <span class="message__role">رئيس مجلس الإدارة</span>
-              </figcaption>
-            </figure>
-          </aside>
-
-          <div class="message__body">
-            <h3 class="message__title">رسالة <em>رئيس مجلس الإدارة</em></h3>
-            <p>
-              مثّل عام 2025 بدايةَ تنفيذ الاستراتيجية المؤسسية المحدَّثة لصندوق
-              التنمية العقارية، التي صُمِّمت لتمكين نمو سوق الإسكان السعودي
-              ودفعه عبر حلولٍ تمويليةٍ مبتكرةٍ ومستدامةٍ للمواطنين والمشاركين
-              في السوق.
-            </p>
-
-            <blockquote class="message__pull">
-              بنهاية العام بلغت <span class="num">66.2%</span> نسبةُ التملك
-              السكني الوطنية، في تقدّمٍ ثابتٍ نحو مستهدف رؤية 2030 البالغ
-              <span class="num">70%</span>.
-            </blockquote>
-
-            <p>
-              تشهد المملكة تحولات سكنية شاملة، مع تزايد عدد الداخلين إلى سوق الإسكان من المواطنين لأول مرة، والأسر
-              الشابة، ومع خلق فرص تمويل جديدة، بات التملك السكني خيارًا واقعيًا لا يُوصف عليه بعد كونه أساسيًا للمشاركة
-              الاقتصادية والاستقرار والرفاه طويل الأمد.تشهد المملكة تحولات سكنية شاملة، مع تزايد عدد الداخلين إلى سوق
-              الإسكان من المواطنين لأول مرة، والأسر الشابة، ومع خلق فرص تمويل جديدة، بات التملك السكني خيارًا واقعيًا لا
-              يُوصف عليه بعد كونه أساسيًا للمشاركة الاقتصادية والاستقرار والرفاه طويل الأمد.
-            </p>
-            <p>
-              في عام 2025 وحده استفاد ما يزيد على <span style="font-weight: 700;" class="num">83,000</span> مستفيد من
-              الدعم بإجمالي تمويل بلغ
-              <span style="font-weight: 700;" class="num">2.7</span>
-              مليار، ومنذ <span style="font-weight: 700;" class="num">2017</span> تجاوز عدد المستفيدين الذين حققوا
-              التملك
-              السكني عبر برامج الصندوق
-              <span style="font-weight: 700;" class="num">920,000</span> مستفيد، بإجمالي
-              تمويل يزيد على <span class="num" style="font-weight: 700;">613</span> مليار
-            </p>
+    <section class="msg-sec section " data-ceo-message>
+      <div class=" container">
+        <div class="msg-sec__top anim-element" data-anim="fade-up">
+          <div class="msg-sec__title">
+            <h2>
+              رسالة
+              <span>
+                رئيس مجلس الادارة
+              </span>
+            </h2>
           </div>
-        </article>
-      </div>
+          <!-- <div class="msg-sec__num">02</div> -->
+        </div>
+
+        <div class="board-sec">
+
+          <div class="board-img">
+            <div class="board-top anim-element" data-anim="zoom-in" data-delay="0.6">
+              <img src="assets/_ceo.webp" alt="ceo-img" />
+            </div>
+            <div class="board-name anim-element" data-anim="fade-up" data-delay="0.4">
+              <h3>
+                معالي الأستاذ / ماجد بن عبدالله الحقيل
+              </h3>
+              <p>
+                وزير البلديات والإسكان
+                <br />
+                رئيس مجلس الادارة
+              </p>
+            </div>
+          </div>
+
+          <div class="board-grid board-col-3">
+            <div class="text-col anim-element" data-anim="fade-up" data-delay="0.5">
+              <h3>
+                تعزيز التكامل المالي لتمكين
+                مستقبل الإسكان
+              </h3>
+              <p>
+                شهد عام 2025م نقطة تحول مهمة،
+                حيث انطلق صنـدوق التنمية العقارية
+                في تنفــــيذ استراتيجيته المؤسســـية
+                المحدثة والمصممة لتمكين ودفـــع
+                نمو سوق الإسكان في الممــــــلكة
+                العربية السعودية من خلال تقـــــديم
+                حلول مالية مستدامة ومبتكرة تخدم
+                المواطنين وجميع الجــــهات العاملة
+                في السوق، بـما أسهـــــــم في تعزيز
+                كفاءة المنظومة التمويلية، وتوسيع نـــطاق الاستفـــادة، ودعــــم تحقيق مستهدفات التملك السكني.
+                وبنهاية العام، بلغــــت نسبة تمـــــلك
+              </p>
+            </div>
+
+            <div class="text-col anim-element" data-anim="fade-up" data-delay="0.7">
+              <p>
+                المواطنــين للمسـاكن على مــــــستوى المملكة 66.2%، مواصلة مسارهــا بثبات نحو تحقيق مستهدف رؤيـــة
+                المــــملكة 2030 والبالغ 70%. ويعكـــس هذا الإنجاز ليس فقط زيادة فـــــرص الحصـــول على الســــكن، بل
+                أيـــــــــضاً التطوير المستمر لمنظومـــــة إسكانية صُممت لإحداث أثر واسع النطاق، وقادرة على
+                الاســـــتجابة للــــدورات الاقتـــــصادية والتـــــــحولات الديموغرافية، لتلبــــــــية تطلعات شريحة
+                الإسكان ومنها قـــطاع الشباب. وبينما لا يزال امتلاك المسكن يمثل طموحاً راسخاً، حيــــث يعد المجتمع في
+                المملكة العربية السعودية مجتــمعاً يزخر بشبابه مع تحول نوعي بين الأجيــــــال، ومع انضمام أعداد
+                متزايدة من المواطنين إلى سوق الإسكان لتمــــلك المــسكن الأول، فقد أصبح ينظر
+              </p>
+            </div>
+
+            <div class="text-col anim-element" data-anim="fade-up" data-delay="0.9">
+              <p>
+                إليه بشكل متزايد ليس كنقطة نــهاية، بل كأســــــاس للـــــمشاركة الاقــــــتصادية، والاستقرار، والرفاه
+                طويل الامد. ويمـتد أثر تملك المسكن إلى ما هــو أبعد من حدود الأسرة، إذ يسهم في الاستقــــــرار المالي،
+                ويحد من التعرض لتقلبات سوق الإيجارات، ويعزز المــــتانة المـــــالية للأفـــراد. وعلى المستوى
+                الوطــــــني، يســــــــاهم قطاع الإسكان في دعم الناتج المحـلي الإجمالي، واستدامة فرص العــــــمل
+                عـــــبر مختلف القـــــطاعات، وتعــــزيز الترابط الاجتماعي. ومن هـــذا المنطلق، يعد الإسكان أولوية
+                اجتماعـية وأداة محورية رئيسية للسيــاسة الاقتـــصادية في المــملكة لبـــناء وطـــن راسخ. وفـــي
+                إطـــار هـــذه المنــــظومـة الإسكانية، يؤدي صندوق التنمية العقارية دوراً محـــورياً في تقـــــديم
+                حلول تمويلية مستدامة ومبتكرة.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- <img src="assets/_ceo.webp" alt="صندوق التنمية العقارية - عن الصندوق" /> -->
+
     </section>
 
     <!-- ===================== رسالة الرئيس التنفذي ===================== -->
-    <section class="boss-latter-sec section" data-ceo-letter>
-      <div class="container">
-        <div class="boss-letter-title">
-          <h2>رسالة الرئيس التنفيذي</h2>
-          <div class="divider"></div>
+    <section class="msg-sec bg-main section " data-ceo-message>
+      <div class=" container">
+        <div class="msg-sec__top anim-element" data-anim="fade-up">
+          <div class="msg-sec__title">
+            <h2>
+              رسالة
+              <span>
+                الرئيس التنفيذي
+              </span>
+            </h2>
+          </div>
+          <!-- <div class="msg-sec__num">02</div> -->
         </div>
 
-        <div class="boss-info">
-          <div class="boss-image-container">
-            <div class="boss-image-container-inner">
-              <div class="boss-inner">
-                <div class="overlay"></div>
-                <div class="title">
-                  <h2>م. لؤي بن محمد الناهض</h2>
-                  <p>
-                    الرئيس التنفيذي – عضو مجلس الإدارة
-                  </p>
-                  <div class="divider"></div>
-                </div>
-                <div class="boss-img">
-                  <img src="assets/ceo.webp" alt="م. لؤي بن محمد الناهض" loading="lazy" width="1026" height="2066" />
-                </div>
-              </div>
+        <div class="board-sec">
+
+          <div class="board-img">
+            <div class="board-top anim-element" data-anim="zoom-in" data-delay="0.6">
+              <img src="assets/cto.webp" alt="cto-img" />
+            </div>
+            <div class="board-name anim-element" data-anim="fade-up" data-delay="0.4">
+              <h3>
+                م. لؤي بن محمد الناهض
+              </h3>
+              <p>
+                الرئيس التنفيذي
+                <br />
+                عضو مجلس الإدارة
+              </p>
             </div>
           </div>
-          <div class="boss-content">
-            <p>
-              يشكل عام 2025 مرحلة تحول نوعي في مسرية صندوق التنمية العقارية، ركزنا خاللها على بلورة دور الصندوق المتجدد
-              في المرحلة المقبلة انطالقا وبرنامج من أهداف رؤية 2030االإسكان، وفي هذا امتداد لمسرية طويلة للصندوق في
-              تلبية ودعم احتياجات المراحل المختلفة من مسرية وطننا. وجاء ذلك في سياق وطين يشهد تقدمًا ملموسًا في ملف
-              التملك،
-            </p>
 
-            <div class="boss-rate">
-              <h2>أبرز الإنجازات</h2>
-              <div class="rate-items">
-                <div class="rate-item">
-                  <img src="assets/cup.svg" alt="" loading="lazy" width="27" height="28" aria-hidden="true" />
-                  بلغ معدل تملك المساكن في المملكة %66.2
-                </div>
-                <div class="rate-item">
-                  <img src="assets/anly.svg" alt="" loading="lazy" width="27" height="28" aria-hidden="true" />
-                  رفع نسبة التملك السكني إلى مستويات قياسية
-                </div>
-                <div class="rate-item">
-                  <img src="assets/hand.svg" alt="" loading="lazy" width="28" height="28" aria-hidden="true" />
-                  مكنت برامج الصندوق من ابرام 83.014 عقد تمويل سكني خلال العام
-                </div>
-                <div class="rate-item">
-                  <img src="assets/tv.svg" alt="" loading="lazy" width="28" height="28" aria-hidden="true" />
-                  تم توقيع اتفاقيات مع 17 مطورًا لدعم أكثر من 3,285 وحدة سكنية
-                </div>
-              </div>
+          <div class="board-grid board-col-3">
+            <div class="text-col anim-element" data-anim="fade-up" data-delay="0.5">
+              <h3>
+                تمكين تملك سكن مستدام
+                لجيل جديد
+              </h3>
+              <p>
+                شكّل عام 2025 مرحلة تحول نوعي في مســيرة صندوق التنمية العقارية، تــركّز خلالها على بلورة دور الصندوق
+                المتـجدد في المرحلة المقـــــــبلة انطـــــلاقًا من أهداف رؤية 2030 وبرنـامج الإســــكان،
+                وفي هـذا امتـــداد لمســــــيرة طـــويلة للصنــــدوق في تلـــبية ودعــم احتياجات المراحل المختلفة مـن
+                مســـــيرة وطننا.
+                وجـاء ذلــــك في سيـــــاق وطني يشهد تقدمًا ملــــموسًا في ملف التملك،حيث بلغ معدل تملـك المساكن في
+                المملكة 66.2%، في مسار ثابـــــت نحو مستهدف رؤيــة السعوديـــة 2030 البالغ 70%، بما يعكس نضج منظومة
+                الإسكان وتكامل أدوارها.
+              </p>
             </div>
 
-            <div class="hero-counter">
-              <div class="counter-item">
-                <h2 class="counter-title">
-                  <span data-counter="920126" data-duration="5.0">0</span>
-                </h2>
-                <p class="counter-text">
-                  مستفيد من برامج الصندوق منذ عام 2017م
-                </p>
-              </div>
+            <div class="text-col anim-element" data-anim="fade-up" data-delay="0.7">
+              <p>
+                ومكّنت برامج الصندوق من إبرام 83,014 عقد تمويل سكني خلال العام، بما يؤكـد استمرار الطلب الحقيقي على
+                التملـــــــك، ويعزز دور الصنــــدوق كعــــــنصر استقرار ومحرك رئيسي في منــــــــظومة التمويل السكني.
+                كما واصــــــلنا إعادة تشكيـــــل نمــــوذج الخـــــــدمة عبر التحول الرقمي، حيـث أصبحـــــــــت غالبية
+                المعاملات تُنـجز إلكــــــترونيًا ضمن إطــــار تشغيــــلي عالي الاعـتمادية، مما أدى إلى تحسين تخصيص
+                المـوارد وضبط التكاليف وإعــادة مواءمة شبكة الفروع وفق اعتبارات الكفاءة. وظلــــت الشراكــــات
+                الاســـتراتيجية ركيزة أساسيـــة في تنفيذ أولــوياتنا، إذ تم توقيع اتفاقــيات مع 17 مـــــطورًا لدعم أكثر
+                من 3,285 وحدة سكنية،
+              </p>
+            </div>
 
-              <div class="counter-item">
-                <h2 class="counter-title">
-                  <span data-counter="70" data-duration="5.0">0</span>%
-                </h2>
-                <p class="counter-text">
-                  نسبة التملك السكني المستهدفة
-                </p>
-              </div>
-
-              <div class="counter-item last">
-                <h2 class="counter-title">
-                  <span data-counter="83014" data-duration="5.0">0</span>
-                </h2>
-                <p class="counter-text">
-                  ألف مستفيد من برامج الدعم في عام 2025
-                </p>
-              </div>
+            <div class="text-col anim-element" data-anim="fade-up" data-delay="0.9">
+              <p>
+                إلى جانــــب تعزيز التكامل مع المؤسسات المالـية والجهــــات الحكومية عبر سلسلة القيمة في قــــطاع
+                الإســـكان. وأسهمت شركـــــاتنا التابعــــة في دعــــم استـــقرار المنظومـــة وتعــــزيز الثقـــــة، حيث
+                عززت ضمانــات حوكمة محافظ الضمان ورفعت كـــــفاءة إدارة رأس المـــــال. كــــــما تم توقيـــع اتفاقيات
+                تتجــاوز قـــيمتها 2 مليار ريال لتوسيع المعروض الميسر. و بالشراكة مع ضــمانات وبنك ICBC الصيني، مما أتاح
+                توفيـــر ســــيولة جــــديدة وإعادة هيكلة التكــــاليف وإعـــــــادة مواءمة شبــــكة الفروع وفق
+                اعتـــبارات الكـفاءة بنحو 3.5 مليــــارات ريــــال لــــدعم مشاريع الشركة الوطنية للإسكان.
+              </p>
             </div>
           </div>
+
         </div>
-      </div>
+
+        <!-- <img src="assets/_ceo.webp" alt="صندوق التنمية العقارية - عن الصندوق" /> -->
+
     </section>
 
-
-    <!-- الركائز الاستراتيجية انتقلت إلى صفحة مستقلة (ar/strategy.html). -->
-    <!-- الرسائل الملكية / الرؤية الوطنية للتملك انتقلت إلى صفحة "عن الصندوق" (ar/about.html). -->
 
     <!-- ===================== المؤشرات · أبرز الأرقام والإنجازات ===================== -->
     <section class="section kpi-section" id="achievements" aria-labelledby="achievements-title">
       <div class="container">
-        <header class="kpi-section__head reveal">
+        <header class="kpi-section__head anim-element" data-anim="fade-up">
           <h2 id="achievements-title" class="h-1">أبرز الأرقام <em>والإنجازات</em></h2>
           <p class="lead">
             مؤشرات أداء الصندوق ومنصاته خلال العام <span class="num">2025</span>م
@@ -542,31 +502,37 @@
         </header>
 
         <div class="kpi-grid">
-          <article class="kpi-card reveal">
+          <article class="kpi-card anim-element" data-anim="slide-left" data-delay="0.2">
             <div class="kpi-card__head">
-              <span class="kpi-card__title">المستشار العقاري <span class="num">2019</span>م &ndash; <span
-                  class="num">2025</span>م</span>
+              <span class="kpi-card__title">الخدمات المقدَّمة</span>
               <span class="kpi-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
+                  <path d="M3 10h18M5 6h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
                 </svg>
               </span>
             </div>
+            <p class="kpi-card__desc" style="margin-bottom: var(--s-2)">لدعم المنتجات التمويلية ومرتكزاتها.</p>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value num">+<span data-counter="1885600" data-duration="5.0">0</span>
-                </span>
-                <p class="kpi-card__desc">المستفيدون المسجَّلون في منصة المستشار العقاري.</p>
+                <span class="kpi-card__value num"><span data-duration="5.0" data-counter="241301">0</span> <span
+                    class="kpi-card__unit">طلبًا</span></span>
+                <p class="kpi-card__desc">تقييم عقاري تم إنجازه ليصل إجمالي الطلبات منذ إطلاق البرنامج عام <span
+                    class="num">2021</span>م إلى <span class="num">1,402,451</span> طلبًا.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value num"><span data-counter="77236" data-duration="5.0">0</span></span>
-                <p class="kpi-card__desc">عقدًا موقَّعًا في عام <span class="num">2025</span>م.</p>
+                <span class="kpi-card__value num"><span data-duration="5.0" data-counter="139985">0</span> <span
+                    class="kpi-card__unit">طلبًا</span></span>
+                <p class="kpi-card__desc">طلب تقييم في العام <span class="num">2025</span>م.</p>
+              </li>
+              <li class="kpi-card__row">
+                <span class="kpi-card__value num"><span data-duration="5.0" data-counter="101316">0</span> <span
+                    class="kpi-card__unit">طلبًا</span></span>
+                <p class="kpi-card__desc">طلب تقييم عقاري في العام <span class="num">2025</span>م.</p>
               </li>
             </ul>
           </article>
 
-          <article class="kpi-card reveal">
+          <article class="kpi-card anim-element" data-anim="zoom-in" data-delay="0.2">
             <div class="kpi-card__head">
               <span class="kpi-card__title">برنامج دعم المطوِّرين لعام <span class="num">2025</span>م</span>
               <span class="kpi-card__icon" aria-hidden="true">
@@ -602,39 +568,33 @@
             </ul>
           </article>
 
-          <article class="kpi-card kpi-card--accent reveal">
+          <article class="kpi-card anim-element" data-anim="slide-right" data-delay="0.2">
             <div class="kpi-card__head">
-              <span class="kpi-card__title">الخدمات المقدَّمة</span>
+              <span class="kpi-card__title">المستشار العقاري <span class="num">2019</span>م &ndash; <span
+                  class="num">2025</span>م</span>
               <span class="kpi-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
-                  <path d="M3 10h18M5 6h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
                 </svg>
               </span>
             </div>
-            <p class="kpi-card__desc" style="margin-bottom: var(--s-2)">لدعم المنتجات التمويلية ومرتكزاتها.</p>
             <ul class="kpi-card__list">
               <li class="kpi-card__row">
-                <span class="kpi-card__value num"><span data-duration="5.0" data-counter="241301">0</span> <span
-                    class="kpi-card__unit">طلبًا</span></span>
-                <p class="kpi-card__desc">تقييم عقاري تم إنجازه ليصل إجمالي الطلبات منذ إطلاق البرنامج عام <span
-                    class="num">2021</span>م إلى <span class="num">1,402,451</span> طلبًا.</p>
+                <span class="kpi-card__value num">+<span data-counter="1885600" data-duration="5.0">0</span>
+                </span>
+                <p class="kpi-card__desc">المستفيدون المسجَّلون في منصة المستشار العقاري.</p>
               </li>
               <li class="kpi-card__row">
-                <span class="kpi-card__value num"><span data-duration="5.0" data-counter="139985">0</span> <span
-                    class="kpi-card__unit">طلبًا</span></span>
-                <p class="kpi-card__desc">طلب تقييم في العام <span class="num">2025</span>م.</p>
-              </li>
-              <li class="kpi-card__row">
-                <span class="kpi-card__value num"><span data-duration="5.0" data-counter="101316">0</span> <span
-                    class="kpi-card__unit">طلبًا</span></span>
-                <p class="kpi-card__desc">طلب تقييم عقاري في العام <span class="num">2025</span>م.</p>
+                <span class="kpi-card__value num"><span data-counter="77236" data-duration="5.0">0</span></span>
+                <p class="kpi-card__desc">عقدًا موقَّعًا في عام <span class="num">2025</span>م.</p>
               </li>
             </ul>
           </article>
         </div>
 
         <div class="kpi-bars">
-          <article class="kpi-bar reveal">
+          <article class="kpi-bar anim-element" data-anim="slide-left" data-delay="0.3">
             <div>
               <span class="kpi-bar__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
@@ -650,7 +610,7 @@
               <span class="kpi-bar__sub">مستفيد تم خدمتهم.</span>
             </span>
           </article>
-          <article class="kpi-bar kpi-bar--accent reveal">
+          <article class="kpi-bar kpi-bar--accent anim-element" data-anim="slide-right" data-delay="0.5">
             <div>
               <span class="kpi-bar__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
@@ -673,12 +633,12 @@
     <!-- ===================== المؤشرات · الأداء المالي والاستدامة ===================== -->
     <section class="section kpi-section" id="financial" aria-labelledby="financial-title">
       <div class="container">
-        <header class="kpi-section__head reveal">
+        <header class="kpi-section__head anim-element" data-anim="fade-up">
           <h2 id="financial-title" class="h-1">الأداء المالي <em>والاستدامة</em></h2>
         </header>
 
         <div class="kpi-grid">
-          <article class="kpi-card reveal">
+          <article class="kpi-card anim-element" data-anim="slide-left" data-delay="0.2">
             <div class="kpi-card__head">
               <span class="kpi-card__title">التحصيل</span>
               <span class="kpi-card__icon" aria-hidden="true">
@@ -713,7 +673,7 @@
             </ul>
           </article>
 
-          <article class="kpi-card reveal">
+          <article class="kpi-card anim-element" data-anim="zoom-in" data-delay="0.2">
             <div class="kpi-card__head">
               <span class="kpi-card__title">الاستدامة المالية</span>
               <span class="kpi-card__icon" aria-hidden="true">
@@ -746,7 +706,7 @@
             </ul>
           </article>
 
-          <article class="kpi-card kpi-card--accent reveal">
+          <article class="kpi-card anim-element" data-anim="slide-right" data-delay="0.2">
             <div class="kpi-card__head">
               <span class="kpi-card__title">الأداء المالي</span>
               <span class="kpi-card__icon" aria-hidden="true">
@@ -799,21 +759,20 @@
     </section>
 
     <!-- ===================== دعوة لاستكمال القراءة ===================== -->
-    <section class="cta-strip">
-      <div class="container cta-strip__inner reveal">
-        <h2 class="cta-strip__title">
+    <section class="cta-strip anim-element" data-anim="fade-in">
+      <div class="container cta-strip__inner ">
+        <h2 class="cta-strip__title anim-element" data-anim="fade-up" data-delay="0.2">
           اطّلع على التقرير كاملًا. <em>الأرقام والاستراتيجية والإنجازات.</em>
         </h2>
-        <div class="cta-strip__actions">
+        <div class="cta-strip__actions anim-element" data-anim="zoom-in" data-delay="0.4">
           <a href="assets/pdf/ar/MT-final.pdf" download class="btn btn--primary btn--lg">تحميل PDF</a>
-          <!-- <a href="about.html" class="btn btn--secondary btn--lg">عن الصندوق</a> -->
         </div>
       </div>
     </section>
   </main>
 
   <!-- ===================== التذييل ===================== -->
-  <footer class="site-footer m-footer">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer__head">
         <div class="footer__brand">
@@ -948,7 +907,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/page-animations.js"></script>
   <script src="js/actions.js"></script>
 </body>
 

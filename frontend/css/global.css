@@ -123,7 +123,7 @@
   background-color: var(--bg-main);
 }
 
-.bg-main :is(h3, p, h3, h1) {
+.bg-main :is(h3, p, h2, h1) {
   color: var(--c-text-main) !important;
 }
 

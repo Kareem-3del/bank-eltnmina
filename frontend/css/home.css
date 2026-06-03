@@ -2,7 +2,12 @@
    home.css — Hero · Mosaic · Stats · Pillars · Quote · CTA
    ========================================================================== */
 
+
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+body {
+  overflow-x: hidden;
+}
 
 /* ------ Hero ------------------------------------------------------------- */
 .hero {
@@ -660,7 +665,7 @@
 /* ------ CTA strip ------------------------------------------------------ */
 .cta-strip {
   background: var(--c-secondary-container);
-  padding-block: var(--s-8) var(--s-5);
+  padding: var(--s-8) var(--s-5);
 }
 
 .cta-strip__inner {
@@ -1282,6 +1287,7 @@
    ========================================================================== */
 .kpi-section {
   background: var(--c-bg);
+  overflow-x: hidden;
 }
 
 .kpi-section__head {
@@ -1693,9 +1699,9 @@
 }
 
 /* strategy-sec css */
+
 .strategy-sec {
-  font-family: "Cairo", sans-serif;
-  background-color: #FFF;
+  overflow: hidden;
 }
 
 .strategy-title {
@@ -1705,8 +1711,8 @@
   letter-spacing: 0px;
   text-align: center;
   vertical-align: middle;
-  color: #019591;
   width: 100%;
+  margin-bottom: clamp(40px, 8vw, 80px);
 }
 
 .strategy-sec .divider-2 {
@@ -1735,7 +1741,7 @@
   position: absolute;
   inset: 0;
   background: #019591;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .strategy-image img {
@@ -1753,7 +1759,6 @@
 }
 
 .strategy-content-item {
-  border-bottom: 2px solid #D9D9D9;
   padding-bottom: 32px;
   width: fit-content;
   max-width: 473px;
@@ -1764,13 +1769,13 @@
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0px;
-  color: #fff;
+  color: #01938E !important;
+  background-color: #FFF;
   width: 205px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #019591;
   margin-bottom: 22px;
 }
 
@@ -1996,19 +2001,15 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 }
 
 /* الحاوية الأساسية */
-.hero-grid {
+/* .hero-grid {
 
   opacity: 0;
 
-  /* تأثير ظهور للـ grid بالكامل */
 
   transition: opacity 0.5s ease-in;
 
 }
 
-
-
-/* هذا الـ class سيتم إضافته بواسطة الجافا سكريبت */
 
 .hero-grid.loaded {
 
@@ -2018,15 +2019,11 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 
 
 
-/* الـ Animation الفردي للعناصر */
-
 .grid-item {
 
   opacity: 0;
 
   transform: translateY(40px);
-
-  /* نربط الحركة بالـ class الجديد */
 
 }
 
@@ -2038,9 +2035,6 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 
 }
 
-
-
-/* تأخير العناصر الفردية */
 
 .hero-grid.loaded .item-family {
 
@@ -2087,7 +2081,7 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
   animation-delay: 1.2s;
 
 }
-
+ */
 
 
 @keyframes fadeInUp {

@@ -225,7 +225,8 @@
 
 /* msg-sec */
 .msg-sec .container {
-    padding: 0 16px
+    padding: 0 16px;
+    max-width: 95%;
 }
 
 .msg-sec__top {
@@ -331,9 +332,7 @@
     /* تقليل الحجم قليلاً لزيادة كثافة النص */
     line-height: 28px;
     /* تقليل الارتفاع لجعل الأسطر قريبة من بعضها */
-    letter-spacing: -0.2px;
     /* تقريب الحروف */
-    word-spacing: -2px;
     /* زيادة "الزنق" بين الكلمات */
     color: var(--c-dark);
     /* لضبط الأطراف */
