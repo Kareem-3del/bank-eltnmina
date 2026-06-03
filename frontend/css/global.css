@@ -103,6 +103,13 @@
   --d-fast: 180ms;
   --d-base: 320ms;
   --d-slow: 560ms;
+
+  /* bg */
+  --bg-main: #009892;
+
+  /* colors */
+  --c-text-main: #FFF;
+  --c-dark: #009D98
 }
 
 * {
@@ -112,6 +119,13 @@
   font-family: "Cairo", sans-serif;
 }
 
+.bg-main {
+  background-color: var(--bg-main);
+}
+
+.bg-main :is(h3, p, h3, h1) {
+  color: var(--c-text-main) !important;
+}
 
 /* ------ Reset ------------------------------------------------------------- */
 *,
