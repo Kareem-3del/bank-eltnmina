@@ -17,6 +17,81 @@ document.addEventListener("DOMContentLoaded", () => {
         curtain.classList.add("is-done");
     }
 
+    const elements = document.querySelectorAll('.anim-element');
+
+    elements.forEach((el) => {
+        const animationType = el.dataset.anim || 'fade-up';
+        const delay = parseFloat(el.dataset.delay) || 0;
+
+        // الـ fromTo states
+        const fromVars = {};
+        const toVars = {};
+
+        switch (animationType) {
+            case 'fade-up':
+                Object.assign(fromVars, { opacity: 0, y: 50 });
+                Object.assign(toVars, { opacity: 1, y: 0 });
+                break;
+            case 'slide-left':
+                Object.assign(fromVars, { opacity: 0, x: 100 });
+                Object.assign(toVars, { opacity: 1, x: 0 });
+                break;
+            case 'slide-right':
+                Object.assign(fromVars, { opacity: 0, x: -100 });
+                Object.assign(toVars, { opacity: 1, x: 0 });
+                break;
+            case 'fade-in':
+                Object.assign(fromVars, { opacity: 0 });
+                Object.assign(toVars, { opacity: 1 });
+                break;
+            case 'zoom-in':
+                Object.assign(fromVars, { opacity: 0, scale: 0.8 });
+                Object.assign(toVars, { opacity: 1, scale: 1 });
+                break;
+
+            case 'image-reveal':
+                // حركة سريعة: تبدأ من 95% حجم وتكبر للـ 100% مع ظهور ناعم
+                Object.assign(fromVars, { opacity: 0, scale: 0.95 });
+                Object.assign(toVars, { opacity: 1, scale: 1 });
+                break;
+            case 'ethereal':
+                // يبدأ بـ ضبابية واختفاء، وينتهي بوضوح كامل
+                gsap.set(el, { filter: 'blur(10px)', opacity: 0 });
+                Object.assign(fromVars, { filter: 'blur(10px)', opacity: 0 });
+                Object.assign(toVars, { filter: 'blur(0px)', opacity: 1 });
+                break;
+            case 'powerful':
+                gsap.set(el, { transformPerspective: 1000, rotationY: 45, brightness: 0, scale: 0.9 });
+
+                Object.assign(fromVars, { rotationY: 45, brightness: 0, scale: 0.9 });
+                Object.assign(toVars, { rotationY: 0, brightness: 1, scale: 1 });
+                break;
+            default:
+                Object.assign(fromVars, { opacity: 0, y: 50 });
+                Object.assign(toVars, { opacity: 1, y: 0 });
+        }
+
+        // ضع العنصر في الحالة الابتدائية فوراً
+        gsap.set(el, fromVars);
+        gsap.fromTo(el, fromVars, {
+            ...toVars,
+            duration: 1,
+            ease: "power2.inOut",
+            delay: delay,
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%", // يبدأ لما يوصل لـ 85% من الشاشة
+                end: "bottom 15%",   // التوقيت اللي بيبدأ عنده الـ reverse
+                // play: لما يظهر
+                // reverse: لما يختفي (يعكس الحركة)
+                // play: لما ترجع تاني
+                // reverse: لما تطلع خالص
+                toggleActions: "play reverse play reverse",
+                markers: false
+            }
+        });
+    });
+
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.set(".row-trigger", { opacity: 0, y: 20 });
@@ -102,7 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return { scale: 1 };
     }
-
     document.fonts.ready.then(() => {
         const counters = document.querySelectorAll("[data-counter]");
 
@@ -110,35 +184,39 @@ document.addEventListener("DOMContentLoaded", () => {
             const { scale } = expandUnitForCounter(el);
             let target = parseFloat(el.dataset.counter) * scale;
             let decimals = parseInt(el.dataset.decimals || "0", 10);
-            // expanded numbers should be shown as integers
             if (scale > 1) decimals = 0;
             const duration = parseFloat(el.dataset.duration || "3.5");
 
             const finalFormattedText = formatNumber(target, decimals);
 
-            // إنشاء العنصر الوهمي
+            // حطه في body عشان ميورثش أي opacity أو transform من الأب
             const clone = el.cloneNode(false);
-            clone.style.visibility = "hidden";
-            clone.style.position = "absolute";
-            clone.style.whiteSpace = "nowrap";
-            clone.style.width = "auto";
-            clone.style.pointerEvents = "none";
+            clone.style.cssText = `
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            transform: none;
+            white-space: nowrap;
+            width: auto;
+            pointer-events: none;
+            font-size: ${getComputedStyle(el).fontSize};
+            font-family: ${getComputedStyle(el).fontFamily};
+            font-weight: ${getComputedStyle(el).fontWeight};
+            letter-spacing: ${getComputedStyle(el).letterSpacing};
+        `;
             clone.textContent = finalFormattedText;
+            document.body.appendChild(clone); // ← body مباشرة
 
-            // حقنه في نفس الأب ليرث الخطوط المطبقة حالياً
-            el.parentNode.appendChild(clone);
-
-            // قياس العرض الفعلي بعد تحميل الخط الحقيقي
             const finalWidth = clone.getBoundingClientRect().width;
+            clone.remove();
 
-            // تطبيق العرض (مع إضافة 1px احتياطي للأمان وتجنب تقريب المتصفحات للأرقام العشرية)
             el.style.width = `${Math.ceil(finalWidth) + 1}px`;
             el.style.display = "inline-block";
             el.style.whiteSpace = "nowrap";
 
-            clone.remove();
-
-            // تشغيل أنميشن GSAP
+            // باقي كود الـ counter زي ما هو
             if (reduceMotion || !ScrollTrigger) {
                 el.textContent = finalFormattedText;
                 return;
@@ -155,7 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 scrollTrigger: {
                     trigger: el,
                     start: "top 90%",
-                    // العدّاد يتصاعد عند النزول ويتناقص عند الصعود ثم يتكرر
                     toggleActions: "play none none reverse",
                 },
             });
@@ -168,5 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
             maximumFractionDigits: decimals,
         });
     }
+
+
+    // إعادة تطبيق حالة الـ anim-element لاحقاً
 
 });
