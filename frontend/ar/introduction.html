@@ -178,12 +178,12 @@
     <!-- ===================== Hero ===================== -->
     <section class="c-hero">
       <div class="c-hero__overlay"></div>
-      <div class="c-hero__image-wrapper">
+      <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
         <img src="assets/introduction.webp" class="c-hero__img" alt="REDF About Us">
       </div>
       <div class="container h-100">
         <div class="c-hero__content">
-          <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+          <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5" aria-label="Breadcrumb">
             <ol class="c-hero__breadcrumb-list">
               <li class="c-hero__breadcrumb-item">
                 <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
@@ -197,12 +197,12 @@
 
             </ol>
           </nav>
-          <h1 class="c-hero__title">
+          <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
             المقدمة
             <br />
             و دور صندوق التنمية
           </h1>
-          <p class="c-hero__desc">
+          <p class="c-hero__desc anim-element" data-anim="fade-up" data-delay="0.7">
             صندوق التنمية العقارية، شريك التمكين السكني في المملكة العربية السعودية،
             <br />
             ومحرك رئيسي لتحقيق مستهدفات رؤية 2030 في رفع نسبة تملك المساكن.
@@ -220,12 +220,12 @@
     <!-- ===================== intro ===================== -->
     <section class="section intro-sec">
       <div class="container">
-        <div class="sec-title reveal">
+        <div class="sec-title anim-element" data-anim="fade-up" data-delay="0.1">
           <h2>المقدمة</h2>
         </div>
 
         <div class="intro-box">
-          <div class="intro-box__item reveal">
+          <div class="intro-box__item anim-element" data-anim="fade-up" data-delay="0.3">
             <p class="intro-box__desc">
               أُسس صندـوق التنمــية العقارية بمــوجب المرسوم الملكي رقم
               <span class="num">م/23</span> بتاريخ <span class="num">11/06/1394</span>هـ
@@ -233,7 +233,7 @@
               بصندوق التنمية الوطني.
             </p>
           </div>
-          <div class="intro-box__item reveal">
+          <div class="intro-box__item anim-element" data-anim="fade-up" data-delay="0.5">
             <p class="intro-box__desc">
               ويهدف إلى تحقيق
               التنمية العقارية في المملكة
@@ -248,88 +248,116 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="img-sec">
-      <div class="container">
-        <div class="gs-img-wrapper" data-gsap-img>
-          <img class="img" src="assets/intro-family.webp" alt="أسرة سعودية في حيٍّ سكني" loading="lazy" width="2048"
-            height="1365" />
+        <div class="intro-img anim-element" data-anim="zoom-in" data-delay="0.7">
+          <img class="img" src="assets/fm-intro.webp" alt="أسرة سعودية في حيٍّ سكني" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <section class=" func-sec">
+    <section class="func-sec bg-main section">
       <div class="container">
-        <div class="sec-title reveal">
+        <div class="sec-title anim-element" data-anim="fade-up" data-delay="0">
           <h2>
             دور صندوق <span>التنمية</span> العقارية
           </h2>
         </div>
 
-        <div class="intro-box">
-          <div class="intro-box__item reveal">
-            <div class="num-box">01</div>
-            <div class="intro-boox_content">
-              <h3 class="intro-box__title">تقديم الدعم والتمويل</h3>
-              <p class="intro-box__exp">
-                دعم القرض العقاري للمستفيدين، وتقديم القروض والضمانات للمطورين العقاريين وجهات التمويل.
+        <div class="func-grid">
+          <div class="box anim-element" data-anim="slide-left" data-delay="0.1">
+            <header class="head">
+              <img src="assets/in-icon-1.svg" />
+              <h3>
+                تقديم الدعم
+                والتمويل
+              </h3>
+            </header>
+            <div class="content">
+              <p>
+                دعم القــــرض العقـــــاري للمستفيدين، وتقديم
+                القروض والضمانات للمطورين العقاريين وجهات
+                التمويل.
               </p>
             </div>
           </div>
+          <div class="box anim-element" data-anim="zoom-in" data-delay="0.3">
+            <header class="head">
+              <img src="assets/in-icon-2.svg" />
+              <h3>
+                تطوير المنتجات
+                والمبادرات السكنية
+              </h3>
+            </header>
 
-          <div class="intro-box__item active reveal">
-            <div class="num-box">02</div>
-            <div class="intro-boox_content">
-              <h3 class="intro-box__title">تطوير المنتجات والمبادرات السكنية</h3>
-              <p class="intro-box__exp">
-                تصميم وتقديم برامج وحلول تمويلية مبتكرة تستهدف جميع شرائح المواطنين، مع التركيز على شرائح الدخل المتوسط
-                والمنخفض لتمكينهم من تملك المسكن بالتعاون مع جهات التمويل.
+            <div class="content">
+              <p>
+                تصميم وتقديم برامج وحلول تمويلية مبتكرة
+                تستهدف جميع شرائح المواطنين، مع التركيز
+                على شرائح الدخــل المتوســـــط و المنخفض
+                لتمكنهــــم مـــن تمـــلك المسـكن بالتعاون
+                مع جهات التمويل.
               </p>
             </div>
           </div>
+          <div class="box anim-element" data-anim="slide-right" data-delay="0.1">
+            <header class="head">
+              <img src="assets/in-icon-3.svg" />
+              <h3>
+                إبرام
+                الشراكات
+              </h3>
+            </header>
 
-          <div class="intro-box__item reveal">
-            <div class="num-box">03</div>
-            <div class="intro-boox_content">
-              <h3 class="intro-box__title">إبرام الشراكات</h3>
-              <p class="intro-box__exp">
-                إقامة الشراكات والاتفاقيات مع الجهات الحكومية والخاصة وجهات التمويل للمشاركة في المشروعات السكنية أو
-                تمويلها بما يحقق أهداف الصندوق.
+            <div class="content">
+              <p>
+                إقـــــامة الشـــــــراكات والاتفاقيات مع الجهات
+                الحكــومية و الخاصة، وجهات التمويل للمشاركة
+                في المـــــــشروعات السكـــــنية أو تمـــــــــويلها
+                بما يحقق أهداف الصندوق.
               </p>
             </div>
           </div>
+          <div class="box anim-element" data-anim="slide-left" data-delay="0.5">
+            <header class="head">
+              <img src="assets/in-icon-4.svg" />
+              <h3>
+                دعم رحلة
+                المستفيد السكنية
+              </h3>
+            </header>
 
-          <div class="intro-box__item reveal">
-            <div class="num-box">04</div>
-            <div class="intro-boox_content">
-              <h3 class="intro-box__title">دعم رحلة المستفيد السكنية</h3>
-              <p class="intro-box__exp">
-                تقديم خدمات رقمية متكاملة واستشارات معتمدة عبر منصة المستشار العقاري، مما يسهم في تسهيل رحلة التملك
-                الرقمية.
+            <div class="content">
+              <p>
+                تقديم خدمات رقمــية متكاملة واستشارات
+                معتمدة عــــــــبر منصة المستشار العقاري،
+                مما يسـهم في تسهيل رحلة التملك الرقمية.
               </p>
             </div>
           </div>
+          <div class="box anim-element" data-anim="slide-right" data-delay="0.5">
+            <header class="head">
+              <img src="assets/in-icon-5.svg" />
+              <h3>
+                دعم الاستقرار
+                السكني للمستفيدين
+              </h3>
+            </header>
 
-          <div class="intro-box__item reveal">
-            <div class="num-box">05</div>
-            <div class="intro-boox_content">
-              <h3 class="intro-box__title">دعم الاستقرار السكني للمستفيدين</h3>
-              <p class="intro-box__exp">
-                من خلال تمكين الأسر من الحصول على سكن ملائم مما يدعم النمو الاقتصادي والاجتماعي ويؤثر إيجاباً على جودة
-                الحياة.
+            <div class="content">
+              <p>
+                من خلال تمكـــــين الأسر من الحصول على
+                سكن ملائـــــم مما يدعم النمو الإقتصادي
+                و الإجتــماعي و يؤثر ايجابا على جودة الحياة.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- ===================== التذييل ===================== -->
-  <footer class="site-footer m-footer">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer__head">
         <div class="footer__brand">
@@ -487,7 +515,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/page-animations.js"></script>
   <script src="js/actions.js"></script>
 </body>
 
