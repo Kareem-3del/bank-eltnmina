@@ -179,12 +179,13 @@
         <!-- ===================== Hero ===================== -->
         <section class="c-hero">
             <div class="c-hero__overlay"></div>
-            <div class="c-hero__image-wrapper">
+            <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
                 <img src="assets/housing-support-program.webp" class="c-hero__img" alt="REDF About Us">
             </div>
             <div class="container h-100">
                 <div class="c-hero__content">
-                    <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+                    <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5"
+                        aria-label="Breadcrumb">
                         <ol class="c-hero__breadcrumb-list">
                             <li class="c-hero__breadcrumb-item">
                                 <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
@@ -198,7 +199,7 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title">
+                    <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
                         أبرز الأعمال والأنجازات
                     </h1>
                 </div>
@@ -209,10 +210,16 @@
         <section class="section">
             <div class="container">
                 <div class="sc-title">
-                    <h2 class="sc-title__title">
-                        برنامج الدعم السكني
-                    </h2>
-                    <p class="sc-title__dec">
+                    <div class="title-box anim-element" data-anim="fade-up" data-delay="0.1">
+                        <div class="icon-box">
+                            <img src="assets/hand-icon.svg" />
+                        </div>
+                        <h2 class="sc-title__title">
+                            برنامج الدعم السكني
+                        </h2>
+                    </div>
+
+                    <p class="sc-title__dec anim-element" data-anim="fade-up" data-delay="0.3">
                         يقدّم برنامج الدعم السكني تجربة ميسّرة لتملّك السكن عبر تقديم حلول تمويلية متكاملة، تتصدّرها
                         باقات دعم غير مسترد بقيمة 100 ألف ﷼ أو 150 ألف ﷼ وفقًا لمصفوفة الدخل. ويتكامـــل ذلـــك مـــع
                         خيـــارات تمويليـــة مرنـــة تـــلبي ّ احتياجـــات المســـتفيدين، وتسرع وصولهـــم إلى المســـكن
@@ -220,146 +227,30 @@
                     </p>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- ===================== intro sec ===================== -->
-        <section class="intro-sec">
-            <div class="container">
-                <div class="sc-wrap">
-                    <div class="img-part">
-                        <div class="img-content">
-                            <div class="stack">
-                                <p>دعم غير مسترد يصل إلى</p>
-                                <p>
-                                    <span data-counter="150000" data-duration="5.0">0</span> ﷼
-                                </p>
-                            </div>
-                            <div class="box">
-                                <img src="assets/h-w.svg" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-part">
-                        <div class="content-part__head">
-                            <h3>
-                                برنامج الدعم السكني
-                            </h3>
-                        </div>
-
-                        <div class="content-boxes">
-                            <div class="content-box">
-                                <div class="box">
-                                    <img src="assets/home.svg" />
-                                </div>
-                                <div class="stack">
-                                    <h4>ﺑﺎﻗﺔ دﻋﻢ اﻟﺪﻓﻌﺔ اﻟﻤﻘﺪﻣﺔ</h4>
-                                    <p>
-                                        ﻟﺘﻐﻄﻲ دﻓﻌﺔ ﻣﻘﺪﻣﺔ ﻟﺒﺪء إﺟﺮاءات
-                                        اﻟﺘﻤﻮﻳﻞ اﻟﻌﻘﺎري
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="content-box">
-                                <div class="box">
-                                    <img src="assets/hummer.svg" />
-                                </div>
-                                <div class="stack">
-                                    <h4>
-                                        ﻣﻨﺘﺞ ذرى ﺳﻜﻦ ﺑﻠﺲ
-                                    </h4>
-                                    <p>
-                                        ﺗﻤﻜﲔ ذوي اﻟﺪﺧﻞ اﻟﺸﻬﺮي اﻟﻤﻨﺨﻔﺾ
-                                        ﻣﻦ اﻟﺤﺼﻮل ﻋﲆ ﺗﻤﻮﻳﻞ ﻋﻘﺎري
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="content-box">
-                                <div class="box">
-                                    <img src="assets/letter.svg" />
-                                </div>
-                                <div class="stack">
-                                    <h4>
-                                        ﺑﺮﻧﺎﻣﺞ ﺗﻤﻜﻴﻦ
-                                    </h4>
-                                    <p>
-                                        ﺗﺤﺴﲔ اﻟﻘﺪرة اﻟﴩاﺋﻴﺔ ﻟﻤﺴﺘﺤﻘﻲ
-                                        اﻟﺪﻋﻢ اﻟﺴﻜﲏ
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="content-box">
-                                <div class="box">
-                                    <img src="assets/page.svg" />
-                                </div>
-                                <div class="stack">
-                                    <h4>
-                                        قسطك دعمك
-                                    </h4>
-                                    <p>
-                                        ﺗﺨﻔﻴﺾ اﻟﻘﺴﻂ اﻟﺸﻬﺮي ﺧﻼل ﻓﱰة اﻟﺒﻨﺎء
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="content-box">
-                                <div class="box">
-                                    <img src="assets/home.svg" />
-                                </div>
-                                <div class="stack">
-
-                                    <h4>
-                                        باقة دعم البناء الذاتي
-                                    </h4>
-                                    <p>
-                                        ﻟﺘﻐﻄﻴﺔ ﺗﻜﺎﻟﻴﻒ ﻣﺮاﺣﻞ اﻟﺒﻨﺎء
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="content-icons">
-                                <div class="stack">
-                                    <img src="assets/home-key.svg" />
-                                    <h4>
-                                        منتج البيع على الخارطة
-                                    </h4>
-                                </div>
-
-                                <div class="stack">
-                                    <img src="assets/loader.svg" />
-                                    <h4>
-                                        منتج البناء الذاتي
-                                    </h4>
-                                </div>
-
-                                <div class="stack">
-                                    <img src="assets/crack.svg" />
-                                    <h4>
-                                        منتج وحدة سكنية جاهزة
-                                    </h4>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
+                <div class="content-img anim-element" data-anim="zoom-in" data-delay="0.5"> <img
+                        src="assets/housing-ar.webp" />
                 </div>
+
             </div>
         </section>
 
 
         <!-- =====================Support sec ===================== -->
-        <section class="section">
+        <section class="section bg-main">
             <div class="container">
                 <div class="sc-title">
-                    <h2 class="sc-title__title">
-                        البرامج والحلول التمويلية الداعمة
-                    </h2>
+                    <div class="title-box anim-element" data-anim="fade-up" data-delay="0.1">
+                        <div class="icon-box">
+                            <img src="assets/mony-icon.svg" />
+                        </div>
+                        <h2 class="sc-title__title">
+                            البرامج والحلول التمويلية الداعمة
+                        </h2>
+                    </div>
                 </div>
 
-                <div class="support-table">
-                    <div class="t-head t-row">
+                <div class="support-table anim-table">
+                    <div class="t-head t-row row-trigger">
                         <div>#</div>
                         <div>البرامج والمبادرات المساندة</div>
                         <div>وحدات جاهزة</div>
@@ -367,7 +258,7 @@
                         <div>البيع على الخارطة</div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
                         <div>1</div>
                         <div>
                             <div class="box">
@@ -401,7 +292,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
                         <div>2</div>
                         <div>
                             <div class="box">
@@ -438,7 +329,8 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
+
                         <div>3</div>
                         <div>
                             <div class="box">
@@ -475,7 +367,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
                         <div>4</div>
                         <div>
                             <div class="box">
@@ -512,7 +404,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
                         <div>5</div>
                         <div>
                             <div class="box">
@@ -549,7 +441,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row  row-trigger">
                         <div>6</div>
                         <div>
                             <div class="box">
@@ -585,7 +477,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row  row-trigger">
                         <div>7</div>
                         <div>
                             <div class="box">
@@ -624,7 +516,8 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
+
                         <div>8</div>
                         <div>
                             <div class="box">
@@ -662,7 +555,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row  row-trigger">
                         <div>9</div>
                         <div>
                             <div class="box">
@@ -699,7 +592,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row  row-trigger">
                         <div>10</div>
                         <div>
                             <div class="box">
@@ -735,7 +628,8 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
+
                         <div>11</div>
                         <div>
                             <div class="box">
@@ -774,7 +668,7 @@
                         </div>
                     </div>
 
-                    <div class="t-body t-row">
+                    <div class="t-body t-row row-trigger">
                         <div>12</div>
                         <div>
                             <div class="box">
@@ -981,7 +875,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+    <script src="js/page-animations.js"></script>
     <script src="js/actions.js"></script>
 </body>
 

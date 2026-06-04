@@ -1317,6 +1317,8 @@
         );
       }
     });
+
+
   });
 
   /* ------ Animated counters (replaces main.js) ----------------------- */

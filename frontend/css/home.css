@@ -1301,6 +1301,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: var(--s-3);
+  overflow: hidden;
 }
 
 .kpi-section__head .h-1 {

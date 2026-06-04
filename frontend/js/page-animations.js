@@ -17,81 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
         curtain.classList.add("is-done");
     }
 
-    const elements = document.querySelectorAll('.anim-element');
+    gsap.registerPlugin(ScrollTrigger);
 
-    elements.forEach((el) => {
-        const animationType = el.dataset.anim || 'fade-up';
-        const delay = parseFloat(el.dataset.delay) || 0;
+    gsap.set(".row-trigger", { opacity: 0, y: 20 });
 
-        // الـ fromTo states
-        const fromVars = {};
-        const toVars = {};
-
-        switch (animationType) {
-            case 'fade-up':
-                Object.assign(fromVars, { opacity: 0, y: 50 });
-                Object.assign(toVars, { opacity: 1, y: 0 });
-                break;
-            case 'slide-left':
-                Object.assign(fromVars, { opacity: 0, x: 100 });
-                Object.assign(toVars, { opacity: 1, x: 0 });
-                break;
-            case 'slide-right':
-                Object.assign(fromVars, { opacity: 0, x: -100 });
-                Object.assign(toVars, { opacity: 1, x: 0 });
-                break;
-            case 'fade-in':
-                Object.assign(fromVars, { opacity: 0 });
-                Object.assign(toVars, { opacity: 1 });
-                break;
-            case 'zoom-in':
-                Object.assign(fromVars, { opacity: 0, scale: 0.8 });
-                Object.assign(toVars, { opacity: 1, scale: 1 });
-                break;
-
-            case 'image-reveal':
-                // حركة سريعة: تبدأ من 95% حجم وتكبر للـ 100% مع ظهور ناعم
-                Object.assign(fromVars, { opacity: 0, scale: 0.95 });
-                Object.assign(toVars, { opacity: 1, scale: 1 });
-                break;
-            case 'ethereal':
-                // يبدأ بـ ضبابية واختفاء، وينتهي بوضوح كامل
-                gsap.set(el, { filter: 'blur(10px)', opacity: 0 });
-                Object.assign(fromVars, { filter: 'blur(10px)', opacity: 0 });
-                Object.assign(toVars, { filter: 'blur(0px)', opacity: 1 });
-                break;
-            case 'powerful':
-                gsap.set(el, { transformPerspective: 1000, rotationY: 45, brightness: 0, scale: 0.9 });
-
-                Object.assign(fromVars, { rotationY: 45, brightness: 0, scale: 0.9 });
-                Object.assign(toVars, { rotationY: 0, brightness: 1, scale: 1 });
-                break;
-            default:
-                Object.assign(fromVars, { opacity: 0, y: 50 });
-                Object.assign(toVars, { opacity: 1, y: 0 });
+    gsap.to(".row-trigger", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: { each: 0.15, from: "start" },
+        scrollTrigger: {
+            trigger: ".anim-table",
+            start: "top 40%",        // ← يبدأ لما الجدول يدخل الشاشة
+            end: "bottom 40%",       // ← يتعكس لما الجدول يطلع من الشاشة
+            toggleActions: "play reverse play reverse",
+            invalidateOnRefresh: true,
+            fastScrollEnd: true,
         }
-
-        // ضع العنصر في الحالة الابتدائية فوراً
-        gsap.set(el, fromVars);
-        gsap.fromTo(el, fromVars, {
-            ...toVars,
-            duration: 1,
-            ease: "power2.inOut",
-            delay: delay,
-            scrollTrigger: {
-                trigger: el,
-                start: "top 85%", // يبدأ لما يوصل لـ 85% من الشاشة
-                end: "bottom 15%",   // التوقيت اللي بيبدأ عنده الـ reverse
-                // play: لما يظهر
-                // reverse: لما يختفي (يعكس الحركة)
-                // play: لما ترجع تاني
-                // reverse: لما تطلع خالص
-                toggleActions: "play reverse play reverse",
-                markers: false
-            }
-        });
     });
-
     /* ------ Animated counters (replaces main.js) ----------------------- */
     // Auto-expand abbreviated values: when a counter sits next to a
     // "million / billion / M / B / مليون / مليار / thousand / ألف" unit,

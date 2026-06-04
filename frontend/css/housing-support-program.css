@@ -11,6 +11,30 @@
     gap: 1rem;
 }
 
+.sc-title .title-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-box {
+    background: #008A85;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
+
+.sc-title .title-box .icon-box {
+    background: #008A85;
+}
+
+.bg-main .title-box .icon-box {
+    background: #fff;
+}
+
 .sc-title__title {
     font-weight: 700;
     font-size: clamp(2rem, 5vw, 3rem);
@@ -24,11 +48,20 @@
     font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.44;
     letter-spacing: 0px;
-    color: var(--text-color);
+    color: #009892;
 }
 
 .sc-title__dec span {
     color: var(--title-color);
+}
+
+.content-img {
+    margin-top: clamp(24px, 5vw, 80px);
+}
+
+.content-img img {
+    max-width: 70%;
+    margin: auto;
 }
 
 /* --- Responsive Optimization --- */
@@ -293,7 +326,7 @@
     width: 100%;
     margin-top: 5vh;
     box-shadow: 0px 2px 12px -4px rgba(31, 71, 71, 0.08);
-    border: 1px solid #E2E9E9;
+    /* border: 1px solid #E2E9E9; */
     border-bottom: 0;
 }
 
@@ -302,7 +335,7 @@
     grid-template-columns: repeat(16, 1fr);
     font-family: Cairo;
     font-weight: 700;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-size: 14px;
     line-height: 1.5;
     letter-spacing: 0px;
     border-bottom: 0.8px solid #E2E9E9
@@ -334,6 +367,10 @@
     text-align: center;
 }
 
+.support-table .t-body {
+    background: #FFF;
+}
+
 .support-table .t-body>div {
     display: flex;
     align-items: center;
@@ -343,10 +380,13 @@
     line-height: 20px;
     letter-spacing: 0px;
     color: var(--text-color);
+    background: #FFF;
+    border: none;
 }
 
-.support-table .t-body:nth-child(even) {
-    background: #FFF;
+.support-table .t-body:nth-child(odd)>div {
+    background: rgba(246, 248, 248, 0.5);
+    border-top: 0.8px solid #E2E9E9
 }
 
 .support-table .t-body>div:nth-child(2) {
@@ -378,7 +418,7 @@
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.2;
     letter-spacing: 0px;
-    color: var(--title-color);
+    color: var(--title-color) !important;
 }
 
 .support-table p {
@@ -386,7 +426,7 @@
     line-height: 1.5;
     line-height: 19.5px;
     letter-spacing: 0px;
-    color: var(--text-color);
+    color: var(--text-color) !important;
 }
 
 .support-table .state {
