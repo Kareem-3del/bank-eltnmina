@@ -1983,3 +1983,40 @@ html.lenis body {
     height: 45px;
   }
 }
+
+/* 1. إعداد عام لكل العناصر التي تمتلك أنيميشن */
+.anim-element {
+  /* يجعل المتصفح يخصص مساحة للأنيميشن مسبقاً */
+  will-change: transform, opacity, filter, clip-path;
+}
+
+/* 2. تأثير الـ Image Reveal */
+[data-anim="image-reveal"] {
+  /* overflow: hidden ضروري جداً لتأثير الـ clip-path */
+  overflow: hidden;
+  /* يضمن أن الصورة تبدأ من نقطة محددة */
+  transform-origin: center center;
+}
+
+/* 3. تأثير الـ Ethereal (الأثيري) */
+[data-anim="ethereal"] {
+  /* منع الارتعاش عند تطبيق الغباش (Blur) */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 4. التأثير القوي (Powerful) */
+[data-anim="powerful"] {
+  /* إنشاء سياق ثلاثي الأبعاد */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  /* يمنع ظهور الأطراف بشكل غير سليم عند الدوران */
+  backface-visibility: hidden;
+}
+
+/* تحسين الصور داخل الحاويات المتأثرة */
+.anim-element img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

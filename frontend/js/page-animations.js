@@ -48,6 +48,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 Object.assign(fromVars, { opacity: 0, scale: 0.8 });
                 Object.assign(toVars, { opacity: 1, scale: 1 });
                 break;
+
+            case 'image-reveal':
+                // حركة سريعة: تبدأ من 95% حجم وتكبر للـ 100% مع ظهور ناعم
+                Object.assign(fromVars, { opacity: 0, scale: 0.95 });
+                Object.assign(toVars, { opacity: 1, scale: 1 });
+                break;
+            case 'ethereal':
+                // يبدأ بـ ضبابية واختفاء، وينتهي بوضوح كامل
+                gsap.set(el, { filter: 'blur(10px)', opacity: 0 });
+                Object.assign(fromVars, { filter: 'blur(10px)', opacity: 0 });
+                Object.assign(toVars, { filter: 'blur(0px)', opacity: 1 });
+                break;
+            case 'powerful':
+                gsap.set(el, { transformPerspective: 1000, rotationY: 45, brightness: 0, scale: 0.9 });
+
+                Object.assign(fromVars, { rotationY: 45, brightness: 0, scale: 0.9 });
+                Object.assign(toVars, { rotationY: 0, brightness: 1, scale: 1 });
+                break;
             default:
                 Object.assign(fromVars, { opacity: 0, y: 50 });
                 Object.assign(toVars, { opacity: 1, y: 0 });

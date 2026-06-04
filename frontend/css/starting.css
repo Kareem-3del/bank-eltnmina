@@ -1,4 +1,10 @@
 /* starting-sec */
+.starting-sec {
+    position: relative;
+}
+
+
+
 .starting-sec__boxes {
     overflow: hidden;
 }
@@ -46,6 +52,7 @@
     display: flex;
     align-items: center;
     gap: 64px;
+    width: 50%;
 }
 
 .starting-sec__content-wrapper>div {
@@ -53,14 +60,17 @@
 }
 
 .starting-sec__img {
-    box-shadow: 0px 20px 60px -25px rgba(18, 37, 63, 0.25);
     overflow: hidden;
     display: block;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    inset-inline-end: 0;
 }
 
-.starting-sec__img {
-    max-width: 100%;
-    height: auto;
+
+.starting-sec__img img {
+    width: 100%;
 }
 
 
@@ -123,7 +133,18 @@
 @media (max-width: 1024px) {
     .starting-sec__content-wrapper {
         gap: 40px;
+        width: 100%;
         /* تقليل الفجوة الكبيرة بين النص والصورة */
+    }
+
+    .starting-sec {
+        padding-bottom: 0;
+    }
+
+    .starting-sec__img {
+        width: 100%;
+        position: unset;
+        margin-top: 24px !important;
     }
 
     .starting-sec__title h2 {

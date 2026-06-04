@@ -491,7 +491,8 @@
 
 
     <!-- ===================== المؤشرات · أبرز الأرقام والإنجازات ===================== -->
-    <section class="section kpi-section" id="achievements" aria-labelledby="achievements-title">
+    <section style="position: relative;" class="section kpi-section" id="achievements"
+      aria-labelledby="achievements-title">
       <div class="container">
         <header class="kpi-section__head anim-element" data-anim="fade-up">
           <h2 id="achievements-title" class="h-1">أبرز الأرقام <em>والإنجازات</em></h2>
@@ -593,9 +594,10 @@
           </article>
         </div>
 
+
         <div class="kpi-bars">
-          <article class="kpi-bar anim-element" data-anim="slide-left" data-delay="0.3">
-            <div>
+          <article class="kpi-bar anim-element" data-anim="fade-up" data-delay="0.3">
+            <div class="kpi-bar__value-box">
               <span class="kpi-bar__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
@@ -610,8 +612,8 @@
               <span class="kpi-bar__sub">مستفيد تم خدمتهم.</span>
             </span>
           </article>
-          <article class="kpi-bar kpi-bar--accent anim-element" data-anim="slide-right" data-delay="0.5">
-            <div>
+          <article class="kpi-bar kpi-bar--accent anim-element" data-anim="fade-up" data-delay="0.5">
+            <div class="kpi-bar__value-box">
               <span class="kpi-bar__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path
@@ -627,11 +629,16 @@
             </span>
           </article>
         </div>
+
+      </div>
+
+      <div class="anim-element kpi-img" data-anim="zoom-in" data-delay="0.1">
+        <img src="assets/fm-home.png" />
       </div>
     </section>
 
     <!-- ===================== المؤشرات · الأداء المالي والاستدامة ===================== -->
-    <section class="section kpi-section" id="financial" aria-labelledby="financial-title">
+    <section class="section bg-main kpi-section" id="financial" aria-labelledby="financial-title">
       <div class="container">
         <header class="kpi-section__head anim-element" data-anim="fade-up">
           <h2 id="financial-title" class="h-1">الأداء المالي <em>والاستدامة</em></h2>
