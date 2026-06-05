@@ -174,12 +174,13 @@
         <!-- ===================== Hero ===================== -->
         <section class="c-hero">
             <div class="c-hero__overlay"></div>
-            <div class="c-hero__image-wrapper">
+            <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
                 <img src="assets/government-enablers.webp" class="c-hero__img" alt="REDF Training Programs">
             </div>
             <div class="container h-100">
                 <div class="c-hero__content">
-                    <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+                    <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5"
+                        aria-label="Breadcrumb">
                         <ol class="c-hero__breadcrumb-list">
                             <li class="c-hero__breadcrumb-item">
                                 <a href="en/index.html" class="c-hero__breadcrumb-link">Home</a>
@@ -192,7 +193,7 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title">
+                    <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
                         Key Achievements
                     </h1>
                 </div>
@@ -200,104 +201,93 @@
         </section>
 
 
+        <section class="first-sec bg-main anim-element" data-anim="zoom-in">
+            <h2 class="chart-title anim-element" data-anim="fade-in" data-delay="0.3">
+                Number of Enrollees in Training Programs for Fiscal Year 2025
+            </h2>
+        </section>
+
         <!-- ===================== Chart ===================== -->
         <section class="chart-sec section">
             <div class="container">
-                <div class="wrap">
-                    <h2 class="chart-title">
-                        Number of Enrollees in Training Programs for Fiscal Year 2025
-                    </h2>
+                <div class="charts-wrap">
+                    <div class="left anim-element" data-anim="zoom-in" data-delay="0.2">
+                        <svg width="334" height="299" viewBox="0 0 334 299" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M46.5 268.5V45.5H231.5V244.5" stroke="#008A85" stroke-width="15" />
+                            <path d="M7.5 270.5V7.5H269.5V202.5" stroke="#89B4B4" stroke-width="15" />
+                            <path
+                                d="M173.078 233.872C168.769 233.872 165.328 232.601 165.328 228.292C165.328 225.471 166.258 224.324 167.901 222.96C166.134 221.534 165.669 220.418 165.669 218.248C165.669 214.714 168.614 212.668 173.078 212.668C177.48 212.668 180.611 214.683 180.611 218.279C180.611 220.728 180.146 221.534 178.379 222.96C180.022 224.324 180.921 225.378 180.921 227.951C180.921 232.26 177.387 233.872 173.078 233.872ZM171.776 221.348H174.504C175.496 220.666 176.023 219.922 176.023 218.93C176.023 217.38 175.031 216.512 173.14 216.512C171.28 216.512 170.257 217.38 170.257 218.93C170.257 219.922 170.784 220.666 171.776 221.348ZM173.078 230.028C175.186 230.028 176.333 229.191 176.333 227.3C176.333 226.308 175.713 225.44 174.504 224.975H171.776C170.505 225.471 169.916 226.308 169.916 227.3C169.916 229.191 170.97 230.028 173.078 230.028ZM189.495 233.872C187.604 233.872 184.876 233.345 183.357 232.973L183.729 229.687C185.093 229.873 187.604 230.152 189.495 230.152C192.316 230.152 193.618 228.261 193.618 225.13C193.618 225.099 191.2 226.06 189.712 226.06C185.279 226.06 182.675 223.952 182.675 219.519C182.675 215.21 185.558 212.668 190.177 212.668C195.571 212.668 198.02 216.667 198.02 223.146C198.02 231.268 194.734 233.872 189.495 233.872ZM190.084 222.34C191.293 222.34 192.843 221.937 193.649 221.627C193.649 218.744 192.781 216.388 190.177 216.388C188.193 216.388 187.077 217.535 187.077 219.519C187.077 221.41 188.193 222.34 190.084 222.34ZM208.081 233.872C202.625 233.872 200.238 229.873 200.238 223.363C200.238 215.551 203.524 212.668 208.763 212.668C210.654 212.668 213.382 213.195 214.901 213.567L214.529 216.853C213.165 216.667 210.654 216.388 208.763 216.388C205.942 216.388 204.64 218.341 204.64 221.162C204.64 221.193 207.058 220.387 208.546 220.387C213.165 220.387 215.583 222.402 215.583 227.021C215.583 231.64 212.7 233.872 208.081 233.872ZM208.081 230.152C210.065 230.152 211.181 229.005 211.181 227.021C211.181 225.099 210.096 224.107 208.174 224.107C206.965 224.107 205.415 224.51 204.609 224.789C204.609 227.765 205.477 230.152 208.081 230.152Z"
+                                fill="#008A85" />
+                            <path
+                                d="M291.396 201.872L287.428 200.756L294.403 185.845V184.853H285.599V181.04H298.681V185.876L291.396 201.872ZM309.487 201.5V185.876L305.054 188.728L303.101 185.535L309.859 181.04H313.765V201.5H309.487ZM326.957 201.872C324.632 201.872 321.439 201.221 319.703 200.725L320.168 197.563C321.78 197.811 324.601 198.152 326.43 198.152C328.445 198.152 329.561 197.036 329.561 195.083C329.561 193.006 328.662 192.169 326.709 192.169C325.128 192.169 323.578 192.479 322.834 192.696L320.292 192.107L320.85 181.04H333.343V184.76H324.198L323.671 189.193C324.508 188.883 326.058 188.449 327.329 188.449C331.514 188.449 333.963 190.309 333.963 194.618C333.963 199.237 331.421 201.872 326.957 201.872Z"
+                                fill="#008A85" />
+                            <rect x="119.836" y="239.847" width="126" height="59"
+                                transform="rotate(-8.23996 119.836 239.847)" fill="url(#pattern0_0_1)" />
+                            <defs>
+                                <pattern id="pattern0_0_1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_0_1"
+                                        transform="matrix(0.003861 0 0 0.00824553 0 -0.00297755)" />
+                                </pattern>
+                                <image id="image0_0_1" width="259" height="122" preserveAspectRatio="none"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAAB6CAYAAAC7izZ2AAAACXBIWXMAAC4jAAAuIwF4pT92AAADQ0lEQVR4nO3cwW0bRwBA0e8gOicdWCW4g7iDtJDcCYQdJCXooAJSityB0oHSgX3mgTl4FpYYyUJikssl3wMImoLknct8zuyS+2a73Qbw3dwDAE6DGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGACDGACVGADD93MPYJ+ubm+uq+tHP9p9/WP1bufPfnr07183q/Wf+x8ZnL6Tj8HV7c0vfZnQ7/o8oXv0+oc9Hu761d+AM3XyMejzhP9t7kHAuVvCOYOPcw8ALsESYnBM13MPAOayhG3CMb2/ur35Y+5BXJj7zn/197BZrR/mHsRrlhCD+yMe6231+xGPx/n4MJ6nuD1MjyWEoJYRg3N/1+D0/dXTCf6xMek3q/Ux36wOagkxgEP6u6cTvOquarNa380yopmIAefsUzsTvC/L+PvNam3V+cgSYvAw9wA4WYvfp5+SN9vtdu4xvOrq9ub0B8m+vbRPv7jl+7EsYWXA+Xlxn57l+2zEgH372j7d8v2ELSUGn9rvF5L4/17ap5/VZbZLtJQY3Pf0q8YcxrR8nx726RdkKTHg203Ld/t0niUG52Navt+NZ/t0/pOlxODS37Wmy2z26RzMUmJwX/089yAOZPcym306s1hKDJbqucts07N9OidFDL7N7mU2+3QWSwxetvtx2Olhn85ZWkoM7jreTUc+bFbr90c6FpwM90AEKjF4zvXcA4A5iMG/vZ17ADCHpcTACTs4sEWcQNys1h+vbm8O8V9PVwwml3DbbnjWImLwgumTe5PHX8B57rVP9MFXLOK2Z8DhLeWcAXBgYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAMYgBUYgAM/wC/hL2ZhUdObwAAAABJRU5ErkJggg==" />
+                            </defs>
+                        </svg>
 
-                    <div class="legend-sec">
-                        <div class="legend">
-                            <div class="mark"></div>
-                            Achieved
-                        </div>
-                        <div class="legend">
-                            <div class="mark"></div>
-                            Target
-                        </div>
-
-                    </div>
-
-                    <div style="position: relative; width: 100%; height: 320px;">
-                        <canvas id="program-chart" role="img"
-                            aria-label="Target and actual participant enrollment by year for 2021 to 2025">Target and
-                            actual
-                            performance by year, 2021–2025.</canvas>
-                    </div>
-
-                    <div class="boxes">
-                        <div class="box">
-                            <p>
+                        <div class="left-mokc"></div>
+                        <div class="boxes">
+                            <div class="label">
                                 Achievement Rate
-                            </p>
-                            <span>
-                                <span data-counter="136">0</span>%
-                            </span>
-                        </div>
-                        <div class="box">
-                            <p>
-                                Achievement Rate
-                            </p>
-                            <span>
-                                <span data-counter="370">0</span>%
-                            </span>
-                        </div>
-                        <div class="box">
-                            <p>
-                                Achievement Rate
-                            </p>
-                            <span>
-                                <span data-counter="110">0</span>%
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="progress-sec">
-                    <div class="stack">
-                        <h3>Total training program participants</h3>
-                        <p>for fiscal year 2025</p>
-                    </div>
-
-                    <div class="progresses">
-                        <div>
-                            <p>
-                                Achieved
-                            </p>
-                            <div class="num">
-                                <span data-counter="896">0</span>
                             </div>
-                            <div class="progress"></div>
+                            <div class="box">
+
+                                <span data-counter="125">0</span>%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+
+                        <div class="left anim-element" data-anim="zoom-in" data-delay="0.2"
+                            style="position: relative; margin-left: auto; width: 80%; height: 299px;">
+                            <canvas id="program-chart" role="img"
+                                aria-label="Beneficiary Satisfaction CSI from 2021 to 2025">Target and actual
+                                performance by year, 2021–2025.</canvas>
                         </div>
 
-                        <div>
-                            <p>
+                        <div class="legend-sec">
+                            <div class="legend">
+                                <div class="mark"></div>
+                                Achievement
+                            </div>
+                            <div class="legend">
+                                <div class="mark"></div>
                                 Target
-                            </p>
-                            <div class="num">
-                                <span data-counter="715">0</span>
                             </div>
-                            <div class="progress"></div>
-                        </div>
-                    </div>
 
-                    <div class="bottom">
-                        <p>Achievement Rate</p>
-                        <div>
-                            <span data-counter="125">0</span>%
+                        </div>
+                        <div class="boxes anim-element" data-anim="fade-up" data-delay="0.2">
+                            <div class="label">
+                                Achievement Rate
+                            </div>
+                            <div class="box">
+                                <span data-counter="110">0</span>%
+                            </div>
+                            <div class="box">
+                                <span data-counter="370">0</span>%
+                            </div>
+                            <div class="box">
+                                <span data-counter="136">0</span>%
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== boxes sec ===================== -->
-        <section class="boxes-sec">
+        <section class="boxes-sec section bg-main">
             <div class="container">
-                <h2>
+                <h2 class="anim-element" data-anim="fade-up" data-delay="0.1">
                     Social Activities,
                     Conferences,
                     Certifications, and
@@ -306,11 +296,7 @@
                 </h2>
 
                 <div class="boxes">
-                    <div class="box stack">
-                        <div class="icon">
-                            <img src="assets/hand-w.svg" />
-                        </div>
-
+                    <div class="box stack anim-element" data-anim="fade-up" data-delay="0.2">
                         <h3>
                             Social Activities
                         </h3>
@@ -359,11 +345,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box stack">
-                        <div class="icon">
-                            <img src="assets/mic.svg" />
-                        </div>
-
+                    <div class="box stack anim-element" data-anim="fade-up" data-delay="0.4">
                         <h3>
                             Exhibitions and Conferences:
                         </h3>
@@ -386,23 +368,8 @@
                             maximizing their developmental
                             impact.
                         </p>
-
-                        <div class="wrap">
-                            <div>
-                                <img src="assets/users.svg" />
-                                Active partnerships
-                            </div>
-                            <div>
-                                <img src="assets/star.svg" />
-                                Diverse presence
-                            </div>
-                        </div>
                     </div>
-                    <div class="box stack">
-                        <div class="icon">
-                            <img src="assets/_cup.svg" />
-                        </div>
-
+                    <div class="box stack anim-element" data-anim="fade-up" data-delay="0.6">
                         <h3>
                             Certifications and Awards
                         </h3>
@@ -469,9 +436,11 @@
 
         </section>
 
-        <section class="banner-sec section">
+
+
+        <section class="banner-sec bg-main">
             <div class="container">
-                <div class="box">
+                <div class="box anim-element" data-anim="zoom-in" data-delay="0.2">
                     <p>
                         REDF’s Contribution to the Real Estate Finance Market
                     </p>
@@ -612,7 +581,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+    <script src="js/page-animations.js"></script>
     <script src="js/actions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <script src="js/chart.js"></script>
