@@ -41,9 +41,9 @@ const alwaysShowValues = {
         chart.data.datasets.forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
             if (i === 0) {
-                ctx.fillStyle = "#008A85";
+                ctx.fillStyle = "#fff";
             } else {
-                ctx.fillStyle = "#5E7278";
+                ctx.fillStyle = "#fff";
             }
             // ✅ بنحدد لون النص هنا بناءً على لون الـ Dataset (العمود)
             meta.data.forEach((bar, j) => {
@@ -154,7 +154,7 @@ function createChart(target, actual, id) {
                 {
                     label: isAR ? 'المستهدف السنوي' : "Annual Target",
                     data: target,
-                    backgroundColor: '#008A85',
+                    backgroundColor: '#D9D9D9',
                     barPercentage: 0.7,
                     categoryPercentage: windowWidth < 767 ? 0.8 : 0.35,
                     // categoryPercentage: (context) => {
@@ -172,7 +172,7 @@ function createChart(target, actual, id) {
                 {
                     label: isAR ? 'الفعلي بالسنوات' : "Actual by Years",
                     data: actual,
-                    backgroundColor: '#C3E0DF',
+                    backgroundColor: '#fff',
                     barPercentage: 0.7,
                     categoryPercentage: windowWidth < 767 ? 0.8 : 0.35,
                     order: 1,
@@ -200,11 +200,16 @@ function createChart(target, actual, id) {
             },
             scales: {
                 x: {
-                    grid: { display: false },
-                    border: { display: false },
+                    grid: {
+                        display: false // إخفاء خطوط الـ X تماماً
+                    },
+                    border: {
+                        display: true, // إظهار خط المحور الأساسي للـ X
+                        color: '#fff'  // لون خط المحور
+                    },
                     ticks: {
                         font: { size: 11 },
-                        color: '#5E7278',
+                        color: '#fff',
                         autoSkip: false
                     }
                 },
@@ -212,19 +217,21 @@ function createChart(target, actual, id) {
                     min: 0,
                     max: 100,
                     grid: {
-                        display: true,
-                        drawOnChartArea: true,
-                        drawTicks: false,
-                        color: '#DCE5E5',
-                        lineWidth: 1, // زود السمك شوية عشان النقط تبان
-                        borderDash: [10, 8], // نقطة 1 بكسل وفراغ كبير 8 بكسل
+                        display: true,        // يجب أن تكون true ليظهر خط المحور
+                        drawOnChartArea: false, // ✅ هذا هو السطر الذي سيخفي الخطوط المتقطعة في المنتصف
+                        drawTicks: false,       // إخفاء الـ Ticks الصغيرة
+                        color: '#fff',          // لون خط المحور Y
+                        lineWidth: 1            // سمك الخط
                     },
-
-                    border: { display: false },
+                    border: {
+                        color: "#fff",
+                        display: true // ✅ إظهار خط المحور الأساسي للـ Y
+                    },
                     ticks: {
-                        stepSize: 25,
+                        stepSize: 10,
                         font: { size: 10 },
-                        color: '#5E7278'
+                        color: '#fff',
+                        padding: 20 // مسافة بين أسماء السنوات وخط المحور السفلي
                     }
                 }
             }

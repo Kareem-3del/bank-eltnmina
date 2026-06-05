@@ -17,7 +17,7 @@
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0px;
-    color: #008A85;
+    color: #fff;
 }
 
 .performance-head__title {
@@ -29,7 +29,7 @@
 }
 
 .performance-head__subtitle .divider {
-    background-color: #008A85;
+    background-color: #fff;
     width: 40px;
     height: 1px;
 }
@@ -40,6 +40,7 @@
     line-height: 24px;
     letter-spacing: 0px;
     color: #5E7278;
+    max-width: 800px;
 }
 
 /* table-sec */
@@ -62,7 +63,7 @@
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0px;
-    color: #5E7278;
+    color: #5E7278 !important;
 }
 
 .table-char__stat {
@@ -82,6 +83,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.table-char__stat>div p {
+    color: #142429 !important;
 }
 
 .mark {
@@ -197,7 +202,7 @@
     font-size: 13px;
     line-height: 13px;
     letter-spacing: 0px;
-    color: #868686;
+    color: #868686 !important;
 }
 
 .kpi-table .status-cell.highlight {
@@ -248,44 +253,58 @@
 }
 
 /* hl-sec */
-.hl-sec {
+.hl-container {
     position: relative;
 }
 
-.hl-sec::before {
+.hl-container::before {
     position: absolute;
     z-index: 9;
-    left: 5.2%;
-    top: 60px;
-    color: rgba(0, 138, 133, 0.04);
+    color: rgba(255, 255, 255, 0.08);
     font-weight: 700;
     font-size: 320px;
     line-height: 320px;
+    left: -40px;
+    top: -195px;
 }
 
-[dir="ltr"] .hl-sec::before {
+
+[dir="ltr"] .hl-container::before {
+
     left: auto;
-    right: 5.2%;
+    right: -40px;
 }
 
-.h-1-sec-1::before {
+@media(min-width:1400) {
+    .hl-container::before {
+        left: -88px;
+    }
+
+    [dir="ltr"] .hl-container::before {
+
+        left: auto;
+        right: -88px;
+    }
+}
+
+
+
+.h-1-sec-1 .hl-container::before {
+    content: "01";
+}
+
+.h-1-sec-2 .hl-container::before {
     content: "02";
 }
 
-.h-1-sec-2::before {
+
+.h-1-sec-3 .hl-container::before {
     content: "03";
-    top: -50px;
 }
 
 
-.h-1-sec-3::before {
+.h-1-sec-4 .hl-container::before {
     content: "04";
-}
-
-
-.h-1-sec-4::before {
-    content: "05";
-    top: -50px;
 }
 
 
@@ -297,186 +316,22 @@
     gap: 32px;
     margin-top: 65px;
     position: relative;
+    justify-content: space-between;
     z-index: 999;
 }
 
 .pie-sec {
-    padding: 32px;
-    border-top: 0.8px solid rgba(248, 246, 242, 0.15);
-    background: rgba(0, 138, 133, 1);
-    box-shadow: 0px 24px 60px -20px rgba(0, 102, 99, 0.25);
-    flex-shrink: 0;
-    justify-content: center;
-}
-
-.pie-sec h2 {
-    font-weight: 800;
-    font-size: 22px;
-    line-height: 29.25px;
-    color: #F8F6F2;
-    text-align: center;
-}
-
-.pie-chart {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: #fff;
-    margin: 0 auto;
-    position: relative;
-}
-
-.pie-chart::after,
-.pie-chart::before,
-.pie-inner {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
-
-.pie-chart::before {
-    content: "";
-    height: 175px;
-    width: 175px;
-    background: rgba(0, 138, 133, 1);
-}
-
-.pie-chart::after {
-    content: "";
-    height: 165px;
-    width: 165px;
-    background: #FFF;
-}
-
-.h-1-sec-1 .pie-chart::after {
-    background: conic-gradient(from 180deg, #E0F5F3 0% 86%, rgba(0, 138, 133, 1) 86% 100%);
-}
-
-.h-1-sec-2 .pie-chart::after {
-    background: conic-gradient(from 180deg, #E0F5F3 0% 75%, rgba(0, 138, 133, 1) 75% 100%);
-}
-
-.h-1-sec-3 .pie-chart::after {
-    background: conic-gradient(from 180deg, #E0F5F3 0% 86%, rgba(0, 138, 133, 1) 86% 100%);
-}
-
-.h-1-sec-4 .pie-chart::after {
-    background: conic-gradient(from 180deg, #E0F5F3 0% 84%, rgba(0, 138, 133, 1) 84% 100%);
-}
-
-
-
-
-
-.pie-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-    height: 145px;
-    width: 145px;
-    border-radius: 50%;
-    background: rgba(0, 138, 133, 1);
-    z-index: 999;
-}
-
-.pie-inner h3 {
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 15px;
-    letter-spacing: 0.5px;
-    color: #FFF;
-}
-
-.pie-inner p {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 48px;
-    letter-spacing: -1.44px;
-    color: #FFF;
-}
-
-.pie-inner p span:last-child {
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -1.44px;
-}
-
-.trend {
-    background: rgba(255, 255, 255, 0.1);
-    height: 22px;
-    width: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 16.5px;
-    color: #FFF;
-    border-radius: 30px;
-}
-
-.pie-stat {
-    border: 1px solid #FFFFFF;
-    border-left: 0;
-    border-right: 0;
-    padding: 24px 0;
-    display: flex;
-    align-items: center;
-    margin-top: 12px;
-}
-
-.pie-stat>div {
-    flex: 1;
-    justify-content: center;
-    gap: 4px;
-}
-
-.pie-stat h3 {
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 15px;
-    letter-spacing: 0.5px;
-    color: #FFF;
-}
-
-.pie-stat p {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.72px;
-    color: #FFF;
-}
-
-.pie-stat p span:last-child {
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.pie-stat>div:first-child p {
-    opacity: 0.8;
+    padding: 0 32px;
+    padding-top: 30px;
+    gap: 60px;
 }
 
 .chart-wrap {
     flex-grow: 1;
-    border: 1px solid rgba(220, 229, 229, 0.6);
-    box-shadow: 0px 12px 32px 0px rgba(13, 30, 38, 0.07),
-        0px 1px 3px 0px rgba(13, 30, 38, 0.05);
-    background: #FFF;
-    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-width: 65%;
 }
 
 .chart-title {
@@ -490,23 +345,21 @@
 
 .chart-container {
     flex-grow: 1;
-    padding: 60px 0;
-    border-top: 0.8px solid rgba(220, 229, 229, 0.6);
-    border-bottom: 0.8px solid rgba(220, 229, 229, 0.6);
+    padding-top: 0;
+
     display: flex;
-    align-items: center;
 }
 
 .legend {
     display: flex;
     gap: 20px;
     font-size: 13px;
-    color: #5E7278;
+    color: #FFFFFF;
     font-weight: 400;
     font-size: 11px;
     line-height: 16.5px;
     letter-spacing: 0px;
-    margin-bottom: 16px;
+    justify-content: center;
 }
 
 .legend-item {
@@ -516,27 +369,48 @@
 }
 
 .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    width: 15px;
+    height: 15px;
 }
 
 .legend-item:first-child .legend-dot {
-    background: #008A85;
+    background: #D9D9D9;
 }
 
 .legend-item:last-child .legend-dot {
-    background: #C3E0DF;
+    background: #fff;
 }
 
 /* --- الشاشات المتوسطة (Tablets - 1024px وأقل) --- */
 @media (max-width: 1024px) {
 
+    .hl-container::before {
+        font-size: 250px;
+    }
+
+
+    .hl-container::before {
+        left: -30px;
+    }
+
+    [dir="ltr"] .hl-container::before {
+
+        left: auto;
+        right: -30px;
+    }
+
     .hl-container,
     .performance-head {
         flex-direction: column;
         /* جعل الـ Pie Chart والـ Bar Chart فوق بعض */
-        gap: 24px;
+        gap: 0;
+        margin-top: 0;
+    }
+
+
+
+    .chart-wrap {
+        gap: 0;
     }
 
     .performance-head {
@@ -562,10 +436,65 @@
         /* تصغير العنوان الرئيسي */
         line-height: 40px;
     }
+
+    .pie-sec {
+        padding: 20px;
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .chart-wrap {
+        width: 100%;
+        min-width: 100%;
+    }
+
 }
 
 /* --- الشاشات الصغيرة (Mobile - 768px وأقل) --- */
 @media (max-width: 768px) {
+
+    .pie-sec {
+        margin-top: 34px;
+    }
+
+    .hl-container::before {
+        display: none;
+    }
+
+    .hl-sec {
+        position: relative;
+    }
+
+    .hl-sec::before {
+        font-size: 150px;
+        line-height: 150px;
+
+        position: absolute;
+        z-index: 9;
+        left: 5.2%;
+        color: rgba(255, 255, 255, 0.09);
+        font-weight: 700;
+    }
+
+    .h-1-sec-1::before {
+        content: "01";
+        top: -40px;
+    }
+
+    .h-1-sec-2::before {
+        content: "02";
+        top: 0;
+    }
+
+    .h-1-sec-3::before {
+        content: "03";
+        top: -45px;
+    }
+
+    .h-1-sec-4::before {
+        content: "04";
+        top: 15px;
+    }
 
     /* 1. العناوين والخلفيات الكبيرة */
     .performance-head {
@@ -583,23 +512,17 @@
         /* تصغير أرقام الخلفية (01, 02...) */
         line-height: 150px;
         left: 2%;
-        top: 20px;
     }
 
-    .h-1-sec-2::before {
-        top: -20px;
-    }
+    .h-1-sec-1::before {}
 
-    .h-1-sec-4::before {
-        top: -20px;
-    }
+    .h-1-sec-2::before {}
+
+
+
 
 
     /* 2. الـ Pie Chart Section */
-    .pie-sec {
-        padding: 20px;
-        flex-direction: column !important;
-    }
 
     .pie-stat {
         width: 100%;
@@ -607,12 +530,9 @@
     }
 
     /* 3. الـ Bar Chart Section */
-    .chart-wrap {
-        padding: 16px;
-    }
+
 
     .chart-container {
-        padding: 20px 0;
         height: 300px;
         /* تحديد ارتفاع ثابت للموبايل لضمان ظهور الـ Chart */
     }
