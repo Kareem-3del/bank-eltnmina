@@ -6,7 +6,9 @@ Static site (`frontend/`) is served by an `nginx:alpine` container behind the ex
 
 Deploy is **server-initiated**. A GitHub *push* webhook hits `https://demo.kareem-3del.com/_deploy-hook`; a tiny listener container (`redf-deploy-hook`) verifies the HMAC signature, pulls the latest `frontend/` from this public repo, and rsyncs it into `/opt/redf-demo/site/`. nginx serves the new files immediately (no restart).
 
-**Why not GitHub Actions SSH push?** GitHub's runner packets to this host's SSH port (`2222`) are intermittently dropped *upstream of the box* — the OS firewall accepts them, fail2ban isn't banning, conntrack is healthy, and successful runs prove the keys/config are fine; the failures are pure SYN timeouts that never reach `sshd`. Inbound `:443` (this webhook) and the server's *outbound* to GitHub are both reliable, so deploy moved to pull-on-push. The old `deploy.yml` SSH job was replaced by `verify.yml`, which only smoke-tests the live site after a push (outbound HTTPS from the runner, reliable).
+**Why not GitHub Actions at all?** This host's provider drops GitHub **hosted-runner** IP ranges (Azure) upstream of the box — on *every* port, not just SSH. A blocked runner times out identically on `2222` (the old `rsync` deploy) and on `443` (a verify `curl`); ~80% of recent runs landed on a blocked runner. The OS firewall accepts the traffic, fail2ban isn't banning, conntrack is healthy, and the runs that *did* land on a non-blocked runner prove the keys/config were fine — the failures are pure connection timeouts that never reach the box.
+
+The decisive part: GitHub's **webhook delivery** does **not** come from Actions runners. It comes from GitHub's own hook IPs (the `hooks` list in `https://api.github.com/meta`, e.g. `140.82.x`), which are **not** in the blocked Azure ranges — so the push webhook is reliable exactly where Actions runners are not. That's why deploy is now pull-on-push and there is **no Actions-based step**: a runner-based verify would show red on ~80% of perfectly good deploys. Verify a deploy from the delivery log + the hook log instead (below).
 
 Source of truth for the server pieces lives in this repo under `deploy/`:
 
@@ -31,8 +33,9 @@ Inspect deploys / deliveries:
 ssh kareem 'docker logs --tail 30 redf-deploy-hook'                     # server-side deploy log
 gh api repos/Kareem-3del/bank-eltnmina/hooks/636588703/deliveries \
   --jq '.[] | "\(.delivered_at) \(.event) \(.status) \(.status_code)"'  # GitHub delivery log
-gh run watch -R Kareem-3del/bank-eltnmina                               # the verify workflow
 ```
+
+A healthy deploy shows the delivery as `OK`/`202` and the hook log ending in `=== deploy done @ <sha> ===` matching the pushed commit.
 
 Manually trigger a redeploy without pushing (re-send the last delivery):
 
