@@ -1,14 +1,13 @@
 /* أبرز الأعمال والإنجازات / Notable works and achievements */
 
+
+
 .page-notable .site-header {
   position: sticky;
   top: 0;
   z-index: 2000;
 }
 
-.page-notable .site-footer {
-  margin-top: clamp(24px, 4vw, 48px);
-}
 
 /* Larger header wordmark; beats ar.css `[lang="ar"] .nav__brand img` load order */
 /* html[lang="ar"] body.page-notable .nav__brand img,
@@ -29,16 +28,10 @@ html[lang="en"] body.page-notable .nav__brand img {
   margin-bottom: 0;
 }
 
-/* Tight vertical rhythm between stacked `.section` blocks (overrides global `.section` padding-block) */
-.notable-achievements .na-comm.section {
-  padding-top: clamp(16px, 2.5vw, 40px);
-  padding-bottom: clamp(18px, 2.8vw, 40px);
-}
 
-.notable-achievements .na-agre.section {
-  padding-top: clamp(8px, 1.5vw, 20px);
-  padding-bottom: clamp(18px, 2.8vw, 40px);
-}
+@media (min-width:900px) {}
+
+
 
 .notable-achievements .na-fin.section {
   padding-top: clamp(8px, 1.5vw, 20px);
@@ -108,7 +101,68 @@ html[lang="en"] body.page-notable .nav__brand img {
   gap: clamp(28px, 4vw, 48px);
 }
 
-@media (max-width: 900px) {
+.na-agre {
+  overflow: hidden;
+}
+
+.na-agre .flex {
+  gap: 32px;
+}
+
+.na-agre .flex:not(.na-flex-img)>div {
+  flex: 1
+}
+
+.na-text_grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.na-flex-img {
+  align-items: center;
+}
+
+.na-img {
+  width: 375px;
+  height: 375px;
+  flex-shrink: 0;
+}
+
+.na-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.na-agre__text .na-inv__riyal {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-inline: 0.06em 0.04em;
+  vertical-align: -0.15em;
+}
+
+@media (max-width: 1024px) {
+
+  .na-text_grid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+
+  .na-img {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .na-agre .flex {
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .na-comm__grid {
     grid-template-columns: 1fr;
   }
@@ -120,7 +174,6 @@ html[lang="en"] body.page-notable .nav__brand img {
   .na-comm__card {
     flex: none;
     display: block;
-    padding: clamp(22px, 3vw, 36px) clamp(12px, 1.75vw, 24px);
   }
 }
 
@@ -145,9 +198,6 @@ html[lang="en"] body.page-notable .nav__brand img {
 
 .na-comm__card {
   box-sizing: border-box;
-  padding: clamp(22px, 3vw, 36px) clamp(12px, 1.75vw, 24px);
-  background: #ffffff;
-  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
 }
 
 /* Gradient rules sit inside the card, above and below the paragraph */
@@ -193,16 +243,6 @@ html[lang="en"] body.page-notable .nav__brand img {
   .na-comm__title {
     flex-shrink: 0;
   }
-
-  .na-comm__card {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 0;
-    padding-block: clamp(40px, 5vw, 88px);
-    padding-inline: clamp(12px, 1.75vw, 24px);
-  }
 }
 
 .na-comm__aside {
@@ -213,7 +253,7 @@ html[lang="en"] body.page-notable .nav__brand img {
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   min-height: 49.6px;
   padding: 11px 12px;
   margin-bottom: 10px;
@@ -235,7 +275,7 @@ html[lang="en"] body.page-notable .nav__brand img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-inline: 6px;
+  margin-top: 10px;
 }
 
 .na-comm__item {
@@ -243,7 +283,6 @@ html[lang="en"] body.page-notable .nav__brand img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
   min-height: 54px;
   padding-block: 10px;
   padding-inline: 10px;
@@ -257,6 +296,16 @@ html[lang="en"] body.page-notable .nav__brand img {
   background: #ffffff;
   border: 1px solid #8dcfc5;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.06);
+  padding-inline-start: 32px;
+  gap: 32px;
+}
+
+[dir="ltr"] .na-comm__item {
+  flex-direction: row-reverse;
+}
+
+.na-comm__item:nth-child(even) {
+  background: #DAE7E6;
 }
 
 .na-comm__item-text {
@@ -276,9 +325,9 @@ html[lang="en"] body.page-notable .nav__brand img {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  background: transparent;
+  width: 5px;
+  height: 5px;
+  background: #00948F;
   border: none;
   border-radius: 0;
 }
@@ -331,7 +380,7 @@ html[dir="ltr"] .na-comm__item {
 }
 
 .na-agre__title {
-  margin: 0 0 clamp(20px, 3vw, 36px);
+  margin-bottom: 18px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -346,17 +395,18 @@ html[dir="ltr"] .na-comm__item {
 .na-agre__title-line--primary {
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 4.5vw, 48px);
+  font-size: clamp(28px, 4.5vw, 46px);
   line-height: 1.25;
-  color: #008a85;
+  color: #fff;
 }
+
 
 .na-agre__title-line--secondary {
   font-family: "Cairo", sans-serif;
   font-weight: 600;
-  font-size: clamp(18px, 2.8vw, 30px);
-  line-height: 2;
-  color: #008a85;
+  font-size: clamp(20px, 2.8vw, 34px);
+  line-height: 1.2;
+  color: #fff;
 }
 
 .na-agre__card {
