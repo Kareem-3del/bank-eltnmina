@@ -780,6 +780,11 @@ html[dir="ltr"] .na-coll__card .na-coll__icon {
   text-align: end;
 }
 
+[dir="ltr"] .na-coll__text {
+  text-align: start;
+
+}
+
 html[dir="ltr"] .na-coll__title,
 html[dir="ltr"] .na-coll__text {
   font-family: "Public Sans", "Cairo", system-ui, sans-serif;
