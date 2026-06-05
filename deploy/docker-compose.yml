@@ -1,0 +1,69 @@
+# Source of truth for /opt/redf-demo/docker-compose.yml on the `zagel` host.
+# Two services behind the shared Traefik proxy on the external `traefik-public`
+# network:
+#   - redf-demo:        nginx serving the static site from ./site
+#   - redf-deploy-hook: receives GitHub push webhooks on /_deploy-hook and pulls
+#                       the latest frontend/ from the public repo into ./site.
+#
+# Why a webhook instead of the old GitHub-Actions SSH push: GitHub's runner
+# packets to this host's SSH port (2222) are intermittently dropped upstream of
+# the box. Inbound :443 (this webhook) and the server's outbound to GitHub are
+# both reliable, so deploy is now pull-on-push. See ../DEPLOY.md.
+
+services:
+  redf-demo:
+    image: nginx:alpine
+    container_name: redf-demo
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
+      # HTTP -> HTTPS
+      - "traefik.http.routers.redf-demo-http.rule=Host(`demo.kareem-3del.com`)"
+      - "traefik.http.routers.redf-demo-http.entrypoints=web"
+      - "traefik.http.routers.redf-demo-http.middlewares=redf-demo-https"
+      - "traefik.http.middlewares.redf-demo-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redf-demo-https.redirectscheme.permanent=true"
+      # HTTPS
+      - "traefik.http.routers.redf-demo.rule=Host(`demo.kareem-3del.com`)"
+      - "traefik.http.routers.redf-demo.entrypoints=websecure"
+      - "traefik.http.routers.redf-demo.tls=true"
+      - "traefik.http.routers.redf-demo.tls.certresolver=letsencrypt"
+      - "traefik.http.services.redf-demo.loadbalancer.server.port=80"
+
+  redf-deploy-hook:
+    build: ./hook
+    image: redf-deploy-hook:latest
+    container_name: redf-deploy-hook
+    restart: unless-stopped
+    env_file:
+      - ./hook.env            # WEBHOOK_SECRET=<shared with the GitHub webhook>
+    environment:
+      - REPO_DIR=/repo
+      - SITE_DIR=/site
+      - BRANCH=main
+      - HOOK_PATH=/_deploy-hook
+      - PORT=9000
+    networks:
+      - traefik-public
+    volumes:
+      - ./repo:/repo          # sparse, blob-filtered clone of frontend/ only
+      - ./site:/site          # same document root nginx serves (read-write here)
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
+      - "traefik.http.routers.redf-hook.rule=Host(`demo.kareem-3del.com`) && PathPrefix(`/_deploy-hook`)"
+      - "traefik.http.routers.redf-hook.entrypoints=websecure"
+      - "traefik.http.routers.redf-hook.tls=true"
+      - "traefik.http.routers.redf-hook.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.redf-hook.priority=100"  # beat the catch-all redf-demo router
+      - "traefik.http.services.redf-hook.loadbalancer.server.port=9000"
+
+networks:
+  traefik-public:
+    external: true
