@@ -38,7 +38,7 @@
 
 .sc-title__title {
     font-weight: 700;
-    font-size: clamp(2rem, 5vw, 36px);
+    font-size: clamp(1.75rem, 5vw, 36px);
     line-height: 1.1;
     letter-spacing: 0px;
     color: var(--title-color);
@@ -64,6 +64,10 @@
 .sc-title-center {
     justify-content: center;
     align-items: center;
+}
+
+.sc-title-center .sc-title__dec {
+    text-align: center;
 }
 
 /* --- Responsive Optimization --- */
@@ -121,7 +125,7 @@
 
 .intro-box .top h3 {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
     color: rgba(15, 38, 46, 0.75) !important;
 }
 
@@ -194,16 +198,12 @@
     position: relative;
 }
 
-
-
-
-
 .tech-box .top {
     position: relative;
     z-index: 999;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 24px;
 }
 
@@ -211,10 +211,15 @@
     color: rgba(223, 244, 246, 0.6);
     font-weight: 900;
     font-size: 141px;
+    top: -135px;
     position: absolute;
-    top: -126px;
     inset-inline-start: 26px;
+    font-family: "Cairo", sans-serif;
+}
 
+[dir="ltr"] .tech-box .top::before {
+    top: -110px;
+    inset-inline-start: 12px;
 }
 
 .tech-box:first-child .top::before {
@@ -236,6 +241,10 @@
     letter-spacing: 0px;
     color: #008A85;
     max-width: 140px;
+}
+
+[dir="ltr"] .tech-box .top h3 {
+    max-width: 220px;
 }
 
 .tech-box .icon-box {
@@ -277,6 +286,11 @@
     line-height: 20px;
     letter-spacing: 0px;
     color: #FFF
+}
+
+[dir="ltr"] .tech-box .check-item {
+    font-size: 13px;
+
 }
 
 .tech-box .check-box {
@@ -354,8 +368,8 @@
 
     .tech-boxes {
         flex-direction: column;
-        gap: 5rem;
-        margin-top: 4.5rem;
+        gap: 2rem;
+        margin-top: 3rem;
     }
 
 
@@ -371,6 +385,16 @@
 }
 
 @media (max-width: 768px) {
+    .tech-box .top::before {
+        font-size: 120px;
+        top: -105px;
+        inset-inline-start: 30px;
+    }
+
+    [dir="ltr"] .tech-box .top::before {
+        top: -90px;
+        inset-inline-start: 18px;
+    }
 
     /* ضبط الأرقام الكبيرة في صناديق الإحصائيات */
     .intro-box .num {
@@ -391,11 +415,10 @@
         padding: 3rem 1.5rem;
     }
 
-    .banner-sec h2 {
-        font-size: 32px;
+    /* .banner-sec h2 {
+        font-size: 30px;
         line-height: 1.2;
-        margin-bottom: 1.5rem;
-    }
+    } */
 
     .banner-sec p {
         font-size: 14px;
@@ -426,8 +449,8 @@
     }
 
     .tech-box .top {
-        flex-direction: column;
-        align-items: flex-start;
+        /* flex-direction: column; */
+        align-items: flex-center;
         gap: 0.75rem;
     }
 
@@ -437,5 +460,33 @@
 
     .intro-box .num {
         font-size: 40px;
+    }
+}
+
+/* --- اصلاح التوزيع في التابلت والأحجام المتوسطة --- */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .intro-boxes,
+    .tech-boxes {
+        flex-direction: row !important;
+        /* إجبارهم على العودة للصف */
+        flex-wrap: wrap;
+        /* السماح بلف العناصر */
+        gap: 2rem;
+    }
+
+    .intro-boxes>div {
+        flex: 0 0 calc(50% - 1rem) !important;
+        /* كل صندوق يأخذ نصف العرض */
+    }
+
+    .tech-boxes {
+        gap: 5rem;
+    }
+
+    .tech-boxes>div {
+        flex: 0 0 calc(50% - 2.5rem) !important;
+
     }
 }
