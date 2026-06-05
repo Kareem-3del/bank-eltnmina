@@ -11,12 +11,41 @@
     gap: 1rem;
 }
 
+.sc-title .title-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-box {
+    background: #008A85;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.sc-title .title-box .icon-box {
+    background: #008A85;
+}
+
+.bg-main .title-box .icon-box {
+    background: #fff;
+}
+
 .sc-title__title {
     font-weight: 700;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 36px);
     line-height: 1.1;
     letter-spacing: 0px;
     color: var(--title-color);
+}
+
+.icon-box svg {
+    width: 100%;
 }
 
 .sc-title__dec {
@@ -24,11 +53,17 @@
     font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.44;
     letter-spacing: 0px;
-    color: var(--text-color);
+    color: #009892;
+    max-width: 900px;
 }
 
 .sc-title__dec span {
     color: var(--title-color);
+}
+
+.sc-title-center {
+    justify-content: center;
+    align-items: center;
 }
 
 /* --- Responsive Optimization --- */
@@ -42,6 +77,11 @@
     .sc-title__dec {
         line-height: 1.5;
     }
+}
+
+/* intro-sec */
+.intro-sec {
+    overflow-x: hidden;
 }
 
 .intro-boxes,
@@ -61,40 +101,43 @@
 /* intro-boxes */
 .intro-box {
     box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
-    border: 1px solid rgba(223, 244, 246, 0.6);
-    padding: 1.5rem;
     background: linear-gradient(126.64deg, #FFFFFF 0%, #F3FBFC 100%);
-    display: flex;
-    flex-direction: column;
 }
 
 .intro-box .top {
+    padding: 8px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    background-color: #84c6c4
 }
 
-.intro-box .icon-box {
-    height: 48px;
-    width: 48px;
+.intro-box .top .title {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: #F3FBFC;
+    gap: 6px;
+}
+
+.intro-box .top h3 {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(15, 38, 46, 0.75) !important;
 }
 
 .intro-box .year {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 24px;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
     color: #167C83;
-    background: #F3FBFC;
+}
+
+.intro-box .content {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
 }
 
 .intro-box .num {
@@ -120,12 +163,21 @@
     letter-spacing: 0px;
 }
 
+.intro-box img {
+    max-width: 20px;
+    height: auto;
+}
+
 /* channel and tech sec */
+.channel-tech-sec {
+    overflow: hidden;
+}
+
 .tech-boxes {
     position: relative;
 }
 
-.tech-boxes::after {
+/* .tech-boxes::after {
     content: "";
     position: absolute;
     background: linear-gradient(270deg, #BAE5E8 0%, #167C83 50%, #BAE5E8 100%);
@@ -133,46 +185,48 @@
     display: block;
     width: 100%;
     top: 60px;
-}
+} */
+
 
 .tech-box {
     position: relative;
     z-index: 999;
-    border: 1px solid rgba(223, 244, 246, 0.6);
-    background: linear-gradient(140.8deg, #FFFFFF 0%, #F3FBFC 100%);
-    padding: 1.75rem;
     position: relative;
 }
 
-.tech-box::before {
-    position: absolute;
-    font-weight: 900;
-    font-size: 110px;
-    line-height: 110px;
-    letter-spacing: 0px;
-    color: rgba(223, 244, 246, 0.8);
-    inset-inline-end: 1.75rem;
-}
 
-.tech-box:first-child::before {
-    content: "1";
-}
 
-.tech-box:nth-child(2)::before {
-    content: "2";
-}
 
-.tech-box:nth-child(3)::before {
-    content: "3";
-}
 
 .tech-box .top {
     position: relative;
     z-index: 999;
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1rem;
     margin-bottom: 24px;
+}
+
+.tech-box .top::before {
+    color: rgba(223, 244, 246, 0.6);
+    font-weight: 900;
+    font-size: 141px;
+    position: absolute;
+    top: -126px;
+    inset-inline-start: 26px;
+
+}
+
+.tech-box:first-child .top::before {
+    content: "1";
+}
+
+.tech-box:nth-child(2) .top::before {
+    content: "2";
+}
+
+.tech-box:nth-child(3) .top::before {
+    content: "3";
 }
 
 .tech-box .top h3 {
@@ -181,6 +235,7 @@
     line-height: 28px;
     letter-spacing: 0px;
     color: #008A85;
+    max-width: 140px;
 }
 
 .tech-box .icon-box {
@@ -190,7 +245,27 @@
     width: 56px;
     height: 56px;
     box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
-    background: #008A85;
+    background: #fff;
+    position: relative;
+}
+
+.tech-box .icon-box::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #ffffff;
+}
+
+.tech-box .stack {
+    padding-inline-start: 23px;
 }
 
 .tech-box .check-item {
@@ -201,44 +276,31 @@
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0px;
-    color: rgba(15, 38, 46, 0.8);
+    color: #FFF
 }
 
 .tech-box .check-box {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #F3FBFC;
-    height: 21px;
-    width: 21px;
-    border: 1px solid #BAE5E8;
-    border-radius: 50%;
+    height: 10px;
+    width: 10px;
 }
 
-.banner-sec {
-    background-color: #008A85;
+.tech-box .check-item:not(:last-child) .check-box::after {
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: -25px;
+    width: 2px;
+    height: 25px;
+    background: #F3FBFC;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.banner-sec h2 {
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 48px;
-    letter-spacing: 0px;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #FFFFFF;
-}
-
-.banner-sec p {
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
 
 .gov-sec {
     padding: 4rem 2rem;
@@ -268,16 +330,16 @@
 /* --- Digital Transformation Responsive Optimization --- */
 
 .lap {
-    display: none;
+    display: none !important;
 }
 
 @media(min-width:981px) {
     .lap {
-        display: flex;
+        display: flex !important;
     }
 
     .mob {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -288,8 +350,14 @@
     .tech-boxes {
         flex-direction: column;
         gap: 2rem;
-        margin-top: 2.5rem;
     }
+
+    .tech-boxes {
+        flex-direction: column;
+        gap: 5rem;
+        margin-top: 4.5rem;
+    }
+
 
     .intro-boxes>div,
     .tech-boxes>div {
@@ -349,9 +417,12 @@
 @media (max-width: 480px) {
 
     /* ضبط الحشوة الداخلية للصناديق لتوفير مساحة */
-    .intro-box,
     .tech-box {
         padding: 1.25rem;
+    }
+
+    .intro-box .content {
+        height: 120px;
     }
 
     .tech-box .top {
