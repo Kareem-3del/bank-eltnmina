@@ -2,20 +2,55 @@
 
 Static site (`frontend/`) is served by an `nginx:alpine` container behind the existing Traefik reverse proxy on the `zagel` host. Let's Encrypt issues the cert.
 
-## Auto-deploy (CI/CD)
+## Auto-deploy (push webhook, pull-on-push)
 
-`.github/workflows/deploy.yml` runs on every push to `main` that touches `frontend/**` (or the workflow itself). The job rsyncs `frontend/` to `/opt/redf-demo/site/` on the server and verifies the site returns `200` for both EN and AR.
+Deploy is **server-initiated**. A GitHub *push* webhook hits `https://demo.kareem-3del.com/_deploy-hook`; a tiny listener container (`redf-deploy-hook`) verifies the HMAC signature, pulls the latest `frontend/` from this public repo, and rsyncs it into `/opt/redf-demo/site/`. nginx serves the new files immediately (no restart).
 
-Required GitHub repo secrets (set once via `gh secret set <NAME>`):
+**Why not GitHub Actions SSH push?** GitHub's runner packets to this host's SSH port (`2222`) are intermittently dropped *upstream of the box* — the OS firewall accepts them, fail2ban isn't banning, conntrack is healthy, and successful runs prove the keys/config are fine; the failures are pure SYN timeouts that never reach `sshd`. Inbound `:443` (this webhook) and the server's *outbound* to GitHub are both reliable, so deploy moved to pull-on-push. The old `deploy.yml` SSH job was replaced by `verify.yml`, which only smoke-tests the live site after a push (outbound HTTPS from the runner, reliable).
 
-| Secret             | Purpose                                                                     |
-|--------------------|-----------------------------------------------------------------------------|
-| `DEPLOY_SSH_KEY`   | Private half of the dedicated CI deploy keypair (`~/.ssh/redf-ci-deploy`).  |
-| `SSH_KNOWN_HOSTS`  | Output of `ssh-keyscan -p 2222 -t ed25519,rsa,ecdsa 76.13.151.228`.         |
+Source of truth for the server pieces lives in this repo under `deploy/`:
 
-Manual trigger from the CLI: `gh workflow run "Deploy to demo.kareem-3del.com"`.
+| Path                          | Purpose                                                            |
+|-------------------------------|-------------------------------------------------------------------|
+| `deploy/docker-compose.yml`   | Both services (`redf-demo` nginx + `redf-deploy-hook`) — mirror of `/opt/redf-demo/docker-compose.yml`. |
+| `deploy/hook/hook.py`         | Stdlib-only webhook listener (HMAC verify → `git pull` + `rsync`).|
+| `deploy/hook/Dockerfile`      | `python:3-alpine` + `git` + `rsync`.                              |
 
-Watch the latest run: `gh run watch -R Kareem-3del/bank-eltnmina`.
+Server-only (never committed):
+
+| File                       | Purpose                                                                |
+|----------------------------|------------------------------------------------------------------------|
+| `/opt/redf-demo/hook.env`  | `WEBHOOK_SECRET=…` — the HMAC secret, shared with the GitHub webhook.  |
+| `/opt/redf-demo/repo/`     | Sparse, blob-filtered clone of `frontend/` only (incremental fetches). |
+
+The GitHub webhook (id `636588703`, event `push` → the `/_deploy-hook` URL) carries the same secret in its `config.secret`.
+
+Inspect deploys / deliveries:
+
+```sh
+ssh kareem 'docker logs --tail 30 redf-deploy-hook'                     # server-side deploy log
+gh api repos/Kareem-3del/bank-eltnmina/hooks/636588703/deliveries \
+  --jq '.[] | "\(.delivered_at) \(.event) \(.status) \(.status_code)"'  # GitHub delivery log
+gh run watch -R Kareem-3del/bank-eltnmina                               # the verify workflow
+```
+
+Manually trigger a redeploy without pushing (re-send the last delivery):
+
+```sh
+last=$(gh api repos/Kareem-3del/bank-eltnmina/hooks/636588703/deliveries --jq '.[0].id')
+gh api -X POST repos/Kareem-3del/bank-eltnmina/hooks/636588703/deliveries/$last/attempts
+```
+
+### Rotating the webhook secret
+
+```sh
+NEW=$(openssl rand -hex 32)
+printf 'WEBHOOK_SECRET=%s\n' "$NEW" | ssh kareem 'umask 077; cat > /opt/redf-demo/hook.env'
+ssh kareem 'cd /opt/redf-demo && docker compose up -d redf-deploy-hook'   # reload env
+gh api -X PATCH repos/Kareem-3del/bank-eltnmina/hooks/636588703 \
+  -f 'config[secret]='"$NEW" -f 'config[url]=https://demo.kareem-3del.com/_deploy-hook' \
+  -f 'config[content_type]=json'
+```
 
 ## Quick local redeploy (bypassing CI)
 
@@ -68,10 +103,19 @@ Container name: `redf-demo` · network: `traefik-public` · routes via Traefik l
 
 ```sh
 ssh kareem 'cd /opt/redf-demo && docker compose ps'
-ssh kareem 'cd /opt/redf-demo && docker compose restart'    # bounce nginx
-ssh kareem 'cd /opt/redf-demo && docker compose down'       # stop
-ssh kareem 'cd /opt/redf-demo && docker compose up -d'      # bring up
-ssh kareem 'docker logs --tail 50 redf-demo'                # tail logs
+ssh kareem 'cd /opt/redf-demo && docker compose restart'                  # bounce both
+ssh kareem 'cd /opt/redf-demo && docker compose down'                     # stop
+ssh kareem 'cd /opt/redf-demo && docker compose up -d'                    # bring up
+ssh kareem 'docker logs --tail 50 redf-demo'                              # nginx logs
+ssh kareem 'docker logs --tail 50 redf-deploy-hook'                       # deploy-hook logs
+ssh kareem 'cd /opt/redf-demo && docker compose up -d --build redf-deploy-hook'  # rebuild hook after editing deploy/hook/*
+```
+
+After editing anything under `deploy/`, re-sync it to the server before rebuilding:
+
+```sh
+scp -P 2222 deploy/hook/hook.py deploy/hook/Dockerfile root@76.13.151.228:/opt/redf-demo/hook/
+scp -P 2222 deploy/docker-compose.yml root@76.13.151.228:/opt/redf-demo/docker-compose.yml
 ```
 
 ## DNS
