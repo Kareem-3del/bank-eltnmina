@@ -25,7 +25,9 @@
 [lang="ar"] .banner-stat__num,
 [lang="ar"] [data-counter] {
   font-family: "Almarai", sans-serif;
-  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-feature-settings:
+    "tnum" 1,
+    "lnum" 1;
 }
 
 /* ------ Body type ----------------------------------------------------- */
@@ -195,6 +197,9 @@
 }
 
 /* Inverted visual panel: ensure title in AR stays heavy (Almarai 800) */
-[lang="ar"] .pillar-row__visual--inverted~.pillar-row__content .pillar-row__title {
+[lang="ar"]
+  .pillar-row__visual--inverted
+  ~ .pillar-row__content
+  .pillar-row__title {
   font-weight: 800;
 }
