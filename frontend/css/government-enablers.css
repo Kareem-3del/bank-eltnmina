@@ -7,16 +7,16 @@
 
 .sec-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
 .sec-header .stack {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 0.5rem;
     flex: 1;
     min-width: 280px;
@@ -37,10 +37,13 @@
     line-height: 1.2;
     color: var(--main-tail);
     margin: 0;
+    max-width: 900px;
+    text-align: center;
+
 }
 
 .sec-header .num {
-    color: #071418;
+    color: rgba(220, 229, 229, 0.6);
     gap: 0.75rem;
     display: flex;
     align-items: center;
@@ -48,17 +51,6 @@
     font-size: clamp(40px, 8vw, 60px);
     line-height: 1;
     letter-spacing: 0px;
-}
-
-.sec-header .num span {
-    opacity: 0.1;
-}
-
-.sec-header .num::after {
-    content: "";
-    width: 4px;
-    height: clamp(40px, 8vw, 64px);
-    background: linear-gradient(176.42deg, #298B81 0%, #006666 100%);
 }
 
 @media (max-width: 768px) {
@@ -93,6 +85,15 @@
     gap: 2rem;
 }
 
+.gov-enbl-sec .sec-head {
+    margin: auto;
+    width: fit-content;
+}
+
+.gov-enbl-sec .sub-head {
+    color: #FFF;
+}
+
 .gov-enbl-sec .wrap>div {
     padding: 2.5rem;
 }
@@ -110,19 +111,8 @@
     font-size: 18px;
     line-height: 36px;
     letter-spacing: 0px;
-    color: var(--text-tail);
+    color: var(--text-tail) !important;
     text-align: center;
-}
-
-
-.gov-enbl-sec .left p::after,
-.gov-enbl-sec .left p::before {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, rgba(41, 139, 129, 0) 0%, rgba(41, 139, 129, 0.4) 50%, rgba(41, 139, 129, 0) 100%);
-    margin: 1.5rem 0;
 }
 
 .gov-enbl-sec .right {
@@ -223,11 +213,6 @@
         font-size: 16px;
         line-height: 1.8;
     }
-
-    .gov-enbl-sec .left p::after,
-    .gov-enbl-sec .left p::before {
-        margin: 1rem 0;
-    }
 }
 
 @media (max-width: 480px) {
@@ -254,8 +239,8 @@
 
 .cyber-sec .wrap>div {
     flex: 1;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(41, 139, 129, 0.14);
+    background: #FFF;
+    border: 1px solid #FFF;
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -297,7 +282,7 @@
     font-size: 20px;
     line-height: 27.5px;
     letter-spacing: 0px;
-    color: var(--text-tail);
+    color: var(--text-tail) !important;
 }
 
 .cyber-sec p {
@@ -305,7 +290,7 @@
     font-size: 18px;
     line-height: 1.4;
     letter-spacing: 0px;
-    color: var(--text-tail);
+    color: var(--text-tail) !important;
 }
 
 /* --- Cyber Section Responsive --- */
@@ -366,8 +351,8 @@
 
 /* box-sec */
 .box-sec .box {
-    border: 1px solid rgba(41, 139, 129, 0.14);
-    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #FFF;
+    background: #FFF;
     padding: 2.5rem;
     display: flex;
     gap: 1.5rem;
@@ -384,7 +369,7 @@
 }
 
 .box-sec .box h3 {
-    color: #00948F;
+    color: #00948F !important;
     font-weight: 700;
     font-size: clamp(18px, 2.5vw, 20px);
     line-height: 32px;
@@ -398,7 +383,7 @@
     font-size: clamp(15px, 2vw, 18px);
     line-height: 32px;
     letter-spacing: 0px;
-    color: var(--text-tail);
+    color: var(--text-tail) !important;
 }
 
 /* --- Media Queries --- */
