@@ -141,13 +141,13 @@
   <main id="main" class="notable-achievements">
     <section class="c-hero c-hero--notable" aria-labelledby="na-hero-title">
       <div class="c-hero__overlay"></div>
-      <div class="c-hero__image-wrapper">
+      <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
         <img src="assets/government-enablers.webp" class="c-hero__img" alt="صندوق التنمية العقارية"
           fetchpriority="high" />
       </div>
       <div class="container h-100">
         <div class="c-hero__content">
-          <nav class="c-hero__breadcrumb" aria-label="مسار التصفح">
+          <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5" aria-label="Breadcrumb">
             <ol class="c-hero__breadcrumb-list">
               <li class="c-hero__breadcrumb-item">
                 <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
@@ -162,15 +162,19 @@
             </ol>
           </nav>
 
-          <h1 id="na-hero-title" class="c-hero__title">أبرز الأعمال والإنجازات</h1>
+          <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
+            أبرز الأعمال والإنجازات
+          </h1>
         </div>
       </div>
     </section>
     <section class="na-sfc section bg-main" aria-labelledby="na-sfc-title">
       <div class="container na-sfc__inner">
-        <h2 id="na-sfc-title" class="na-sfc__title">متوسط تكلفة التمويل المدعوم</h2>
-        <div class="na-sfc__sheet-wrap">
-          <table class="na-sfc__table" role="grid" aria-label="متوسط تكلفة التمويل المدعوم">
+        <h2 id="na-sfc-title" class="na-sfc__title anim-element" data-anim="fade-up" data-delay="0.1">
+          متوسط تكلفة التمويل المدعوم
+        </h2>
+        <div class="na-sfc__sheet-wrap anim-element" data-anim="fade-up" data-delay="0.3">
+          <table class="anim-table" role="grid" aria-label="متوسط تكلفة التمويل المدعوم">
             <tbody>
               <tr>
                 <th scope="row" class="na-sfc__stub">المرحلة</th>
@@ -203,14 +207,14 @@
     <section class="na-kpi bg-main" aria-label="مؤشرات الأداء المالي">
       <div class="container na-kpi__inner">
         <div class="na-kpi__grid">
-          <div class="na-kpi__col">
+          <div class="na-kpi__col anim-element" data-anim="fade-up" data-delay="0.1">
             <h2 id="na-kpi-roi" class="na-kpi__title">العائد على الاستثمار</h2>
             <p class="na-kpi__text">
               حققـــت المحفظـــة الاستثمارية عائـــدًا بمعـــدل <strong class="na-kpi__pct"><span
                   class="na-kpi__pct-inner" dir="ltr">%5.11</span></strong> خلال عـــام <strong>2025م</strong>
             </p>
           </div>
-          <div class="na-kpi__col">
+          <div class="na-kpi__col anim-element" data-anim="fade-up" data-delay="0.3">
             <h2 id="na-kpi-rev" class="na-kpi__title na-kpi__title--split">
               <span class="na-kpi__title-main">الإيرادات التشغيلية (مليون)</span>
             </h2>
@@ -321,8 +325,10 @@
 
     <section style="padding-top: 0;" class="section bg-main" aria-labelledby="na-invperf-title">
       <div class="container na-invperf__inner">
-        <h2 id="na-invperf-title" class="na-invperf__title">أداء الاستثمارات:</h2>
-        <p class="na-invperf__text">
+        <h2 id="na-invperf-title" class="na-invperf__title anim-element" data-anim="fade-up" data-delay="0.1">
+          أداء الاستثمارات:
+        </h2>
+        <p class="na-invperf__text anim-element" data-anim="fade-up" data-delay="0.3">
           حققـــت المحفظـــة الاســـتثمارية عائـــدًا بمعـــدل <span dir="ltr">%5.11</span> خلال عـــام
           <strong>2025م</strong> مقارنـــة بــ <span dir="ltr">%5.42</span> لعـــام <strong>2024م</strong> حيــث انخفــض
           العائــد تماشــيًا مـــع الانخفـــاض فـــي أســـعار الفائـــدة للودائــع والصكــوك الاســتثمارية فــي
@@ -334,9 +340,9 @@
     <section class="na-coll section" aria-labelledby="na-coll-title">
       <div class="na-coll__bg" aria-hidden="true"></div>
       <div class="container na-coll__inner">
-        <h2 id="na-coll-title" class="na-coll__title">التحصيل</h2>
+        <h2 id="na-coll-title" class="na-coll__title anim-element" data-anim="fade-up" data-delay="0.1">التحصيل</h2>
         <div class="na-coll__grid">
-          <figure class="na-coll__chart">
+          <figure class="na-coll__chart anim-element" data-anim="zoom-in" data-delay="0.4">
 
             <svg width="582" height="324" viewBox="0 0 582 324" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M70 15V292" stroke="#5E7278" />
@@ -418,7 +424,7 @@
               أداء التحصيل السنوي
             </figcaption>
           </figure>
-          <p class="na-coll__text">
+          <p class="na-coll__text anim-element" data-anim="fade-up" data-delay="0.3">
             فـــي إطـــار تعزيـــز الاســـتدامــــة الماليـــة لصنـــدوق التنميـــــــة العقاريـــة، جـــرى التركيز
             خـــــلال عـــام <strong>2025م</strong> على رفـــع كفــــــاءة تحصيـــل محفظـــة القـــروض المبـــاشرة
             بوصفهـــا إحـــدى الركائـــز الاستراتيجيـــة للأداء المــالي. وانطلاقـــــــــًا مـــن ذلـــك، تـــم
@@ -590,14 +596,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script>
-    window.setTimeout(function () {
-      var curtain = document.querySelector("[data-curtain]");
-      if (curtain && !curtain.classList.contains("is-done")) curtain.classList.add("is-done");
-    }, 1800);
-  </script>
+
   <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/page-animations.js"></script>
   <script src="js/actions.js"></script>
 </body>
 
