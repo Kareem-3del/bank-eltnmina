@@ -128,12 +128,13 @@
         <!-- ===================== Hero ===================== -->
         <section class="c-hero">
             <div class="c-hero__overlay"></div>
-            <div class="c-hero__image-wrapper">
+            <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
                 <img src="assets/current-state.webp" class="c-hero__img" alt="نظرة عامة على الوضع الراهن للصندوق" />
             </div>
             <div class="container h-100">
                 <div class="c-hero__content">
-                    <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+                    <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5"
+                        aria-label="Breadcrumb">
                         <ol class="c-hero__breadcrumb-list">
                             <li class="c-hero__breadcrumb-item">
                                 <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
@@ -143,8 +144,10 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title">نظرة عامة على الوضع الراهن للصندوق</h1>
-                    <p class="c-hero__desc">
+                    <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
+                        نظرة عامة على الوضع الراهن للصندوق
+                    </h1>
+                    <p class="c-hero__desc anim-element" data-anim="fade-up" data-delay="0.7">
                         مكتب إدارة البيانات ودعم القرار مرتبط تنظيميًا في إدارة المخاطر للتوافق مع التعميم
                         <br />
                         الصادر من الهيئة السعودية للبيانات والذكاء االصطناعي الذي ينص على تفعيل مكتب
@@ -156,358 +159,202 @@
         </section>
 
         <!-- ===================== Organizational Structure ===================== -->
-        <section class="org-sec section">
+        <section class="org-sec section bg-main">
             <div class="container">
-                <div class="org-sec-title">
+                <div class="org-sec-title anim-element" data-anim="fade-up" data-delay="0.1">
                     <div class="org-sec-title__box">
-                        <img src="assets/bocket-w.svg" alt="org-icon" />
+                        <img src="assets/bocket-g.svg" alt="org-icon" />
                     </div>
                     <h2 class="org-sec-title_title">
                         الهيكل التنظيمي – المستوى الأول
                     </h2>
                 </div>
 
-                <div class="org-wrap">
+                <div class="anim-element" data-anim="zoom-in" data-delay="0.3">
+                    <div class="org-wrap">
 
-                    <div class="org-chart">
-                        <div class="org-main">
-                            <div class="main-level-box">
-                                الأمانة العامة مجلس الإدارة
-                            </div>
-                            <div class="org-sub-main stack">
+                        <div class="org-chart">
+                            <div class="org-main">
                                 <div class="main-level-box">
-                                    مجلس الإدارة
-                                    <div class="wire-box"></div>
+                                    الأمانة العامة مجلس الإدارة
+                                </div>
+                                <div class="org-sub-main stack">
+                                    <div class="main-level-box">
+                                        مجلس الإدارة
+                                        <div class="wire-box"></div>
+                                    </div>
+
+                                    <div class="main-level-box">
+                                        <span> الرئيس التنفيذي</span>
+                                        <div class="wire-box"></div>
+                                        <div class="wire wire-hr wire-1"></div>
+                                        <div class="wire wire-hr wire-2"></div>
+                                        <div class="wire wire-hr wire-3"></div>
+                                    </div>
                                 </div>
 
-                                <div class="main-level-box">
-                                    <span> الرئيس التنفيذي</span>
+                                <div class="main-wire">
                                     <div class="wire-box"></div>
-                                    <div class="wire wire-hr wire-1"></div>
-                                    <div class="wire wire-hr wire-2"></div>
-                                    <div class="wire wire-hr wire-3"></div>
                                 </div>
                             </div>
 
-                            <div class="main-wire">
-                                <div class="wire-box"></div>
+                            <div class="org-sub stack">
+                                <div class="sub-level-box">
+                                    <span> المكتب التنفيذي
+                                    </span>
+                                    <div class="wire-box"></div>
+                                </div>
+                                <div class="sub-level-box">
+                                    <span>الاستراتيجية</span>
+                                    <div class="wire-box"></div>
+                                </div>
+                                <div class="sub-level-box">
+                                    <span> المراجعة الداخلية</span>
+                                    <div class="wire-box"></div>
+                                </div>
                             </div>
                         </div>
+                        <aside class="org-aside">
 
-                        <div class="org-sub stack">
-                            <div class="sub-level-box">
-                                <span> المكتب التنفيذي
-                                </span>
-                                <div class="wire-box"></div>
+                            <div class="wire-list">
+                                <div class="wire"></div>
+                                <div class="wire"></div>
                             </div>
-                            <div class="sub-level-box">
-                                <span>الاستراتيجية</span>
-                                <div class="wire-box"></div>
+                            <div class="org-sec-title org-sec-list-title">
+                                <div class="org-sec-title__box">
+                                    <img src="assets/shield-g.svg" alt="aside-icon" />
+                                </div>
+                                <h2 class="org-sec-title_title">
+                                    لجان مجلس الإدارة
+                                </h2>
                             </div>
-                            <div class="sub-level-box">
-                                <span> المراجعة الداخلية</span>
-                                <div class="wire-box"></div>
+
+                            <ul class="crr-aside__list list-col">
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        01
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        لجنة الترشيحات والمكافآت
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        02
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        لجنة الاستثمار
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        03
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        لجنة الحوكمة والمخاطر والالتزام
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        04
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        لجنة المراجعة الداخلية
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+                            </ul>
+                            <div class="wire-box">
                             </div>
-                        </div>
+                        </aside>
                     </div>
-                    <aside class="org-aside">
 
-                        <div class="wire-list">
-                            <div class="wire"></div>
-                            <div class="wire"></div>
-                        </div>
-                        <div class="org-sec-title">
-                            <div class="org-sec-title__box">
-                                <img src="assets/shield.svg" alt="aside-icon" />
+                    <div class="sub-level-box side-box in-rev">
+                        <span> المراجعة الداخلية</span>
+                        <div class="wire-box"></div>
+                    </div>
+
+                    <ul class="crr-aside__list row-list last-list">
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/bocket-g.svg" alt="list-icon" />
                             </div>
-                            <h2 class="org-sec-title_title">
-                                لجان مجلس الإدارة
-                            </h2>
-                        </div>
+                            <h3 class="crr-aside__list-tile">
+                                المالية والاستثمار
+                            </h3>
+                        </li>
 
-                        <ul class="crr-aside__list list-col">
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    01
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    لجنة الترشيحات والمكافآت
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/bag.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                حلول الأعمال
+                            </h3>
+                        </li>
 
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    02
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    لجنة الاستثمار
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/users.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                الخدمات
+                                المشتركة
+                            </h3>
+                        </li>
 
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    03
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    لجنة الحوكمة والمخاطر والالتزام
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/star.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                التسويق
+                                والاتصال
+                            </h3>
+                        </li>
 
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    04
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    لجنة المراجعة الداخلية
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
-                        </ul>
-                        <div class="wire-box">
-                        </div>
-                    </aside>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/shield-g.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                المخاطر
+                            </h3>
+                            <div class="wire-list">
+                            </div>
+                        </li>
+
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/judg.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                الشؤون القانونية
+                                والالتزام
+                            </h3>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="sub-level-box side-box">
-                    <span> المراجعة الداخلية</span>
-                    <div class="wire-box"></div>
-                </div>
 
-                <ul class="crr-aside__list row-list">
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/bocket-g.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            المالية والاستثمار
-                        </h3>
-                    </li>
-
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/bag.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            حلول الأعمال
-                        </h3>
-                    </li>
-
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/users.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            الخدمات
-                            المشتركة
-                        </h3>
-                    </li>
-
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/star.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            التسويق
-                            والاتصال
-                        </h3>
-                    </li>
-
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/shield-g.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            المخاطر
-                        </h3>
-                        <div class="wire-list">
-                        </div>
-                    </li>
-
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/judg.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            الشؤون القانونية
-                            والالتزام
-                        </h3>
-                    </li>
-                </ul>
             </div>
         </section>
 
-        <!-- ===================== users ===================== -->
-        <!-- <section class="users-sec">
-            <div class="container">
-                <div class="org-sec-title">
-                    <div class="org-sec-title__box">
-                        <img src="assets/users-w.svg" alt="org-icon" />
-                    </div>
-                    <h2 class="org-sec-title_title">
-                        وضع القوى البشرية
-                    </h2>
-                </div>
-
-                <div class="users-boxes">
-                    <div class="user-box">
-                        <div class="org-sec-title__box">
-                            <img src="assets/bag-w.svg" alt="aside-icon" />
-                        </div>
-
-                        <div class="user-content">
-                            <div class="precent">86%</div>
-                            <p>نسبة الوظائف المشغولة إلى المعتمدة</p>
-                        </div>
-                    </div>
-
-                    <div class="user-box">
-                        <div class="org-sec-title__box">
-                            <img src="assets/users-w.svg" alt="aside-icon" />
-                        </div>
-
-                        <div class="user-content">
-                            <div class="precent"><span>2%</span>-</div>
-                            <p>التغير في القوى العاملة</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table">
-                    <div class="table-header stack">
-                        <h3>
-                            الوضع الراهن للقوى البشرية للعام المالي 2025م
-                        </h3>
-                        <p>
-                            الموافق 1446 - 1447هـ
-                        </p>
-                    </div>
-
-                    <div class="table-container">
-                        <div class="table-col table-titles">
-                            <div class="head">
-                                الفئة الوظيفية
-                            </div>
-                            <div class="t-body">
-                                موظف رسمي
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                المعتمدة للعام المالي الحالي
-                            </div>
-                            <div class="t-body">
-                                1,104
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                الوظائف المشغولة في نهاية العام المالي الحالي
-                            </div>
-                            <div class="t-body">
-                                950
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                نسبة الوظائف المشغولة إلى المعتمدة
-                            </div>
-                            <div class="t-body">
-                                86%
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                الوظائف المشغولة في نهاية العام المالي السابق
-                            </div>
-                            <div class="t-body">
-                                972
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                التغير في القوى العاملة
-                            </div>
-                            <div class="t-body">
-                                <span>2%</span>-
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                الشاغرة في نهاية العام المالي الحالي
-                            </div>
-                            <div class="t-body">
-                                154
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                الترقيات
-                            </div>
-                            <div class="t-body">
-                                28
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                التعيينات
-                            </div>
-                            <div class="t-body">
-                                31
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                ترك الخدمة
-                            </div>
-                            <div class="t-body">
-                                25
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                التقاعد
-                            </div>
-                            <div class="t-body">
-                                25
-                            </div>
-                        </div>
-
-                        <div class="table-col">
-                            <div class="head">
-                                الفصل
-                            </div>
-                            <div class="t-body">
-                                3
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section> -->
-
         <!-- ===================== banner ===================== -->
-        <section class=" banner-section">
+        <section class=" section banner-section">
             <div class="container">
-                <div class="org-sec-title">
+                <div class="org-sec-title anim-element" data-anim="fade-up" data-delay="0.1">
                     <h2 class="org-sec-title_title" style="text-align: center; width: 100%;">
                         وضع القوى البشرية
                     </h2>
                 </div>
-                <div class="banner-sec">
+                <div class="banner-sec anim-element" data-anim="fade-in" data-delay="0.3">
                     <p>
                         في عام 2025م، بلغ عـدد الوًظائـف المعتمدة في صندوق التنميـة العقارية 1,104 وًظيفة،
                         شغِل منها 950 وًظيفة بنسبة إشغال بلغت 86 %، وجميعها بكوادر وطنية.
@@ -524,246 +371,99 @@
         </section>
 
         <!-- ===================== badget ===================== -->
-        <section class="section budget-sec">
+        <section style="padding-top: 0;" class="section budget-sec">
             <div class="container">
-                <div class="org-sec-title">
-                    <div class="org-sec-title__box">
-                        <img src="assets/bc-w.svg" alt="org-icon" />
-                    </div>
-                    <h2 class="org-sec-title_title">
-                        اعتمادات الميزانية
-                    </h2>
-                </div>
-
-                <div class="budget-content__wrap">
-                    <div class="budget-info stack">
-                        <div class="budget-top">
-                            بلغ إجمالي الموازنة المعتمدة
-                            <span style="padding: 0 4px;"><span data-counter="884000000">0</span> <svg
-                                    class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg></span>
-                            ، في حين بلغت
-                            نسبة الصرف على بنود الميزانية
-                            <span style="padding: 0 4px;"> <span data-counter="99.99" data-decimals="2">0</span>%
-                            </span>
-                            خلال العـــام المــــالي
-                            2025م، بما يعكس كفاءة في إدارة الموارد وانضباطاً في التنفيذ.
+                <div class="wrap">
+                    <div class="anim-element" data-anim="slide-left" data-delay="0.1">
+                        <div class="org-sec-title">
+                            <div class="org-sec-title__box">
+                                <img src="assets/bc-w.svg" alt="org-icon" />
+                            </div>
+                            <h2 class="org-sec-title_title">
+                                اعتمادات الميزانية
+                            </h2>
                         </div>
-                        <!-- <div class="budget-middle">
-                            <div>
-                                <h3>
-                                    الميزانية المعتمدة
-                                </h3>
-                                <p>
-                                    884
-                                    <span>المجموع</span>
-                                </p>
-                            </div>
 
-                            <div>
-                                <h3>
-                                    المنصرف الفعلي من الميزانية المعتمدة
-                                </h3>
-                                <p>
-                                    883.96
-                                    <span>المجموع</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="budger-bottom">
-                            <div class="icon">
-                                <img src="assets/_anly.svg" />
-                            </div>
-                            <div>
-                                <h3>
-                                    نسبة الصرف
-                                </h3>
-                                <p>
-                                    99.99%
-                                </p>
-                            </div>
-                        </div> -->
-                    </div>
-                    <!-- 
-                    <div class="chart-container">
-                        <div class="head">
-                            <div>
-                                <h3 class="chart-title">
-                                    توزيع الميزانية
-                                </h3>
-                                <p class="chart-note">القيم بمليون <svg class="es-financing-banner__riyal"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39"
-                                        aria-hidden="true" focusable="false">
-                                        <path fill="currentColor"
-                                            d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                        <path fill="currentColor"
-                                            d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                    </svg></p>
-                            </div>
-
-                            <div class="legend">
-                                <span class="legend-item">
-                                    <span class="legend-dot">
+                        <div class="budget-content__wrap">
+                            <div class="budget-info stack">
+                                <div class="budget-top">
+                                    بلغ إجمالي الموازنة المعتمدة
+                                    <span style="padding: 0 4px;"><span data-counter="884000000">0</span> <svg
+                                            class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
+                                            <path fill="currentColor"
+                                                d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+                                            <path fill="currentColor"
+                                                d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+                                        </svg></span>
+                                    ، في حين بلغت
+                                    نسبة الصرف على بنود الميزانية
+                                    <span style="padding: 0 4px;"> <span data-counter="99.99"
+                                            data-decimals="2">0</span>%
                                     </span>
-                                    المعتمدة
-                                </span>
-                                <span class="legend-item">
-                                    <span class="legend-dot">
-                                    </span>
-                                    الفعلية
-                                </span>
+                                    خلال العـــام المــــالي
+                                    2025م، بما يعكس كفاءة في إدارة الموارد وانضباطاً في التنفيذ.
+                                </div>
+
                             </div>
                         </div>
-
-                        <div style="position: relative; width: 100%; height: 270px;">
-                            <canvas id="char-5" role="img"></canvas>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== Gain ===================== -->
-        <section class=" gain-sec">
-            <div class="container">
-                <div class="org-sec-title">
-                    <div class="org-sec-title__box">
-                        <img src="assets/trend-arrow.svg" alt="org-icon" />
                     </div>
-                    <h2 class="org-sec-title_title">
-                        إيرادات الصندوق
-                    </h2>
-                </div>
 
-                <div class="budget-content__wrap">
-                    <div class="budget-info">
-                        <div class="budget-top">
-                            حرص الصـــندوق العقـــاري على تنـــويع مصـــادر الدخل لتعزيز
-                            استدامته المالـية، حيث بلغـــت الإيرادات التشغيلية بنهاية العام
-                            الحالي نحو <span><span data-counter="949300000">0</span> <svg
-                                    class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg>
-                            </span> ، فيما بلغت الإيرادات الاستثمارية <span><span data-counter="2400000000">0</span>
-                                <svg class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg></span> ، ليــــــصل إجــمالي الإيــــرادات إلى
-                            <span><span data-counter="3400000000">0</span> <svg class="es-financing-banner__riyal"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39" aria-hidden="true"
-                                    focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg></span> بزيادة على المستهدف للسنة الحالية بنحو <span>
-                                %<span data-counter="129">0</span>
-                            </span>
-                        </div>
-                        <!-- <div class="gain-box">
-                            <div class="left stack">
-                                <p>إجمالي الإيرادات</p>
-                                <span>
-                                    3.38 مليار <svg class="es-financing-banner__riyal"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39" aria-hidden="true"
-                                    focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg>
-                                </span>
-                                <p>من مستهدف 2.63 مليار <svg class="es-financing-banner__riyal"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39" aria-hidden="true"
-                                    focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg></p>
-                            </div>
-                            <div class="right stack">
+                    <div class="anim-element" data-anim="slide-right" data-delay="0.1">
+                        <div class="org-sec-title">
+                            <div class="org-sec-title__box">
                                 <img src="assets/trend-arrow.svg" alt="org-icon" />
-                                <p>+29%</p>
                             </div>
-                        </div> -->
-                    </div>
-                    <!-- <div class="table">
-                        <div class="table-header stack">
-                            <h3>
-                                الإيرادات التقديرية والفعلية للعام المالي 2025م
-                            </h3>
+                            <h2 class="org-sec-title_title">
+                                إيرادات الصندوق
+                            </h2>
                         </div>
 
-                        <div class="flex-table">
-                            <div class="row-1">
-                                <div class="t-col">
-                                    الحسابات الرئيسية
+                        <div class="budget-content__wrap">
+                            <div class="budget-info">
+                                <div class="budget-top">
+                                    حرص الصـــندوق العقـــاري على تنـــويع مصـــادر الدخل لتعزيز
+                                    استدامته المالـية، حيث بلغـــت الإيرادات التشغيلية بنهاية العام
+                                    الحالي نحو <span><span data-counter="949300000">0</span> <svg
+                                            class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
+                                            <path fill="currentColor"
+                                                d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+                                            <path fill="currentColor"
+                                                d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+                                        </svg>
+                                    </span> ، فيما بلغت الإيرادات الاستثمارية <span><span
+                                            data-counter="2400000000">0</span>
+                                        <svg class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
+                                            <path fill="currentColor"
+                                                d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+                                            <path fill="currentColor"
+                                                d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+                                        </svg></span> ، ليــــــصل إجــمالي الإيــــرادات إلى
+                                    <span><span data-counter="3400000000">0</span> <svg
+                                            class="es-financing-banner__riyal" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 1124.14 1256.39" aria-hidden="true" focusable="false">
+                                            <path fill="currentColor"
+                                                d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+                                            <path fill="currentColor"
+                                                d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+                                        </svg></span> بزيادة على المستهدف للسنة الحالية بنحو <span>
+                                        %<span data-counter="129">0</span>
+                                    </span>
                                 </div>
-                                <div class="t-col">
-                                    التقديري
-                                </div>
-                                <div class="t-col">
-                                    الفعلي
-                                </div>
-                                <div class="t-col">
-                                    النسبة
-                                </div>
+
                             </div>
-                            <div class="row-2">
-                                <div class="t-col">
-                                    الإيرادات التشغيلية
-                                </div>
-                                <div class="t-col price-col">
-                                    <span class="currency"><svg class="es-financing-banner__riyal"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39" aria-hidden="true"
-                                    focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg></span>
-                                    792,702,000
-                                </div>
-                                <div class="t-col price-col">
-                                    <span class="currency"><svg class="es-financing-banner__riyal"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39" aria-hidden="true"
-                                    focusable="false">
-                                    <path fill="currentColor"
-                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
-                                    <path fill="currentColor"
-                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                                </svg></span>
-                                    1,836,774,000
-                                </div>
-                                <div class="t-col prcent-col">
-                                    120%
-                                    <div></div>
-                                </div>
-                            </div>
-                            <div class="row-3"></div>
-                            <div class="row-4"></div>
+
                         </div>
-                    </div> -->
+                    </div>
                 </div>
+
             </div>
         </section>
-
     </main>
 
-    <footer class="site-footer m-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer__head">
                 <div class="footer__brand">
@@ -903,7 +603,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+    <script src="js/page-animations.js"></script>
     <script src="js/actions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <script src="js/chart.js"></script>

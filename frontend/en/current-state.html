@@ -124,12 +124,13 @@
     <main id="main">
         <section class="c-hero">
             <div class="c-hero__overlay"></div>
-            <div class="c-hero__image-wrapper">
+            <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
                 <img src="assets/current-state.webp" class="c-hero__img" alt="Fund Current Status Overview" />
             </div>
             <div class="container h-100">
                 <div class="c-hero__content">
-                    <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+                    <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5"
+                        aria-label="Breadcrumb">
                         <ol class="c-hero__breadcrumb-list">
                             <li class="c-hero__breadcrumb-item">
                                 <a href="en/index.html" class="c-hero__breadcrumb-link">Home</a>
@@ -139,10 +140,10 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title">
+                    <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
                         Overview of the REDF’s Current Status
                     </h1>
-                    <p class="c-hero__desc">
+                    <p class="c-hero__desc anim-element" data-anim="fade-up" data-delay="0.7">
                         The Data Management and Decision Support Office is organizationally linked to Risk Management to
                         ensure compliance with the circular issued by the Saudi Data and AI Authority (SDAIA), which
                         mandates the activation of a data management office reporting
@@ -152,183 +153,186 @@
             </div>
         </section>
 
-        <section class="org-sec section">
+        <section class="org-sec section bg-main">
             <div class="container">
-                <div class="org-sec-title">
+
+                <div class="org-sec-title anim-element" data-anim="fade-up" data-delay="0.1">
                     <div class="org-sec-title__box">
-                        <img src="assets/bocket-w.svg" alt="org-icon" />
+                        <img src="assets/bocket-g.svg" alt="org-icon" />
                     </div>
                     <h2 class="org-sec-title_title">
                         Organizational Structure – Level 1
                     </h2>
                 </div>
 
-                <div class="org-wrap">
-                    <div class="org-chart">
-                        <div class="org-main">
-                            <div class="main-level-box">
-                                General Secretariat
-                                of the Board
-                            </div>
-                            <div class="org-sub-main stack">
+                <div class="anim-element" data-anim="zoom-in" data-delay="0.3">
+                    <div class="org-wrap">
+                        <div class="org-chart">
+                            <div class="org-main">
                                 <div class="main-level-box">
-                                    Board of Directors
+                                    General Secretariat
+                                    of the Board
+                                </div>
+                                <div class="org-sub-main stack">
+                                    <div class="main-level-box">
+                                        Board of Directors
+                                        <div class="wire-box"></div>
+                                    </div>
+                                    <div class="main-level-box">
+                                        <span>Chief Executive
+                                            Officer (CEO)</span>
+                                        <div class="wire-box"></div>
+                                        <div class="wire wire-hr wire-1"></div>
+                                        <div class="wire wire-hr wire-2"></div>
+                                        <div class="wire wire-hr wire-3"></div>
+                                    </div>
+                                </div>
+                                <div class="main-wire">
                                     <div class="wire-box"></div>
                                 </div>
-                                <div class="main-level-box">
-                                    <span>Chief Executive
-                                        Officer (CEO)</span>
-                                    <div class="wire-box"></div>
-                                    <div class="wire wire-hr wire-1"></div>
-                                    <div class="wire wire-hr wire-2"></div>
-                                    <div class="wire wire-hr wire-3"></div>
-                                </div>
                             </div>
-                            <div class="main-wire">
-                                <div class="wire-box"></div>
+
+                            <div class="org-sub stack">
+                                <div class="sub-level-box">
+                                    <span>Executive Office</span>
+                                    <div class="wire-box"></div>
+                                </div>
+                                <div class="sub-level-box">
+                                    <span>Strategy</span>
+                                    <div class="wire-box"></div>
+                                </div>
+                                <div class="sub-level-box">
+                                    <span>Internal Audit</span>
+                                    <div class="wire-box"></div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="org-sub stack">
-                            <div class="sub-level-box">
-                                <span>Executive Office</span>
-                                <div class="wire-box"></div>
+                        <aside class="org-aside">
+                            <div class="wire-list">
+                                <div class="wire"></div>
+                                <div class="wire"></div>
                             </div>
-                            <div class="sub-level-box">
-                                <span>Strategy</span>
-                                <div class="wire-box"></div>
+                            <div class="org-sec-title org-sec-list-title">
+                                <div class="org-sec-title__box">
+                                    <img src="assets/shield-g.svg" alt="aside-icon" />
+                                </div>
+                                <h2 class="org-sec-title_title">
+                                    Board Committees
+                                </h2>
                             </div>
-                            <div class="sub-level-box">
-                                <span>Internal Audit</span>
-                                <div class="wire-box"></div>
-                            </div>
-                        </div>
+
+                            <ul class="crr-aside__list list-col">
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        01
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        Nomination and Remuneration Committee
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        02
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        Investment Committee
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        03
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        Governance, Risk, and Compliance Committee
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+                                <li class="crr-aside__list-item">
+                                    <div class="crr-aside__list-box box-num">
+                                        04
+                                    </div>
+                                    <h3 class="crr-aside__list-tile">
+                                        Internal Audit Committee
+                                    </h3>
+                                    <div class="wire-box"></div>
+                                </li>
+                            </ul>
+                            <div class="wire-box"></div>
+                        </aside>
                     </div>
 
-                    <aside class="org-aside">
-                        <div class="wire-list">
-                            <div class="wire"></div>
-                            <div class="wire"></div>
-                        </div>
-                        <div class="org-sec-title">
-                            <div class="org-sec-title__box">
-                                <img src="assets/shield.svg" alt="aside-icon" />
-                            </div>
-                            <h2 class="org-sec-title_title">
-                                Board Committees
-                            </h2>
-                        </div>
-
-                        <ul class="crr-aside__list list-col">
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    01
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    Nomination and Remuneration Committee
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    02
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    Investment Committee
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    03
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    Governance, Risk, and Compliance Committee
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
-                            <li class="crr-aside__list-item">
-                                <div class="crr-aside__list-box box-num">
-                                    04
-                                </div>
-                                <h3 class="crr-aside__list-tile">
-                                    Internal Audit Committee
-                                </h3>
-                                <div class="wire-box"></div>
-                            </li>
-                        </ul>
+                    <div class="sub-level-box side-box in-rev">
+                        <span>Internal Audit</span>
                         <div class="wire-box"></div>
-                    </aside>
-                </div>
+                    </div>
 
-                <div class="sub-level-box side-box">
-                    <span>Internal Audit</span>
-                    <div class="wire-box"></div>
+                    <ul class="crr-aside__list row-list last-list">
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/bocket-g.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                Finance and Investment
+                            </h3>
+                        </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/bag.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                Business Solutions
+                            </h3>
+                        </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/users.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                Shared Services
+                            </h3>
+                        </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/star.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                Marketing and Communications
+                            </h3>
+                        </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/shield-g.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                Risk
+                            </h3>
+                            <div class="wire-list"></div>
+                        </li>
+                        <li class="crr-aside__list-item">
+                            <div class="crr-aside__list-box box-icon">
+                                <img src="assets/judg.svg" alt="list-icon" />
+                            </div>
+                            <h3 class="crr-aside__list-tile">
+                                Legal Affairs and Compliance
+                            </h3>
+                        </li>
+                    </ul>
                 </div>
-
-                <ul class="crr-aside__list row-list">
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/bocket-g.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            Finance and Investment
-                        </h3>
-                    </li>
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/bag.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            Business Solutions
-                        </h3>
-                    </li>
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/users.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            Shared Services
-                        </h3>
-                    </li>
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/star.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            Marketing and Communications
-                        </h3>
-                    </li>
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/shield-g.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            Risk
-                        </h3>
-                        <div class="wire-list"></div>
-                    </li>
-                    <li class="crr-aside__list-item">
-                        <div class="crr-aside__list-box box-icon">
-                            <img src="assets/judg.svg" alt="list-icon" />
-                        </div>
-                        <h3 class="crr-aside__list-tile">
-                            Legal Affairs and Compliance
-                        </h3>
-                    </li>
-                </ul>
             </div>
         </section>
 
-        <section class=" banner-section">
+        <section class=" section banner-section">
             <div class="container">
-                <div class="org-sec-title">
+                <div class="org-sec-title anim-element" data-anim="fade-up" data-delay="0.1">
                     <h2 class="org-sec-title_title" style="text-align: center; width: 100%;">
                         Human Resources
                         Status
                     </h2>
                 </div>
-                <div class="banner-sec">
+                <div class="banner-sec anim-element" data-anim="fade-in" data-delay="0.3">
                     <p>
                         In 2025, the number of approved
                         positions at the REDF reached
@@ -354,76 +358,76 @@
         </section>
 
 
-
-        <section class="section budget-sec" dir="ltr">
+        <section style="padding-top: 0;" class="section budget-sec">
             <div class="container">
-                <div class="org-sec-title">
-                    <div class="org-sec-title__box">
-                        <img src="assets/bc-w.svg" alt="org-icon" />
-                    </div>
-                    <h2 class="org-sec-title_title">
-                        Budget
-                        Appropriations
-                    </h2>
-                </div>
-
-                <div class="budget-content__wrap">
-                    <div class="budget-info stack">
-                        <div class="budget-top">
-
-
-                            The total approved budget
-                            reached <span style="padding: 0 4px; font-weight: 700;">SAR <span
-                                    data-counter="884000000">0</span>,</span> while
-                            the expenditure rate on budget
-                            items reached <span style="padding: 0 4px; font-weight: 700;"><span data-counter="99.99"
-                                    data-decimals="2">0</span>%</span> during the
-                            financial year 2025 (1446 - 1447).
-                            This reflects efficiency in resource
-                            management and discipline in
-                            execution.
-
+                <div class="wrap">
+                    <div class="anim-element" data-anim="slide-right" data-delay="0.1">
+                        <div class="org-sec-title">
+                            <div class="org-sec-title__box">
+                                <img src="assets/bc-w.svg" alt="org-icon" />
+                            </div>
+                            <h2 class="org-sec-title_title">
+                                Budget
+                                Appropriations
+                            </h2>
                         </div>
 
+                        <div class="budget-content__wrap">
+                            <div class="budget-info stack">
+                                <div class="budget-top">
+                                    The total approved budget
+                                    reached <span style="padding: 0 4px; font-weight: 700;">SAR <span
+                                            data-counter="884000000">0</span>,</span> while
+                                    the expenditure rate on budget
+                                    items reached <span style="padding: 0 4px; font-weight: 700;"><span
+                                            data-counter="99.99" data-decimals="2">0</span>%</span> during the
+                                    financial year 2025 (1446 - 1447).
+                                    This reflects efficiency in resource
+                                    management and discipline in
+                                    execution.
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="anim-element" data-anim="slide-left" data-delay="0.1">
+                        <div class="org-sec-title">
+                            <div class="org-sec-title__box">
+                                <img src="assets/trend-arrow.svg" alt="org-icon" />
+                            </div>
+                            <h2 class="org-sec-title_title">
+                                Revenues
+
+                            </h2>
+                        </div>
+
+                        <div class="budget-content__wrap">
+                            <div class="budget-info">
+                                <div class="budget-top">
+                                    The REDF has been keen
+                                    on diversifying its income
+                                    sources to enhance its financial
+                                    sustainability. Operating revenues
+                                    at the end of the current year
+                                    reached approximately SAR
+                                    <span><span data-counter="949300000">0</span></span>, while investment
+                                    revenues reached <span> <span data-counter="2400000000">0</span>.</span>
+                                    Consequently, total revenues
+                                    amounted to <span>SAR <span data-counter="3400000000">0</span>,</span> an
+                                    increase of approximately <span data-counter="129">0</span>%
+                                    over the target for the current year.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="gain-sec">
-            <div class="container">
-                <div class="org-sec-title">
-                    <div class="org-sec-title__box">
-                        <img src="assets/trend-arrow.svg" alt="org-icon" />
-                    </div>
-                    <h2 class="org-sec-title_title">
-                        Revenues
-                    </h2>
-                </div>
-                <div class="budget-content__wrap">
-                    <div class="budget-info">
-                        <div class="budget-top">
-                            The REDF has been keen
-                            on diversifying its income
-                            sources to enhance its financial
-                            sustainability. Operating revenues
-                            at the end of the current year
-                            reached approximately SAR
-                            <span><span data-counter="949300000">0</span></span>, while investment
-                            revenues reached <span> <span data-counter="2400000000">0</span>.</span>
-                            Consequently, total revenues
-                            amounted to <span>SAR <span data-counter="3400000000">0</span>,</span> an
-                            increase of approximately <span data-counter="129">0</span>%
-                            over the target for the current year.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="site-footer m-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer__head">
                 <div class="footer__brand">
@@ -527,7 +531,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+    <script src="js/page-animations.js"></script>
     <script src="js/actions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <script src="js/chart.js"></script>
