@@ -1288,6 +1288,7 @@ html.lenis body {
   letter-spacing: -0.72px;
   color: #FFFFFF;
   margin-bottom: 4rem;
+  max-width: 920px;
 }
 
 [dir="rtl"] .c-hero__title {

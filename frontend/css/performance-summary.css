@@ -121,10 +121,10 @@
 /* حاوية الجدول لضمان الـ Responsiveness */
 .table-container {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     /* يسمح بالتمرير الأفقي على الشاشات الصغيرة */
     margin: 20px 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); */
     border-radius: 8px;
 }
 
@@ -132,10 +132,11 @@
     width: 100%;
     border-collapse: collapse;
     min-width: 1200px;
+    overflow: hidden;
     /* يمنع الجدول من الانضغاط بشكل يفسد المحتوى */
-    background: white;
+    /* background: white; */
     /* اتجاه النص العربي */
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 
 /* table header */
@@ -148,6 +149,10 @@
     text-align: start;
     color: #fff;
     text-align: center;
+}
+
+.kpi-table td {
+    background-color: #FFF;
 }
 
 .kpi-table thead th:first-child {
@@ -428,6 +433,7 @@
 
     .table-char {
         width: 100%;
+        margin-top: 24px;
         /* الـ Sidebar الصغير في قسم الجدول يأخذ العرض كامل */
     }
 

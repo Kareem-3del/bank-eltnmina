@@ -179,12 +179,13 @@
         <!-- ===================== Hero ===================== -->
         <section class="c-hero c-hero-perform">
             <div class="c-hero__overlay"></div>
-            <div class="c-hero__image-wrapper">
+            <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
                 <img src="assets/performance-summary.webp" class="c-hero__img" alt="REDF About Us">
             </div>
             <div class="container h-100">
                 <div class="c-hero__content">
-                    <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+                    <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5"
+                        aria-label="Breadcrumb">
                         <ol class="c-hero__breadcrumb-list">
                             <li class="c-hero__breadcrumb-item">
                                 <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
@@ -194,15 +195,16 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title">
+                    <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
                         موجز الأداء:
                         <br />
                         مؤشرات الأداء الرئيسية المفعلة
                     </h1>
-                    <p class="c-hero__desc">
-                        مؤرشات الأداء الرئيسية المفعلة للصندوق للعام المالي 2025م الموافق 6ـ 1447هـ </p>
+                    <p class="c-hero__desc anim-element" data-anim="fade-up" data-delay="0.7">
+                        مؤرشات الأداء الرئيسية المفعلة للصندوق للعام المالي 2025م الموافق 6ـ 1447هـ
+                    </p>
                     <div class="c-hero__boxes">
-                        <div>
+                        <div class="anim-element" data-anim="fade-up" data-delay="0.2">
                             <h4>
                                 <data data-counter="86">0</data>%
                             </h4>
@@ -211,7 +213,7 @@
                             </p>
                         </div>
 
-                        <div>
+                        <div class="anim-element" data-anim="fade-up" data-delay="0.4">
                             <h4>
                                 <data data-counter="86">0</data>%
                             </h4>
@@ -220,7 +222,7 @@
                             </p>
                         </div>
 
-                        <div>
+                        <div class="anim-element" data-anim="fade-up" data-delay="0.6">
                             <h4>
                                 <data data-counter="84">0</data>%
                             </h4>
@@ -229,7 +231,7 @@
                             </p>
                         </div>
 
-                        <div>
+                        <div class="anim-element" data-anim="fade-up" data-delay="0.8">
                             <h4>
                                 <data data-counter="75">0</data>%
                             </h4>
@@ -244,41 +246,42 @@
 
         <!-- ===================== Table ===================== -->
 
+
         <section class="table-sec section bg-main">
             <div class="container stack">
                 <div class="performance-head">
                     <div class="stack">
-                        <div class="performance-head__subtitle">
-                            القسم الأول
+                        <div class="performance-head__subtitle anim-element" data-anim="fade-up" data-delay="0.1"> القسم
+                            الأول
                         </div>
-                        <h2 class="performance-head__title">
-                            جدول مؤشرات الأداء الرئيسية المفعلة
+                        <h2 class="performance-head__title anim-element" data-anim="fade-up" data-delay="0.2"> جدول
+                            مؤشرات الأداء الرئيسية المفعلة
                         </h2>
-                        <p class="performance-head__desc">
+                        <p class="performance-head__desc anim-element" data-anim="fade-up" data-delay="0.3">
                             مؤشرات الأداء الرئيسية للصندوق للعام المالي 2025م الموافق 1446-1447هـ
                         </p>
                     </div>
 
-                    <div class="table-char stack">
+                    <div class="table-char stack anim-element" data-anim="fade-in" data-delay="0.4">
                         <h2>ألوان مؤشر الحالة</h2>
 
                         <div class="table-char__stat">
-                            <div>
+                            <div class="anim-element" data-anim="slide-left" data-delay="0.5">
                                 <div class="mark green"></div>
                                 <p>على المسار، الاختلاف 5% وما دون</p>
                             </div>
 
-                            <div>
+                            <div class="anim-element" data-anim="slide-left" data-delay="0.6">
                                 <div class="mark yellow"></div>
                                 <p>متأخر عن المسار، 5% إلى 15%</p>
                             </div>
 
-                            <div>
+                            <div class="anim-element" data-anim="slide-left" data-delay="0.7">
                                 <div class="mark red"></div>
                                 <p>متأخر جداً، أكثر من 15%</p>
                             </div>
 
-                            <div>
+                            <div class="anim-element" data-anim="slide-left" data-delay="0.8">
                                 <div class="mark blue"></div>
                                 <p>مكتمل</p>
                             </div>
@@ -286,7 +289,7 @@
                     </div>
                 </div>
 
-                <div class="teble-desc">
+                <div class="teble-desc anim-element" data-anim="fade-up" data-delay="0.4">
                     <p>
                         تعرض هـذا التقريـر مـؤرشات الأداء التي تـم تفعيلهـا وأصبحـت قابلـة للقيـاس خالل الـفترة
                         الحاليـة.
@@ -297,9 +300,9 @@
                 </div>
 
                 <div class="table-container">
-                    <table class="kpi-table">
+                    <table class="kpi-table anim-table">
                         <thead>
-                            <tr>
+                            <tr class="row-trigger">
                                 <th colspan="6">اسم مؤشر الأداء</th>
                                 <th>المستهدف العام</th>
                                 <th>حالة المؤشر</th>
@@ -310,7 +313,7 @@
                         </thead>
                         <tbody>
                             <!-- القسم الأول -->
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -326,7 +329,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     نسبة رضا المستفيدين (CSI)
                                 </td>
@@ -350,7 +353,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -367,7 +370,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     عدد المطوّرين الذين تم تمكينهم من خلال برامج الصندوق
                                 </td>
@@ -390,7 +393,7 @@
                                     برنامج الإسكان
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     عدد الوحدات التي وفّرها المطوّرون المدعومون من الصندوق
                                 </td>
@@ -414,7 +417,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -430,7 +433,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     إجمالي مبالغ التحصيل (بالمليون)
                                 </td>
@@ -454,7 +457,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -471,7 +474,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     العائد على محفظة الاستثمار
                                 </td>
@@ -495,7 +498,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -511,7 +514,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     التصنيف حسب نموذج المؤسسة الأوروبية لإدارة الجودة والتميز
                                 </td>
@@ -535,7 +538,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -552,7 +555,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     نسبة قياس التحول الرقمي الحكومي
                                 </td>
@@ -576,7 +579,7 @@
                                 </td>
                             </tr>
 
-                            <tr class="group-row">
+                            <tr class="group-row row-trigger">
                                 <td colspan="11">
                                     <div class="group-row-item">
                                         <div class="stack">
@@ -593,7 +596,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     معدل الدوران الوظيفي
                                 </td>
@@ -615,7 +618,7 @@
                                     لا يوجد
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="row-trigger">
                                 <td colspan="6" class="col-bold">
                                     جودة بيئة العمل
                                 </td>
@@ -647,15 +650,16 @@
             <div class="container">
                 <div class="performance-head">
                     <div class="stack">
-                        <div class="performance-head__subtitle">
+                        <div class="performance-head__subtitle anim-element" data-anim="fade-up" data-delay="0.1">
                             02
                             <span class="divider"></span>
                             القسم الثاني
                         </div>
-                        <h2 class="performance-head__title">
-                            مؤشر رضا المستفيدين
+                        <h2 class="performance-head__title anim-element" data-anim="fade-up" data-delay="0.2">
+                            مؤشر رضا
+                            المستفيدين
                         </h2>
-                        <p class="performance-head__desc">
+                        <p class="performance-head__desc anim-element" data-anim="fade-up" data-delay="0.3">
                             شهد عام 2025م ترسيخ حضور صندوق التنمية العقارية في حياة مستفيديه، حتى غدا الوعي ببرامجه
                             جزءاً من تخطيط الأسرة السعودية
                             للتملك السكني، وارتفع مؤشر الوعي إلى 84% متجاوزاً المستهدف السنوي، وكذلك ارتفع مؤشر الثقة
@@ -665,7 +669,7 @@
                 </div>
 
                 <div class="hl-container">
-                    <div class="pie-sec stack">
+                    <div class="pie-sec stack anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div>
                             <svg width="271" height="216" viewBox="0 0 271 216" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -692,7 +696,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="chart-wrap">
+                    <div class="chart-wrap anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div class="chart-container">
                             <div style="position: relative; width: 100%; height: 272px;">
                                 <canvas id="char-1" role="img"
@@ -724,19 +728,19 @@
             <div class="container">
                 <div class="performance-head">
                     <div class="stack">
-                        <div class="performance-head__subtitle">
+                        <div class="performance-head__subtitle anim-element" data-anim="fade-up" data-delay="0.1">
                             03
                             <span class="divider"></span>
                             القسم الثالث
                         </div>
-                        <h2 class="performance-head__title">
+                        <h2 class="performance-head__title anim-element" data-anim="fade-up" data-delay="0.2">
                             مؤشر نصح الأقارب والأصدقاء (NPS)
                         </h2>
                     </div>
                 </div>
 
                 <div class="hl-container">
-                    <div class="pie-sec stack">
+                    <div class="pie-sec stack anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div>
                             <svg width="271" height="216" viewBox="0 0 271 216" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -765,7 +769,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="chart-wrap">
+                    <div class="chart-wrap anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div class="chart-container">
                             <div style="position: relative; width: 100%; height: 272px;">
                                 <canvas id="char-2" role="img"
@@ -797,19 +801,19 @@
             <div class="container">
                 <div class="performance-head">
                     <div class="stack">
-                        <div class="performance-head__subtitle">
+                        <div class="performance-head__subtitle anim-element" data-anim="fade-up" data-delay="0.1">
                             04
                             <span class="divider"></span>
                             القسم الرابع
                         </div>
-                        <h2 class="performance-head__title">
+                        <h2 class="performance-head__title anim-element" data-anim="fade-up" data-delay="0.2">
                             مؤشر الثقة
                         </h2>
                     </div>
                 </div>
 
                 <div class="hl-container">
-                    <div class="pie-sec stack">
+                    <div class="pie-sec stack anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div>
                             <svg width="270" height="216" viewBox="0 0 270 216" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -836,7 +840,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="chart-wrap">
+                    <div class="chart-wrap anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div class="chart-container">
                             <div style="position: relative; width: 100%; height: 272px;">
                                 <canvas id="char-3" role="img"
@@ -868,19 +872,19 @@
             <div class="container">
                 <div class="performance-head">
                     <div class="stack">
-                        <div class="performance-head__subtitle">
+                        <div class="performance-head__subtitle anim-element" data-anim="fade-up" data-delay="0.1">
                             05
                             <span class="divider"></span>
                             القسم الخامس
                         </div>
-                        <h2 class="performance-head__title">
+                        <h2 class="performance-head__title anim-element" data-anim="fade-up" data-delay="0.2">
                             مؤشر الوعي
                         </h2>
                     </div>
                 </div>
 
                 <div class="hl-container">
-                    <div class="pie-sec stack">
+                    <div class="pie-sec stack anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div>
                             <svg width="271" height="216" viewBox="0 0 271 216" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -907,7 +911,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="chart-wrap">
+                    <div class="chart-wrap anim-element" data-anim="zoom-in" data-delay="0.4">
                         <div class="chart-container">
                             <div style="position: relative; width: 100%; height: 272px;">
                                 <canvas id="char-4" role="img"
