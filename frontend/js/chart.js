@@ -231,7 +231,10 @@ function createChart(target, actual, id) {
                         stepSize: 10,
                         font: { size: 10 },
                         color: '#fff',
-                        padding: 20 // مسافة بين أسماء السنوات وخط المحور السفلي
+                        padding: 0,
+                        callback: function (value) {
+                            return isAR ? "   " + value : value + "   ";
+                        }
                     }
                 }
             }

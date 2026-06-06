@@ -22,7 +22,7 @@
       href: "introduction.html",
     },
     {
-      nameAr: "رسالة رئيس مجلس الادارة",
+      nameAr: "رسالة رئيس مجلس الإدارة",
       nameEn: "Chairman's Message",
       href: "chairman-message.html",
     },

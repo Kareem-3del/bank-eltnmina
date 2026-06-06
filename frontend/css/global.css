@@ -109,7 +109,10 @@
 
   /* colors */
   --c-text-main: #FFF;
-  --c-dark: #009D98
+  --c-dark: #009D98;
+
+  --title-size: clamp(1.5rem, 5vw, 2.25rem);
+  --t-line-height: clamp(1.875rem, 10vw, 2.5rem);
 }
 
 * {
@@ -1474,21 +1477,10 @@ html.lenis body {
 }
 
 @media (max-width: 480px) {
+
   /* .c-hero {
     height: 500px;
   } */
-
-  .c-hero__title {
-    font-size: 32px;
-    /* حجم مناسب للموبايل */
-    line-height: 40px;
-    letter-spacing: -0.5px;
-  }
-
-  .c-hero__desc {
-    font-size: 15px;
-  }
-
   .c-hero__breadcrumb-item {
     font-size: 12px;
   }

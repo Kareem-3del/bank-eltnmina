@@ -211,7 +211,7 @@
               },
               {
                 href: "chairman-message.html",
-                text: "رسالة رئيس مجلس الادارة",
+                text: "رسالة رئيس مجلس الإدارة",
                 img: "chairman-message.webp",
                 caption: "كلمة عن مسيرة الصندوق"
               },

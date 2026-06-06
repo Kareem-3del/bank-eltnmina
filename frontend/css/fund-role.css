@@ -47,7 +47,7 @@
 
 /* Equal-height in the row: stretch both cards so the image fills its panel */
 .intro-sec .intro-box {
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 /* intro-sec */
@@ -123,7 +123,7 @@
 
 .func-grid .content p {
     font-weight: 400;
-    font-size: clamp(14px, 0.8vw + 0.7rem, 16px);
+    font-size: clamp(16px, 0.8vw + 0.7rem, 16px);
     line-height: clamp(20px, 1.2vw + 0.8rem, 24px);
     text-align: center;
     color: #73848C !important;
@@ -182,11 +182,11 @@
     .intro-box {
         flex-direction: column;
         /* تحويل الصناديق لتصبح تحت بعضها */
-        gap: 16px;
+        gap: 0;
     }
 
     .intro-box__item {
-        padding: 20px;
+        padding: 16px 0;
         justify-content: flex-start;
     }
 
