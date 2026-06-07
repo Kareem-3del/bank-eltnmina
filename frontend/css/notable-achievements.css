@@ -563,13 +563,14 @@ html[dir="ltr"] .na-agre__text strong {
 }
 
 /* Inline SAR: same glyph paths as `es-financing-banner__riyal` on executive-summary / current-state */
-.na-fin__text .na-fin__riyal-svg {
+.na-fin__text .na-fin__riyal-svg,
+.na-agre .na-fin__riyal-svg {
   display: inline-block;
   width: 16px;
   height: 16px;
   margin-inline: 0.08em 0.04em;
   vertical-align: -0.18em;
-  color: #576375;
+  color: #fff;
   flex-shrink: 0;
 }
 
