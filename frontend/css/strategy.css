@@ -20,7 +20,13 @@
   grid-template-columns: minmax(280px, 636px) minmax(0, 1fr);
   gap: clamp(32px, 4vw, 56px);
   align-items: start;
-  margin-bottom: clamp(40px, 5vw, 64px);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+}
+
+@media (min-width: 1025px) {
+  .sd-vm {
+    margin-top: -100px;
+  }
 }
 
 .sd-framework__image {
@@ -83,7 +89,7 @@
 .sd-vm__item {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 32px;
 }
 
 .sd-vm__label {
@@ -92,7 +98,7 @@
   line-height: 1.1;
   letter-spacing: -0.24px;
   color: #FFFFFF;
-  text-align: right;
+  text-align: center;
   margin: 0;
 }
 
@@ -123,7 +129,6 @@
 /* LTR (English) — mirror RTL layout alignment */
 [dir="ltr"] .sd-framework__title,
 [dir="ltr"] .sd-framework__text p,
-[dir="ltr"] .sd-vm__label,
 [dir="ltr"] .sd-vm__bar p {
   text-align: left;
 }
@@ -142,19 +147,6 @@
   transform: none;
 }
 
-/* EN: narrow tag column (e.g. "Sector Empowerment") */
-[dir="ltr"] .sd-pillar__tag {
-  font-size: 8px;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  padding: 3px 2px;
-  min-width: 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
-}
-
 [dir="ltr"] .sd-pillar__row {
   min-width: 0;
   grid-template-columns: 1fr 58px;
@@ -162,6 +154,7 @@
 
 [dir="ltr"] .sd-pillar__desc {
   order: 1;
+  text-align: center;
 }
 
 [dir="ltr"] .sd-pillar__tag {
@@ -611,6 +604,10 @@
     order: -1;
   }
 
+  .sd-pillars.section {
+    padding-top: 40px;
+  }
+
   .sd-pillars__title {
     font-size: 36px;
     margin-bottom: 40px;
@@ -708,18 +705,8 @@
     justify-content: flex-start;
   }
 
-  [dir="ltr"] .sd-pillar__desc {
-    text-align: center;
-    justify-content: center;
-  }
-
   .sd-pillar__tag {
     font-size: 11px;
-  }
-
-  [dir="ltr"] .sd-pillar__tag {
-    font-size: 9px;
-    line-height: 1.25;
   }
 
   .sd-vm__label {
@@ -778,6 +765,10 @@
 
   .sd-pillars__title {
     font-size: 28px;
+  }
+
+  .sd-pillars.section {
+    padding-top: 32px;
   }
 
   .vision-precent {
