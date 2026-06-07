@@ -6,6 +6,7 @@
 .sd-framework {
   background: #009892;
   padding: clamp(48px, 8vw, 96px) 0 clamp(40px, 6vw, 64px);
+  overflow-x: clip;
 }
 
 .sd-framework__container,
@@ -23,7 +24,14 @@
 }
 
 .sd-framework__image {
-  overflow: hidden;
+  overflow: visible;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sd-framework__image[data-gsap-img] {
+    transform: none !important;
+  }
 }
 
 .sd-framework__image img {
@@ -274,25 +282,10 @@
   min-width: 0;
 }
 
-/* Pillar column tones — dark → light (Figma) */
-.sd-pillars__headers .sd-pillar__head:nth-child(2),
-.sd-pillars__body > .sd-pillar:nth-child(2) {
+/* Pillar columns — single solid tone */
+.sd-pillars__headers .sd-pillar__head,
+.sd-pillars__body > .sd-pillar {
   --sd-pillar-tone: #009892;
-}
-
-.sd-pillars__headers .sd-pillar__head:nth-child(3),
-.sd-pillars__body > .sd-pillar:nth-child(3) {
-  --sd-pillar-tone: #00A3A0;
-}
-
-.sd-pillars__headers .sd-pillar__head:nth-child(4),
-.sd-pillars__body > .sd-pillar:nth-child(4) {
-  --sd-pillar-tone: #5DBFB8;
-}
-
-.sd-pillars__headers .sd-pillar__head:nth-child(5),
-.sd-pillars__body > .sd-pillar:nth-child(5) {
-  --sd-pillar-tone: #9AD4CF;
 }
 
 .sd-pillar__head {
