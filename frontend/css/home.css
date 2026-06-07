@@ -1521,6 +1521,12 @@ body {
   position: relative;
 }
 
+@media(min-width:1500px) {
+  #achievements {
+    padding-bottom: 330px;
+  }
+}
+
 
 .kpi-img {
   position: absolute;

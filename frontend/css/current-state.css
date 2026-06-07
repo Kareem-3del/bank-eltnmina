@@ -48,7 +48,8 @@ h2.org-sec-title_title {
     letter-spacing: -0.54px;
 }
 
-.org-sec-list-title h2.org-sec-title_title {
+.org-sec-list-title h2.org-sec-title_title,
+.banner-section h2.org-sec-title_title {
     color: #009892 !important;
 }
 
@@ -1094,7 +1095,7 @@ h3.crr-aside__list-tile {
 }
 
 .budget-sec h2.org-sec-title_title {
-    color: #009892;
+    color: #009892 !important;
 }
 
 .budget-sec .org-sec-title {

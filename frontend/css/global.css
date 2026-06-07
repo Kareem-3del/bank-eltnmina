@@ -122,6 +122,10 @@
   font-family: "Cairo", sans-serif;
 }
 
+section {
+  margin-top: -2px;
+}
+
 .bg-main {
   background-color: var(--bg-main);
 }
@@ -1245,7 +1249,7 @@ html.lenis body {
 /* Common hero section */
 .c-hero {
   position: relative;
-  height: 514px;
+  min-height: 514px;
 }
 
 .c-hero__image-wrapper,
