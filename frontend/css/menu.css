@@ -222,6 +222,7 @@
   min-height: 0;
   grid-auto-rows: minmax(0, auto);
   overflow: hidden;
+  /* align-self: center; */
 }
 
 @media (max-width: 880px) {
@@ -259,9 +260,9 @@
 .staggered-menu__list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-self: center;
+  /* justify-content: center; */
   gap: clamp(4px, 0.5vw, 8px);
-  align-self: stretch;
   min-height: 0;
   max-height: 100%;
   overflow-y: auto;
@@ -384,8 +385,9 @@
 
 /* Active page accent */
 .staggered-menu__item.is-current .staggered-menu__link,
-.staggered-menu__dropdown-menu .is-current span {
-  color: var(--c-primary-fixed);
+.staggered-menu__dropdown-menu .is-current span,
+.staggered-menu__item .staggered-menu__link:hover {
+  color: #00C7C0
 }
 
 .staggered-menu__num {
@@ -461,6 +463,7 @@
 .staggered-menu__link:hover .staggered-menu__label::after,
 .staggered-menu__link:focus-visible .staggered-menu__label::after {
   width: 100%;
+  display: none;
 }
 
 .staggered-menu__link:hover .staggered-menu__arrow,
@@ -530,7 +533,8 @@
 }
 
 .staggered-menu__dropdown-link {
-  display: grid;
+  display: flex;
+  justify-content: center;
   grid-template-columns: auto 1fr auto;
   align-items: baseline;
   gap: 16px;
