@@ -16,7 +16,9 @@
 
   if (!window.gsap) return;
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   const isMobile = window.matchMedia("(max-width: 880px)").matches;
   const isRTL = document.documentElement.dir === "rtl";
   // The home page (identified by its bespoke .new-hero block) gets a
@@ -40,7 +42,7 @@
 
   /* ------ Lenis smooth scroll ----------------------------------------- */
   let lenis = null;
-  const staggeredMenu = document.querySelector("staggered-menu")
+  const staggeredMenu = document.querySelector("staggered-menu");
   if (window.Lenis && !reduceMotion && !isMobile) {
     lenis = new window.Lenis({
       duration: 1.15,
@@ -54,7 +56,10 @@
       gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
     } else {
-      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+      const raf = (t) => {
+        lenis.raf(t);
+        requestAnimationFrame(raf);
+      };
       requestAnimationFrame(raf);
     }
     window.__lenis = lenis;
@@ -69,9 +74,11 @@
       curtain,
       { scaleY: 1 },
       {
-        scaleY: 0, duration: 1.1, ease: "expo.inOut",
-        onComplete: () => curtain.classList.add("is-done")
-      }
+        scaleY: 0,
+        duration: 1.1,
+        ease: "expo.inOut",
+        onComplete: () => curtain.classList.add("is-done"),
+      },
     );
   } else if (curtain) {
     curtain.classList.add("is-done");
@@ -92,18 +99,54 @@
     const meta = hero.querySelector(".hero__meta");
     const visual = hero.querySelector(".mosaic, .vm, .hero__visual");
 
-    if (eyebrow) tlEnter.from(eyebrow, { y: 20, opacity: 0, duration: 0.7, ease: "power2.out" }, "-=0.6");
-    if (heading) tlEnter.from(heading, { y: 40, opacity: 0, duration: 1.0, ease: "expo.out" }, "-=0.5");
-    if (lead) tlEnter.from(lead, { y: 24, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.7");
-    if (actions) tlEnter.from(actions, { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
-    if (meta) tlEnter.from(meta, { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.5");
-    if (visual) tlEnter.from(visual, { y: 60, opacity: 0, scale: 1.05, duration: 1.2, ease: "expo.out" }, "-=0.9");
+    if (eyebrow)
+      tlEnter.from(
+        eyebrow,
+        { y: 20, opacity: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.6",
+      );
+    if (heading)
+      tlEnter.from(
+        heading,
+        { y: 40, opacity: 0, duration: 1.0, ease: "expo.out" },
+        "-=0.5",
+      );
+    if (lead)
+      tlEnter.from(
+        lead,
+        { y: 24, opacity: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.7",
+      );
+    if (actions)
+      tlEnter.from(
+        actions,
+        { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.6",
+      );
+    if (meta)
+      tlEnter.from(
+        meta,
+        { y: 18, opacity: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.5",
+      );
+    if (visual)
+      tlEnter.from(
+        visual,
+        { y: 60, opacity: 0, scale: 1.05, duration: 1.2, ease: "expo.out" },
+        "-=0.9",
+      );
   }
 
   /* ------ Header drop-in --------------------------------------------- */
   const header = document.querySelector("[data-header]");
   if (header && !reduceMotion) {
-    gsap.from(header, { y: -24, opacity: 0, duration: 0.7, ease: "power2.out", delay: 0.2 });
+    gsap.from(header, {
+      y: -24,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      delay: 0.2,
+    });
   }
 
   /* ------ AR new-hero entrance choreography -------------------------- */
@@ -134,18 +177,23 @@
         const tmp = document.createElement("div");
         tmp.innerHTML = part;
         const text = tmp.textContent.trim();
-        text.split(/\s+/).filter(Boolean).forEach((word, i, arr) => {
-          const wrap = document.createElement("span");
-          const inner = document.createElement("span");
-          wrap.className = "hero-title__word";
-          inner.className = "hero-title__inner";
-          inner.textContent = word;
-          wrap.appendChild(inner);
-          titleEl.appendChild(wrap);
-          if (i < arr.length - 1) titleEl.appendChild(document.createTextNode(" "));
-          titleWords.push(inner);
-        });
-        if (lineIdx < parts.length - 1) titleEl.appendChild(document.createElement("br"));
+        text
+          .split(/\s+/)
+          .filter(Boolean)
+          .forEach((word, i, arr) => {
+            const wrap = document.createElement("span");
+            const inner = document.createElement("span");
+            wrap.className = "hero-title__word";
+            inner.className = "hero-title__inner";
+            inner.textContent = word;
+            wrap.appendChild(inner);
+            titleEl.appendChild(wrap);
+            if (i < arr.length - 1)
+              titleEl.appendChild(document.createTextNode(" "));
+            titleWords.push(inner);
+          });
+        if (lineIdx < parts.length - 1)
+          titleEl.appendChild(document.createElement("br"));
       });
       titleEl.dataset.splitDone = "1";
     }
@@ -157,63 +205,83 @@
       defaults: { ease: "expo.out" },
       scrollTrigger: {
         trigger: newHero,
-        start: "top bottom",   // counts as entered as soon as any part shows (true on load)
-        end: "bottom top",     // only "left" once fully scrolled past
+        start: "top bottom", // counts as entered as soon as any part shows (true on load)
+        end: "bottom top", // only "left" once fully scrolled past
         toggleActions: "play reverse play reverse",
       },
     });
 
     if (imgEl) {
-      tl.from(imgEl, {
-        opacity: 0,
-        scale: 1.32,
-        rotation: 1.5,
-        duration: 1.5,
-        ease: "expo.out",
-      }, 0);
+      tl.from(
+        imgEl,
+        {
+          opacity: 0,
+          scale: 1.32,
+          rotation: 1.5,
+          duration: 1.5,
+          ease: "expo.out",
+        },
+        0,
+      );
     }
 
     if (titleWords.length) {
       gsap.set(titleWords, { yPercent: 110 });
-      tl.to(titleWords, {
-        yPercent: 0,
-        duration: 1.1,
-        stagger: 0.08,
-      }, 0.15);
+      tl.to(
+        titleWords,
+        {
+          yPercent: 0,
+          duration: 1.1,
+          stagger: 0.08,
+        },
+        0.15,
+      );
     } else if (titleEl) {
       tl.from(titleEl, { y: 40, opacity: 0, duration: 1.0 }, 0.15);
     }
 
     if (textEl) {
-      tl.from(textEl, {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      }, "-=0.6");
+      tl.from(
+        textEl,
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6",
+      );
     }
 
     if (counters.length) {
-      tl.from(counters, {
-        y: 70,
-        scale: 0.8,
-        rotationX: -60,
-        transformPerspective: 700,
-        transformOrigin: "50% 100%",
-        opacity: 0,
-        duration: 0.9,
-        ease: "back.out(1.8)",
-        stagger: 0.12,
-      }, "-=0.45");
+      tl.from(
+        counters,
+        {
+          y: 70,
+          scale: 0.8,
+          rotationX: -60,
+          transformPerspective: 700,
+          transformOrigin: "50% 100%",
+          opacity: 0,
+          duration: 0.9,
+          ease: "back.out(1.8)",
+          stagger: 0.12,
+        },
+        "-=0.45",
+      );
     }
 
     if (btnEl) {
-      tl.from(btnEl, {
-        scale: 0.7,
-        opacity: 0,
-        duration: 0.7,
-        ease: "back.out(2.4)",
-      }, "-=0.30");
+      tl.from(
+        btnEl,
+        {
+          scale: 0.7,
+          opacity: 0,
+          duration: 0.7,
+          ease: "back.out(2.4)",
+        },
+        "-=0.30",
+      );
     }
 
     // Subtle ambient float on the portrait — runs forever, sine in/out.
@@ -232,7 +300,8 @@
     // hero. Uses yPercent only — the entrance owns scale/opacity/rotation and
     // the float owns the frame's y, so there is no transform clash.
     if (imgEl && ScrollTrigger) {
-      gsap.fromTo(imgEl,
+      gsap.fromTo(
+        imgEl,
         { yPercent: 0 },
         {
           yPercent: -24,
@@ -243,13 +312,16 @@
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
     }
   } else if (newHero && reduceMotion) {
     // With reduced-motion preference, snap to final state — no transforms.
-    newHero.querySelectorAll(".hero-title, .hero-text, .counter-item, .custom-btn, .hero-image img")
-      .forEach(el => gsap.set(el, { clearProps: "all", opacity: 1 }));
+    newHero
+      .querySelectorAll(
+        ".hero-title, .hero-text, .counter-item, .custom-btn, .hero-image img",
+      )
+      .forEach((el) => gsap.set(el, { clearProps: "all", opacity: 1 }));
   }
 
   /* ------ Reveal-on-scroll (.reveal / utility classes) --------------- */
@@ -258,15 +330,17 @@
   /* ------ Reveal-on-scroll (.reveal / utility classes) --------------- */
   // Royal cards and the CEO message run their own choreography below; exclude
   // them from the generic reveal pass so they don't double-animate.
-  const revealEls = document.querySelectorAll(".reveal:not([data-royal]):not([data-ceo-message]), .anim-fadeinup, .anim-zoomin");
+  const revealEls = document.querySelectorAll(
+    ".reveal:not([data-royal]):not([data-ceo-message]), .anim-fadeinup, .anim-zoomin",
+  );
   if (revealEls.length && ScrollTrigger) {
     if (reduceMotion) {
-      revealEls.forEach(el => {
+      revealEls.forEach((el) => {
         el.classList.add("is-visible");
         gsap.set(el, { clearProps: "all" });
       });
     } else {
-      revealEls.forEach(el => {
+      revealEls.forEach((el) => {
         const isZoom = el.classList.contains("anim-zoomin");
 
         // تعديل ذكي: تقليل مسافة الـ y من 60 إلى 30 لتقليل جهد الحسابات (Reflow) للمتصفح أثناء السكرول السريع
@@ -298,7 +372,9 @@
   }
 
   /* ------ Strategic framework image — slide from edge to center ------- */
-  const sdFrameworkImages = document.querySelectorAll(".sd-framework__image[data-gsap-img]");
+  const sdFrameworkImages = document.querySelectorAll(
+    ".sd-framework__image[data-gsap-img]",
+  );
   if (sdFrameworkImages.length && ScrollTrigger && !reduceMotion) {
     const sdMq = window.matchMedia("(max-width: 1024px)");
 
@@ -311,7 +387,10 @@
       }
 
       const edgeInset = 26;
-      const gap = Math.max(0, isRTL ? window.innerWidth - rect.right : rect.left);
+      const gap = Math.max(
+        0,
+        isRTL ? window.innerWidth - rect.right : rect.left,
+      );
       const offset = Math.max(0, gap - edgeInset);
       return { x: isRTL ? offset : -offset, y: 0 };
     };
@@ -329,7 +408,7 @@
 
       const scrollOpts = {
         trigger: wrapper,
-        start: "50% bottom",
+        start: "40% bottom",
         end: "center center",
         scrub: 1.4,
         invalidateOnRefresh: true,
@@ -354,13 +433,16 @@
   }
 
   /* ------ Specialized Image Zoom Reveal (Anti-Jump) ------------------ */
-  const gsapImages = document.querySelectorAll("[data-gsap-img]:not(.sd-framework__image)");
+  const gsapImages = document.querySelectorAll(
+    "[data-gsap-img]:not(.sd-framework__image)",
+  );
   if (gsapImages.length && ScrollTrigger && !reduceMotion) {
-    gsapImages.forEach(wrapper => {
+    gsapImages.forEach((wrapper) => {
       const img = wrapper.querySelector("img");
       if (!img) return;
 
-      gsap.fromTo(img,
+      gsap.fromTo(
+        img,
         { scale: 1.15, opacity: 0 },
         {
           scale: 1,
@@ -372,9 +454,9 @@
             trigger: wrapper,
             start: "top 92%", // يبدأ التحريك قبل ظهور الحاوية تماماً للعين
             toggleActions: "play none none reverse",
-            fastScrollEnd: true
-          }
-        }
+            fastScrollEnd: true,
+          },
+        },
       );
     });
   }
@@ -392,7 +474,7 @@
       { sel: ".footer__grid", child: ":scope > *" },
     ];
     staggerGroups.forEach(({ sel, child }) => {
-      document.querySelectorAll(sel).forEach(group => {
+      document.querySelectorAll(sel).forEach((group) => {
         const children = group.querySelectorAll(child);
         if (!children.length) return;
         gsap.from(children, {
@@ -411,10 +493,11 @@
     });
 
     /* ------ Board roster — per-row slide-in from start edge -------- */
-    document.querySelectorAll(".board-roster").forEach(roster => {
+    document.querySelectorAll(".board-roster").forEach((roster) => {
       const rows = roster.querySelectorAll(".board-roster__row");
       if (!rows.length) return;
-      const isRTL = (document.documentElement.dir || "").toLowerCase() === "rtl";
+      const isRTL =
+        (document.documentElement.dir || "").toLowerCase() === "rtl";
       const fromX = isRTL ? 28 : -28;
       gsap.from(rows, {
         x: fromX,
@@ -441,62 +524,109 @@
     //   · body copy → rise from below                 (fadeInUp)
     // Anything already wired into a bespoke timeline opts out below, and
     // content INSIDE a revealing card rides with the card (no double-move).
-    const CARD_SEL = ".card,.kpi-card,.kpi-bar,.box,.finbox,.na-inv__card,.na-kpi__card,.starting-sec__box,.intro-box__item,.banner-stat";
+    const CARD_SEL =
+      ".card,.kpi-card,.kpi-bar,.box,.finbox,.na-inv__card,.na-kpi__card,.starting-sec__box,.intro-box__item,.banner-stat";
 
     const autoSelectors = [
       "section p",
-      "section h1", "section h2", "section h3", "section h4",
+      "section h1",
+      "section h2",
+      "section h3",
+      "section h4",
       "section li",
       "section figure",
       "section blockquote",
       "section img:not([data-gsap-img] img)",
-      "section .btn", "section .rmbtn", "section .cta",
-      ".card", ".kpi-card", ".kpi-bar", ".na-inv__card", ".na-kpi__card",
-      ".starting-sec__box", ".gov-enbl-sec .box", ".box", ".finbox", ".pillar-row",
+      "section .btn",
+      "section .rmbtn",
+      "section .cta",
+      ".card",
+      ".kpi-card",
+      ".kpi-bar",
+      ".na-inv__card",
+      ".na-kpi__card",
+      ".starting-sec__box",
+      ".gov-enbl-sec .box",
+      ".box",
+      ".finbox",
+      ".pillar-row",
       ".msg-sec__content-desc, .msg-sec__content-desc2",
-      ".banner-stat", ".intro-box__item", ".stat", ".kpi-card__label",
+      ".banner-stat",
+      ".intro-box__item",
+      ".stat",
+      ".kpi-card__label",
     ].join(",");
 
     const skipMatcher = [
-      ".reveal", ".anim-fadeinup", ".anim-zoomin",
-      ".no-auto-reveal", "[data-royal]", "[data-ceo-message]",
-      ".hero *", ".page-head *", ".contact-hero *", ".new-hero *",
-      ".banner-stat__num *", "[data-counter]",
+      ".reveal",
+      ".anim-fadeinup",
+      ".anim-zoomin",
+      ".no-auto-reveal",
+      "[data-royal]",
+      "[data-ceo-message]",
+      ".hero *",
+      ".page-head *",
+      ".contact-hero *",
+      ".new-hero *",
+      ".banner-stat__num *",
+      "[data-counter]",
       "[data-auto-reveal-done]",
     ].join(",");
 
     // Pick a direction-aware from-state for one element. `i` is its index
     // among its siblings, used to alternate the side-drift on cards so a
     // row of boxes fans in from left/right rather than all from one axis.
-    const slideX = isRTL ? (isHome ? -70 : -34) : (isHome ? 70 : 34);
+    const slideX = isRTL ? (isHome ? -70 : -34) : isHome ? 70 : 34;
     function autoRevealFrom(el, i) {
-      if (el.matches("h1,h2,h3,h4,.eyebrow,.section-header h2,.kpi-card__label,.stat__label")) {
+      if (
+        el.matches(
+          "h1,h2,h3,h4,.eyebrow,.section-header h2,.kpi-card__label,.stat__label",
+        )
+      ) {
         // headings: drop in from above — on home they tilt down in 3D
         return isHome
-          ? { opacity: 0, y: -64, rotationX: -55, transformPerspective: 800, transformOrigin: "50% 100%" }
-          : { opacity: 0, y: -26 };                          // fadeInDown
+          ? {
+              opacity: 0,
+              y: -64,
+              rotationX: -55,
+              transformPerspective: 800,
+              transformOrigin: "50% 100%",
+            }
+          : { opacity: 0, y: -26 }; // fadeInDown
       }
       if (el.matches("img,figure,picture,.btn,.rmbtn,.cta")) {
         return isHome
           ? { opacity: 0, scale: 1.28, y: 26 }
-          : { opacity: 0, scale: 1.08, y: 10 };              // zoomIn
+          : { opacity: 0, scale: 1.08, y: 10 }; // zoomIn
       }
       if (el.matches(CARD_SEL)) {
-        const drift = (i % 2 === 0) ? -slideX : slideX;      // fadeInUp + alt side
+        const drift = i % 2 === 0 ? -slideX : slideX; // fadeInUp + alt side
         return isHome
-          ? { opacity: 0, y: 80, x: drift, scale: 0.86, rotationY: (i % 2 === 0 ? -22 : 22), transformPerspective: 900 }
+          ? {
+              opacity: 0,
+              y: 80,
+              x: drift,
+              scale: 0.86,
+              rotationY: i % 2 === 0 ? -22 : 22,
+              transformPerspective: 900,
+            }
           : { opacity: 0, y: 30, x: drift, scale: 1.02 };
       }
       return isHome
         ? { opacity: 0, y: 64, scale: 0.94 }
-        : { opacity: 0, y: 28 };                             // fadeInUp (default)
+        : { opacity: 0, y: 28 }; // fadeInUp (default)
     }
 
-    const autoEls = Array.from(document.querySelectorAll(autoSelectors))
-      .filter(el => {
+    const autoEls = Array.from(document.querySelectorAll(autoSelectors)).filter(
+      (el) => {
         if (el.matches(skipMatcher)) return false;
         // skip if any ancestor already owns a timeline
-        if (el.closest("[data-royal], [data-ceo-message], .hero, .page-head, .contact-hero, .new-hero")) return false;
+        if (
+          el.closest(
+            "[data-royal], [data-ceo-message], .hero, .page-head, .contact-hero, .new-hero",
+          )
+        )
+          return false;
         // content inside a revealing card rides WITH the card — don't move it too
         const cardAncestor = el.closest(CARD_SEL);
         if (cardAncestor && cardAncestor !== el) return false;
@@ -504,17 +634,23 @@
         const r = el.getBoundingClientRect();
         if (r.width < 24 && r.height < 24) return false;
         return true;
-      });
+      },
+    );
 
     // Each element gets its OWN ScrollTrigger-owned fromTo — the same proven
     // pattern as the `.reveal` pass and stagger groups above. This fires
     // correctly for elements already in the viewport at load (a batch would
     // not), and survives ScrollTrigger.refresh() without freezing mid-tween.
     // A small per-sibling delay gives a row of items a staggered feel.
-    autoEls.forEach(el => {
-      const sibIdx = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+    autoEls.forEach((el) => {
+      const sibIdx = el.parentNode
+        ? Array.prototype.indexOf.call(el.parentNode.children, el)
+        : 0;
       const toVars = {
-        opacity: 1, y: 0, x: 0, scale: 1,
+        opacity: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
         // home overshoots hard (back.out) and runs a touch longer for drama
         duration: isHome ? 1.2 : 0.95,
         ease: isHome ? "back.out(1.6)" : "power2.out",
@@ -531,14 +667,17 @@
         },
       };
       // flatten any 3D tilt the home from-state introduced
-      if (isHome) { toVars.rotationX = 0; toVars.rotationY = 0; }
+      if (isHome) {
+        toVars.rotationX = 0;
+        toVars.rotationY = 0;
+      }
       gsap.fromTo(el, autoRevealFrom(el, sibIdx), toVars);
     });
 
     /* ------ Table-row reveal (financial tables) ------------------------ */
     // Each data table's body rows stagger up as the table enters view —
     // gives the dense financial pages a sense of the numbers populating.
-    document.querySelectorAll("table tbody").forEach(tbody => {
+    document.querySelectorAll("table tbody").forEach((tbody) => {
       const rows = tbody.querySelectorAll("tr");
       if (rows.length < 2) return;
       gsap.from(rows, {
@@ -591,7 +730,7 @@
     if (!el || el.dataset.pullSplitDone) {
       // Already processed once; pull cached references off the element.
       const cachedWords = Array.from(el.querySelectorAll(".split-word__inner"));
-      const cachedNums = (el.__pullNumbers || []);
+      const cachedNums = el.__pullNumbers || [];
       return { words: cachedWords, numbers: cachedNums };
     }
     const words = [];
@@ -660,7 +799,7 @@
     const titleWords = title ? splitIntoWords(title) : [];
 
     if (reduceMotion) {
-      royalCards.forEach(card => {
+      royalCards.forEach((card) => {
         card.classList.add("is-visible");
         gsap.set(card, { clearProps: "all" });
       });
@@ -678,15 +817,20 @@
 
       if (eyebrow) master.from(eyebrow, { y: 14, opacity: 0, duration: 0.4 });
       if (titleWords.length) {
-        master.from(titleWords, {
-          y: "100%",
-          opacity: 0,
-          duration: 0.55,
-          stagger: 0.04,
-          ease: "power3.out",
-        }, "-=0.25");
+        master.from(
+          titleWords,
+          {
+            y: "100%",
+            opacity: 0,
+            duration: 0.55,
+            stagger: 0.04,
+            ease: "power3.out",
+          },
+          "-=0.25",
+        );
       }
-      if (lead) master.from(lead, { y: 14, opacity: 0, duration: 0.45 }, "-=0.35");
+      if (lead)
+        master.from(lead, { y: 14, opacity: 0, duration: 0.45 }, "-=0.35");
 
       royalCards.forEach((card, i) => {
         const portrait = card.querySelector(".royal-card__portrait");
@@ -706,35 +850,50 @@
         const cardTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
         if (portrait) {
-          cardTl.fromTo(portrait,
+          cardTl.fromTo(
+            portrait,
             { clipPath: "inset(0 0 100% 0)", y: 32, opacity: 0 },
-            { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 0.7 }
+            { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 0.7 },
           );
         }
         if (img) {
-          cardTl.fromTo(img,
+          cardTl.fromTo(
+            img,
             { scale: 1.12 },
             { scale: 1, duration: 0.9, ease: "power2.out" },
-            "<0.03"
+            "<0.03",
           );
         }
-        if (crown) cardTl.from(crown, { scale: 0.7, opacity: 0, duration: 0.3 }, "-=0.45");
-        if (badge) cardTl.from(badge, { y: 12, opacity: 0, duration: 0.35 }, "-=0.25");
+        if (crown)
+          cardTl.from(
+            crown,
+            { scale: 0.7, opacity: 0, duration: 0.3 },
+            "-=0.45",
+          );
+        if (badge)
+          cardTl.from(badge, { y: 12, opacity: 0, duration: 0.35 }, "-=0.25");
 
-        if (rank) cardTl.from(rank, { y: 14, opacity: 0, duration: 0.35 }, "-=0.4");
+        if (rank)
+          cardTl.from(rank, { y: 14, opacity: 0, duration: 0.35 }, "-=0.4");
         if (nameWords.length) {
-          cardTl.from(nameWords, {
-            y: "100%",
-            opacity: 0,
-            duration: 0.45,
-            stagger: 0.025,
-            ease: "power3.out",
-          }, "-=0.2");
+          cardTl.from(
+            nameWords,
+            {
+              y: "100%",
+              opacity: 0,
+              duration: 0.45,
+              stagger: 0.025,
+              ease: "power3.out",
+            },
+            "-=0.2",
+          );
         } else if (name) {
           cardTl.from(name, { y: 18, opacity: 0, duration: 0.4 }, "-=0.2");
         }
-        if (role) cardTl.from(role, { y: 14, opacity: 0, duration: 0.35 }, "-=0.25");
-        if (quote) cardTl.from(quote, { y: 16, opacity: 0, duration: 0.45 }, "-=0.2");
+        if (role)
+          cardTl.from(role, { y: 14, opacity: 0, duration: 0.35 }, "-=0.25");
+        if (quote)
+          cardTl.from(quote, { y: 16, opacity: 0, duration: 0.45 }, "-=0.2");
 
         // Cards animate with strong overlap: Crown Prince begins while King
         // is still finishing — keeps the section snappy.
@@ -778,49 +937,98 @@
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: article, start: "top 78%", toggleActions: "play none none reverse" },
+      scrollTrigger: {
+        trigger: article,
+        start: "top 78%",
+        toggleActions: "play none none reverse",
+      },
     });
 
     if (photoWrap) {
-      tl.fromTo(photoWrap,
+      tl.fromTo(
+        photoWrap,
         { clipPath: "inset(0 0 100% 0)", y: 24, opacity: 0 },
         { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 0.95 },
-        0
+        0,
       );
     }
     if (photoImg) {
-      tl.fromTo(photoImg, { scale: 1.14 }, { scale: 1, duration: 1.4, ease: "power2.out" }, 0.05);
+      tl.fromTo(
+        photoImg,
+        { scale: 1.14 },
+        { scale: 1, duration: 1.4, ease: "power2.out" },
+        0.05,
+      );
     }
-    if (name) tl.from(name, { y: 14, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.55");
-    if (role) tl.from(role, { y: 12, opacity: 0, duration: 0.45, ease: "power3.out" }, "-=0.4");
+    if (name)
+      tl.from(
+        name,
+        { y: 14, opacity: 0, duration: 0.5, ease: "power3.out" },
+        "-=0.55",
+      );
+    if (role)
+      tl.from(
+        role,
+        { y: 12, opacity: 0, duration: 0.45, ease: "power3.out" },
+        "-=0.4",
+      );
 
-    if (eyebrow) tl.from(eyebrow, { y: 14, opacity: 0, duration: 0.45 }, "-=0.85");
+    if (eyebrow)
+      tl.from(eyebrow, { y: 14, opacity: 0, duration: 0.45 }, "-=0.85");
     if (titleWords.length) {
-      tl.from(titleWords, { yPercent: 110, opacity: 0, duration: 0.7, stagger: 0.05, ease: "power3.out" }, "-=0.3");
+      tl.from(
+        titleWords,
+        {
+          yPercent: 110,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.05,
+          ease: "power3.out",
+        },
+        "-=0.3",
+      );
     } else if (titleEl) {
       tl.from(titleEl, { y: 28, opacity: 0, duration: 0.7 }, "-=0.3");
     }
 
     if (paras.length) {
-      tl.from(paras, { y: 22, opacity: 0, duration: 0.6, ease: "power3.out", stagger: 0.12 }, "-=0.35");
+      tl.from(
+        paras,
+        { y: 22, opacity: 0, duration: 0.6, ease: "power3.out", stagger: 0.12 },
+        "-=0.35",
+      );
     }
 
     if (pull) {
       const wipeFrom = isRTL ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)";
-      tl.fromTo(pull,
+      tl.fromTo(
+        pull,
         { clipPath: wipeFrom, y: 18, opacity: 0 },
-        { clipPath: "inset(0 0 0 0)", y: 0, opacity: 1, duration: 0.85, ease: "expo.out" },
-        paras.length ? "-=0.55" : "-=0.2"
+        {
+          clipPath: "inset(0 0 0 0)",
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          ease: "expo.out",
+        },
+        paras.length ? "-=0.55" : "-=0.2",
       );
     }
 
     if (photoImg) {
-      gsap.fromTo(photoImg,
+      gsap.fromTo(
+        photoImg,
         { yPercent: -3 },
         {
-          yPercent: 5, ease: "none",
-          scrollTrigger: { trigger: article, start: "top bottom", end: "bottom top", scrub: true }
-        }
+          yPercent: 5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: article,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        },
       );
     }
   }
@@ -843,7 +1051,9 @@
     const photoImg = article.querySelector(".message__photo img");
     const nameplate = article.querySelector(".message__nameplate");
     const name = article.querySelector(".message__name");
-    const roles = article.querySelectorAll(".message__nameplate .message__role");
+    const roles = article.querySelectorAll(
+      ".message__nameplate .message__role",
+    );
     const titleEl = article.querySelector(".message__title");
     const titleEm = titleEl ? titleEl.querySelector("em") : null;
     const paras = article.querySelectorAll(".message__body > p");
@@ -858,16 +1068,23 @@
       titleEl.childNodes.forEach((node) => {
         if (node.nodeType === Node.TEXT_NODE) {
           fragments.push({ kind: "text", value: node.textContent });
-        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() === "em") {
+        } else if (
+          node.nodeType === Node.ELEMENT_NODE &&
+          node.tagName.toLowerCase() === "em"
+        ) {
           fragments.push({ kind: "em", value: node.textContent });
         } else {
-          fragments.push({ kind: "html", value: node.outerHTML || node.textContent });
+          fragments.push({
+            kind: "html",
+            value: node.outerHTML || node.textContent,
+          });
         }
       });
       titleEl.innerHTML = "";
       fragments.forEach((frag, idx) => {
         const wordsArr = frag.value.trim().split(/\s+/).filter(Boolean);
-        const container = frag.kind === "em" ? document.createElement("em") : null;
+        const container =
+          frag.kind === "em" ? document.createElement("em") : null;
         const target = container || titleEl;
         wordsArr.forEach((word, i) => {
           const wrap = document.createElement("span");
@@ -877,11 +1094,13 @@
           inner.textContent = word;
           wrap.appendChild(inner);
           target.appendChild(wrap);
-          if (i < wordsArr.length - 1) target.appendChild(document.createTextNode(" "));
+          if (i < wordsArr.length - 1)
+            target.appendChild(document.createTextNode(" "));
           titleWords.push(inner);
         });
         if (container) titleEl.appendChild(container);
-        if (idx < fragments.length - 1) titleEl.appendChild(document.createTextNode(" "));
+        if (idx < fragments.length - 1)
+          titleEl.appendChild(document.createTextNode(" "));
       });
       titleEl.dataset.splitDone = "1";
     }
@@ -895,81 +1114,111 @@
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: article, start: "top 80%", toggleActions: "play none none reverse" },
+      scrollTrigger: {
+        trigger: article,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
     });
 
     if (frame) {
-      tl.fromTo(frame,
+      tl.fromTo(
+        frame,
         { clipPath: "inset(0 0 100% 0)", y: 28, opacity: 0 },
         { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 0.7 },
-        0
+        0,
       );
     } else if (photoWrap) {
-      tl.fromTo(photoWrap,
+      tl.fromTo(
+        photoWrap,
         { clipPath: "inset(0 0 100% 0)", y: 24, opacity: 0 },
         { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 0.6 },
-        0
+        0,
       );
     }
     if (photoImg) {
-      tl.fromTo(photoImg,
+      tl.fromTo(
+        photoImg,
         { scale: 1.18 },
         { scale: 1, duration: 0.95, ease: "power2.out" },
-        0.04
+        0.04,
       );
     }
     if (nameplate) {
-      tl.fromTo(nameplate,
+      tl.fromTo(
+        nameplate,
         { yPercent: 100, opacity: 0 },
         { yPercent: 0, opacity: 1, duration: 0.55, ease: "expo.out" },
-        "-=0.38"
+        "-=0.38",
       );
     }
-    if (name) tl.from(name, { y: 14, opacity: 0, duration: 0.32, ease: "power3.out" }, "-=0.35");
+    if (name)
+      tl.from(
+        name,
+        { y: 14, opacity: 0, duration: 0.32, ease: "power3.out" },
+        "-=0.35",
+      );
     if (roles.length) {
-      tl.from(roles, { y: 12, opacity: 0, duration: 0.3, ease: "power3.out", stagger: 0.05 }, "-=0.24");
+      tl.from(
+        roles,
+        { y: 12, opacity: 0, duration: 0.3, ease: "power3.out", stagger: 0.05 },
+        "-=0.24",
+      );
     }
 
     if (titleWords.length) {
-      tl.from(titleWords, {
-        yPercent: 110,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.04,
-        ease: "power3.out",
-      }, "-=0.48");
+      tl.from(
+        titleWords,
+        {
+          yPercent: 110,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.04,
+          ease: "power3.out",
+        },
+        "-=0.48",
+      );
     } else if (titleEl) {
       tl.from(titleEl, { y: 28, opacity: 0, duration: 0.45 }, "-=0.4");
     }
 
     // Accent pop on the <em> highlight word — soft scale + saturate sweep.
     if (titleEmEl) {
-      tl.fromTo(titleEmEl,
+      tl.fromTo(
+        titleEmEl,
         { scale: 0.94, filter: "saturate(0.4)" },
         { scale: 1, filter: "saturate(1)", duration: 0.45, ease: "power2.out" },
-        "-=0.25"
+        "-=0.25",
       );
     }
 
     if (paras.length) {
-      tl.from(paras, {
-        y: 24,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power3.out",
-        stagger: 0.08,
-      }, "-=0.3");
+      tl.from(
+        paras,
+        {
+          y: 24,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power3.out",
+          stagger: 0.08,
+        },
+        "-=0.3",
+      );
     }
 
     if (riyals.length) {
-      tl.from(riyals, {
-        scale: 0.6,
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.out",
-        stagger: 0.05,
-        transformOrigin: "center center",
-      }, "-=0.4");
+      tl.from(
+        riyals,
+        {
+          scale: 0.6,
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          stagger: 0.05,
+          transformOrigin: "center center",
+        },
+        "-=0.4",
+      );
     }
 
     // Pull-quote: the teal-bg banner sweeps in cleanly (no text yet,
@@ -989,21 +1238,26 @@
       // 1. Background bar sweeps in from the inline-start. With the
       //    text hidden the wipe reads as a single confident gesture.
       const wipeFrom = isRTL ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)";
-      tl.fromTo(pull,
+      tl.fromTo(
+        pull,
         { clipPath: wipeFrom, opacity: 1 },
         { clipPath: "inset(0 0 0 0)", duration: 0.55, ease: "expo.out" },
-        paras.length ? "-=0.38" : "-=0.15"
+        paras.length ? "-=0.38" : "-=0.15",
       );
 
       // 2. Words rise into the now-revealed bar.
       if (tokens.words.length) {
-        tl.to(tokens.words, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.35,
-          ease: "power3.out",
-          stagger: 0.02,
-        }, "-=0.27");
+        tl.to(
+          tokens.words,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.35,
+            ease: "power3.out",
+            stagger: 0.02,
+          },
+          "-=0.27",
+        );
       }
 
       // 3. Each .num token counts from 0 to its target value,
@@ -1011,18 +1265,23 @@
       tokens.numbers.forEach((tok, i) => {
         const proxy = { v: 0 };
         const startOffset = `-=${Math.max(0.05, 0.35 - i * 0.14)}`;
-        tl.to(proxy, {
-          v: tok.target,
-          duration: 0.6,
-          ease: "power2.out",
-          onUpdate: () => {
-            const fixed = proxy.v.toFixed(tok.decimals);
-            tok.el.textContent = Number(fixed).toLocaleString("en-US", {
-              minimumFractionDigits: tok.decimals,
-              maximumFractionDigits: tok.decimals,
-            }) + tok.suffix;
+        tl.to(
+          proxy,
+          {
+            v: tok.target,
+            duration: 0.6,
+            ease: "power2.out",
+            onUpdate: () => {
+              const fixed = proxy.v.toFixed(tok.decimals);
+              tok.el.textContent =
+                Number(fixed).toLocaleString("en-US", {
+                  minimumFractionDigits: tok.decimals,
+                  maximumFractionDigits: tok.decimals,
+                }) + tok.suffix;
+            },
           },
-        }, startOffset);
+          startOffset,
+        );
       });
     }
 
@@ -1030,12 +1289,19 @@
     // section passes through. Bigger range than the simple CEO scrub for
     // a more cinematic feel since the frame is the focal element.
     if (photoImg) {
-      gsap.fromTo(photoImg,
+      gsap.fromTo(
+        photoImg,
         { yPercent: -4 },
         {
-          yPercent: 6, ease: "none",
-          scrollTrigger: { trigger: article, start: "top bottom", end: "bottom top", scrub: 0.8 }
-        }
+          yPercent: 6,
+          ease: "none",
+          scrollTrigger: {
+            trigger: article,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        },
       );
     }
   }
@@ -1102,126 +1368,182 @@
           inner.textContent = word;
           wrap.appendChild(inner);
           titleEl.appendChild(wrap);
-          if (i < words.length - 1) titleEl.appendChild(document.createTextNode(" "));
+          if (i < words.length - 1)
+            titleEl.appendChild(document.createTextNode(" "));
           titleWords.push(inner);
         });
-        if (lineIdx < parts.length - 1) titleEl.appendChild(document.createElement("br"));
+        if (lineIdx < parts.length - 1)
+          titleEl.appendChild(document.createElement("br"));
       });
       titleEl.dataset.splitDone = "1";
     }
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: section, start: "top 78%", toggleActions: "play none none reverse" },
+      scrollTrigger: {
+        trigger: section,
+        start: "top 78%",
+        toggleActions: "play none none reverse",
+      },
     });
 
     // 1. Title + divider
     if (titleWords.length) {
-      tl.from(titleWords, {
-        yPercent: 110,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.06,
-        ease: "power3.out",
-      }, 0);
+      tl.from(
+        titleWords,
+        {
+          yPercent: 110,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.06,
+          ease: "power3.out",
+        },
+        0,
+      );
     } else if (titleEl) {
       tl.from(titleEl, { y: 30, opacity: 0, duration: 0.8 }, 0);
     }
     if (titleDiv) {
       const origin = isRTL ? "100% 50%" : "0% 50%";
-      tl.fromTo(titleDiv,
+      tl.fromTo(
+        titleDiv,
         { scaleX: 0, transformOrigin: origin, opacity: 0 },
         { scaleX: 1, opacity: 1, duration: 0.7, ease: "expo.out" },
-        "-=0.45"
+        "-=0.45",
       );
     }
 
     // 2. Portrait card + nameplate
     if (imgFrame) {
-      tl.fromTo(imgFrame,
+      tl.fromTo(
+        imgFrame,
         { clipPath: "inset(0 0 100% 0)", y: 24, opacity: 0 },
         { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 1.0 },
-        "-=0.35"
+        "-=0.35",
       );
     }
     if (imgEl) {
-      tl.fromTo(imgEl,
+      tl.fromTo(
+        imgEl,
         { scale: 1.18 },
         { scale: 1, duration: 1.5, ease: "power2.out" },
-        "<0.05"
+        "<0.05",
       );
     }
     if (overlay) {
-      tl.from(overlay, { opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.9");
-    }
-    if (innerTitle) {
-      tl.fromTo(innerTitle,
-        { yPercent: 60, opacity: 0 },
-        { yPercent: 0, opacity: 1, duration: 0.85, ease: "expo.out" },
-        "-=0.55"
+      tl.from(
+        overlay,
+        { opacity: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.9",
       );
     }
-    if (innerName) tl.from(innerName, { y: 14, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.55");
-    if (innerRole) tl.from(innerRole, { y: 12, opacity: 0, duration: 0.45, ease: "power3.out" }, "-=0.4");
+    if (innerTitle) {
+      tl.fromTo(
+        innerTitle,
+        { yPercent: 60, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 0.85, ease: "expo.out" },
+        "-=0.55",
+      );
+    }
+    if (innerName)
+      tl.from(
+        innerName,
+        { y: 14, opacity: 0, duration: 0.5, ease: "power3.out" },
+        "-=0.55",
+      );
+    if (innerRole)
+      tl.from(
+        innerRole,
+        { y: 12, opacity: 0, duration: 0.45, ease: "power3.out" },
+        "-=0.4",
+      );
     if (innerDiv) {
       const origin = isRTL ? "100% 50%" : "0% 50%";
-      tl.fromTo(innerDiv,
+      tl.fromTo(
+        innerDiv,
         { scaleX: 0, transformOrigin: origin, opacity: 0 },
         { scaleX: 1, opacity: 1, duration: 0.5, ease: "power2.out" },
-        "-=0.3"
+        "-=0.3",
       );
     }
 
     // 3. Body paragraph
     if (bodyPara) {
-      tl.from(bodyPara, { y: 22, opacity: 0, duration: 0.7, ease: "power3.out" }, "-=0.85");
+      tl.from(
+        bodyPara,
+        { y: 22, opacity: 0, duration: 0.7, ease: "power3.out" },
+        "-=0.85",
+      );
     }
 
     // 4. Rate heading + items
     if (rateHead) {
-      tl.from(rateHead, { y: 18, opacity: 0, duration: 0.55, ease: "power3.out" }, "-=0.45");
+      tl.from(
+        rateHead,
+        { y: 18, opacity: 0, duration: 0.55, ease: "power3.out" },
+        "-=0.45",
+      );
     }
     if (rateItems.length) {
-      tl.from(rateItems, {
-        y: 24,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power3.out",
-        stagger: 0.1,
-      }, "-=0.3");
+      tl.from(
+        rateItems,
+        {
+          y: 24,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: 0.1,
+        },
+        "-=0.3",
+      );
     }
     if (rateIcons.length) {
-      tl.from(rateIcons, {
-        scale: 0.55,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.1,
-        transformOrigin: "center center",
-      }, "-=0.85");
+      tl.from(
+        rateIcons,
+        {
+          scale: 0.55,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.1,
+          transformOrigin: "center center",
+        },
+        "-=0.85",
+      );
     }
 
     // 5. Counter row — values themselves run via the global counter pass.
     if (counters.length) {
-      tl.from(counters, {
-        y: 28,
-        scale: 0.94,
-        opacity: 0,
-        duration: 0.7,
-        ease: "expo.out",
-        stagger: 0.12,
-        transformOrigin: "center center",
-      }, "-=0.35");
+      tl.from(
+        counters,
+        {
+          y: 28,
+          scale: 0.94,
+          opacity: 0,
+          duration: 0.7,
+          ease: "expo.out",
+          stagger: 0.12,
+          transformOrigin: "center center",
+        },
+        "-=0.35",
+      );
     }
 
     // 6. Slow scrub on the portrait
     if (imgEl) {
-      gsap.fromTo(imgEl,
+      gsap.fromTo(
+        imgEl,
         { yPercent: -3 },
         {
-          yPercent: 5, ease: "none",
-          scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 0.8 }
-        }
+          yPercent: 5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        },
       );
     }
   });
@@ -1265,7 +1587,8 @@
         inner.textContent = word;
         wrap.appendChild(inner);
         titleEl.appendChild(wrap);
-        if (i < words.length - 1) titleEl.appendChild(document.createTextNode(" "));
+        if (i < words.length - 1)
+          titleEl.appendChild(document.createTextNode(" "));
         titleWords.push(inner);
       });
       titleEl.dataset.splitDone = "1";
@@ -1274,31 +1597,52 @@
     // Prime initial states explicitly via inline styles so the destination
     // (natural state) is unambiguous and not dictated by CSS gating.
     if (titleWords.length) gsap.set(titleWords, { yPercent: 110, opacity: 0 });
-    if (dividers.length) gsap.set(dividers, { scaleX: 0, transformOrigin: "center center" });
+    if (dividers.length)
+      gsap.set(dividers, { scaleX: 0, transformOrigin: "center center" });
     if (pin) gsap.set(pin, { scale: 0, opacity: 0 });
 
     // Title + divider timeline
     const headTl = gsap.timeline({
       defaults: { ease: "expo.out" },
-      scrollTrigger: { trigger: section, start: "top 80%", toggleActions: "play none none reverse" },
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
     });
 
     if (titleWords.length) {
       headTl.to(titleWords, {
-        yPercent: 0, opacity: 1,
-        duration: 0.5, stagger: 0.035,
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.035,
         ease: "power3.out",
       });
     }
     if (dividers.length) {
-      headTl.to(dividers, {
-        scaleX: 1, duration: 0.5, stagger: 0.05, ease: "power3.out",
-      }, "-=0.35");
+      headTl.to(
+        dividers,
+        {
+          scaleX: 1,
+          duration: 0.5,
+          stagger: 0.05,
+          ease: "power3.out",
+        },
+        "-=0.35",
+      );
     }
     if (pin) {
-      headTl.to(pin, {
-        scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)",
-      }, "-=0.18");
+      headTl.to(
+        pin,
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.3,
+          ease: "back.out(2)",
+        },
+        "-=0.18",
+      );
     }
 
     // Per-row choreography
@@ -1313,7 +1657,8 @@
       if (imageEl) gsap.set(imageEl, { overflow: "hidden" });
 
       // Prime initial states for the row.
-      if (imageEl) gsap.set(imageEl, { clipPath: "inset(0 0 100% 0)", y: 28, opacity: 0 });
+      if (imageEl)
+        gsap.set(imageEl, { clipPath: "inset(0 0 100% 0)", y: 28, opacity: 0 });
       if (imgInner) gsap.set(imgInner, { scale: 1.15 });
       if (overlay) gsap.set(overlay, { opacity: 0 });
       if (items.length) gsap.set(items, { y: 24, opacity: 0 });
@@ -1322,59 +1667,108 @@
 
       const tl = gsap.timeline({
         defaults: { ease: "expo.out" },
-        scrollTrigger: { trigger: row, start: "top 85%", toggleActions: "play none none reverse" },
+        scrollTrigger: {
+          trigger: row,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
       });
 
       // Photo card: clip-path wipe + soft zoom-out + overlay fade.
       if (imageEl) {
-        tl.to(imageEl, {
-          clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 0.65,
-        }, 0);
+        tl.to(
+          imageEl,
+          {
+            clipPath: "inset(0 0 0% 0)",
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+          },
+          0,
+        );
       }
       if (imgInner) {
-        tl.to(imgInner, {
-          scale: 1, duration: 0.9, ease: "power2.out",
-        }, 0.04);
+        tl.to(
+          imgInner,
+          {
+            scale: 1,
+            duration: 0.9,
+            ease: "power2.out",
+          },
+          0.04,
+        );
       }
       if (overlay) {
-        tl.to(overlay, {
-          opacity: 1, duration: 0.5, ease: "power2.out",
-        }, 0.1);
+        tl.to(
+          overlay,
+          {
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          0.1,
+        );
       }
 
       // Copy: per-item stagger; inside each item, title leads paragraph.
       if (items.length) {
-        tl.to(items, {
-          y: 0, opacity: 1,
-          duration: 0.4, stagger: 0.08, ease: "power3.out",
-        }, "-=0.45");
+        tl.to(
+          items,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "power3.out",
+          },
+          "-=0.45",
+        );
       }
       if (titles.length) {
-        tl.to(titles, {
-          y: 0, opacity: 1,
-          duration: 0.3, stagger: 0.06, ease: "power3.out",
-        }, "-=0.35");
+        tl.to(
+          titles,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.06,
+            ease: "power3.out",
+          },
+          "-=0.35",
+        );
       }
       if (paras.length) {
-        tl.to(paras, {
-          y: 0, opacity: 1,
-          duration: 0.35, stagger: 0.06, ease: "power3.out",
-        }, "-=0.28");
+        tl.to(
+          paras,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.35,
+            stagger: 0.06,
+            ease: "power3.out",
+          },
+          "-=0.28",
+        );
       }
 
       // Subtle parallax drift on the photo as the row travels.
       if (imgInner) {
-        gsap.fromTo(imgInner,
+        gsap.fromTo(
+          imgInner,
           { yPercent: -3 },
           {
-            yPercent: 4, ease: "none",
-            scrollTrigger: { trigger: row, start: "top bottom", end: "bottom top", scrub: 0.8 },
-          }
+            yPercent: 4,
+            ease: "none",
+            scrollTrigger: {
+              trigger: row,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.8,
+            },
+          },
         );
       }
     });
-
-
   });
 
   /* ------ Animated counters (replaces main.js) ----------------------- */
@@ -1407,7 +1801,10 @@
 
     // Search the parent (and one level up) for a unit text node or a
     // .kpi-card__unit span that immediately follows the counter span.
-    const containers = [el.parentNode, el.parentNode && el.parentNode.parentNode].filter(Boolean);
+    const containers = [
+      el.parentNode,
+      el.parentNode && el.parentNode.parentNode,
+    ].filter(Boolean);
 
     for (const container of containers) {
       if (!container) continue;
@@ -1417,7 +1814,10 @@
         const txt = unitSpan.textContent || "";
         const hit = matchUnit(txt, true);
         if (hit) {
-          unitSpan.textContent = txt.replace(hit.re, "").replace(/\s+/g, " ").trim();
+          unitSpan.textContent = txt
+            .replace(hit.re, "")
+            .replace(/\s+/g, " ")
+            .trim();
           if (!unitSpan.textContent) unitSpan.style.display = "none";
           el.dataset.expanded = "1";
           return { scale: hit.scale };
@@ -1447,7 +1847,7 @@
   document.fonts.ready.then(() => {
     const counters = document.querySelectorAll("[data-counter]");
 
-    counters.forEach(el => {
+    counters.forEach((el) => {
       const { scale } = expandUnitForCounter(el);
       let target = parseFloat(el.dataset.counter) * scale;
       let decimals = parseInt(el.dataset.decimals || "0", 10);
@@ -1512,25 +1912,29 @@
 
   /* ------ Image scrub parallax --------------------------------------- */
   if (ScrollTrigger && !reduceMotion) {
-    document.querySelectorAll(".parallax > img, .parallax > picture > img").forEach(img => {
-      gsap.fromTo(img,
-        { yPercent: -8 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: {
-            trigger: img.closest(".parallax"),
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
+    document
+      .querySelectorAll(".parallax > img, .parallax > picture > img")
+      .forEach((img) => {
+        gsap.fromTo(
+          img,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img.closest(".parallax"),
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
           },
-        }
-      );
-    });
+        );
+      });
 
     /* Mosaic photo cells get a gentle scrub too, no wrapper needed. */
-    document.querySelectorAll(".mosaic__cell--photo img").forEach(img => {
-      gsap.fromTo(img,
+    document.querySelectorAll(".mosaic__cell--photo img").forEach((img) => {
+      gsap.fromTo(
+        img,
         { yPercent: -6, scale: 1.06 },
         {
           yPercent: 6,
@@ -1541,14 +1945,15 @@
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
     });
 
     /* Banner-stat number drifts up as the section passes through view. */
     const bannerNum = document.querySelector(".banner-stat__num");
     if (bannerNum) {
-      gsap.fromTo(bannerNum,
+      gsap.fromTo(
+        bannerNum,
         { yPercent: 45, opacity: 0.25, scale: isHome ? 0.55 : 0.9 },
         {
           yPercent: -14,
@@ -1561,7 +1966,7 @@
             end: "center center",
             scrub: true,
           },
-        }
+        },
       );
     }
   }
@@ -1570,23 +1975,41 @@
   const mosaic = document.querySelector(".mosaic");
   if (mosaic && !reduceMotion && !isMobile) {
     const copy = document.querySelector(".hero__copy");
-    const xTo = gsap.quickTo(mosaic, "x", { duration: 0.8, ease: "power2.out" });
-    const yTo = gsap.quickTo(mosaic, "y", { duration: 0.8, ease: "power2.out" });
-    const xCopy = copy ? gsap.quickTo(copy, "x", { duration: 1.0, ease: "power2.out" }) : null;
-    const yCopy = copy ? gsap.quickTo(copy, "y", { duration: 1.0, ease: "power2.out" }) : null;
+    const xTo = gsap.quickTo(mosaic, "x", {
+      duration: 0.8,
+      ease: "power2.out",
+    });
+    const yTo = gsap.quickTo(mosaic, "y", {
+      duration: 0.8,
+      ease: "power2.out",
+    });
+    const xCopy = copy
+      ? gsap.quickTo(copy, "x", { duration: 1.0, ease: "power2.out" })
+      : null;
+    const yCopy = copy
+      ? gsap.quickTo(copy, "y", { duration: 1.0, ease: "power2.out" })
+      : null;
 
-    window.addEventListener("mousemove", (e) => {
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      const dx = (e.clientX - cx) / cx;
-      const dy = (e.clientY - cy) / cy;
-      xTo(dx * 12); yTo(dy * 12);
-      if (xCopy) { xCopy(dx * -6); yCopy(dy * -6); }
-    }, { passive: true });
+    window.addEventListener(
+      "mousemove",
+      (e) => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const dx = (e.clientX - cx) / cx;
+        const dy = (e.clientY - cy) / cy;
+        xTo(dx * 12);
+        yTo(dy * 12);
+        if (xCopy) {
+          xCopy(dx * -6);
+          yCopy(dy * -6);
+        }
+      },
+      { passive: true },
+    );
   }
 
   /* ------ Anchor smooth scroll (Lenis-aware) -------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const hash = link.getAttribute("href");
     if (!hash || hash === "#" || hash.length < 2) return;
 
@@ -1595,14 +2018,25 @@
       if (!target) return;
       e.preventDefault();
       const headerH = header ? header.offsetHeight : 0;
-      const offsetTop = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+      const offsetTop =
+        target.getBoundingClientRect().top + window.scrollY - headerH - 16;
 
       if (lenis) {
-        lenis.scrollTo(offsetTop, { duration: 1.2, easing: (t) => 1 - Math.pow(1 - t, 4) });
+        lenis.scrollTo(offsetTop, {
+          duration: 1.2,
+          easing: (t) => 1 - Math.pow(1 - t, 4),
+        });
       } else if (ScrollToPlugin && !reduceMotion) {
-        gsap.to(window, { duration: 1.1, scrollTo: offsetTop, ease: "expo.inOut" });
+        gsap.to(window, {
+          duration: 1.1,
+          scrollTo: offsetTop,
+          ease: "expo.inOut",
+        });
       } else {
-        window.scrollTo({ top: offsetTop, behavior: reduceMotion ? "auto" : "smooth" });
+        window.scrollTo({
+          top: offsetTop,
+          behavior: reduceMotion ? "auto" : "smooth",
+        });
       }
     });
   });
@@ -1617,9 +2051,16 @@
       // wait one frame for is-open class to apply layout
       requestAnimationFrame(() => {
         if (!navEl.classList.contains("is-open")) return;
-        gsap.fromTo(navItems,
+        gsap.fromTo(
+          navItems,
           { x: xFrom, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.05 }
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.05,
+          },
         );
       });
     });
@@ -1640,10 +2081,11 @@
 
       // Subtle ken-burns style image drift while the row passes through.
       if (img) {
-        gsap.fromTo(img,
+        gsap.fromTo(
+          img,
           { scale: 1.08, yPercent: -4 },
           {
-            scale: 1.00,
+            scale: 1.0,
             yPercent: 4,
             ease: "none",
             scrollTrigger: {
@@ -1652,13 +2094,14 @@
               end: "bottom top",
               scrub: true,
             },
-          }
+          },
         );
       }
 
       // Big ghost number rises into place + opacity-in
       if (bigNum) {
-        gsap.fromTo(bigNum,
+        gsap.fromTo(
+          bigNum,
           { yPercent: 24, opacity: 0.4 },
           {
             yPercent: -6,
@@ -1670,7 +2113,7 @@
               end: "center center",
               scrub: true,
             },
-          }
+          },
         );
       }
 
