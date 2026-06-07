@@ -6,6 +6,56 @@
     --secondary-color: #008A85
 }
 
+.page-cs .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+}
+
+.page-cs,
+.page-cs main {
+    background-color: var(--bg-main);
+}
+
+.page-cs .site-footer {
+    margin-top: 0;
+}
+
+.page-cs .op-links,
+.page-cs .op-sec {
+    background-color: var(--bg-main);
+}
+
+.page-cs .op-sec {
+    padding-block: clamp(40px, 6vw, 72px);
+}
+
+.page-cs .links-title {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-cs .op-title {
+    color: #ffffff;
+}
+
+.page-cs .op-num {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.page-cs .op-icon {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-cs .op-sec__title {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.page-cs .op-content-wrap {
+    background: #ffffff;
+    border: 1px solid #dae7e6;
+    box-shadow: 0px 8px 30px -10px rgba(1, 147, 142, 0.18);
+}
+
 /* op-links */
 .op-links {
     padding: 2rem 0;
@@ -194,7 +244,7 @@
     flex-shrink: 0;
     padding: 1.5rem;
     border: 1px solid rgba(224, 230, 235, 0.4);
-    background: linear-gradient(139.93deg, #008A85 0%, #0E7C78 100%);
+    background: #00C7C0;
     font-weight: 800;
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1;

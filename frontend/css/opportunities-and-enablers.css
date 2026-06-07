@@ -44,14 +44,19 @@
 }
 
 /* فرص وعوامل — Triptych section (25% / 50% / 25%) */
-.oe-triptych {
-  padding-block: clamp(28px, 4vw, 56px);
-  padding-bottom: clamp(16px, 2.5vw, 28px);
-  background: transparent;
+.page-oe,
+.page-oe .opportunities-and-enablers {
+  background-color: var(--bg-main);
 }
 
 .page-oe .site-footer {
-  margin-top: clamp(24px, 4vw, 48px);
+  margin-top: 0;
+}
+
+.oe-triptych {
+  padding-top: clamp(28px, 4vw, 56px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  background-color: var(--bg-main);
 }
 
 .page-oe .site-header {
@@ -108,7 +113,6 @@
   opacity: 0.95;
 }
 
-.oe-panel--opportunity .oe-panel__icon,
 .oe-panel--impact .oe-panel__icon {
   width: 44px;
   height: 44px;
@@ -158,35 +162,31 @@
   border-inline-start-color: #6b7280;
 }
 
-/* Opportunity (teal block) */
-.oe-panel--opportunity {
-  background: #01938e;
-  border: 0;
+[dir="ltr"] .oe-panel--impact .oe-panel__item {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
 }
 
-.oe-panel--opportunity .oe-panel__head {
-  background: #019591;
-  box-shadow: 0px 8px 30px rgba(1, 147, 142, 0.18);
-  border-bottom: 1.06667px solid rgba(255, 255, 255, 0.28);
+[dir="ltr"] .oe-panel--opportunity .oe-panel__head,
+[dir="ltr"] .oe-panel--impact .oe-panel__head,
+[dir="ltr"] .oe-panel--support .oe-panel__head {
+  background: linear-gradient(
+    90deg,
+    rgba(1, 147, 142, 0.05) 0%,
+    rgba(1, 147, 142, 0) 100%
+  );
 }
 
-.oe-panel--opportunity .oe-panel__title {
-  color: #ffffff;
-  font-weight: 800;
-}
-
-.oe-panel--opportunity .oe-panel__icon {
-  opacity: 0.95;
-}
-
-/* Impact + Support (frosted overlay) */
+/* Opportunity + Impact + Support (solid white cards) */
+.oe-panel--opportunity,
 .oe-panel--impact,
 .oe-panel--support {
-  background: rgba(255, 255, 255, 0.7);
+  background: #ffffff;
   border: 1px solid #dae7e6;
-  backdrop-filter: blur(12px);
 }
 
+.oe-panel--opportunity .oe-panel__head,
 .oe-panel--impact .oe-panel__head,
 .oe-panel--support .oe-panel__head {
   background: linear-gradient(
@@ -197,12 +197,24 @@
   border-bottom: 1.06667px solid #dae7e6;
 }
 
+.oe-panel--opportunity .oe-panel__title,
 .oe-panel--impact .oe-panel__title,
 .oe-panel--support .oe-panel__title {
   color: #019591;
+  font-weight: 700;
 }
 
 .oe-panel--impact .oe-panel__icon,
 .oe-panel--support .oe-panel__icon {
+  width: 44px;
+  height: 44px;
   filter: none;
+  opacity: 1;
+}
+
+.oe-panel--opportunity .oe-panel__icon {
+  width: 52px;
+  height: 52px;
+  filter: none;
+  opacity: 1;
 }
