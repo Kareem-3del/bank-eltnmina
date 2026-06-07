@@ -236,110 +236,103 @@ h3.crr-aside__list-tile {
     color: #009892;
     font-weight: 700;
     font-size: 15px;
-    line-height: 1.35;
-    padding: 13px 16px;
+    line-height: 1.4;
+    padding: 15px 18px;
 }
 
 /* leadership nodes (Board, CEO) emphasised */
 .ot-card.ot-lead {
     background: #00514d;
     color: #fff;
-}
-
-.ot-root > .ot-card.ot-lead {
-    text-align: center;
     font-size: 16px;
-    padding: 16px;
 }
 
-/* nested level: indent + a white spine, with a tick to each child */
+/* apex node (Board) sits a little taller */
+.ot-root > .ot-card.ot-lead {
+    padding: 18px;
+}
+
+/* a child group: indent under its parent with a continuous white spine */
 .ot-branch {
     position: relative;
-    padding-inline-start: 22px;
-    margin-top: 14px;
+    margin-inline-start: 9px;
 }
 
 .ot-branch > li {
     position: relative;
-    margin-top: 14px;
+    padding-inline-start: 22px;
+    padding-top: 14px;
 }
 
-.ot-branch > li:first-child {
-    margin-top: 0;
-}
-
-/* vertical spine segment for each child (full height except the last) */
+/* vertical spine: each item carries its own segment so the line is unbroken;
+   the last child stops at its connector tick instead of overrunning */
 .ot-branch > li::before {
     content: "";
     position: absolute;
-    inset-inline-start: -14px;
-    top: -14px;
-    height: calc(50% + 14px);
-    border-inline-start: 2px solid rgba(255, 255, 255, 0.6);
-}
-
-.ot-branch > li:first-child::before {
+    inset-inline-start: 0;
     top: 0;
-    height: 50%;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.55);
 }
 
-.ot-branch > li:not(:last-child)::after {
+.ot-branch > li:last-child::before {
+    bottom: auto;
+    height: 39px;
+}
+
+/* horizontal connector from spine into each card */
+.ot-branch > li::after {
     content: "";
     position: absolute;
-    inset-inline-start: -14px;
-    top: 50%;
-    bottom: -14px;
-    border-inline-start: 2px solid rgba(255, 255, 255, 0.6);
-}
-
-/* horizontal tick from spine into the card */
-.ot-branch > li > .ot-card::before,
-.ot-branch > li > .ot-panel::before,
-.ot-branch > li > .ot-grid::before {
-    content: "";
-    position: absolute;
-    inset-inline-start: -14px;
-    top: 22px;
-    width: 14px;
-    border-top: 2px solid rgba(255, 255, 255, 0.6);
-}
-
-.ot-branch > li > .ot-card,
-.ot-branch > li > .ot-grid {
-    position: relative;
+    inset-inline-start: 0;
+    top: 39px;
+    width: 22px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.55);
 }
 
 /* committee panel — header + numbered list inside one card */
 .ot-panel {
-    position: relative;
     padding: 0;
+    overflow: hidden;
 }
 
 .ot-panel-head {
-    padding: 12px 16px;
+    padding: 14px 18px;
     font-weight: 800;
-    border-bottom: 1px solid rgba(0, 152, 146, 0.18);
+    background: rgba(0, 152, 146, 0.05);
+    border-bottom: 1px solid rgba(0, 152, 146, 0.14);
 }
 
 .ot-coms {
-    padding: 6px 16px 10px;
+    padding: 4px 18px 8px;
 }
 
 .ot-coms li {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 0;
+    gap: 12px;
+    padding: 10px 0;
     font-size: 13px;
     font-weight: 600;
+    border-top: 1px solid rgba(0, 152, 146, 0.1);
+}
+
+.ot-coms li:first-child {
+    border-top: 0;
+}
+
+.ot-coms li > :last-child {
+    flex: 1;
 }
 
 .ot-num {
     flex: none;
+    min-width: 20px;
     color: #009892;
     font-weight: 800;
     font-size: 12px;
-    opacity: 0.85;
 }
 
 /* department grid (CEO's divisions) */
@@ -350,13 +343,13 @@ h3.crr-aside__list-tile {
 }
 
 .ot-grid .ot-dept {
-    padding: 12px;
+    padding: 14px 10px;
     font-size: 13px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 56px;
+    min-height: 60px;
 }
 
 @media (max-width: 360px) {
