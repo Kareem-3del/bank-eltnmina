@@ -1,60 +1,171 @@
 /* ==========================================================================
    executive-summary-en.css — English (LTR) overrides
-   ==========================================================================
-   This page reuses the same section structure and base styles from
-   `css/executive-summary.css` (built for the Arabic version), while flipping
-   direction/alignment where needed for English.
-*/
+   ========================================================================== */
 
 .es-page--en {
   direction: ltr;
+  font-family: "Public Sans", "Almarai", sans-serif;
 }
 
-.es-page--en .es-hero,
-.es-page--en .es-section,
-.es-page--en .es-intro-card,
-.es-page--en .es-monthly,
-.es-page--en .es-dev,
-.es-page--en .es-services {
-  direction: ltr;
+.es-page--en .c-hero__breadcrumb {
+  justify-content: flex-start;
 }
 
-.es-page--en .es-intro-card p,
-.es-page--en .es-monthly__desc,
-.es-page--en .es-dev__desc,
+.es-page--en img {
+  transform: none !important;
+}
+
+/* -----------------------------------------------------------------------
+   Overview — programs left, strategy right (same row)
+   DOM order: stack first, strategy second
+   ----------------------------------------------------------------------- */
+.es-page--en .es-overview__grid {
+  grid-template-columns: minmax(0, 1020fr) minmax(0, 403fr);
+  grid-template-rows: auto;
+  align-items: stretch;
+}
+
+.es-page--en .es-overview__stack,
+.es-page--en .es-panel--strategy {
+  grid-row: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .es-page--en .es-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .es-page--en .es-overview__stack,
+  .es-page--en .es-panel--strategy {
+    grid-row: auto;
+  }
+
+  .es-page--en .es-panel--strategy {
+    order: -1;
+  }
+}
+
+/* Left column — programs & deposit (content faces inward like AR) */
+.es-page--en .es-overview .es-panel--programs .es-panel__head,
+.es-page--en .es-overview .es-panel--programs .es-panel__text,
+.es-page--en .es-overview .es-panel--programs .es-panel__subhead,
+.es-page--en .es-overview .es-panel--deposit .es-panel__head {
+  text-align: right;
+}
+
+.es-page--en .es-overview .es-panel--programs .es-program-stat {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.es-page--en .es-overview .es-program-stat__icon {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.es-page--en .es-overview .es-program-stat__text {
+  grid-column: 1;
+  text-align: right;
+}
+
+.es-page--en .es-overview .es-program-stat__top {
+  align-items: flex-end;
+}
+
+.es-page--en .es-overview .es-program-stat__value {
+  text-align: right;
+}
+
+/* Right column — strategy */
+.es-page--en .es-overview .es-panel--strategy .es-panel__head,
+.es-page--en .es-overview .es-panel--strategy .es-panel__text,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__cap,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__num,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__unit,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__figure {
+  text-align: right;
+}
+
+.es-page--en .es-overview .es-panel--strategy .es-panel__text {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric {
+  flex-direction: row-reverse;
+}
+
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__figure {
+  align-items: flex-end;
+}
+
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__unit-row {
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+/* Deposit row — % on the right like AR */
+.es-page--en .es-overview .es-panel__body--deposit {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.es-page--en .es-overview .es-deposit__desc {
+  text-align: right;
+}
+
+/* Services & dev */
+.es-page--en .es-services__head,
+.es-page--en .es-dev__head {
+  align-items: flex-start;
+  text-align: left;
+}
+
 .es-page--en .es-services__desc,
-.es-page--en .es-channel-card__kpi-label {
+.es-page--en .es-dev__desc {
   text-align: left;
 }
 
-.es-page--en .es-monthly__title,
-.es-page--en .es-dev__title,
-.es-page--en .es-services__title,
-.es-page--en .es-services__subtitle {
+.es-page--en .es-financing-banner__title {
+  text-align: left;
+}
+
+/* Advisor */
+.es-page--en .es-advisor2__stats {
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+}
+
+.es-page--en .es-advisor2__channel,
+.es-page--en .es-advisor2__channel-title,
+.es-page--en .es-advisor2__channel-label {
   text-align: left;
   align-items: flex-start;
 }
 
-.es-page--en .es-services__kpi,
-.es-page--en .es-channel-card__kpi {
-  text-align: left;
-  align-items: flex-start;
+.es-page--en .es-advisor2__channels {
+  justify-content: flex-start;
 }
 
-/* Ensure Latin numerals keep their formatting (e.g., 52.7, 613.6). */
+@media (max-width: 640px) {
+  .es-page--en .es-financing-banner__num {
+    padding-inline: 6px;
+  }
+}
+
+/* Latin numerals */
 .es-page--en .es-num {
-  /* direction: ltr; */
   unicode-bidi: isolate;
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
-/* In English, percent comes after number (e.g. 86%). */
-.es-page--en .es-percent-card strong {
+/* Percent suffix for EN (86%) */
+.es-page--en .es-percent-card strong,
+.es-page--en .es-digital-card__pct {
   direction: ltr;
   unicode-bidi: isolate;
 }
 
-/* Flip the % marker from prefix to suffix for EN. */
 .es-page--en .es-percent-card strong[data-pct]::before,
 .es-page--en .es-digital-card__pct[data-pct]::before {
   content: none;
@@ -63,20 +174,4 @@
 .es-page--en .es-percent-card strong[data-pct]::after,
 .es-page--en .es-digital-card__pct[data-pct]::after {
   content: "%";
-}
-
-/* Breadcrumb aligns left in LTR. */
-.es-page--en .c-hero__breadcrumb {
-  justify-content: flex-start;
-}
-
-/* Title rule image should not be mirrored in LTR contexts. */
-.es-page--en img {
-  transform: none !important;
-}
-
-@media (max-width: 640px) {
-  .es-page--en .es-financing-banner__num {
-    padding-inline: 6px;
-  }
 }
