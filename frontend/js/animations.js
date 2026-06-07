@@ -297,8 +297,64 @@
     }
   }
 
+  /* ------ Strategic framework image — slide from edge to center ------- */
+  const sdFrameworkImages = document.querySelectorAll(".sd-framework__image[data-gsap-img]");
+  if (sdFrameworkImages.length && ScrollTrigger && !reduceMotion) {
+    const sdMq = window.matchMedia("(max-width: 1024px)");
+
+    const getSdFrameworkOffset = (wrapper) => {
+      gsap.set(wrapper, { x: 0, y: 0 });
+      const rect = wrapper.getBoundingClientRect();
+
+      if (sdMq.matches) {
+        return { x: 0, y: 32 };
+      }
+
+      const edgeInset = 26;
+      const gap = Math.max(0, isRTL ? window.innerWidth - rect.right : rect.left);
+      const offset = Math.max(0, gap - edgeInset);
+      return { x: isRTL ? offset : -offset, y: 0 };
+    };
+
+    sdFrameworkImages.forEach((wrapper) => {
+      const img = wrapper.querySelector("img");
+      if (!img) return;
+
+      const applySdFrameworkSlide = () => {
+        gsap.set(wrapper, getSdFrameworkOffset(wrapper));
+        gsap.set(img, { scale: 1.03 });
+      };
+
+      applySdFrameworkSlide();
+
+      const scrollOpts = {
+        trigger: wrapper,
+        start: "50% bottom",
+        end: "center center",
+        scrub: 1.4,
+        invalidateOnRefresh: true,
+        onRefresh: applySdFrameworkSlide,
+      };
+
+      gsap.to(wrapper, {
+        x: 0,
+        y: 0,
+        ease: "none",
+        scrollTrigger: scrollOpts,
+      });
+
+      gsap.to(img, {
+        scale: 1,
+        ease: "none",
+        scrollTrigger: scrollOpts,
+      });
+    });
+
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+  }
+
   /* ------ Specialized Image Zoom Reveal (Anti-Jump) ------------------ */
-  const gsapImages = document.querySelectorAll("[data-gsap-img]");
+  const gsapImages = document.querySelectorAll("[data-gsap-img]:not(.sd-framework__image)");
   if (gsapImages.length && ScrollTrigger && !reduceMotion) {
     gsapImages.forEach(wrapper => {
       const img = wrapper.querySelector("img");
