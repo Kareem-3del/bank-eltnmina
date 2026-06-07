@@ -274,6 +274,7 @@
   align-self: center;
   /* justify-content: center; */
   gap: clamp(4px, 0.5vw, 8px);
+  gap: 16px;
   min-height: 0;
   max-height: 100%;
   overflow-y: auto;
@@ -281,8 +282,17 @@
   touch-action: pan-y;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  scrollbar-width: 0;
   scrollbar-color: rgba(255, 255, 255, 0.24) rgba(255, 255, 255, 0.08);
+}
+
+.staggered-menu__list {
+
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .staggered-menu__list::-webkit-scrollbar {
@@ -443,6 +453,10 @@
     transform var(--d-base) var(--ease-out);
 }
 
+.staggered-menu__arrow {
+  display: none;
+}
+
 [dir="rtl"] .staggered-menu__arrow {
   transform: rotate(-135deg);
 }
@@ -545,7 +559,7 @@
 
 .staggered-menu__dropdown-link {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   grid-template-columns: auto 1fr auto;
   align-items: baseline;
   gap: 16px;
