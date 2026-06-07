@@ -25,7 +25,7 @@
 
 @media (min-width: 1025px) {
   .sd-vm {
-    margin-top: -100px;
+    margin-top: -76px;
   }
 
   .sd-framework__image {
@@ -72,7 +72,7 @@
   font-size: clamp(28px, 4vw, 48px);
   line-height: 1;
   letter-spacing: -0.48px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: right;
   margin: 0;
 }
@@ -87,7 +87,7 @@
   font-weight: 400;
   font-size: clamp(16px, 1.6vw, 18px);
   line-height: clamp(28px, 3vw, 36px);
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: right;
   margin: 0;
 }
@@ -110,13 +110,13 @@
   font-size: clamp(22px, 2.5vw, 30px);
   line-height: 1.1;
   letter-spacing: -0.24px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   margin: 0;
 }
 
 .sd-vm__bar {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 24px);
   min-height: 60px;
   display: flex;
@@ -176,7 +176,7 @@
 
 /* ------ Strategic Pillars grid ------------------------------------------- */
 .sd-pillars {
-  background: #FFFFFF;
+  background: #ffffff;
   padding-block: 80px 96px;
 }
 
@@ -185,7 +185,7 @@
   font-size: 48px;
   line-height: 48px;
   letter-spacing: -0.48px;
-  color: #00948F;
+  color: #00948f;
   text-align: center;
   margin: 0 0 64px;
 }
@@ -273,7 +273,7 @@
   font-size: 25px;
   line-height: 48px;
   letter-spacing: -0.48px;
-  color: #FFFFFF;
+  color: #ffffff;
   white-space: nowrap;
   padding: 16px 0;
 }
@@ -296,7 +296,7 @@
 
 .sd-pillar__head {
   background: var(--sd-pillar-tone, #009892);
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
@@ -320,7 +320,7 @@
 
 .sd-pillar__tag {
   background: var(--sd-pillar-tone, #009892);
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 800;
   font-size: 13px;
   line-height: 14px;
@@ -334,7 +334,7 @@
 
 .sd-pillar__desc {
   background: var(--sd-pillar-tone, #009892);
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
@@ -352,7 +352,7 @@
 
 /* ------ Vision 2030 target ----------------------------------------------- */
 .vision-sec {
-  background: linear-gradient(106.97deg, #005C59 0%, #008F85 50%, #1FAD9F 100%);
+  background: linear-gradient(106.97deg, #005c59 0%, #008f85 50%, #1fad9f 100%);
   position: relative;
   overflow: hidden;
 }
@@ -364,7 +364,7 @@
   height: 288px;
   top: 40px;
   inset-inline-start: 40px;
-  background: #FFFFFF;
+  background: #ffffff;
   filter: blur(32px);
   border-radius: 9999px;
   opacity: 0.1;
@@ -413,7 +413,7 @@
   top: -40px;
   inset-inline-start: -40px;
   border-radius: 50%;
-  background: #00948F;
+  background: #00948f;
   filter: blur(64px);
   pointer-events: none;
 }
@@ -425,7 +425,7 @@
   width: fit-content;
   font-size: 14px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   align-self: start;
   text-align: center;
 }
@@ -435,7 +435,7 @@
   font-size: 48px;
   line-height: 48px;
   letter-spacing: -0.48px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -443,7 +443,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 36px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -455,7 +455,7 @@
   font-weight: 700;
   font-size: 224px;
   line-height: 1;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -466,7 +466,7 @@
 
 .vision-precent__symbol,
 .vision-precent span:last-child {
-  color: #22C3B3;
+  color: #22c3b3;
   font-weight: 700;
 }
 
@@ -481,7 +481,7 @@
 
 /* ------ Vision 2030 program goals ---------------------------------------- */
 .sd-goals {
-  background: #FFFFFF;
+  background: #ffffff;
   padding-block: 80px 96px;
 }
 
@@ -491,7 +491,7 @@
 }
 
 .sd-goals__header {
-  background: #00A7A3;
+  background: #00a7a3;
   min-height: 77px;
   display: flex;
   align-items: center;
@@ -507,12 +507,12 @@
   font-size: 30px;
   line-height: 1.4;
   letter-spacing: -0.48px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
 }
 
 .sd-goals__body {
-  background: #D9E8E9;
+  background: #d9e8e9;
   padding: 0 24px;
   position: relative;
 }
@@ -550,14 +550,14 @@
 .sd-goals__line {
   width: 3px;
   height: 35px;
-  background: #008A85;
+  background: #008a85;
   flex-shrink: 0;
 }
 
 .sd-goals__card > p {
   margin: 0;
-  background: #00A6A3;
-  color: #FFFFFF;
+  background: #00a6a3;
+  color: #ffffff;
   font-weight: 500;
   font-size: 23px;
   line-height: 25px;
@@ -791,7 +791,12 @@
 
 /* ------ Legacy layout (EN page — remove when EN is refactored) ------------ */
 .layer-sec {
-  background: linear-gradient(197.49deg, #DBF0EE -0.21%, #F7F8F8 23.75%, #FCFCFC 47.71%);
+  background: linear-gradient(
+    197.49deg,
+    #dbf0ee -0.21%,
+    #f7f8f8 23.75%,
+    #fcfcfc 47.71%
+  );
 }
 
 .layer-container {
@@ -821,14 +826,14 @@
   font-size: 48px;
   line-height: 48px;
   letter-spacing: -0.48px;
-  color: #00948F;
+  color: #00948f;
 }
 
 .layer-desc {
   font-weight: 400;
   font-size: 16px;
   line-height: 32px;
-  color: #526F6F;
+  color: #526f6f;
 }
 
 .layer-title.title {
@@ -848,7 +853,7 @@
   background: rgba(255, 255, 255, 0.8);
   display: flex;
   flex-direction: column;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   gap: 10px;
 }
 
@@ -861,7 +866,7 @@
 .strategy-box__item .box-top .num-box {
   height: 48px;
   width: 48px;
-  background: #E0F5F3;
+  background: #e0f5f3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -872,28 +877,28 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  color: #00948F;
+  color: #00948f;
 }
 
 .strategy-box__item p {
   font-weight: 400;
   font-size: 18px;
   line-height: 36px;
-  color: #526F6F;
+  color: #526f6f;
 }
 
 .strategy-box__item:first-child {
-  background: linear-gradient(119.41deg, #0F8481 0%, #00948F 100%);
+  background: linear-gradient(119.41deg, #0f8481 0%, #00948f 100%);
 }
 
 .strategy-box__item:first-child .box-top .num-box {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 0;
 }
 
 .strategy-box__item:first-child h3,
 .strategy-box__item:first-child p {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .main-box {
@@ -907,14 +912,14 @@
   flex-direction: column;
   gap: 32px;
   padding: 32px 16px;
-  border: 1px solid #E2E8F0;
-  background: #FFFFFF;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
 }
 
 .main-item .num-box {
   height: 56px;
   width: 56px;
-  background: #E0F5F3;
+  background: #e0f5f3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -924,7 +929,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 27.5px;
-  color: #00948F;
+  color: #00948f;
 }
 
 .main-item ul {
@@ -942,8 +947,8 @@
 
 .main-item ul li div:first-child {
   padding: 4px;
-  background: #00948F;
-  color: #FFF;
+  background: #00948f;
+  color: #fff;
   font-weight: 600;
   font-size: 10px;
   line-height: 14px;
@@ -972,7 +977,12 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(270deg, rgba(0, 143, 133, 0) 0%, rgba(0, 143, 133, 0.3) 50%, rgba(0, 143, 133, 0) 100%);
+  background: linear-gradient(
+    270deg,
+    rgba(0, 143, 133, 0) 0%,
+    rgba(0, 143, 133, 0.3) 50%,
+    rgba(0, 143, 133, 0) 100%
+  );
 }
 
 .goal-step {
@@ -986,8 +996,8 @@
 }
 
 .goal-step .icon-box {
-  border: 1px solid #E2E8F0;
-  background: #FFFFFF;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
   height: 128px;
   width: 128px;
   border-radius: 50%;
@@ -1004,13 +1014,13 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00948F 0%, #008F85 100%);
+  background: linear-gradient(135deg, #00948f 0%, #008f85 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .goal-step h3 {
@@ -1018,7 +1028,7 @@
   font-size: 18px;
   line-height: 24.75px;
   text-align: center;
-  color: #00948F;
+  color: #00948f;
 }
 
 [dir="ltr"] .vision-right::before {
