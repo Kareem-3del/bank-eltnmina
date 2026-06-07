@@ -27,6 +27,19 @@
   .sd-vm {
     margin-top: -100px;
   }
+
+  .sd-framework__image {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+  }
+
+  .sd-framework__image img {
+    width: auto;
+    height: clamp(520px, 58vh, 720px);
+    max-width: none;
+    object-fit: contain;
+  }
 }
 
 .sd-framework__image {
