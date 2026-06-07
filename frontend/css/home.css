@@ -1476,7 +1476,7 @@ body {
 }
 
 .kpi-card__unit {
-  font-size: var(--fs-lg);
+  font-size: 12px;
   font-weight: var(--fw-semi);
   letter-spacing: 0.06em;
   color: var(--c-on-surface-variant);
@@ -1486,11 +1486,22 @@ body {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.kpi-card__desc {
+  font-size: 12px;
+  color: var(--c-on-surface-variant) !important;
+  line-height: 16px;
+  margin: 0;
+}
+
 .bg-main .kpi-card__desc {
-  font-size: var(--fs-sm);
+  font-size: 12px;
   color: var(--c-on-surface-variant) !important;
   line-height: var(--lh-base);
   margin: 0;
+}
+
+.kpi-card:first-child .kpi-card__desc {
+  color: #009892 !important;
 }
 
 .kpi-card--accent .kpi-card__desc {
@@ -1516,16 +1527,28 @@ body {
   margin-top: 24px;
 }
 
-#achievements {
+/* #achievements {
   padding-bottom: 175px;
   position: relative;
+} */
+
+.kpi-card:first-child .kpi-card__unit {
+  color: #009892;
 }
 
-@media(min-width:1500px) {
+/* @media(min-width:1500px) {
   #achievements {
     padding-bottom: 330px;
   }
+} */
+
+@media(min-width:1024px) {
+  #achievements .kpi-bars {
+    margin-top: clamp(56px, 8vw, 128px)
+  }
 }
+
+
 
 
 .kpi-img {
