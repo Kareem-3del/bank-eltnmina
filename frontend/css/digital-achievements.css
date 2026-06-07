@@ -386,6 +386,11 @@
 }
 
 @media (max-width: 768px) {
+
+    .intro-box .content {
+        height: 120px;
+    }
+
     .tech-box .top::before {
         font-size: 120px;
         top: -105px;
@@ -445,9 +450,7 @@
         padding: 1.25rem;
     }
 
-    .intro-box .content {
-        height: 120px;
-    }
+
 
     .tech-box .top {
         /* flex-direction: column; */

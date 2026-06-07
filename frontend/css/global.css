@@ -1294,7 +1294,6 @@ html.lenis body {
   line-height: 72px;
   letter-spacing: -0.72px;
   color: #FFFFFF;
-  margin-bottom: 4rem;
   max-width: 920px;
 }
 
@@ -1308,6 +1307,7 @@ html.lenis body {
   line-height: 28px;
   letter-spacing: 0px;
   color: rgba(255, 255, 255, 0.85);
+  margin-top: 4rem;
 }
 
 .c-hero__desc span,
@@ -1428,12 +1428,12 @@ html.lenis body {
     font-size: 56px;
     /* تقليل حجم العنوان */
     line-height: 64px;
-    margin-bottom: 2rem;
   }
 
   .c-hero__desc {
     font-size: 18px;
     max-width: 90%;
+    margin-top: 2rem;
     /* منع النص من التمدد الكامل لعرض الشاشة */
   }
 }
@@ -1458,12 +1458,12 @@ html.lenis body {
   .c-hero__title {
     font-size: 40px;
     line-height: 48px;
-    margin-bottom: 1.5rem;
   }
 
   .c-hero__desc {
     font-size: 16px;
     line-height: 24px;
+    margin-top: 1.5rem;
   }
 
   .c-hero__breadcrumb-list {

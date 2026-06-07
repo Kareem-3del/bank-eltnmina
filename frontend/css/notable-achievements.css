@@ -181,8 +181,8 @@ html[lang="en"] body.page-notable .nav__brand img {
   margin: 0 0 clamp(20px, 3vw, 36px);
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 4.2vw, 48px);
-  line-height: 1.25;
+  font-size: clamp(24px, 4.2vw, 48px);
+  line-height: 1.4;
   color: #008a85;
   text-align: start;
 }
@@ -395,8 +395,8 @@ html[dir="ltr"] .na-comm__item {
 .na-agre__title-line--primary {
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 4.5vw, 46px);
-  line-height: 1.25;
+  font-size: clamp(24px, 4.5vw, 46px);
+  line-height: 1.4;
   color: #fff;
 }
 
@@ -662,8 +662,8 @@ html[dir="ltr"] .na-invperf__text {
   margin: 0 0 clamp(20px, 3vw, 36px);
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 4.5vw, 48px);
-  line-height: 1.25;
+  font-size: clamp(24px, 4.5vw, 48px);
+  line-height: 1.4;
   color: #008a85;
   text-align: start;
 }
@@ -798,7 +798,12 @@ html[dir="ltr"] .na-coll__text {
   color: #008A85;
 }
 
+.na-coll__chart svg {
+  width: 100%;
+}
+
 @media (max-width: 900px) {
+
   .na-coll__grid {
     grid-template-columns: 1fr;
     align-items: stretch;

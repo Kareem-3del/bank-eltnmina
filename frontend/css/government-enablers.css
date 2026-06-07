@@ -33,12 +33,12 @@
 
 .sec-header h2 {
     font-weight: 800;
-    font-size: clamp(28px, 6vw, 48px);
-    line-height: 1.2;
+    font-size: clamp(24px, 6vw, 48px);
+    line-height: 1.4;
     color: var(--main-tail);
     margin: 0;
     max-width: 900px;
-    text-align: center;
+    /* text-align: center; */
 
 }
 
@@ -399,8 +399,8 @@
         flex-direction: column;
         gap: 1.25rem;
         padding: 1.5rem;
-        text-align: center;
-        align-items: center;
+        /* text-align: center; */
+        /* align-items: center; */
     }
 
     .box-sec .icon {
@@ -409,9 +409,11 @@
     }
 
     .box-sec .box h3 {
-        margin: auto;
+        /* margin: auto; */
         margin-bottom: 0.75rem;
     }
+
+
 }
 
 @media (max-width: 480px) {

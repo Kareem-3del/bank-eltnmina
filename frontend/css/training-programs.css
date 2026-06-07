@@ -145,6 +145,15 @@
         font-size: 12px !important;
     }
 
+
+    .chart-sec .box {
+        width: 100%;
+    }
+
+    .chart-sec .boxes .label {
+        flex-shrink: 0;
+    }
+
     .charts-wrap {
         flex-direction: column;
     }
@@ -163,6 +172,7 @@
     .chart-sec .box {
         font-size: 10px;
     }
+
 
     .chart-sec .box {
         min-width: 62px;
@@ -311,8 +321,8 @@
     margin: auto;
     margin-bottom: 4rem;
     max-width: 900px;
-    font-size: clamp(28px, 5vw, 48px);
-    line-height: 1.2;
+    font-size: clamp(24px, 5vw, 48px);
+    line-height: 1.4;
 }
 
 .boxes-sec .boxes {
@@ -548,12 +558,17 @@
 
 /* --- Media Queries --- */
 
+.banner-sec .box {
+    gap: 8px;
+}
+
 @media (max-width: 768px) {
     .charts-wrap .left {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100% !important;
     }
 
     .charts-wrap .left .boxes {
@@ -566,8 +581,8 @@
     }
 
     .banner-sec .box {
-        padding: 2rem 1.25rem;
-        gap: 1.5rem;
+        padding: 0 1.25rem 2rem;
+        gap: 8px;
         /* تقليل المسافة بين العناصر */
     }
 
@@ -579,7 +594,7 @@
 
 @media (max-width: 480px) {
     .banner-sec .box {
-        padding: 1.5rem 1rem;
+        padding: 0 1rem 1.5rem;
     }
 
     .banner-sec .note {

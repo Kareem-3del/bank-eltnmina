@@ -81,7 +81,8 @@
 .actions-sec-box h2 {
     font-weight: 800;
     font-size: clamp(28px, 4vw + 1rem, 45px);
-    line-height: clamp(36px, 5vw + 1rem, 57px);
+    /* line-height: clamp(36px, 5vw + 1rem, 57px); */
+    line-height: 1.4;
     text-align: center;
 }
 
@@ -127,7 +128,7 @@
 
     .actions-sec-box h2 {
         font-size: 24px;
-        line-height: 30px;
+        /* line-height: 30px; */
     }
 
     .actions-sec-box {
