@@ -78,7 +78,7 @@
 @media (max-width: 768px) {
     .sc-title {
         /* text-align: center; */
-        align-items: center;
+        /* align-items: center; */
     }
 
     .sc-title__dec {
@@ -586,6 +586,10 @@
 }
 
 @media (max-width: 768px) {
+    .support-signal-sec p {
+        text-align: center;
+    }
+
     .appl-boxes {
         gap: 1rem;
         margin-top: 24px;
@@ -597,6 +601,7 @@
 
     .appl-boxes>div {
         flex: 1 1 100%;
+        padding: 1rem;
         /* صندوق واحد في الصف في الموبايل */
     }
 

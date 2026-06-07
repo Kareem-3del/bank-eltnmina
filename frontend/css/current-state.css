@@ -43,8 +43,8 @@
 
 h2.org-sec-title_title {
     font-weight: 700;
-    font-size: 36px;
-    line-height: 40px;
+    font-size: clamp(1.5rem, 5vw, 36px);
+    line-height: 1.4;
     letter-spacing: -0.54px;
 }
 
@@ -738,8 +738,8 @@ h3.crr-aside__list-tile {
 
 .crr-aside__list-item .wire-list {
     inset-inline-start: 10px;
-    top: -306.3px;
-    height: 242.5px;
+    top: -355px;
+    height: 290px;
 }
 
 .crr-aside__list-item .wire-list::after {
@@ -953,8 +953,8 @@ h3.crr-aside__list-tile {
 
 .banner-sec p {
     font-weight: 600;
-    font-size: clamp(1.25rem, 4vw, 1.875rem);
-    line-height: 1.2;
+    font-size: clamp(1rem, 4vw, 1.875rem);
+    line-height: 1.4;
     letter-spacing: 0;
     color: #FFF;
 }
@@ -1376,6 +1376,7 @@ h3.crr-aside__list-tile {
 
 @media (max-width: 1024px) {
 
+
     .crr-aside__list {
         flex-wrap: wrap;
         gap: 12px;
@@ -1461,4 +1462,10 @@ h3.crr-aside__list-tile {
         padding: 16px;
     }
 
+}
+
+@media(max-width:768px) {
+    .banner-section .org-sec-title {
+        margin-bottom: 16px;
+    }
 }

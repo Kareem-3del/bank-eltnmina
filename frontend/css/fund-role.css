@@ -73,7 +73,7 @@
     color: #009892;
     font-weight: 400;
     font-size: 18px;
-    line-height: 28px;
+    line-height: 1.4;
     letter-spacing: 0px;
 }
 
@@ -193,7 +193,7 @@
     /* Typography Adjustments */
     .intro-box__desc {
         font-size: 16px;
-        line-height: 24px;
+        /* line-height: 24px; */
     }
 
     .intro-box__title {
