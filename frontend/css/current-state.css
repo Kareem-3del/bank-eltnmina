@@ -194,6 +194,177 @@ h3.crr-aside__list-tile {
     overflow: hidden;
 }
 
+/* Org chart — responsive inline SVG (bilingual, EN/AR).
+   Desktop/tablet: the SVG scales to fit. Mobile: a purpose-built vertical
+   tree (.org-tree) replaces it so the hierarchy stays clear and legible. */
+.org-svg-wrap {
+    width: 100%;
+}
+
+.org-svg-chart {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+}
+
+/* ---- Mobile vertical tree (hidden on desktop) ---- */
+.org-tree {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .org-svg-wrap {
+        display: none;
+    }
+
+    .org-tree {
+        display: block;
+    }
+}
+
+.org-tree,
+.org-tree ul,
+.org-tree ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ot-card {
+    background: #fff;
+    color: #009892;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.35;
+    padding: 13px 16px;
+}
+
+/* leadership nodes (Board, CEO) emphasised */
+.ot-card.ot-lead {
+    background: #00514d;
+    color: #fff;
+}
+
+.ot-root > .ot-card.ot-lead {
+    text-align: center;
+    font-size: 16px;
+    padding: 16px;
+}
+
+/* nested level: indent + a white spine, with a tick to each child */
+.ot-branch {
+    position: relative;
+    padding-inline-start: 22px;
+    margin-top: 14px;
+}
+
+.ot-branch > li {
+    position: relative;
+    margin-top: 14px;
+}
+
+.ot-branch > li:first-child {
+    margin-top: 0;
+}
+
+/* vertical spine segment for each child (full height except the last) */
+.ot-branch > li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -14px;
+    top: -14px;
+    height: calc(50% + 14px);
+    border-inline-start: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.ot-branch > li:first-child::before {
+    top: 0;
+    height: 50%;
+}
+
+.ot-branch > li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: -14px;
+    top: 50%;
+    bottom: -14px;
+    border-inline-start: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* horizontal tick from spine into the card */
+.ot-branch > li > .ot-card::before,
+.ot-branch > li > .ot-panel::before,
+.ot-branch > li > .ot-grid::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -14px;
+    top: 22px;
+    width: 14px;
+    border-top: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.ot-branch > li > .ot-card,
+.ot-branch > li > .ot-grid {
+    position: relative;
+}
+
+/* committee panel — header + numbered list inside one card */
+.ot-panel {
+    position: relative;
+    padding: 0;
+}
+
+.ot-panel-head {
+    padding: 12px 16px;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(0, 152, 146, 0.18);
+}
+
+.ot-coms {
+    padding: 6px 16px 10px;
+}
+
+.ot-coms li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ot-num {
+    flex: none;
+    color: #009892;
+    font-weight: 800;
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+/* department grid (CEO's divisions) */
+.ot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.ot-grid .ot-dept {
+    padding: 12px;
+    font-size: 13px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+}
+
+@media (max-width: 360px) {
+    .ot-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .org-wrap {
     display: flex;
     justify-content: space-between;
