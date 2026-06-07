@@ -1527,10 +1527,9 @@ body {
   margin-top: 24px;
 }
 
-/* #achievements {
-  padding-bottom: 175px;
+#achievements {
   position: relative;
-} */
+}
 
 .kpi-card:first-child .kpi-card__unit {
   color: #009892;

@@ -248,7 +248,7 @@ h3.crr-aside__list-tile {
 }
 
 /* apex node (Board) sits a little taller */
-.ot-root > .ot-card.ot-lead {
+.ot-root>.ot-card.ot-lead {
     padding: 18px;
 }
 
@@ -258,7 +258,7 @@ h3.crr-aside__list-tile {
     margin-inline-start: 9px;
 }
 
-.ot-branch > li {
+.ot-branch>li {
     position: relative;
     padding-inline-start: 22px;
     padding-top: 14px;
@@ -266,7 +266,7 @@ h3.crr-aside__list-tile {
 
 /* vertical spine: each item carries its own segment so the line is unbroken;
    the last child stops at its connector tick instead of overrunning */
-.ot-branch > li::before {
+.ot-branch>li::before {
     content: "";
     position: absolute;
     inset-inline-start: 0;
@@ -276,13 +276,13 @@ h3.crr-aside__list-tile {
     background: rgba(255, 255, 255, 0.55);
 }
 
-.ot-branch > li:last-child::before {
+.ot-branch>li:last-child::before {
     bottom: auto;
     height: 39px;
 }
 
 /* horizontal connector from spine into each card */
-.ot-branch > li::after {
+.ot-branch>li::after {
     content: "";
     position: absolute;
     inset-inline-start: 0;
@@ -323,7 +323,7 @@ h3.crr-aside__list-tile {
     border-top: 0;
 }
 
-.ot-coms li > :last-child {
+.ot-coms li> :last-child {
     flex: 1;
 }
 
@@ -570,6 +570,15 @@ h3.crr-aside__list-tile {
     height: 180px;
     top: -160px;
     z-index: 9;
+}
+
+@media(min-width:961px) {
+
+    .org-wrap,
+    .sub-level-box,
+    .last-list {
+        display: none;
+    }
 }
 
 /* wire-box */
