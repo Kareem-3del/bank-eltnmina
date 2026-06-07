@@ -39,7 +39,7 @@
     max-width: 60%;
 }
 
-.con-img img {
+[dir="ltr"] .con-img img {
     transform: scaleX(-1);
 }
 
