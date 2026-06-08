@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 el.classList.remove(...animClasses);
             },
             onReverseComplete: () => {
-                gsap.set(el, { clearProps: "transform, opacity" });
+                el.classList.remove(...animClasses);
             }
         });
     });
