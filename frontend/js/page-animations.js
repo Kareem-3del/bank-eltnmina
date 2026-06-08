@@ -262,8 +262,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power1.inOut",
                 onUpdate: () => {
                     const step = parseFloat(el.dataset.step || "1");
-                    const steppedValue = Math.round(proxy.value / step) * step;
-                    el.textContent = formatNumber(steppedValue, decimals);
+                    let val = proxy.value;
+
+
+                    const progress = proxy.value / target;
+                    let finalValue;
+
+                    if (progress > 0.98) {
+                        finalValue = target; // اعرض الرقم الأصلي (83014)
+                    } else {
+                        finalValue = Math.round(val / step) * step; // استمر في التقريب أثناء العد
+                    }
+
+                    el.textContent = formatNumber(finalValue, decimals);
                 },
                 scrollTrigger: {
                     trigger: el,
