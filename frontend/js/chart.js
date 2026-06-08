@@ -426,34 +426,3 @@ createChart(target_4, actual_4, "char-4")
 createStateChart(target_5, actual_5, "char-5")
 
 createProgramChart(prog_target, prog_actual, "program-chart")
-
-const data = {
-    datasets: [{
-        data: [86, 14], // [النسبة المحققة، النسبة المتبقية]
-        backgroundColor: ['#008A85', '#E0E0E0'],
-        borderWidth: 0,
-        borderRadius: 10, // زوايا دائرية
-    }]
-};
-
-const config = {
-    type: 'doughnut',
-    data: data,
-    options: {
-        responsive: true,
-        cutout: '80%', // لجعلها نحيفة مثل الصورة
-        rotation: -90, // بداية الرسم من الأعلى
-        circumference: 270, // زاوية القوس (3/4 دائرة)
-        plugins: {
-            legend: { display: false },
-            tooltip: { enabled: false }
-        },
-        animation: {
-            animateRotate: true,
-            animateScale: true,
-            duration: 2000 // مدة الأنميشن
-        }
-    }
-};
-
-new Chart(document.getElementById('progressChart'), config);

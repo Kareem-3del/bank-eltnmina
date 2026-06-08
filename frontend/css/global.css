@@ -700,8 +700,12 @@ select {
    in favor of the staggered overlay menu, so we don't render any drawer here. */
 
 @media(min-width:768px) {
+  .nav {
+    padding: 8px 2rem;
+  }
+
   .nav__brand img {
-    width: 190px;
+    width: 240px
   }
 }
 
@@ -2237,4 +2241,30 @@ html.lenis body {
 
 .anim-fade {
   animation: fade-anim 4s ease-in-out infinite;
+}
+
+
+/* الأنيميشن الخاص بالظهور */
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* الكلاس الذي سنضيفه إذا كانت القائمة تظهر فوراً */
+.staggered-menu.is-initial-load {
+  animation: fadeInMenu 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* لجعل العناصر بداخلها تظهر بتتابع بسيط */
+.staggered-menu.is-initial-load .staggered-menu__item {
+  animation: fadeInMenu 0.5s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+  /* يجب إضافة --i في الكود */
 }

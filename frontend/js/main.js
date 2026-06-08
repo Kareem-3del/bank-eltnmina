@@ -311,7 +311,7 @@
           },
           {
             href: "opportunities-and-enablers.html",
-            text: "الفرص و العوامل المسا..",
+            text: "الفرص والعوامل المساعدة",
             img: "opportunities-and-enablers.png",
             caption: "الفرص والعوامل المساعدة على تحقيقها"
           },
@@ -519,10 +519,17 @@
       return target === here;
     };
 
-    const menu = document.createElement("div");
+    let initMenu = document.getElementById("staggered-menu")
+
+    const menu = initMenu || document.createElement("div");
     menu.setAttribute("data-lenis-prevent", "");
-    menu.className = "staggered-menu";
-    menu.id = "staggered-menu";
+
+    if (!initMenu) {
+      menu.className = "staggered-menu";
+      menu.id = "staggered-menu";
+    }
+
+
     menu.setAttribute("role", "dialog");
     menu.setAttribute("aria-modal", "true");
     menu.setAttribute("aria-label", config.title);
@@ -555,8 +562,8 @@
                   <a href="${parentHref}" data-caption="${parentCaption}" data-preview="${parentImg}" class="staggered-menu__link staggered-menu__dropdown-toggle${hasActiveChild}" data-dropdown-toggle>
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>
-                    <span class="staggered-menu__arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span class="arrow" aria-hidden="true">
+▼
                     </span>
                   </a>
                   <ul class="staggered-menu__dropdown-menu">
@@ -598,12 +605,10 @@
         </ul>
 
         <aside class="staggered-menu__preview" aria-hidden="true">
-          ${config.links.flatMap(link => link.sublinks ? link.sublinks : [link]).map((item, i) => `
-            <img class="staggered-menu__preview-img${i === 0 ? " is-active" : ""}"
-                 data-img="${item.img}"
-                 src="assets/${item.img}" alt="" loading="lazy" />
-          `).join("")}
-          <div class="staggered-menu__preview-caption" data-preview-caption>${config.links.flatMap(link => link.sublinks ? link.sublinks : [link])[0].caption}</div>
+        
+        <img class="staggered-menu__preview-img is-active" 
+        data-img="${isAR ? "hero.webp" : "hero-en.webp"}"
+                 src="assets/${isAR ? "hero.webp" : "hero-en.webp"}" alt="" loading="lazy" />
         </aside>
       </div>
 
@@ -624,6 +629,7 @@
 
     document.body.appendChild(menu);
 
+
     let lastFocused = null;
 
     const open = () => {
@@ -635,14 +641,15 @@
       requestAnimationFrame(() => menu.classList.add("is-open"));
       document.body.classList.add("menu-open");
       triggers.forEach(t => t.setAttribute("aria-expanded", "true"));
-      setTimeout(() => {
-        const first = menu.querySelector(".staggered-menu__link");
-        if (first) first.focus({ preventScroll: true });
-      }, reduceMotion ? 0 : 480);
+      // setTimeout(() => {
+      //   const first = menu.querySelector(".staggered-menu__link");
+      //   if (first) first.focus({ preventScroll: true });
+      // }, reduceMotion ? 0 : 480);
     };
 
     const close = () => {
       menu.classList.remove("is-open");
+      menu.classList.remove("is-index");
       document.body.classList.remove("menu-open");
       document.body.classList.remove("menu-open");
 
@@ -655,7 +662,9 @@
       }, reduceMotion ? 0 : 600);
     };
 
+
     triggers.forEach(t => t.addEventListener("click", open));
+
     menu.querySelector("[data-menu-close]").addEventListener("click", close);
 
     document.addEventListener("keydown", (e) => {
@@ -696,20 +705,26 @@
       link.addEventListener("focus", () => activatePreview(link));
     });
 
-    menu.addEventListener("keydown", (e) => {
-      if (e.key !== "Tab") return;
-      const focusable = menu.querySelectorAll('a[href], button:not([disabled])');
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    });
+    // menu.addEventListener("keydown", (e) => {
+    //   if (e.key !== "Tab") return;
+    //   const focusable = menu.querySelectorAll('a[href], button:not([disabled])');
+    //   if (!focusable.length) return;
+    //   const first = focusable[0];
+    //   const last = focusable[focusable.length - 1];
+    //   if (e.shiftKey && document.activeElement === first) {
+    //     e.preventDefault();
+    //     last.focus();
+    //   } else if (!e.shiftKey && document.activeElement === last) {
+    //     e.preventDefault();
+    //     first.focus();
+    //   }
+    // });
+
+
+    if (initMenu) {
+      open()
+    }
+
   }
 
   /* ------ Footer Dropdown Accordion (Fixed Toggle) ---------------------- */

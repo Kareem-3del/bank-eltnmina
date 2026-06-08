@@ -93,7 +93,8 @@
   overflow: hidden;
 }
 
-.staggered-menu.is-open {
+.staggered-menu.is-open,
+.staggered-menu.is-index {
   pointer-events: auto;
   visibility: visible;
 }
@@ -216,8 +217,14 @@
 
 
 @media(min-width:768px) {
+
+  .staggered-menu__top {
+    padding: 8px var(--container-pad);
+
+  }
+
   .staggered-menu__brand img {
-    width: 190px;
+    width: 240px
   }
 
   .staggered-menu__brand span small {
@@ -478,13 +485,11 @@
     transform var(--d-base) var(--ease-out);
 }
 
-.staggered-menu__arrow {
+.staggered-menu__arrow:not(.staggered-menu__dropdown-toggle .staggered-menu__arrow) {
   display: none;
 }
 
-[dir="rtl"] .staggered-menu__arrow {
-  transform: rotate(-135deg);
-}
+
 
 .staggered-menu__arrow svg {
   width: 60%;
@@ -522,10 +527,6 @@
   transform: rotate(0deg);
 }
 
-[dir="rtl"] .staggered-menu__link:hover .staggered-menu__arrow,
-[dir="rtl"] .staggered-menu__link:focus-visible .staggered-menu__arrow {
-  transform: rotate(-180deg);
-}
 
 /* ------ Dropdown styles --------------------------------------------- */
 .staggered-menu__dropdown-toggle {
@@ -652,7 +653,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
+  /* opacity: 0; */
 
 }
 
@@ -868,4 +869,72 @@ html[dir="ltr"] .dropdown-menu {
   font-size: 10px;
   margin-right: 5px;
   vertical-align: middle;
+}
+
+.staggered-menu__item,
+.staggered-menu__dropdown {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .38s ease, transform .38s ease;
+}
+
+/* animate in عند الفتح */
+.staggered-menu.is-open .staggered-menu__item,
+.staggered-menu.is-open .staggered-menu__dropdown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger delay لكل item */
+.staggered-menu.is-open li:nth-child(1) {
+  transition-delay: .06s
+}
+
+.staggered-menu.is-open li:nth-child(2) {
+  transition-delay: .11s
+}
+
+.staggered-menu.is-open li:nth-child(3) {
+  transition-delay: .16s
+}
+
+.staggered-menu.is-open li:nth-child(4) {
+  transition-delay: .21s
+}
+
+.staggered-menu.is-open li:nth-child(5) {
+  transition-delay: .26s
+}
+
+.staggered-menu.is-open li:nth-child(6) {
+  transition-delay: .31s
+}
+
+.staggered-menu.is-open li:nth-child(7) {
+  transition-delay: .36s
+}
+
+.staggered-menu.is-open li:nth-child(8) {
+  transition-delay: .41s
+}
+
+.staggered-menu.is-open li:nth-child(9) {
+  transition-delay: .46s
+}
+
+.staggered-menu.is-open li:nth-child(10) {
+  transition-delay: .51s
+}
+
+.staggered-menu.is-open li:nth-child(11) {
+  transition-delay: .56s
+}
+
+.staggered-menu.is-open li:nth-child(12) {
+  transition-delay: .61s
+}
+
+/* reset الـ delay عند الإغلاق */
+.staggered-menu:not(.is-open) li {
+  transition-delay: 0s !important
 }
