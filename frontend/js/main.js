@@ -12,6 +12,26 @@
 (() => {
   "use strict";
 
+  function getLocaleContext() {
+    const path = window.location.pathname;
+    const inEn = /\/en(?:\/|$)/.test(path);
+    const inAr = /\/ar(?:\/|$)/.test(path);
+
+    return {
+      inEn,
+      inAr,
+      inSubdir: inEn || inAr,
+      isAR: (document.documentElement.getAttribute("lang") || "en").toLowerCase().startsWith("ar")
+    };
+  }
+
+  // Pages live in /en/ or /ar/ but use <base href="../">, so internal links
+  // must be prefixed with the locale folder (resolved from frontend root).
+  function localePageHref(filename) {
+    const { isAR } = getLocaleContext();
+    return `${isAR ? "ar" : "en"}/${filename}`;
+  }
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // animations.js owns reveals, counters, and anchor scroll when GSAP is loaded.
   const hasGsap = !!window.gsap;
@@ -178,9 +198,7 @@
   initStaggeredMenu();
 
   function initStaggeredMenu() {
-    const isAR = (document.documentElement.getAttribute("lang") || "en").toLowerCase().startsWith("ar");
-    const inSubdir = /\/ar\//.test(window.location.pathname) || window.location.pathname.endsWith("/ar/");
-    const root = inSubdir ? "../" : "";
+    const { isAR } = getLocaleContext();
     const currentFilename = () => (window.location.pathname.split("/").pop() || "index.html");
 
     const config = isAR ?
@@ -536,7 +554,7 @@
     menu.setAttribute("hidden", "");
     menu.innerHTML = `
       <div class="staggered-menu__top">
-        <a href="${root}${isAR ? "ar/" : ""}index.html" class="staggered-menu__brand">
+        <a href="${localePageHref("index.html")}" class="staggered-menu__brand">
           <img src="assets/logo.png" alt="" />
           <span><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
         </a>
@@ -552,7 +570,7 @@
       if (link.sublinks) {
         const activeSublink = link.sublinks.find(sub => isCurrentLink(sub.href));
 
-        const parentHref = activeSublink ? (isAR ? `ar/${activeSublink.href}` : `en/${activeSublink.href}`) : "index.html";
+        const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
         const parentImg = activeSublink ? activeSublink.img : link.img;
         const parentCaption = activeSublink ? activeSublink.caption : (link.caption || "");
         const hasActiveChild = activeSublink ? " is-current" : "";
@@ -576,7 +594,7 @@
 
           return `
                         <li class="staggered-menu__dropdown-item${isSubActive}">
-                          <a class="staggered-menu__dropdown-link${isSubActive}" href="${isAR ? `ar/${sublink.href}` : `en/${sublink.href}`}"
+                          <a class="staggered-menu__dropdown-link${isSubActive}" href="${localePageHref(sublink.href)}"
                              data-preview="${sublink.img}" data-caption="${sublink.caption}">
                             <span class="staggered-menu__num">${String(i + 1)}.${j + 1}</span>
                             <span class="staggered-menu__label">${sublink.text}</span>
@@ -593,7 +611,7 @@
       } else {
         return `
                 <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
-                  <a class="staggered-menu__link${isCurrentLink(link.href) ? " is-current" : ""}" href="${isAR ? `ar/${link.href}` : `en/${link.href}`}"
+                  <a class="staggered-menu__link${isCurrentLink(link.href) ? " is-current" : ""}" href="${localePageHref(link.href)}"
                      data-preview="${link.img}" data-caption="${link.caption}">
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>

@@ -9,6 +9,10 @@
     .toLowerCase().startsWith("ar");
   const lang = isAR ? "ar" : "en";
 
+  function pageHref(filename) {
+    return `${lang}/${filename}`;
+  }
+
   // مصفوفة الصفحات المرتبة بالتسلسل الصحيح
   const pages = [
     {
@@ -185,7 +189,7 @@
     box.innerHTML = `
       <li class="action-box">
         <a class="action-box__link action-box__link-arrow " data-action="prev"
-           ${prevPage ? `href="${isAR ? "ar" : "en"}/${prevPage.href}"` : 'href="#" aria-disabled="true"'}
+           ${prevPage ? `href="${pageHref(prevPage.href)}"` : 'href="#" aria-disabled="true"'}
            aria-label="${prevText}">
           ${ICONS.prev}
           <span class="action-text">${prevText}</span>
@@ -193,7 +197,7 @@
       </li>
       <li class="action-box">
         <a class="action-box__link action-box__link-arrow" data-action="next"
-           ${nextPage ? `href="${isAR ? "ar" : "en"}/${nextPage.href}"` : 'href="#" aria-disabled="true"'}
+           ${nextPage ? `href="${pageHref(nextPage.href)}"` : 'href="#" aria-disabled="true"'}
            aria-label="${nextText}">
           ${ICONS.next}
           <span class="action-text">${nextText}</span>
