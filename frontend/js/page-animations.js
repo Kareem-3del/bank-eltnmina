@@ -4,6 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const curtain = document.querySelector("[data-curtain]");
     const tlEnter = gsap.timeline();
 
+    const animClasses = [
+        'anim-float-up', 'anim-float-down', 'anim-pulse', 'anim-shake',
+        'anim-swing', 'anim-grow', 'anim-slide-right', 'anim-slide-left',
+        'anim-slide-fast', 'anim-spin', 'anim-fade'
+    ];
+
+    function getAnimClass(el) {
+        if (el.classList.contains('js-float-up-enabled')) return 'anim-float-up';
+        if (el.classList.contains('js-float-down-enabled')) return 'anim-float-down';
+        if (el.classList.contains('js-pulse-enabled')) return 'anim-pulse';
+        if (el.classList.contains('js-shake-enabled')) return 'anim-shake';
+        if (el.classList.contains('js-swing-enabled')) return 'anim-swing';
+        if (el.classList.contains('js-grow-enabled')) return 'anim-grow';
+        if (el.classList.contains('js-slide-right-enabled')) return 'anim-slide-right';
+        if (el.classList.contains('js-slide-left-enabled')) return 'anim-slide-left';
+        if (el.classList.contains('js-slide-fast-enabled')) return 'anim-slide-fast';
+        if (el.classList.contains('js-spin-enabled')) return 'anim-spin';
+        if (el.classList.contains('js-fade-enabled')) return 'anim-fade';
+        return null;
+    }
+
     if (curtain && !reduceMotion) {
         tlEnter.fromTo(
             curtain,
@@ -88,6 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 // reverse: لما تطلع خالص
                 toggleActions: "play reverse play reverse",
                 markers: false
+            },
+            onComplete: () => {
+                const targetClass = getAnimClass(el);
+                if (targetClass) el.classList.add(targetClass);
+            },
+            onReverseStart: () => {
+                el.classList.remove(...animClasses);
+            },
+            onReverseComplete: () => {
+                gsap.set(el, { clearProps: "transform, opacity" });
             }
         });
     });
@@ -228,7 +259,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 duration: duration,
                 ease: "power1.inOut",
                 onUpdate: () => {
-                    el.textContent = formatNumber(proxy.value, decimals);
+                    const step = parseFloat(el.dataset.step || "1");
+                    const steppedValue = Math.round(proxy.value / step) * step;
+                    el.textContent = formatNumber(steppedValue, decimals);
                 },
                 scrollTrigger: {
                     trigger: el,

@@ -2017,3 +2017,185 @@ html.lenis body {
   /* width: 100%; */
   height: auto;
 }
+
+/* Animationa */
+
+/* --- 1. الحركات الطافية (Float) --- */
+@keyframes float-up {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float-down {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+/* --- 2. الحركات التفاعلية (Pulse & Shake) --- */
+@keyframes pulse-soft {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes shake-side {
+
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* --- 3. الحركات المتقدمة (Reveal & Swing) --- */
+@keyframes swing-slow {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes grow-up {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* --- 4. حركات الـ Slide على محور X --- */
+@keyframes slide-x-right {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+@keyframes slide-x-left {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes slide-x-fast {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(25px);
+  }
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-anim {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* --- ربط الكلاسات بالأنميشن --- */
+.anim-float-up {
+  animation: float-up 4s ease-in-out infinite;
+}
+
+.anim-float-down {
+  animation: float-down 4s ease-in-out infinite;
+}
+
+.anim-pulse {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.anim-shake {
+  animation: shake-side 2s ease-in-out infinite;
+}
+
+.anim-swing {
+  animation: swing-slow 5s ease-in-out infinite;
+}
+
+.anim-grow {
+  animation: grow-up 4s ease-in-out infinite;
+}
+
+.anim-slide-right {
+  animation: slide-x-right 3s ease-in-out infinite;
+}
+
+.anim-slide-left {
+  animation: slide-x-left 3s ease-in-out infinite;
+}
+
+.anim-slide-fast {
+  animation: slide-x-fast 2s ease-in-out infinite;
+}
+
+.anim-spin {
+  animation: spin-anim 8s linear infinite;
+}
+
+.anim-fade {
+  animation: fade-anim 4s ease-in-out infinite;
+}

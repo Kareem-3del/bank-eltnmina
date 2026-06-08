@@ -2183,16 +2183,3 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 
 }
  */
-
-
-@keyframes fadeInUp {
-
-  to {
-
-    opacity: 1;
-
-    transform: translateY(0);
-
-  }
-
-}
