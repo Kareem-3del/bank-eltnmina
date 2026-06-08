@@ -288,6 +288,11 @@
   min-width: 0;
 }
 
+.sd-pillars__headers .sd-pillar__head,
+.sd-pillars__body > .sd-pillar {
+  will-change: transform;
+}
+
 /* Pillar columns — single solid tone */
 .sd-pillars__headers .sd-pillar__head,
 .sd-pillars__body > .sd-pillar {
@@ -464,8 +469,16 @@
   z-index: 1;
 }
 
+.vision-precent__pulse {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.05em;
+  transform-origin: center center;
+  will-change: transform;
+}
+
 .vision-precent__symbol,
-.vision-precent span:last-child {
+.vision-precent__pulse .vision-precent__symbol {
   color: #22c3b3;
   font-weight: 700;
 }

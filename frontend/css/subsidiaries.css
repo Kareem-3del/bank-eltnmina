@@ -131,6 +131,14 @@
   color: #b3dfde;
 }
 
+.subs-co__pct-pulse {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  transform-origin: center center;
+  will-change: transform;
+}
+
 .subs-co__desc {
   margin: 0;
   max-width: 690px;
