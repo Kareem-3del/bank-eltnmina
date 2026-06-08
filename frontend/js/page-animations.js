@@ -144,6 +144,138 @@ document.addEventListener("DOMContentLoaded", () => {
             fastScrollEnd: true,
         }
     });
+
+    /* ------ Target-vs-Achieved bracket SVGs — draw-on-scroll ----------- */
+    // Each .pie-sec holds an SVG made of two right-angle "bracket" strokes
+    // (outer = target / white, inner = achieved / #EEE9E9) plus the % value
+    // rendered as fill-path glyphs. We draw the strokes like a progress line
+    // (stroke-dashoffset 0), then float the number up once they land.
+    function initBracketSvgDraw() {
+        const svgs = document.querySelectorAll(".pie-sec svg");
+        if (!svgs.length) return;
+
+        svgs.forEach((svg, svgIndex) => {
+            if (svg.dataset.drawInit === "1") return;
+            svg.dataset.drawInit = "1";
+
+            const paths = Array.from(svg.querySelectorAll("path"));
+            // Stroke paths carry a `stroke`; the % glyphs are filled only.
+            const strokes = paths.filter((p) => p.getAttribute("stroke"));
+            const glyphs = paths.filter((p) => !p.getAttribute("stroke"));
+            if (!strokes.length) return;
+
+            const lengths = strokes.map((p) => {
+                let len = 0;
+                try {
+                    len = p.getTotalLength();
+                } catch (e) {
+                    len = 0;
+                }
+                return len || 0;
+            });
+
+            // Final (rest) state used both for reduced-motion and as the
+            // tween destination.
+            const showFinal = () => {
+                strokes.forEach((p) => {
+                    p.style.strokeDasharray = "none";
+                    p.style.strokeDashoffset = "0";
+                });
+                glyphs.forEach((g) => {
+                    g.style.opacity = "1";
+                    g.style.transform = "none";
+                });
+            };
+
+            if (reduceMotion || !ScrollTrigger) {
+                showFinal();
+                return;
+            }
+
+            // Initial hidden state: strokes fully "undrawn", number lifted.
+            strokes.forEach((p, i) => {
+                const len = lengths[i];
+                gsap.set(p, {
+                    strokeDasharray: len,
+                    strokeDashoffset: len,
+                });
+            });
+            gsap.set(glyphs, {
+                opacity: 0,
+                yPercent: 18,
+                transformOrigin: "center bottom",
+            });
+
+            // The two brackets race from a shared start. In this artwork the
+            // gray (#EEE9E9) bracket carries the HIGHER value (e.g. 86) and
+            // the white bracket the lower one (e.g. 80), so the gray stroke
+            // draws FAST and the white stroke draws SLOW — 86 fills in ahead
+            // of 80. Each chart also gets its own pace via a per-SVG speed
+            // factor, and the whole draw lands at ~3s. The timeline then
+            // loops every 5s while the graphic is on screen (paused/restarted
+            // as you scroll past).
+            const FAST_BASE = 1.7; // higher number — quicker
+            const SLOW_BASE = 2.6; // lower number — slower
+            const SPEED_FACTORS = [1.0, 0.85, 1.15, 0.95];
+            const factor = SPEED_FACTORS[svgIndex % SPEED_FACTORS.length];
+            const CYCLE = 5; // seconds between repeats
+
+            // The white stroke sits next to the lower number; everything else
+            // (the gray bracket) carries the higher number and draws faster.
+            const isFast = (p) => {
+                const s = (p.getAttribute("stroke") || "").toLowerCase();
+                const isWhite =
+                    s === "white" || s === "#fff" || s === "#ffffff";
+                return !isWhite;
+            };
+
+            // yoyo: instead of snapping back to 0 and redrawing, each repeat
+            // plays the draw in REVERSE (un-draws back to 0) and then forward
+            // again — a smooth draw-in / draw-out loop that always starts
+            // from 0. repeatDelay gives a short breath at the empty end.
+            const tl = gsap.timeline({
+                paused: true,
+                repeat: -1,
+                yoyo: true,
+                repeatDelay: 0.4,
+                defaults: { ease: "power2.out" },
+            });
+
+            // Both strokes start together (position 0) but finish at
+            // different times because their durations differ.
+            strokes.forEach((p) => {
+                const dur = (isFast(p) ? FAST_BASE : SLOW_BASE) * factor;
+                tl.to(p, { strokeDashoffset: 0, duration: dur }, 0);
+            });
+
+            // Numbers rise in just as the slower stroke is landing.
+            const drawEnd = SLOW_BASE * factor;
+            tl.to(
+                glyphs,
+                { opacity: 1, yPercent: 0, duration: 0.85, stagger: 0.12 },
+                Math.max(0, drawEnd - 0.5),
+            );
+
+            // Hold the finished 80/86 on screen so each forward leg lasts
+            // ~CYCLE (5s) before it reverses back down. With yoyo this hold
+            // also plays at the top of the reverse leg, so the full value
+            // lingers at the turnaround.
+            tl.to({}, { duration: Math.max(0.3, CYCLE - tl.duration()) });
+
+            // Loop only while visible; pause off-screen, restart on return.
+            ScrollTrigger.create({
+                trigger: svg,
+                start: "top 85%",
+                end: "bottom 15%",
+                onEnter: () => tl.restart(true),
+                onEnterBack: () => tl.restart(true),
+                onLeave: () => tl.pause(),
+                onLeaveBack: () => tl.pause(),
+            });
+        });
+    }
+    document.fonts.ready.then(initBracketSvgDraw);
+
     /* ------ Animated counters (replaces main.js) ----------------------- */
     // Auto-expand abbreviated values: when a counter sits next to a
     // "million / billion / M / B / مليون / مليار / thousand / ألف" unit,

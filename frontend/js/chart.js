@@ -28,6 +28,52 @@ const isAR = (document.documentElement.getAttribute("lang") || "en").toLowerCase
 
 const windowWidth = window.innerWidth;
 
+// Read a bar's CURRENT (animated) value from its pixel position, so the
+// printed label counts up from 0 as the bar grows instead of showing the
+// final number the whole time.
+function animatedBarValue(chart, dataset, bar, j) {
+    const yScale = chart.scales && chart.scales.y;
+    const final = dataset.data[j];
+    if (!yScale) return final;
+    let v = yScale.getValueForPixel(bar.y);
+    if (!isFinite(v)) return final;
+    v = Math.round(v);
+    if (v < 0) v = 0;
+    if (v > final) v = final;
+    return v;
+}
+
+// Hold each chart at zero until it scrolls into view, then grow the bars
+// (and their counting labels) up to the real values. Re-grows every time it
+// re-enters the viewport, so the motion is reversible like the bracket SVGs.
+function setupGrowOnView(chart) {
+    if (!chart || !chart.canvas) return chart;
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) return chart;
+
+    chart.reset();
+    let inView = false;
+    const io = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting && !inView) {
+                    inView = true;
+                    chart.reset();
+                    chart.update();
+                } else if (!e.isIntersecting && inView) {
+                    inView = false;
+                    chart.reset();
+                }
+            });
+        },
+        { threshold: 0.35 },
+    );
+    io.observe(chart.canvas);
+    return chart;
+}
+
 const alwaysShowValues = {
     id: 'alwaysShowValues',
     // afterDatasetsDraw بتضمن إن الرسم يحصل فوق الأعمدة في كل تحديث (حتى الـ Hover)
@@ -47,7 +93,7 @@ const alwaysShowValues = {
             }
             // ✅ بنحدد لون النص هنا بناءً على لون الـ Dataset (العمود)
             meta.data.forEach((bar, j) => {
-                const value = dataset.data[j];
+                const value = animatedBarValue(chart, dataset, bar, j);
 
                 // الرسم بيعتمد على إحداثيات العمود الحالية (bar.x, bar.y)
                 ctx.fillText(value + '%', bar.x, bar.y - 5);
@@ -70,7 +116,7 @@ const alwaysShowStateValues = {
             const meta = chart.getDatasetMeta(i);
 
             meta.data.forEach((bar, j) => {
-                const value = dataset.data[j] + '%';
+                const value = animatedBarValue(chart, dataset, bar, j) + '%';
 
                 // 1. حساب أبعاد النص عشان نحدد حجم الـ Box
                 const textWidth = ctx.measureText(value).width;
@@ -129,7 +175,7 @@ const alwaysShowProgramValues = {
             }
             // ✅ بنحدد لون النص هنا بناءً على لون الـ Dataset (العمود)
             meta.data.forEach((bar, j) => {
-                const value = dataset.data[j];
+                const value = animatedBarValue(chart, dataset, bar, j);
 
                 // الرسم بيعتمد على إحداثيات العمود الحالية (bar.x, bar.y)
                 ctx.fillText(value + '', bar.x, bar.y - 5);
@@ -145,7 +191,7 @@ function createChart(target, actual, id) {
     if (!ele)
         return;
 
-    new Chart(ele, {
+    const chart = new Chart(ele, {
         type: 'bar',
         plugins: [alwaysShowValues], // ✅ تفعيل الـ Plugin هنا
         data: {
@@ -188,6 +234,13 @@ function createChart(target, actual, id) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            animation: { duration: 1400, easing: 'easeOutQuart' },
+            // Every bar's top starts pinned to the y=0 baseline and grows up
+            // to its value, so the bars (and their counting labels) clearly
+            // start from 0 rather than Chart.js's default grow direction.
+            animations: {
+                y: { from: (ctx) => ctx.chart.scales.y.getPixelForValue(0) },
+            },
             plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -240,6 +293,8 @@ function createChart(target, actual, id) {
             }
         }
     });
+
+    return setupGrowOnView(chart);
 }
 
 function createStateChart(target, actual, id) {
@@ -249,7 +304,7 @@ function createStateChart(target, actual, id) {
     // 1. ضبط اتجاه الـ Canvas نفسه في الـ DOM
     ele.style.direction = isAR ? "rtl" : "ltr";
 
-    new Chart(ele, {
+    const chart = new Chart(ele, {
         type: 'bar',
         plugins: [alwaysShowStateValues],
         data: {
@@ -276,6 +331,12 @@ function createStateChart(target, actual, id) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            animation: { duration: 1400, easing: 'easeOutQuart' },
+            // Bars start pinned to the y=0 baseline and grow up to value, so
+            // bars and their counting labels clearly start from 0.
+            animations: {
+                y: { from: (ctx) => ctx.chart.scales.y.getPixelForValue(0) },
+            },
             // 2. تفعيل دعم الـ RTL في النصوص والـ Tooltip
             rtl: isAR,
             plugins: {
@@ -328,6 +389,8 @@ function createStateChart(target, actual, id) {
             }
         }
     });
+
+    return setupGrowOnView(chart);
 }
 
 function createProgramChart(target, actual, id) {
@@ -335,7 +398,7 @@ function createProgramChart(target, actual, id) {
     if (!ele)
         return;
 
-    new Chart(ele, {
+    const chart = new Chart(ele, {
         type: 'bar',
         plugins: [alwaysShowProgramValues],
         data: {
@@ -374,6 +437,13 @@ function createProgramChart(target, actual, id) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            animation: { duration: 1400, easing: 'easeOutQuart' },
+            // Every bar's top starts pinned to the y=0 baseline and grows up
+            // to its value, so the bars (and their counting labels) clearly
+            // start from 0 rather than Chart.js's default grow direction.
+            animations: {
+                y: { from: (ctx) => ctx.chart.scales.y.getPixelForValue(0) },
+            },
             plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -416,6 +486,8 @@ function createProgramChart(target, actual, id) {
             }
         }
     });
+
+    return setupGrowOnView(chart);
 }
 
 createChart(target_1, actual_1, "char-1")
