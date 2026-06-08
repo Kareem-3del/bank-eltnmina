@@ -699,6 +699,12 @@ select {
 /* The legacy hamburger toggle is removed by main.js (initStaggeredMenu)
    in favor of the staggered overlay menu, so we don't render any drawer here. */
 
+@media(min-width:768px) {
+  .nav__brand img {
+    width: 190px;
+  }
+}
+
 @media (max-width: 880px) {
   .nav {
     padding: 10px 12px;
