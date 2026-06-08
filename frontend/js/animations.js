@@ -432,6 +432,64 @@
     window.addEventListener("load", () => ScrollTrigger.refresh());
   }
 
+  /* ------ Strategic pillars — per-column alternating scrub ------------- */
+  const sdPillarsSection = document.querySelector(".sd-pillars");
+  if (sdPillarsSection && ScrollTrigger && !reduceMotion) {
+    const sdPillarMq = window.matchMedia("(max-width: 1024px)");
+    const sdPillarHeads = [
+      ...sdPillarsSection.querySelectorAll(
+        ".sd-pillars__headers .sd-pillar__head",
+      ),
+    ];
+    const sdPillarCols = [
+      ...sdPillarsSection.querySelectorAll(".sd-pillars__body > .sd-pillar"),
+    ];
+
+    const getSdPillarTravel = () => (sdPillarMq.matches ? 24 : 44);
+
+    sdPillarCols.forEach((col, index) => {
+      const head = sdPillarHeads[index];
+      const targets = head ? [head, col] : [col];
+      const travel = getSdPillarTravel();
+      const driftUp = index % 2 === 0;
+      const fromY = driftUp ? travel * 0.4 : -travel * 0.4;
+      const toY = driftUp ? -travel * 0.6 : travel * 0.6;
+
+      targets.forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: fromY },
+          {
+            y: toY,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sdPillarsSection,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.35,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      });
+
+      gsap.from(targets, {
+        opacity: 0,
+        duration: 0.75,
+        ease: "power2.out",
+        stagger: 0.05,
+        delay: index * 0.12,
+        scrollTrigger: {
+          trigger: sdPillarsSection,
+          start: "top 88%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    sdPillarMq.addEventListener("change", () => ScrollTrigger.refresh());
+  }
+
   /* ------ Specialized Image Zoom Reveal (Anti-Jump) ------------------ */
   const gsapImages = document.querySelectorAll(
     "[data-gsap-img]:not(.sd-framework__image)",
@@ -1848,6 +1906,8 @@
     const counters = document.querySelectorAll("[data-counter]");
 
     counters.forEach((el) => {
+      if (el.hasAttribute("data-counter-loop")) return;
+
       const { scale } = expandUnitForCounter(el);
       let target = parseFloat(el.dataset.counter) * scale;
       let decimals = parseInt(el.dataset.decimals || "0", 10);
@@ -1909,6 +1969,157 @@
       maximumFractionDigits: decimals,
     });
   }
+
+  function reserveCounterWidth(el, text) {
+    const clone = el.cloneNode(false);
+    clone.style.visibility = "hidden";
+    clone.style.position = "fixed";
+    clone.style.top = "0";
+    clone.style.left = "0";
+    clone.style.opacity = "1";
+    clone.style.transform = "none";
+    clone.style.whiteSpace = "nowrap";
+    clone.style.width = "auto";
+    clone.style.pointerEvents = "none";
+    clone.style.fontSize = getComputedStyle(el).fontSize;
+    clone.style.fontFamily = getComputedStyle(el).fontFamily;
+    clone.style.fontWeight = getComputedStyle(el).fontWeight;
+    clone.style.letterSpacing = getComputedStyle(el).letterSpacing;
+    clone.textContent = text;
+    document.body.appendChild(clone);
+    const finalWidth = clone.getBoundingClientRect().width;
+    clone.remove();
+    el.style.width = `${Math.ceil(finalWidth) + 1}px`;
+    el.style.display = "inline-block";
+    el.style.whiteSpace = "nowrap";
+  }
+
+  function initCounterLoop({ el, pulseEl, triggerEl, staggerDelay = 0 }) {
+    if (!el || !pulseEl || !triggerEl) return;
+
+    const { scale } = expandUnitForCounter(el);
+    const target = parseFloat(el.dataset.counter) * scale;
+    let decimals = parseInt(el.dataset.decimals || "0", 10);
+    if (scale > 1) decimals = 0;
+    const step = parseFloat(el.dataset.step || "0");
+    const countDuration = parseFloat(el.dataset.duration || "2.4");
+    const finalText = formatNumber(target, decimals);
+    const isLargeScreen = window.matchMedia("(min-width: 1440px)").matches;
+    const peakScale = isLargeScreen ? 1.1 : 1.15;
+    const growDuration = 1.6;
+
+    reserveCounterWidth(el, finalText);
+
+    if (reduceMotion || !ScrollTrigger) {
+      el.textContent = finalText;
+      return;
+    }
+
+    const proxy = { value: 0 };
+    let loopStarted = false;
+
+    const applyValue = (raw) => {
+      let val = raw;
+      if (step > 0 && target > 0) {
+        const progress = raw / target;
+        val = progress > 0.98 ? target : Math.round(raw / step) * step;
+      }
+      el.textContent = formatNumber(val, decimals);
+    };
+
+    const startLoop = () => {
+      if (loopStarted) return;
+      loopStarted = true;
+
+      gsap.set(pulseEl, { scale: 1, transformOrigin: "center center" });
+
+      const loopTl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 0.35,
+        delay: staggerDelay,
+      });
+
+      loopTl.call(() => {
+        proxy.value = 0;
+        applyValue(0);
+      });
+
+      loopTl.to(proxy, {
+        value: target,
+        duration: countDuration,
+        ease: "power2.out",
+        onUpdate: () => applyValue(proxy.value),
+      });
+
+      loopTl.to(
+        pulseEl,
+        { scale: peakScale, duration: growDuration, ease: "power2.out" },
+        "+=0.15",
+      );
+
+      loopTl.to(pulseEl, { scale: peakScale, duration: 1.5 });
+
+      loopTl.to(pulseEl, {
+        scale: 1,
+        duration: 0.55,
+        ease: "power2.inOut",
+      });
+    };
+
+    const maybeStart = () => {
+      const rect = triggerEl.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        startLoop();
+      }
+    };
+
+    ScrollTrigger.create({
+      trigger: triggerEl,
+      start: "top 90%",
+      once: true,
+      onEnter: startLoop,
+    });
+
+    ScrollTrigger.refresh();
+    requestAnimationFrame(maybeStart);
+  }
+
+  function initSubsidiariesCounterLoops() {
+    if (!document.querySelector(".page-subs")) return;
+
+    document.querySelectorAll(".subs-co__card").forEach((card, index) => {
+      const el = card.querySelector("[data-counter-loop]");
+      const pulseEl = el?.closest(".subs-co__pct-pulse");
+      if (!el || !pulseEl) return;
+
+      initCounterLoop({
+        el,
+        pulseEl,
+        triggerEl: card,
+        staggerDelay: index * 0.4,
+      });
+    });
+  }
+
+  function initVisionCounterLoop() {
+    const section = document.querySelector(".vision-sec");
+    if (!section) return;
+
+    const el = section.querySelector("[data-counter-loop]");
+    const pulseEl = el?.closest(".vision-precent__pulse");
+    if (!el || !pulseEl) return;
+
+    initCounterLoop({
+      el,
+      pulseEl,
+      triggerEl: section.querySelector(".vision-right") || section,
+    });
+  }
+
+  document.fonts.ready.then(() => {
+    initSubsidiariesCounterLoops();
+    initVisionCounterLoop();
+  });
 
   /* ------ Image scrub parallax --------------------------------------- */
   if (ScrollTrigger && !reduceMotion) {

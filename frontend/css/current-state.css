@@ -965,6 +965,11 @@ h3.crr-aside__list-tile {
     font-weight: 800;
 }
 
+.banner-sec [data-counter] {
+    font-weight: 800;
+    display: inline-block;
+}
+
 /* budget-sec */
 .budget-content__wrap {
     display: flex;

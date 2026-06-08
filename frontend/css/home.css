@@ -1083,6 +1083,14 @@ body {
   font-size: 1.25rem;
 }
 
+.counter-title__pulse {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  transform-origin: center center;
+  will-change: transform;
+}
+
 .counter-item .counter-text {
   color: #fff;
   font-weight: 400;
