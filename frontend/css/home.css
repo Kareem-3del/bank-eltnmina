@@ -735,9 +735,9 @@ body {
   color: #fff;
   font-family: "Cairo", sans-serif;
   font-weight: 900;
-  font-size: 40px;
+  font-size: clamp(44px, 5.5vw, 56px);
   line-height: 1.1;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   margin-bottom: 24px;
 }
 
@@ -745,33 +745,18 @@ body {
   display: inline-flex;
   align-items: baseline;
   justify-content: center;
-  gap: 0.12em;
+  gap: 0.1em;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
   transform-origin: center center;
   will-change: transform;
 }
 
-@media (min-width: 1200px) {
-  .banner-stat__num {
-    font-size: 34px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .banner-stat__num {
-    font-size: 30px;
-  }
-}
-
-@media (min-width: 1680px) {
-  .banner-stat__num {
-    font-size: 26px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .banner-stat__num {
-    font-size: 22px;
-  }
+.banner-stat__pulse .plus-sign {
+  font-size: 0.92em;
+  font-weight: inherit;
 }
 
 .banner-stat__caption {
