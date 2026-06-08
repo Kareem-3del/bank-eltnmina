@@ -18,7 +18,7 @@
     {
       nameAr: "الرئيسية",
       nameEn: "Home",
-      href: "index.html",
+      href: "home.html",
     },
     {
       nameAr: "المقدمة",

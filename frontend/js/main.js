@@ -210,7 +210,7 @@
         brandSub: "التقرير السنوي 2025",
         links: [
           {
-            href: "index.html",
+            href: "home.html",
             text: "الرئيسية",
             img: "hero.webp",
             caption: "أسرٌ تنتقل إلى منازلها الجديدة"
@@ -368,7 +368,7 @@
         brandSub: "Annual Report 2025",
         links: [
           {
-            href: "index.html",
+            href: "home.html",
             text: "Home",
             img: "hero-en.webp",
             caption: "Families moving into their new homes"
@@ -577,7 +577,6 @@
 
         return `
                 <li 
-                onclick = "menu.classList.remove("is-index")
                 class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
                   <a 
                   href="${parentHref}" data-caption="${parentCaption}" data-preview="${parentImg}" class="staggered-menu__link staggered-menu__dropdown-toggle${hasActiveChild}" data-dropdown-toggle>
@@ -670,7 +669,6 @@
 
     const close = () => {
       menu.classList.remove("is-open");
-      menu.classList.remove("is-index");
       document.body.classList.remove("menu-open");
       document.body.classList.remove("menu-open");
 
@@ -694,27 +692,6 @@
 
 
     // أضف هذا الجزء بعد إضافة القائمة للـ DOM (بعد document.body.appendChild(menu))
-
-    menu.addEventListener('click', (e) => {
-      if (initMenu) {
-        // 1. العثور على الرابط الذي تم الضغط عليه
-        const link = e.target.closest('a');
-        if (!link) return;
-
-        const href = link.getAttribute('href') || '';
-
-        // 2. التحقق من الشروط: هل الرابط يحتوي على "index" أو "gtm"؟
-        const isIndexOrGtm = href.includes('index');
-
-        // 3. منع الانتقال التلقائي إذا تحقق الشرط
-        if (isIndexOrGtm) {
-          e.preventDefault(); // هنا يتم منع المتصفح من فتح الرابط
-
-          close(); // إغلاق المنيو
-        }
-      }
-
-    });
     menu.querySelectorAll(".staggered-menu__link").forEach(link => {
       link.addEventListener("click", () => {
         const href = link.getAttribute("href") || "";
