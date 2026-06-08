@@ -4,6 +4,7 @@
 
 .es-page--en {
   direction: ltr;
+  text-align: left;
   font-family: "Public Sans", "Almarai", sans-serif;
 }
 
@@ -16,8 +17,7 @@
 }
 
 /* -----------------------------------------------------------------------
-   Overview — programs left, strategy right (same row)
-   DOM order: stack first, strategy second
+   Overview — programs left, strategy right
    ----------------------------------------------------------------------- */
 .es-page--en .es-overview__grid {
   grid-template-columns: minmax(0, 1020fr) minmax(0, 403fr);
@@ -46,98 +46,146 @@
   }
 }
 
-/* Left column — programs & deposit (content faces inward like AR) */
-.es-page--en .es-overview .es-panel--programs .es-panel__head,
-.es-page--en .es-overview .es-panel--programs .es-panel__text,
-.es-page--en .es-overview .es-panel--programs .es-panel__subhead,
-.es-page--en .es-overview .es-panel--deposit .es-panel__head {
-  text-align: right;
+.es-page--en .es-overview .es-panel__head,
+.es-page--en .es-overview .es-panel__text,
+.es-page--en .es-overview .es-panel__subhead,
+.es-page--en .es-overview .es-panel--deposit .es-panel__head,
+.es-page--en .es-overview .es-deposit__desc {
+  text-align: left;
 }
 
-.es-page--en .es-overview .es-panel--programs .es-program-stat {
-  grid-template-columns: minmax(0, 1fr) auto;
+.es-page--en .es-overview .es-panel--strategy .es-panel__text {
+  margin-inline: 0;
+  max-width: none;
+}
+
+.es-page--en .es-overview .es-program-stat {
+  grid-template-columns: auto minmax(0, 1fr);
 }
 
 .es-page--en .es-overview .es-program-stat__icon {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1 / span 2;
 }
 
 .es-page--en .es-overview .es-program-stat__text {
-  grid-column: 1;
-  text-align: right;
+  grid-column: 2;
+  text-align: left;
 }
 
 .es-page--en .es-overview .es-program-stat__top {
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .es-page--en .es-overview .es-program-stat__value {
-  text-align: right;
-}
-
-/* Right column — strategy */
-.es-page--en .es-overview .es-panel--strategy .es-panel__head,
-.es-page--en .es-overview .es-panel--strategy .es-panel__text,
-.es-page--en .es-overview .es-panel--strategy .es-panel-metric__cap,
-.es-page--en .es-overview .es-panel--strategy .es-panel-metric__num,
-.es-page--en .es-overview .es-panel--strategy .es-panel-metric__unit,
-.es-page--en .es-overview .es-panel--strategy .es-panel-metric__figure {
-  text-align: right;
-}
-
-.es-page--en .es-overview .es-panel--strategy .es-panel__text {
-  margin-inline-start: auto;
-  margin-inline-end: 0;
+  text-align: left;
 }
 
 .es-page--en .es-overview .es-panel--strategy .es-panel-metric {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
-.es-page--en .es-overview .es-panel--strategy .es-panel-metric__figure {
-  align-items: flex-end;
+@media (min-width: 541px) and (max-width: 1024px) {
+  .es-page--en .es-overview .es-panel--strategy .es-panel-metric {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .es-page--en .es-overview .es-panel--strategy .es-panel-metric__figure,
+  .es-page--en .es-overview .es-panel--strategy .es-panel-metric__cap {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__figure,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__cap,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__num,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__unit,
+.es-page--en .es-overview .es-panel--strategy .es-panel-metric__unit-row {
+  text-align: left;
+  align-items: flex-start;
 }
 
 .es-page--en .es-overview .es-panel--strategy .es-panel-metric__unit-row {
-  justify-content: flex-end;
-  align-self: flex-end;
+  justify-content: flex-start;
+  align-self: flex-start;
 }
 
-/* Deposit row — % on the right like AR */
 .es-page--en .es-overview .es-panel__body--deposit {
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: flex-start;
 }
 
-.es-page--en .es-overview .es-deposit__desc {
-  text-align: right;
+/* Financing banner */
+.es-page--en .es-financing-banner__title {
+  text-align: left;
 }
 
-/* Services & dev */
+@media (min-width: 541px) and (max-width: 1024px) {
+  .es-page--en .es-financing-banner__inner {
+    direction: ltr;
+  }
+
+  .es-page--en .es-financing-banner__title {
+    text-align: left;
+  }
+
+  .es-page--en .es-financing-banner__figure {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .es-page--en .es-financing-banner__inner {
+    justify-items: start;
+  }
+
+  .es-page--en .es-financing-banner__title {
+    text-align: left;
+  }
+
+  .es-page--en .es-financing-banner__figure {
+    justify-content: flex-start;
+  }
+}
+
+/* Services & developer support */
 .es-page--en .es-services__head,
 .es-page--en .es-dev__head {
   align-items: flex-start;
   text-align: left;
 }
 
+.es-page--en .es-services__title,
+.es-page--en .es-services__sub,
 .es-page--en .es-services__desc,
+.es-page--en .es-dev__title,
+.es-page--en .es-dev__sub,
 .es-page--en .es-dev__desc {
   text-align: left;
 }
 
-.es-page--en .es-financing-banner__title {
+/* Advisor */
+.es-page--en .es-advisor2__head {
+  justify-content: flex-start;
+}
+
+.es-page--en .es-advisor2__titlebox,
+.es-page--en .es-advisor2__stat,
+.es-page--en .es-advisor2__value,
+.es-page--en .es-advisor2__label,
+.es-page--en .es-advisor2__desc {
   text-align: left;
 }
 
-/* Advisor */
 .es-page--en .es-advisor2__stats {
-  margin-inline-end: 0;
-  margin-inline-start: 0;
+  margin-inline: 0;
 }
 
 .es-page--en .es-advisor2__channel,
 .es-page--en .es-advisor2__channel-title,
+.es-page--en .es-advisor2__channel-value,
 .es-page--en .es-advisor2__channel-label {
   text-align: left;
   align-items: flex-start;
@@ -145,12 +193,6 @@
 
 .es-page--en .es-advisor2__channels {
   justify-content: flex-start;
-}
-
-@media (max-width: 640px) {
-  .es-page--en .es-financing-banner__num {
-    padding-inline: 6px;
-  }
 }
 
 /* Latin numerals */
@@ -174,4 +216,18 @@
 .es-page--en .es-percent-card strong[data-pct]::after,
 .es-page--en .es-digital-card__pct[data-pct]::after {
   content: "%";
+}
+
+@media (max-width: 540px) {
+  .es-page--en .es-overview .es-panel--strategy .es-panel-metric,
+  .es-page--en .es-overview .es-panel--strategy .es-panel-metric__cap {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .es-page--en .es-financing-banner__num {
+    padding-inline: 0;
+  }
 }
