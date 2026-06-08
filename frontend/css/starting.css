@@ -276,7 +276,7 @@
     margin-top: 1.5rem;
     display: flex;
     gap: 16px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .board-img {
