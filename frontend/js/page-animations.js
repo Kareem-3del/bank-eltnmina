@@ -220,7 +220,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let target = parseFloat(el.dataset.counter) * scale;
             let decimals = parseInt(el.dataset.decimals || "0", 10);
             if (scale > 1) decimals = 0;
-            const duration = parseFloat(el.dataset.duration || "3.5");
+            const duration = parseFloat(
+                el.dataset.duration ||
+                    (el.closest(".budget-sec, .banner-section") ? "5" : "3.5")
+            );
 
             const finalFormattedText = formatNumber(target, decimals);
 
@@ -321,18 +324,18 @@ document.addEventListener("DOMContentLoaded", () => {
         el.style.whiteSpace = "nowrap";
     }
 
-    function initBannerStatCounterLoop() {
-        const bannerNum = document.querySelector(".banner-stat__num");
-        const pulseEl = bannerNum?.querySelector(".banner-stat__pulse");
-        const el = pulseEl?.querySelector("[data-counter-loop]");
-        if (!el || !pulseEl || !bannerNum) return;
+    function initCounterLoop({ el, pulseEl, triggerEl, staggerDelay = 0 }) {
+        if (!el || !pulseEl || !triggerEl) return;
 
-        const target = parseFloat(el.dataset.counter);
-        const decimals = 0;
+        const { scale } = expandUnitForCounter(el);
+        const target = parseFloat(el.dataset.counter) * scale;
+        let decimals = parseInt(el.dataset.decimals || "0", 10);
+        if (scale > 1) decimals = 0;
+        const step = parseFloat(el.dataset.step || "0");
         const countDuration = parseFloat(el.dataset.duration || "2.4");
         const finalText = formatNumber(target, decimals);
         const isLargeScreen = window.matchMedia("(min-width: 1440px)").matches;
-        const peakScale = isLargeScreen ? 1.12 : 1.18;
+        const peakScale = isLargeScreen ? 1.1 : 1.15;
         const growDuration = 1.6;
 
         reserveCounterWidth(el, finalText);
@@ -344,7 +347,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const proxy = { value: 0 };
         let loopStarted = false;
-        let loopTl = null;
+
+        const applyValue = (raw) => {
+            let val = raw;
+            if (step > 0 && target > 0) {
+                const progress = raw / target;
+                val = progress > 0.98 ? target : Math.round(raw / step) * step;
+            }
+            el.textContent = formatNumber(val, decimals);
+        };
 
         const startLoop = () => {
             if (loopStarted) return;
@@ -352,20 +363,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             gsap.set(pulseEl, { scale: 1, transformOrigin: "center center" });
 
-            loopTl = gsap.timeline({ repeat: -1, repeatDelay: 0.35 });
+            const loopTl = gsap.timeline({
+                repeat: -1,
+                repeatDelay: 0.35,
+                delay: staggerDelay,
+            });
 
             loopTl.call(() => {
                 proxy.value = 0;
-                el.textContent = formatNumber(0, decimals);
+                applyValue(0);
             });
 
             loopTl.to(proxy, {
                 value: target,
                 duration: countDuration,
                 ease: "power2.out",
-                onUpdate: () => {
-                    el.textContent = formatNumber(proxy.value, decimals);
-                },
+                onUpdate: () => applyValue(proxy.value),
             });
 
             loopTl.to(
@@ -383,26 +396,59 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        const triggerEl = document.querySelector(".banner-stat") || bannerNum;
+        const maybeStart = () => {
+            const rect = triggerEl.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                startLoop();
+            }
+        };
 
         ScrollTrigger.create({
             trigger: triggerEl,
-            start: "top 90%",
+            start: "top 95%",
             once: true,
             onEnter: startLoop,
         });
 
         ScrollTrigger.refresh();
-        requestAnimationFrame(() => {
-            const rect = triggerEl.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
-                startLoop();
-            }
+        requestAnimationFrame(maybeStart);
+    }
+
+    function initBannerStatCounterLoop() {
+        const bannerNum = document.querySelector(".banner-stat__num");
+        const pulseEl = bannerNum?.querySelector(".banner-stat__pulse");
+        const el = pulseEl?.querySelector("[data-counter-loop]");
+        if (!el || !pulseEl) return;
+
+        initCounterLoop({
+            el,
+            pulseEl,
+            triggerEl: document.querySelector(".banner-stat") || bannerNum,
+        });
+    }
+
+    function initHeroCounterLoops() {
+        const heroCounter = document.querySelector(".hero-counter");
+        if (!heroCounter) return;
+
+        const triggerEl = document.querySelector(".new-hero") || heroCounter;
+
+        heroCounter.querySelectorAll("[data-counter-loop]").forEach((el, index) => {
+            const pulseEl = el.closest(".counter-title__pulse");
+            if (!pulseEl) return;
+
+            initCounterLoop({
+                el,
+                pulseEl,
+                triggerEl,
+                staggerDelay: index * 0.45,
+            });
         });
     }
 
     document.fonts.ready.then(() => {
         initBannerStatCounterLoop();
+        initHeroCounterLoops();
         initKpiAchievementsImg();
     });
 
