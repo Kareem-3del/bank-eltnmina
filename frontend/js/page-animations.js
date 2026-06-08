@@ -276,6 +276,202 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     document.fonts.ready.then(initBracketSvgDraw);
 
+    /* ------ Org structure chart — draw-on-scroll (reversible) ---------- */
+    // The first-level org chart (.org-svg-chart, desktop only) is authored as
+    // connector strokes + a stack of white <rect> boxes each followed by its
+    // <text> caption(s). We:
+    //   1. group every box with its caption(s) into a <g.org-node> so they
+    //      scale/fade as one unit,
+    //   2. draw the solid connector wires one by one with a steady pen,
+    //   3. reveal each box at the exact moment its wire reaches it (so the
+    //      line visibly travels to المخاطر, then المخاطر appears, and so on),
+    //   4. fade the dashed relationship-lines in last.
+    // The whole thing is one timeline that PLAYS on enter and REVERSES on
+    // leave (either scroll direction) — fully reversible.
+    function initOrgChartDraw() {
+        const svg = document.querySelector(".org-svg-chart");
+        if (!svg || svg.dataset.orgInit === "1") return;
+        svg.dataset.orgInit = "1";
+
+        const SVGNS = "http://www.w3.org/2000/svg";
+
+        // Connector wires are the two top-level <g stroke="#fff"> groups:
+        // the first is solid, the second carries stroke-dasharray (dashed).
+        const wireGroups = Array.from(svg.querySelectorAll(":scope > g[stroke]"));
+        const solidWires = wireGroups[0]
+            ? Array.from(wireGroups[0].querySelectorAll("path"))
+            : [];
+        const dashedWires = wireGroups[1]
+            ? Array.from(wireGroups[1].querySelectorAll("path"))
+            : [];
+
+        // Wrap each box (rect) plus its trailing caption text(s) and any icon
+        // <path> into a node group. The SVG is authored rect, text…/icon-path,
+        // rect, text…, so a single forward pass groups each box with its label
+        // and icon — they fade/scale in as one unit. The connector <g> groups
+        // come first and carry no rect, so they're left untouched.
+        const nodes = [];
+        let current = null;
+        Array.from(svg.children).forEach((el) => {
+            const tag = el.tagName.toLowerCase();
+            if (tag === "rect") {
+                const g = document.createElementNS(SVGNS, "g");
+                g.setAttribute("class", "org-node");
+                svg.insertBefore(g, el);
+                g.appendChild(el);
+                current = g;
+                nodes.push(g);
+            } else if ((tag === "text" || tag === "path") && current) {
+                current.appendChild(el);
+            }
+        });
+        if (!nodes.length) return;
+
+        // Final (rest) state — also used verbatim for reduced motion.
+        const showFinal = () => {
+            [...solidWires, ...dashedWires].forEach((p) => {
+                p.style.strokeDasharray = "";
+                p.style.strokeDashoffset = "0";
+                p.style.opacity = "1";
+            });
+            nodes.forEach((g) => {
+                g.style.opacity = "1";
+                g.style.transform = "none";
+            });
+        };
+
+        if (reduceMotion || !ScrollTrigger) {
+            showFinal();
+            return;
+        }
+
+        // --- Geometry: measure every solid wire and sample points along it ---
+        // We draw each wire with a STEADY pen (ease "none"), so the pen's
+        // position is linear in time: a box that sits at fraction f along a
+        // wire is reached at wireStart + f * WIRE_DUR. That lets us pop each
+        // box at the exact instant the line arrives at it.
+        const TIMING = { WIRE_DUR: 1.1, WIRE_GAP: 0.42, BOX_DUR: 0.7 };
+
+        const wireInfo = solidWires.map((p) => {
+            let len = 0;
+            try {
+                len = p.getTotalLength();
+            } catch (e) {
+                len = 0;
+            }
+            const samples = Math.max(2, Math.round(len / 5));
+            const pts = [];
+            for (let i = 0; i <= samples; i++) {
+                let pt = { x: 0, y: 0 };
+                try {
+                    pt = p.getPointAtLength((len * i) / samples);
+                } catch (e) {}
+                pts.push(pt);
+            }
+            const minY = pts.reduce((m, pt) => Math.min(m, pt.y), Infinity);
+            return { p, len, pts, minY };
+        });
+
+        // Draw order follows the org flow: highest wires (smallest y) first,
+        // so the chart fills out from the board downward.
+        wireInfo.sort((a, b) => a.minY - b.minY);
+        wireInfo.forEach((w, i) => {
+            w.start = i * TIMING.WIRE_GAP;
+        });
+        const drawEnd = wireInfo.length
+            ? wireInfo[wireInfo.length - 1].start + TIMING.WIRE_DUR
+            : 0;
+
+        // Distance from a point to a box rect (0 if inside).
+        const distToRect = (pt, r) => {
+            const dx = Math.max(r.x - pt.x, 0, pt.x - (r.x + r.width));
+            const dy = Math.max(r.y - pt.y, 0, pt.y - (r.y + r.height));
+            return Math.hypot(dx, dy);
+        };
+
+        // For each box, find the wire (and the point along it) that comes
+        // closest to the box — that's the line "arriving" at it. The box is
+        // revealed at the moment the pen passes that point.
+        nodes.forEach((g) => {
+            const rect = g.querySelector("rect");
+            const r = {
+                x: parseFloat(rect.getAttribute("x")),
+                y: parseFloat(rect.getAttribute("y")),
+                width: parseFloat(rect.getAttribute("width")),
+                height: parseFloat(rect.getAttribute("height")),
+            };
+            let best = { d: Infinity, time: 0 };
+            wireInfo.forEach((w) => {
+                const last = w.pts.length - 1 || 1;
+                w.pts.forEach((pt, idx) => {
+                    const d = distToRect(pt, r);
+                    if (d < best.d) {
+                        const f = idx / last;
+                        best = { d, time: w.start + f * TIMING.WIRE_DUR };
+                    }
+                });
+            });
+            g.__revealAt = best.d < Infinity ? best.time : 0;
+        });
+
+        // Initial hidden state.
+        wireInfo.forEach((w) => {
+            gsap.set(w.p, {
+                strokeDasharray: w.len,
+                strokeDashoffset: w.len,
+            });
+        });
+        gsap.set(dashedWires, { opacity: 0 });
+        gsap.set(nodes, {
+            opacity: 0,
+            scale: 0.55,
+            transformOrigin: "50% 50%",
+        });
+
+        // One reversible, slow timeline. Each wire draws at a steady pace, and
+        // its destination box pops in the moment the line reaches it (line →
+        // box → next line → box …). Dashed relationship-lines fade in last.
+        // ScrollTrigger drives it via toggleActions so it plays on enter and
+        // un-draws (reverse) on leave, in either scroll direction; attaching
+        // the timeline also keeps the state correct if the chart is already in
+        // view on load.
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: svg,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play reverse play reverse",
+                invalidateOnRefresh: true,
+            },
+        });
+
+        wireInfo.forEach((w) => {
+            tl.to(
+                w.p,
+                { strokeDashoffset: 0, duration: TIMING.WIRE_DUR, ease: "none" },
+                w.start,
+            );
+        });
+        nodes.forEach((g) => {
+            tl.to(
+                g,
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: TIMING.BOX_DUR,
+                    ease: "expo.out",
+                },
+                g.__revealAt,
+            );
+        });
+        tl.to(
+            dashedWires,
+            { opacity: 1, duration: 1.2, stagger: 0.4, ease: "power2.out" },
+            Math.max(0, drawEnd - 0.4),
+        );
+    }
+    document.fonts.ready.then(initOrgChartDraw);
+
     /* ------ Animated counters (replaces main.js) ----------------------- */
     // Auto-expand abbreviated values: when a counter sits next to a
     // "million / billion / M / B / مليون / مليار / thousand / ألف" unit,
