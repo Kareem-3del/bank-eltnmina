@@ -576,8 +576,11 @@
         const hasActiveChild = activeSublink ? " is-current" : "";
 
         return `
-                <li class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
-                  <a href="${parentHref}" data-caption="${parentCaption}" data-preview="${parentImg}" class="staggered-menu__link staggered-menu__dropdown-toggle${hasActiveChild}" data-dropdown-toggle>
+                <li 
+                onclick = "menu.classList.remove("is-index")
+                class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
+                  <a 
+                  href="${parentHref}" data-caption="${parentCaption}" data-preview="${parentImg}" class="staggered-menu__link staggered-menu__dropdown-toggle${hasActiveChild}" data-dropdown-toggle>
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
                     <span class="staggered-menu__label">${link.text}</span>
                     <span class="arrow" aria-hidden="true">
@@ -689,9 +692,33 @@
       if (e.key === "Escape" && menu.classList.contains("is-open")) close();
     });
 
+
+    // أضف هذا الجزء بعد إضافة القائمة للـ DOM (بعد document.body.appendChild(menu))
+
+    menu.addEventListener('click', (e) => {
+      if (initMenu) {
+        // 1. العثور على الرابط الذي تم الضغط عليه
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+
+        // 2. التحقق من الشروط: هل الرابط يحتوي على "index" أو "gtm"؟
+        const isIndexOrGtm = href.includes('index');
+
+        // 3. منع الانتقال التلقائي إذا تحقق الشرط
+        if (isIndexOrGtm) {
+          e.preventDefault(); // هنا يتم منع المتصفح من فتح الرابط
+
+          close(); // إغلاق المنيو
+        }
+      }
+
+    });
     menu.querySelectorAll(".staggered-menu__link").forEach(link => {
       link.addEventListener("click", () => {
         const href = link.getAttribute("href") || "";
+
         if (href.includes("#")) setTimeout(close, 100);
       });
     });

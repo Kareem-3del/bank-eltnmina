@@ -18,14 +18,12 @@
 
 /* Hero gradient overlay (Figma) */
 .c-hero--es1 .c-hero__overlay {
-  background: linear-gradient(
-    110.95deg,
-    #00948f -6.17%,
-    rgba(0, 102, 99, 0.85) 93.83%
-  );
+  background: linear-gradient(110.95deg,
+      #00948f -6.17%,
+      rgba(0, 102, 99, 0.85) 93.83%);
 }
 
-.c-hero--es1 + .es1-banner {
+.c-hero--es1+.es1-banner {
   margin-top: 36px;
 }
 
@@ -55,19 +53,15 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(1, 147, 142, 0.2) 0%,
-    var(--es1-teal-dark) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(1, 147, 142, 0.2) 0%,
+      var(--es1-teal-dark) 100%);
 }
 
 .es1-banner--flip .es1-banner__overlay {
-  background: linear-gradient(
-    270deg,
-    rgba(1, 147, 142, 0.2) 0%,
-    var(--es1-teal-dark) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(1, 147, 142, 0.2) 0%,
+      var(--es1-teal-dark) 100%);
 }
 
 .es1-banner__container {
@@ -132,7 +126,7 @@
   padding: clamp(24px, 4vw, 40px) 0 clamp(20px, 3.5vw, 40px);
 }
 
-.es1-board-wrap + .es1-banner {
+.es1-board-wrap+.es1-banner {
   margin-top: 0;
 }
 
@@ -173,10 +167,10 @@
   height: 100%;
 }
 
+
 .es1-board--financial .es1-board__panel {
   background: var(--es1-teal);
-  padding: clamp(20px, 3vw, 32px) clamp(16px, 2.5vw, 24px)
-    clamp(32px, 4vw, 48px);
+  padding: clamp(20px, 3vw, 32px) clamp(16px, 2.5vw, 24px) clamp(32px, 4vw, 48px);
   display: flex;
   flex-direction: column;
   gap: clamp(24px, 3.5vw, 36px);
@@ -666,7 +660,9 @@
 
 /* ------ Responsive ------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .c-hero--es1 + .es1-banner {
+
+
+  .c-hero--es1+.es1-banner {
     margin-top: 18px;
   }
 
@@ -712,6 +708,15 @@
 }
 
 @media (max-width: 640px) {
+  .es1-board--financial .es1-board__col {
+    margin-top: 30px;
+  }
+
+
+  .es1-board-wrap {
+    margin-bottom: 40px;
+  }
+
   .es1-subs__card {
     grid-template-columns: 1fr;
     text-align: right;
