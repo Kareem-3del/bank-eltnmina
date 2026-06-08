@@ -84,7 +84,8 @@
     justify-content: center;
     align-items: stretch;
     gap: 24px;
-    overflow-x: hidden;
+    overflow: hidden;
+
 }
 
 .func-grid .box {

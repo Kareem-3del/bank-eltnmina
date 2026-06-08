@@ -2046,6 +2046,18 @@ html.lenis body {
 }
 
 /* --- 2. الحركات التفاعلية (Pulse & Shake) --- */
+@keyframes pulse-soft-down {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.97);
+  }
+}
+
 @keyframes pulse-soft {
 
   0%,
@@ -2067,6 +2079,19 @@ html.lenis body {
 
   50% {
     transform: rotate(2deg);
+  }
+}
+
+
+@keyframes shake-side-rev {
+
+  0%,
+  100% {
+    transform: rotate(2deg);
+  }
+
+  50% {
+    transform: rotate(-2deg);
   }
 }
 
@@ -2168,8 +2193,16 @@ html.lenis body {
   animation: pulse-soft 3s ease-in-out infinite;
 }
 
+.anim-pulse-down {
+  animation: pulse-soft-down 3s ease-in-out infinite;
+}
+
 .anim-shake {
   animation: shake-side 2s ease-in-out infinite;
+}
+
+.anim-shake-rev {
+  animation: shake-side-rev 2s ease-in-out infinite;
 }
 
 .anim-swing {

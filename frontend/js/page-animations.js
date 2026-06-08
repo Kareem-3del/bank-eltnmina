@@ -5,16 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const tlEnter = gsap.timeline();
 
     const animClasses = [
-        'anim-float-up', 'anim-float-down', 'anim-pulse', 'anim-shake',
+        'anim-float-up', 'anim-float-down', 'anim-pulse', 'anim-down', 'anim-shake',
         'anim-swing', 'anim-grow', 'anim-slide-right', 'anim-slide-left',
-        'anim-slide-fast', 'anim-spin', 'anim-fade'
+        'anim-slide-fast', 'anim-spin', 'anim-fade', "anim-shake-rev"
     ];
 
     function getAnimClass(el) {
         if (el.classList.contains('js-float-up-enabled')) return 'anim-float-up';
         if (el.classList.contains('js-float-down-enabled')) return 'anim-float-down';
         if (el.classList.contains('js-pulse-enabled')) return 'anim-pulse';
+        if (el.classList.contains('js-pulse-down-enabled')) return 'anim-pulse-down';
         if (el.classList.contains('js-shake-enabled')) return 'anim-shake';
+        if (el.classList.contains('js-shake-rev-enabled')) return 'anim-shake-rev';
         if (el.classList.contains('js-swing-enabled')) return 'anim-swing';
         if (el.classList.contains('js-grow-enabled')) return 'anim-grow';
         if (el.classList.contains('js-slide-right-enabled')) return 'anim-slide-right';
