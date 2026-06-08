@@ -1,0 +1,13 @@
+{
+  "name": "redf-pdfgen",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Regenerate per-page PDFs for the REDF annual-report site (the floating 'download this page' button serves these).",
+  "scripts": {
+    "gen": "node generate.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}

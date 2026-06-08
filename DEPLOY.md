@@ -55,6 +55,34 @@ gh api -X PATCH repos/Kareem-3del/bank-eltnmina/hooks/636588703 \
   -f 'config[content_type]=json'
 ```
 
+## Per-page PDFs (the floating "download this page" button)
+
+`js/actions.js` injects the floating side actions (prev / next / download-page /
+download-full-report). "Download this page" points at
+`assets/pdf/<lang>/<slug>.pdf`; "download full report" points at
+`assets/pdf/<lang>/MT-final.pdf` (the original 172-page report — **do not
+regenerate it**). The per-page PDFs are committed into `frontend/` so the webhook
+deploy ships them like any other asset.
+
+Those per-page PDFs are rendered from the live pages by `deploy/pdfgen/`. The
+pages are GSAP/ScrollTrigger driven (sections reveal on scroll, counters animate
+from 0, Chart.js draws on init), so the generator emulates `prefers-reduced-motion`,
+force-loads images, scroll-sweeps to fire every trigger, forces all reveal
+elements + charts to their final state, then prints one continuous tall page
+(matching the single-page format of the originals). Regenerate after redesigning
+pages:
+
+```sh
+cd deploy/pdfgen && npm install            # one-time (downloads Chromium)
+cd ../../frontend && python3 -m http.server 8124 &   # serve the site locally
+cd ../deploy/pdfgen && node generate.mjs   # all langs/pages  (or: node generate.mjs en strategic-direction)
+```
+
+Output lands in `frontend/assets/pdf/{en,ar}/`. Commit + push; the webhook
+deploys them. `node_modules/` is gitignored. (These are large binaries — ~350 MB
+per full regen — committed to git per the existing convention; consider Git LFS
+if repo size becomes a problem.)
+
 ## Quick local redeploy (bypassing CI)
 
 After editing files in `frontend/`, push them to the live server:
