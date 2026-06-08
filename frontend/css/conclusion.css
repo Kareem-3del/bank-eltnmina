@@ -5,7 +5,7 @@
 .con-wrapper {
     display: flex;
     flex-direction: column;
-    gap: clamp(30px, 4vw, 40px);
+    gap: clamp(30px, 4vw, 30px);
 }
 
 .con-box {
@@ -20,7 +20,7 @@
 
 .con-content {
     font-weight: 400;
-    font-size: clamp(16px, 1vw + 1rem, 30px);
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: clamp(24px, 1.5vw + 1rem, 33px);
 }
 
