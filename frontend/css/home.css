@@ -713,9 +713,42 @@ body {
   font-family: "Cairo", sans-serif;
   font-weight: 900;
   font-size: 40px;
-  line-height: 16px;
+  line-height: 1.1;
   letter-spacing: 0px;
   margin-bottom: 24px;
+}
+
+.banner-stat__pulse {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.12em;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@media (min-width: 1200px) {
+  .banner-stat__num {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner-stat__num {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .banner-stat__num {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .banner-stat__num {
+    font-size: 22px;
+  }
 }
 
 .banner-stat__caption {
@@ -1555,6 +1588,31 @@ body {
   bottom: 0;
   inset-inline-start: 0;
   width: 40%;
+}
+
+.kpi-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 981px) {
+  .kpi-img {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: auto;
+    max-width: min(52vw, 620px);
+    pointer-events: none;
+  }
+
+  .kpi-img img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: bottom;
+  }
 }
 
 [dir="ltr"] .kpi-img img {

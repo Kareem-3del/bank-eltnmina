@@ -212,6 +212,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const counters = document.querySelectorAll("[data-counter]");
 
         counters.forEach(el => {
+            if (el.dataset.counterLoop !== undefined) return;
+
             const { scale } = expandUnitForCounter(el);
             let target = parseFloat(el.dataset.counter) * scale;
             let decimals = parseInt(el.dataset.decimals || "0", 10);
@@ -279,6 +281,174 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* ------ Banner stat — loop count + pulse (home hero number) -------- */
+    function reserveCounterWidth(el, text) {
+        const clone = el.cloneNode(false);
+        clone.style.cssText = `
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            transform: none;
+            white-space: nowrap;
+            width: auto;
+            pointer-events: none;
+            font-size: ${getComputedStyle(el).fontSize};
+            font-family: ${getComputedStyle(el).fontFamily};
+            font-weight: ${getComputedStyle(el).fontWeight};
+            letter-spacing: ${getComputedStyle(el).letterSpacing};
+        `;
+        clone.textContent = text;
+        document.body.appendChild(clone);
+        const finalWidth = clone.getBoundingClientRect().width;
+        clone.remove();
+        el.style.width = `${Math.ceil(finalWidth) + 1}px`;
+        el.style.display = "inline-block";
+        el.style.whiteSpace = "nowrap";
+    }
+
+    function initBannerStatCounterLoop() {
+        const bannerNum = document.querySelector(".banner-stat__num");
+        const pulseEl = bannerNum?.querySelector(".banner-stat__pulse");
+        const el = pulseEl?.querySelector("[data-counter-loop]");
+        if (!el || !pulseEl || !bannerNum) return;
+
+        const target = parseFloat(el.dataset.counter);
+        const decimals = 0;
+        const countDuration = parseFloat(el.dataset.duration || "2.4");
+        const finalText = formatNumber(target, decimals);
+        const isLargeScreen = window.matchMedia("(min-width: 1440px)").matches;
+        const peakScale = isLargeScreen ? 1.12 : 1.18;
+        const growDuration = 1.6;
+
+        reserveCounterWidth(el, finalText);
+
+        if (reduceMotion || !ScrollTrigger) {
+            el.textContent = finalText;
+            return;
+        }
+
+        const proxy = { value: 0 };
+        let loopStarted = false;
+        let loopTl = null;
+
+        const startLoop = () => {
+            if (loopStarted) return;
+            loopStarted = true;
+
+            gsap.set(pulseEl, { scale: 1, transformOrigin: "center center" });
+
+            loopTl = gsap.timeline({ repeat: -1, repeatDelay: 0.35 });
+
+            loopTl.call(() => {
+                proxy.value = 0;
+                el.textContent = formatNumber(0, decimals);
+            });
+
+            loopTl.to(proxy, {
+                value: target,
+                duration: countDuration,
+                ease: "power2.out",
+                onUpdate: () => {
+                    el.textContent = formatNumber(proxy.value, decimals);
+                },
+            });
+
+            loopTl.to(
+                pulseEl,
+                { scale: peakScale, duration: growDuration, ease: "power2.out" },
+                "+=0.15",
+            );
+
+            loopTl.to(pulseEl, { scale: peakScale, duration: 1.5 });
+
+            loopTl.to(pulseEl, {
+                scale: 1,
+                duration: 0.55,
+                ease: "power2.inOut",
+            });
+        };
+
+        const triggerEl = document.querySelector(".banner-stat") || bannerNum;
+
+        ScrollTrigger.create({
+            trigger: triggerEl,
+            start: "top 90%",
+            once: true,
+            onEnter: startLoop,
+        });
+
+        ScrollTrigger.refresh();
+        requestAnimationFrame(() => {
+            const rect = triggerEl.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
+                startLoop();
+            }
+        });
+    }
+
+    document.fonts.ready.then(() => {
+        initBannerStatCounterLoop();
+        initKpiAchievementsImg();
+    });
+
+    /* ------ KPI achievements image — desktop height sync ---------------- */
+    function initKpiAchievementsImg() {
+        const section = document.getElementById("achievements");
+        const anchor = section?.querySelector("[data-kpi-img-anchor]");
+        const kpiImg = section?.querySelector(".kpi-img");
+        const img = kpiImg?.querySelector("img");
+        const desktopMq = window.matchMedia("(min-width: 981px)");
+
+        if (!section || !anchor || !kpiImg || !img) return;
+
+        const resetKpiImg = () => {
+            kpiImg.style.top = "";
+            kpiImg.style.height = "";
+            kpiImg.style.width = "";
+            img.style.height = "";
+            img.style.width = "";
+        };
+
+        const syncKpiImg = () => {
+            if (!desktopMq.matches) {
+                resetKpiImg();
+                return;
+            }
+
+            const sectionRect = section.getBoundingClientRect();
+            const anchorRect = anchor.getBoundingClientRect();
+            const top = Math.max(0, anchorRect.bottom - sectionRect.top);
+            const height = sectionRect.height - top;
+
+            if (height < 48) return;
+
+            kpiImg.style.top = `${top}px`;
+            kpiImg.style.bottom = "0";
+            kpiImg.style.height = `${height}px`;
+            kpiImg.style.width = "auto";
+
+            img.style.height = "100%";
+            img.style.width = "auto";
+        };
+
+        const scheduleSync = () => requestAnimationFrame(syncKpiImg);
+
+        if (img.complete) scheduleSync();
+        else img.addEventListener("load", scheduleSync, { once: true });
+
+        window.addEventListener("resize", scheduleSync);
+
+        if ("ResizeObserver" in window) {
+            const ro = new ResizeObserver(scheduleSync);
+            ro.observe(section);
+            ro.observe(anchor);
+        }
+
+        desktopMq.addEventListener("change", scheduleSync);
+        scheduleSync();
+    }
 
     // إعادة تطبيق حالة الـ anim-element لاحقاً
 
