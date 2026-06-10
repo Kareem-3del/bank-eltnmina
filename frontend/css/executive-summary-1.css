@@ -11,6 +11,10 @@
   --es1-max: 1528px;
 }
 
+.es1-banner-subsidiaries img {
+  object-position: top;
+}
+
 .es1-page {
   font-family: "Cairo", "Almarai", sans-serif;
   background: #ffffff;
