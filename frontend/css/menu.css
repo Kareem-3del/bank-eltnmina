@@ -942,3 +942,7 @@ html[dir="ltr"] .dropdown-menu {
 .is-index .staggered-menu__close {
   display: none;
 }
+
+.staggered-menu__preview-img {
+  transition: opacity 0.22s ease;
+}
