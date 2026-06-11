@@ -220,6 +220,7 @@
             text: "التقديم",
             img: "02.png",
             caption: "دور الصندوق في منظومة الإسكان",
+            href: "introduction.html",
             sublinks: [
               {
                 href: "introduction.html",
@@ -245,6 +246,7 @@
             text: "الملخص التنفيذي",
             img: "03.png",
             caption: "نظرة شاملة على إنجازات العام",
+            href: "executive-summary-1.html",
             sublinks: [
               {
                 href: "executive-summary-1.html",
@@ -282,6 +284,7 @@
             text: "أبرز الأعمال والإنجازات",
             img: "07.png",
             caption: "أبرز الأعمال والإنجازات",
+            href: "housing-support-program.html",
             sublinks: [
               {
                 href: "housing-support-program.html",
@@ -378,6 +381,7 @@
             text: "Presentation",
             img: "02.png",
             caption: "The Fund's role in the housing ecosystem",
+            href: "introduction.html",
             sublinks: [
               {
                 href: "introduction.html",
@@ -403,6 +407,7 @@
             text: "Executive Summary",
             img: "03.png",
             caption: "A comprehensive look at the year's achievements",
+            href: "executive-summary-1.html",
             sublinks: [
               {
                 href: "executive-summary-1.html",
@@ -440,6 +445,7 @@
             text: "Key Achievements",
             img: "07.png",
             caption: "Major works and accomplishments",
+            href: "housing-support-program.html",
             sublinks: [
               {
                 href: "housing-support-program.html",
@@ -582,7 +588,8 @@
       if (link.sublinks) {
         const activeSublink = link.sublinks.find(sub => isCurrentLink(sub.href));
 
-        const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
+        const parentHref = localePageHref(link.href);
+        // const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
         const parentImg = activeSublink ? activeSublink.img : link.img;
         const parentCaption = activeSublink ? activeSublink.caption : (link.caption || "");
         const hasActiveChild = activeSublink ? " is-current" : "";

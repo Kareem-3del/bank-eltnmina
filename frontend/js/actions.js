@@ -186,6 +186,39 @@
     box.className = "actions-box";
     box.setAttribute("aria-label", isAR ? "إجراءات الصفحة" : "Page actions");
 
+    // box.innerHTML = `
+    //   <li class="action-box">
+    //     <a class="action-box__link action-box__link-arrow " data-action="prev"
+    //        ${prevPage ? `href="${pageHref(prevPage.href)}"` : 'href="#" aria-disabled="true"'}
+    //        aria-label="${prevText}">
+    //       ${ICONS.prev}
+    //       <span class="action-text">${prevText}</span>
+    //     </a>
+    //   </li>
+    //   <li class="action-box">
+    //     <a class="action-box__link action-box__link-arrow" data-action="next"
+    //        ${nextPage ? `href="${pageHref(nextPage.href)}"` : 'href="#" aria-disabled="true"'}
+    //        aria-label="${nextText}">
+    //       ${ICONS.next}
+    //       <span class="action-text">${nextText}</span>
+    //     </a>
+    //   </li>
+    //   ${filename !== "index.html" ? `
+    //   <li class="action-box">
+    //     <a class="action-box__link" data-action="download-page" href="${pagePdf}" download aria-label="${fallback.dlPage}">
+    //       ${ICONS.dlPage}
+    //       <span class="action-text">${fallback.dlPage}</span>
+    //     </a>
+    //   </li>
+    //   ` : ""}
+    //   <li class="action-box">
+    //     <a class="action-box__link" data-action="download-all" href="${fullPdf}" download aria-label="${fallback.dlAll}">
+    //       ${ICONS.dlAll}
+    //       <span class="action-text">${fallback.dlAll}</span>
+    //     </a>
+    //   </li>
+    // `;
+
     box.innerHTML = `
       <li class="action-box">
         <a class="action-box__link action-box__link-arrow " data-action="prev"
@@ -203,22 +236,13 @@
           <span class="action-text">${nextText}</span>
         </a>
       </li>
-      ${filename !== "index.html" ? `
       <li class="action-box">
         <a class="action-box__link" data-action="download-page" href="${pagePdf}" download aria-label="${fallback.dlPage}">
           ${ICONS.dlPage}
           <span class="action-text">${fallback.dlPage}</span>
         </a>
       </li>
-      ` : ""}
-      <li class="action-box">
-        <a class="action-box__link" data-action="download-all" href="${fullPdf}" download aria-label="${fallback.dlAll}">
-          ${ICONS.dlAll}
-          <span class="action-text">${fallback.dlAll}</span>
-        </a>
-      </li>
     `;
-
     document.body.appendChild(box);
 
     // حظر الروابط المعطلة (is-disabled) وتثبيتها برمجياً لمنع الانتقال الخاطئ
