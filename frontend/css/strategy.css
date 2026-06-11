@@ -46,6 +46,8 @@
 .sd-framework__image {
   overflow: visible;
   will-change: transform;
+  display: flex;
+  align-items: stretch;
 }
 
 @media (prefers-reduced-motion: reduce) {
