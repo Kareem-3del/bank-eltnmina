@@ -2243,3 +2243,7 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 
 }
  */
+
+[dir="rtl"] :is(.hero-text, .strategy-content-item) {
+  text-align: justify;
+}

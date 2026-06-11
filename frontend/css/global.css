@@ -2274,3 +2274,8 @@ html.lenis body {
   padding: clamp(1rem, 3vw, 2rem);
   background: rgba(111, 196, 192, 1);
 }
+
+[dir="rtl"] * {
+  /* text-align: justify; */
+  text-justify: inter-word !important;
+}

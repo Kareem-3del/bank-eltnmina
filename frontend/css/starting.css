@@ -361,6 +361,10 @@
     /* تحسين توزيع الفراغات */
 }
 
+[dir="rtl"] .text-col p {
+    text-align: justify;
+}
+
 /* لتقسيم النص لأعمدة إذا كان داخل حاوية نصية */
 .text-content-wrapper {
     column-count: 2;

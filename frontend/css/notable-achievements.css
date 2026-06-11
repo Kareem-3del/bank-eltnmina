@@ -778,11 +778,12 @@ html[dir="ltr"] .na-coll__card .na-coll__icon {
   font-size: 16px;
   line-height: 32px;
   color: #008A85;
-  text-align: end;
+  text-align: justify;
+  direction: rtl;
 }
 
 [dir="ltr"] .na-coll__text {
-  text-align: start;
+  text-align: left;
 
 }
 

@@ -294,7 +294,7 @@
 .es1-board--hr .es1-board__panel {
   background: var(--es1-teal);
   border: 1px solid #8dcfc5;
-  padding: clamp(24px, 3vw, 36px) clamp(20px, 2.5vw, 28px);
+  padding: clamp(24px, 3vw, 36px) 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -418,7 +418,7 @@
   margin: 0;
   font-family: "Cairo", "Almarai", sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 24px;
   color: #ffffff;
   text-align: right;

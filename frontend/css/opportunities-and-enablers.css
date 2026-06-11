@@ -8,7 +8,7 @@
   max-width: 460px;
 }
 
-.c-hero--opportunities .c-hero__boxes > div {
+.c-hero--opportunities .c-hero__boxes>div {
   height: auto;
   min-height: 85px;
 }
@@ -158,6 +158,10 @@
   border-inline-start-color: #6b7280;
 }
 
+.oe-panel--opportunity .oe-panel__item--muted {
+  color: #009892;
+}
+
 [dir="ltr"] .oe-panel__item--muted {
   border-inline-start-color: #6b7280;
 }
@@ -171,11 +175,9 @@
 [dir="ltr"] .oe-panel--opportunity .oe-panel__head,
 [dir="ltr"] .oe-panel--impact .oe-panel__head,
 [dir="ltr"] .oe-panel--support .oe-panel__head {
-  background: linear-gradient(
-    90deg,
-    rgba(1, 147, 142, 0.05) 0%,
-    rgba(1, 147, 142, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(1, 147, 142, 0.05) 0%,
+      rgba(1, 147, 142, 0) 100%);
 }
 
 /* Opportunity + Impact + Support (solid white cards) */
@@ -189,11 +191,9 @@
 .oe-panel--opportunity .oe-panel__head,
 .oe-panel--impact .oe-panel__head,
 .oe-panel--support .oe-panel__head {
-  background: linear-gradient(
-    270deg,
-    rgba(1, 147, 142, 0.05) 0%,
-    rgba(1, 147, 142, 0) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(1, 147, 142, 0.05) 0%,
+      rgba(1, 147, 142, 0) 100%);
   border-bottom: 1.06667px solid #dae7e6;
 }
 

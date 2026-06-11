@@ -946,3 +946,20 @@ html[dir="ltr"] .dropdown-menu {
 .staggered-menu__preview-img {
   transition: opacity 0.22s ease;
 }
+
+.n-download-btn a {
+  width: fit-content;
+  padding: 8px 32px;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  background: #FFF !important;
+  color: #019591 !important;
+  margin-top: 0;
+}
+
+.nav-men-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

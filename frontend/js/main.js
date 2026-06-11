@@ -641,6 +641,34 @@
               `;
       }
     }).join("")}
+
+    <li>
+    ${isAR ?
+        `
+    <div class="n-download-btn">
+        <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
+          حمل التقرير الكامل
+
+         <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.20833 9.20833V16.4583M12.8333 12.8333L9.20833 16.4583L5.58333 12.8333M15.25 22.5H3.16667C1.83198 22.5 0.75 21.4181 0.75 20.0833V3.16667C0.75 1.83198 1.83198 0.75 3.16667 0.75H9.91617C10.2366 0.75 10.544 0.87731 10.7706 1.10391L17.3127 7.64609C17.5393 7.87269 17.6667 8.18004 17.6667 8.5005V20.0833C17.6667 21.4181 16.5847 22.5 15.25 22.5Z" stroke="#019591" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+        </a>
+      </div>`
+        :
+        `
+   <div class="n-download-btn">
+        <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
+          Download Full Report
+         <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.20833 9.20833V16.4583M12.8333 12.8333L9.20833 16.4583L5.58333 12.8333M15.25 22.5H3.16667C1.83198 22.5 0.75 21.4181 0.75 20.0833V3.16667C0.75 1.83198 1.83198 0.75 3.16667 0.75H9.91617C10.2366 0.75 10.544 0.87731 10.7706 1.10391L17.3127 7.64609C17.5393 7.87269 17.6667 8.18004 17.6667 8.5005V20.0833C17.6667 21.4181 16.5847 22.5 15.25 22.5Z" stroke="#019591" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+        </a>
+      </div>`
+      }
+    </li>
         </ul>
 
         <aside class="staggered-menu__preview" aria-hidden="true">
@@ -753,7 +781,6 @@
 
     // Dropdown toggles
     document.querySelectorAll('[data-dropdown-toggle]').forEach(toggle => {
-      console.log("toggle = ", toggle)
       toggle.addEventListener('click', (e) => {
         // منع الرابط من الانتقال لصفحة أخرى عند الضغط لفتح القائمة
         e.preventDefault();
