@@ -37,11 +37,7 @@
     /* text-align: justify; */
 }
 
-.colored-content {
-    color: #FFF !important;
-    padding: clamp(1rem, 3vw, 2rem);
-    background: rgba(111, 196, 192, 1);
-}
+
 
 .mid-content {
     margin-top: 30px;

@@ -2268,3 +2268,9 @@ html.lenis body {
   animation-delay: calc(var(--i, 0) * 0.1s);
   /* يجب إضافة --i في الكود */
 }
+
+.colored-content {
+  color: #FFF !important;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(111, 196, 192, 1);
+}
