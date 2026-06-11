@@ -1,27 +1,64 @@
-.con-sec {
-    padding-bottom: 0;
-}
-
 .con-wrapper {
     display: flex;
     flex-direction: column;
-    gap: clamp(30px, 4vw, 30px);
+    gap: clamp(2rem, 5vw, 4.375rem);
 }
 
 .con-box {
-    background-color: #FFF;
+    background-color: rgba(111, 196, 192, 1);
     padding: clamp(24px, 5vw, 50px);
     font-weight: 400;
-    font-size: clamp(20px, 1.5vw + 1rem, 30px);
-    line-height: clamp(28px, 2vw + 1rem, 33px);
-    color: #008A85 !important;
+    font-size: clamp(1.125rem, 5vw + 0.5rem, 1.875rem);
+    line-height: 1.5;
     border-radius: 16px;
+    color: #FFF !important;
+}
+
+[dir="rtl"] .con-box {
+    text-align: justify;
+}
+
+.con-box .icon {
+    display: block;
+}
+
+[dir="ltr"] .con-box .icon svg {
+    transform: scaleX(-1);
+}
+
+.con-box__content {
+    padding: 0 clamp(0.5rem, 3vw, 2rem);
 }
 
 .con-content {
     font-weight: 400;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: clamp(24px, 1.5vw + 1rem, 33px);
+    font-size: clamp(1.125rem, 5vw + 0.5rem, 1.875rem);
+    line-height: 1.5;
+    /* text-align: justify; */
+}
+
+.colored-content {
+    color: #FFF !important;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: rgba(111, 196, 192, 1);
+}
+
+.mid-content {
+    margin-top: 30px;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+}
+
+.mid-content p {
+    width: 50%;
+}
+
+.con-img {
+    position: absolute;
+    max-width: 50%;
+    inset-block-end: 0;
+    inset-inline-start: 0;
 }
 
 .content-box {
@@ -30,14 +67,12 @@
 }
 
 .content-img {
-    padding: clamp(20px, 4vw, 62px) clamp(10px, 2vw, 24px);
+    padding: 0 clamp(10px, 2vw, 24px);
     flex-shrink: 0;
+    width: 267px;
 }
 
-.con-img {
-    margin-top: 24px;
-    max-width: 60%;
-}
+
 
 [dir="ltr"] .con-img img {
     transform: scaleX(-1);
@@ -56,7 +91,7 @@
 
     .con-img {
         margin-top: 24px;
-        max-width: 100%;
+        /* max-width: 100%; */
     }
 
     .content-box {
@@ -64,7 +99,8 @@
     }
 
     .content-img {
-        padding: 20px 0;
+        padding: 20px 0 0;
+        width: unset;
     }
 }
 
@@ -145,5 +181,112 @@
     .action-link {
         width: 100%;
         max-width: 300px;
+    }
+}
+
+.con-boxes {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.con-boxes .title {
+    font-weight: 800;
+
+    font-size: clamp(1.5rem, 3vw + 1rem, 2.25rem);
+    line-height: 1.1;
+
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 3vw + 0.5rem, 3rem);
+}
+
+.con-boxes .boxes-wrapper {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.5rem)
+}
+
+.con-boxes .box {
+    background: rgba(246, 252, 249, 1);
+    display: flex;
+    background: rgba(246, 252, 249, 1);
+    gap: 8px;
+    flex-direction: column;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    flex: 1;
+}
+
+.con-boxes .top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.con-boxes .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.con-boxes .top .icon {
+    height: 56px;
+    width: 56px;
+    background: rgba(35, 139, 139, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.con-boxes .top .num {
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5vw + 1rem, 3rem);
+    line-height: 1;
+    letter-spacing: 0px;
+    color: rgba(35, 139, 139, 0.1);
+}
+
+.con-boxes .box-title {
+    font-weight: 800;
+    font-size: clamp(1.125rem, 2vw + 0.5rem, 1.25rem);
+    /* 18px to 20px */
+    line-height: 1.4;
+    letter-spacing: 0px;
+    color: rgba(0, 90, 94, 1) !important;
+}
+
+.con-boxes .box-desc {
+    font-family: Cairo;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+    /* 14px to 16px */
+    line-height: 1.6;
+    letter-spacing: 0px;
+    color: rgba(79, 105, 106, 1) !important;
+}
+
+@media (max-width:460px) {
+    .con-boxes .boxes-wrapper {
+        flex-direction: column;
+    }
+
+    .mid-content {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .mid-content p {
+        padding: clamp(1rem, 3vw, 2rem);
+        width: 100%;
+    }
+
+    .con-img {
+        max-width: 100%;
+        position: static;
     }
 }
