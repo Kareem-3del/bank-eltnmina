@@ -106,23 +106,24 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 52px;
+  height: auto;
   min-height: 52px;
-  padding: 0 20px;
+  padding: 8px 20px;
   background: #009892;
   color: #ffffff;
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  font-size: 30px;
-  line-height: 52px;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.25;
   text-align: right;
 }
 
 /* Rectangle 161 — deposit header 58px */
 .es-overview .es-panel__head--deposit {
-  height: 58px;
+  height: auto;
   min-height: 58px;
-  line-height: 48px;
+  line-height: 1.25;
+  padding-block: 10px;
 }
 
 /* Rectangle 158 — strategy body */
@@ -292,8 +293,9 @@
 
 .es-overview .es-programs-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+  row-gap: 24px;
   align-items: start;
   margin-top: auto;
 }
@@ -398,11 +400,6 @@
   .es-overview .es-panel--strategy .es-panel__body,
   .es-overview .es-panel--programs .es-panel__body {
     min-height: 0;
-  }
-
-  .es-overview .es-programs-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 24px;
   }
 }
 

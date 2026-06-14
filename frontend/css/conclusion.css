@@ -68,6 +68,12 @@
     width: 267px;
 }
 
+.content-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 
 
 [dir="ltr"] .con-img img {
@@ -96,7 +102,9 @@
 
     .content-img {
         padding: 20px 0 0;
-        width: unset;
+        width: auto;
+        max-width: 140px;
+        margin-inline: auto;
     }
 }
 

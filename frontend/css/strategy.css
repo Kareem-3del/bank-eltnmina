@@ -653,8 +653,8 @@
   box-sizing: border-box;
 }
 
-/* Desktop: gray band stops halfway through the hanging cards */
-@media (min-width: 1025px) {
+/* Desktop wide: gray band stops halfway through the hanging cards (4-column row only) */
+@media (min-width: 1201px) {
   .sd-goals__body {
     height: 210px;
     overflow: visible;
@@ -665,12 +665,41 @@
   }
 }
 
+/* Tablet / 2×2 grid: contain full card height inside the section */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .sd-goals__body {
+    height: auto;
+    padding-block: 24px 32px;
+    overflow: visible;
+  }
+
+  .sd-goals__wrapper {
+    padding-bottom: 0;
+  }
+}
+
 /* ------ Responsive ------------------------------------------------------- */
 @media (max-width: 1200px) {
   .sd-framework__grid {
     flex-direction: column;
     /* grid-template-columns: minmax(240px, 420px) minmax(0, 1fr); */
     /* gap: clamp(24px, 3vw, 40px); */
+  }
+
+  .sd-framework__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sd-framework__image img {
+    width: auto;
+    max-width: min(100%, clamp(280px, 55vw, 480px));
+    height: auto;
+    max-height: min(50vh, 480px);
+    object-fit: contain;
+    margin-inline: auto;
   }
 
   .vision-precent {

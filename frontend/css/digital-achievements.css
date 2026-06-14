@@ -145,18 +145,38 @@
 }
 
 .intro-box .num {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    font-family: "Cairo", sans-serif;
+}
+
+/* Figma: 100 — weight 800, line-height 60px, #008A85 */
+.intro-box .num data {
     font-weight: 800;
-    font-size: 60px;
+    font-size: 64px;
     line-height: 60px;
-    /* letter-spacing: -1.5px; */
+    letter-spacing: -1.5px;
     color: #008A85;
     display: flex;
     align-items: center;
+    text-align: right;
+    flex: none;
 }
 
-.intro-box .num span:last-child {
-    font-size: 24px;
-    display: inline-block;
+/* Figma: % — weight 700, line-height 32px, #167C83, offset top +14px */
+.intro-box .num span {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 32px;
+    color: #167C83;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    flex: none;
+    margin-top: 14px;
 }
 
 .intro-box p {
@@ -391,29 +411,74 @@
         height: 120px;
     }
 
-    .tech-box .top::before {
-        font-size: 120px;
-        top: -105px;
-        inset-inline-start: 30px;
+    .channel-tech-sec {
+        padding-bottom: 6rem;
     }
 
-    [dir="ltr"] .tech-box .top::before {
-        top: -90px;
-        inset-inline-start: 18px;
+    .tech-boxes {
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .tech-box {
+        isolation: isolate;
+    }
+
+    .tech-box .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem 1rem;
+        margin-bottom: 1.25rem;
+        padding-top: 0;
+    }
+
+    /* Background number: own row above icon + title (no absolute overlap) */
+    .tech-box .top::before {
+        position: relative;
+        top: auto;
+        inset-inline-start: auto;
+        order: -1;
+        width: 100%;
+        font-size: clamp(64px, 18vw, 96px);
+        line-height: 1;
+        text-align: start;
+        opacity: 0.35;
+        margin-bottom: -0.25rem;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .tech-box .icon-box,
+    .tech-box .top h3,
+    .tech-box .stack {
+        position: relative;
+        z-index: 1;
+    }
+
+    .tech-box .top h3 {
+        max-width: none;
+        flex: 1;
+        min-width: 0;
+        font-size: 18px;
+        line-height: 1.35;
+    }
+
+    .tech-box .stack {
+        padding-inline-start: 0;
     }
 
     /* ضبط الأرقام الكبيرة في صناديق الإحصائيات */
-    .intro-box .num {
+    .intro-box .num data {
         font-size: 48px;
-        line-height: 1;
+        line-height: 45px;
+        letter-spacing: -1.125px;
     }
 
-    /* تصغير الأرقام الخلفية (1, 2, 3) لكي لا تغطي على النص في الموبايل */
-    .tech-box::before {
-        font-size: 80px;
-        line-height: 80px;
-        opacity: 0.5;
-        /* تقليل الشفافية لزيادة وضوح النص فوقه */
+    .intro-box .num span {
+        font-size: 48px;
+        line-height: 24px;
+        margin-top: 10px;
     }
 
     /* ضبط الـ Banner الخاص بالقسم */
@@ -445,25 +510,39 @@
 
 @media (max-width: 480px) {
 
-    /* ضبط الحشوة الداخلية للصناديق لتوفير مساحة */
     .tech-box {
-        padding: 1.25rem;
+        padding: 0 0 1.25rem;
     }
 
-
-
     .tech-box .top {
-        /* flex-direction: column; */
-        align-items: flex-center;
+        align-items: flex-start;
         gap: 0.75rem;
     }
 
-    .tech-box .top h3 {
-        font-size: 18px;
+    .tech-box .top::before {
+        font-size: clamp(56px, 16vw, 80px);
+        margin-bottom: 0;
     }
 
-    .intro-box .num {
+    .tech-box .top h3 {
+        font-size: 17px;
+    }
+
+    .tech-box .check-item {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .intro-box .num data {
         font-size: 40px;
+        line-height: 38px;
+        letter-spacing: -0.94px;
+    }
+
+    .intro-box .num span {
+        font-size: 40px;
+        line-height: 20px;
+        margin-top: 9px;
     }
 }
 

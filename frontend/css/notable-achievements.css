@@ -773,13 +773,16 @@ html[dir="ltr"] .na-coll__card .na-coll__icon {
   margin: 0;
   flex: 1;
   min-width: 0;
+  width: 100%;
   font-family: "Cairo", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 32px;
   color: #008A85;
-  text-align: justify;
   direction: rtl;
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: right;
 }
 
 [dir="ltr"] .na-coll__text {
@@ -827,6 +830,9 @@ html[dir="ltr"] .na-coll__text {
 
   .na-coll__text {
     line-height: 1.75;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: right;
   }
 }
 
