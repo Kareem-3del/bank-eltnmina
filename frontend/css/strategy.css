@@ -840,8 +840,9 @@
     text-align: right;
   }
 
-  [dir="rtl"] .vision-right {
-    align-items: flex-end;
+  [dir="rtl"] .vision-precent {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   [dir="ltr"] .vision-left,

@@ -21,7 +21,9 @@
       inEn,
       inAr,
       inSubdir: inEn || inAr,
-      isAR: (document.documentElement.getAttribute("lang") || "en").toLowerCase().startsWith("ar")
+      isAR: (document.documentElement.getAttribute("lang") || "en")
+        .toLowerCase()
+        .startsWith("ar"),
     };
   }
 
@@ -32,7 +34,9 @@
     return `${isAR ? "ar" : "en"}/${filename}`;
   }
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   // animations.js owns reveals, counters, and anchor scroll when GSAP is loaded.
   const hasGsap = !!window.gsap;
 
@@ -58,7 +62,7 @@
     });
 
     // Close on link click (mobile)
-    nav.querySelectorAll(".nav__link").forEach(link => {
+    nav.querySelectorAll(".nav__link").forEach((link) => {
       link.addEventListener("click", () => {
         if (window.matchMedia("(max-width: 880px)").matches) closeMenu();
       });
@@ -83,12 +87,16 @@
       header.classList.toggle("is-scrolled", window.scrollY > 16);
       ticking = false;
     };
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
     update();
   }
 
@@ -96,17 +104,20 @@
   const revealEls = document.querySelectorAll(".reveal");
   if (revealEls.length && !hasGsap) {
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      revealEls.forEach(el => el.classList.add("is-visible"));
+      revealEls.forEach((el) => el.classList.add("is-visible"));
     } else {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-      revealEls.forEach(el => io.observe(el));
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
     }
   }
 
@@ -114,19 +125,22 @@
   const counters = document.querySelectorAll("[data-counter]");
   if (counters.length && !hasGsap) {
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      counters.forEach(el => {
+      counters.forEach((el) => {
         el.textContent = formatNumber(parseFloat(el.dataset.counter), el);
       });
     } else {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      counters.forEach(el => io.observe(el));
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      counters.forEach((el) => io.observe(el));
     }
   }
 
@@ -148,39 +162,50 @@
     requestAnimationFrame(tick);
   }
 
-  function formatNumber(value, el, decimals = parseInt(el.dataset.decimals || "0", 10)) {
+  function formatNumber(
+    value,
+    el,
+    decimals = parseInt(el.dataset.decimals || "0", 10),
+  ) {
     const fixed = value.toFixed(decimals);
     return Number(fixed).toLocaleString("en-US", {
       minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals
+      maximumFractionDigits: decimals,
     });
   }
 
   /* ------ Smooth anchor scroll (skipped when animations.js is active) -- */
-  if (!hasGsap) document.querySelectorAll('a[href^="#"]').forEach(link => {
-    const hash = link.getAttribute("href");
-    if (!hash || hash === "#" || hash.length < 2) return;
+  if (!hasGsap)
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      const hash = link.getAttribute("href");
+      if (!hash || hash === "#" || hash.length < 2) return;
 
-    link.addEventListener("click", (e) => {
-      const target = document.querySelector(hash);
-      if (!target) return;
-      e.preventDefault();
-      const headerH = header ? header.offsetHeight : 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
-      window.scrollTo({
-        top,
-        behavior: reduceMotion ? "auto" : "smooth"
+      link.addEventListener("click", (e) => {
+        const target = document.querySelector(hash);
+        if (!target) return;
+        e.preventDefault();
+        const headerH = header ? header.offsetHeight : 0;
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+        window.scrollTo({
+          top,
+          behavior: reduceMotion ? "auto" : "smooth",
+        });
       });
     });
-  });
 
   /* ------ Set current-page nav state ---------------------------------- */
   // Compares the trailing filename of each link against the current page,
   // so it works the same in /index.html and /ar/index.html.
-  const here = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-  document.querySelectorAll(".nav__link").forEach(link => {
-
-    const href = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
+  const here = (
+    window.location.pathname.split("/").pop() || "index.html"
+  ).toLowerCase();
+  document.querySelectorAll(".nav__link").forEach((link) => {
+    const href = (link.getAttribute("href") || "")
+      .split("#")[0]
+      .split("/")
+      .pop()
+      .toLowerCase();
 
     if (href && href === here) link.setAttribute("aria-current", "page");
   });
@@ -199,338 +224,352 @@
 
   function initStaggeredMenu() {
     const { isAR } = getLocaleContext();
-    const currentFilename = () => (window.location.pathname.split("/").pop() || "index.html");
+    const currentFilename = () =>
+      window.location.pathname.split("/").pop() || "index.html";
 
-    const config = isAR ?
-      {
-        title: "تصفح التقرير",
-        label: "القائمة",
-        labelOpen: "إغلاق",
-        brand: "صندوق التنمية العقارية",
-        brandSub: "التقرير السنوي 2025",
-        links: [
-          {
-            href: "home.html",
-            text: "الرئيسية",
-            img: "hero.webp",
-            caption: "أسرٌ تنتقل إلى منازلها الجديدة"
-          },
+    const config = isAR
+      ? {
+          title: "تصفح التقرير",
+          label: "القائمة",
+          labelOpen: "إغلاق",
+          brand: "صندوق التنمية العقارية",
+          brandSub: "التقرير السنوي 2025",
+          links: [
+            {
+              href: "home.html",
+              text: "الرئيسية",
+              img: "hero.webp",
+              caption: "أسرٌ تنتقل إلى منازلها الجديدة",
+            },
 
-          {
-            text: "التقديم",
-            img: "02.png",
-            caption: "دور الصندوق في منظومة الإسكان",
-            href: "introduction.html",
-            sublinks: [
-              {
-                href: "introduction.html",
-                text: "المقدمة",
-                img: "02.png",
-                caption: "دور الصندوق في منظومة الإسكان"
-              },
-              {
-                href: "chairman-message.html",
-                text: "رسالة رئيس مجلس الإدارة",
-                img: "02.png",
-                caption: "كلمة عن مسيرة الصندوق"
-              },
-              {
-                href: "ceo-message.html",
-                text: "رسالة الرئيس التنفيذي",
-                img: "02.png",
-                caption: "رسالة من الرئيس التنفيذي"
-              }
-            ]
-          },
-          {
-            text: "الملخص التنفيذي",
-            img: "03.png",
-            caption: "نظرة شاملة على إنجازات العام",
-            href: "executive-summary-1.html",
-            sublinks: [
-              {
-                href: "executive-summary-1.html",
-                text: "الملخص التنفيذي 1",
-                img: "03.png",
-                caption: "نظرة شاملة على إنجازات العام"
-              },
-              {
-                href: "executive-summary.html",
-                text: "الملخص التنفيذي 2",
-                img: "03.png",
-                caption: "نظرة شاملة على إنجازات العام"
-              }
-            ]
-          },
-          {
-            href: "strategic-direction.html",
-            text: "التوجه الاستراتيجي",
-            img: "04.png",
-            caption: "أربع ركائز · رؤية 2030"
-          },
-          {
-            href: "performance-summary.html",
-            text: "موجز الاداء",
-            img: "05.png",
-            caption: "أكثر من 920,000 أسرة منذ 2017"
-          },
-          {
-            href: "current-state.html",
-            text: "الوضع الراهن",
-            img: "06.png",
-            caption: "الوضع الحالي لقطاع الإسكان"
-          },
-          {
-            text: "أبرز الأعمال والإنجازات",
-            img: "07.png",
-            caption: "أبرز الأعمال والإنجازات",
-            href: "housing-support-program.html",
-            sublinks: [
-              {
-                href: "housing-support-program.html",
-                text: "برنامج الدعم السكني",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "housing-support-empowerment-achievements.html",
-                text: " إنجازات تمكين مستفيدي برامج الدعم السكني",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "digital-achievements.html",
-                text: "إنجازات التحول الرقمي",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "government-enablers.html",
-                text: "مُمكِّنات الحوكمة",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "training-programs.html",
-                text: "النشاطات الاجتماعية والجوائز",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "notable-achievements.html",
-                text: "أعمال الحملات الاتصالية",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "subsidized-finance-cost.html",
-                text: "تكلفة التمويل المدعوم",
-                img: "07.png",
-                caption: "أبرز الأعمال والإنجازات",
-              }
-            ]
-          },
-          {
-            href: "opportunities-and-enablers.html",
-            text: "الفرص والعوامل المساعدة",
-            img: "08.png",
-            caption: "الفرص والعوامل المساعدة على تحقيقها"
-          },
-          {
-            href: "subsidiaries.html",
-            text: "الشركات التابعة",
-            img: "09.png",
-            caption: "الشركات التابعة"
-          },
-          {
-            href: "challenges-and-support.html",
-            text: "التحديات و الدعم المطلوب",
-            img: "10.png",
-            caption: "التحديات والدعم المقدم"
-          },
-          {
-            href: "conclusion.html",
-            text: "الخاتمة",
-            img: "11.png",
-            caption: "خلاصة عام 2025م"
-          },
-        ],
-        contact: [
-          { label: "مركز الاتصال", value: "920000507", href: "tel:920000507" },
-          { label: "البريد", value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
-        ],
-        langSelf: "AR",
-        langOther: { code: "EN", href: "en/" + currentFilename() }
-      }
-      :
-      {
-        title: "Browse Report",
-        label: "Menu",
-        labelOpen: "Close",
-        brand: "Real Estate Development Fund",
-        brandSub: "Annual Report 2025",
-        links: [
-          {
-            href: "home.html",
-            text: "Home",
-            img: "hero-en.webp",
-            caption: "Families moving into their new homes"
-          },
+            {
+              text: "التقديم",
+              img: "02.png",
+              caption: "دور الصندوق في منظومة الإسكان",
+              href: "introduction.html",
+              sublinks: [
+                {
+                  href: "introduction.html",
+                  text: "المقدمة",
+                  img: "02.png",
+                  caption: "دور الصندوق في منظومة الإسكان",
+                },
+                {
+                  href: "chairman-message.html",
+                  text: "رسالة رئيس مجلس الإدارة",
+                  img: "02.png",
+                  caption: "كلمة عن مسيرة الصندوق",
+                },
+                {
+                  href: "ceo-message.html",
+                  text: "رسالة الرئيس التنفيذي",
+                  img: "02.png",
+                  caption: "رسالة من الرئيس التنفيذي",
+                },
+              ],
+            },
+            {
+              text: "الملخص التنفيذي",
+              img: "03.png",
+              caption: "نظرة شاملة على إنجازات العام",
+              href: "executive-summary-1.html",
+              sublinks: [
+                {
+                  href: "executive-summary-1.html",
+                  text: "الملخص التنفيذي 1",
+                  img: "03.png",
+                  caption: "نظرة شاملة على إنجازات العام",
+                },
+                {
+                  href: "executive-summary.html",
+                  text: "الملخص التنفيذي 2",
+                  img: "03.png",
+                  caption: "نظرة شاملة على إنجازات العام",
+                },
+              ],
+            },
+            {
+              href: "strategic-direction.html",
+              text: "التوجه الإستراتيجي",
+              img: "04.png",
+              caption: "أربع ركائز · رؤية 2030",
+            },
+            {
+              href: "performance-summary.html",
+              text: "موجز الأداء",
+              img: "05.png",
+              caption: "أكثر من 920,000 أسرة منذ 2017",
+            },
+            {
+              href: "current-state.html",
+              text: "الوضع الراهن",
+              img: "06.png",
+              caption: "الوضع الحالي لقطاع الإسكان",
+            },
+            {
+              text: "أبرز الأعمال والإنجازات",
+              img: "07.png",
+              caption: "أبرز الأعمال والإنجازات",
+              href: "housing-support-program.html",
+              sublinks: [
+                {
+                  href: "housing-support-program.html",
+                  text: "برنامج الدعم السكني",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+                {
+                  href: "housing-support-empowerment-achievements.html",
+                  text: " إنجازات تمكين مستفيدي برامج الدعم السكني",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+                {
+                  href: "digital-achievements.html",
+                  text: "إنجازات التحول الرقمي",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+                {
+                  href: "government-enablers.html",
+                  text: "مُمكِّنات الحوكمة",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+                {
+                  href: "training-programs.html",
+                  text: "النشاطات الاجتماعية والجوائز",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+                {
+                  href: "notable-achievements.html",
+                  text: "أعمال الحملات الاتصالية",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+                {
+                  href: "subsidized-finance-cost.html",
+                  text: "تكلفة التمويل المدعوم",
+                  img: "07.png",
+                  caption: "أبرز الأعمال والإنجازات",
+                },
+              ],
+            },
+            {
+              href: "opportunities-and-enablers.html",
+              text: "الفرص والعوامل المساعدة",
+              img: "08.png",
+              caption: "الفرص والعوامل المساعدة على تحقيقها",
+            },
+            {
+              href: "subsidiaries.html",
+              text: "الشركات التابعة",
+              img: "09.png",
+              caption: "الشركات التابعة",
+            },
+            {
+              href: "challenges-and-support.html",
+              text: "التحديات و الدعم المطلوب",
+              img: "10.png",
+              caption: "التحديات والدعم المقدم",
+            },
+            {
+              href: "conclusion.html",
+              text: "الخاتمة",
+              img: "11.png",
+              caption: "خلاصة عام 2025م",
+            },
+          ],
+          contact: [
+            {
+              label: "مركز الاتصال",
+              value: "920000507",
+              href: "tel:920000507",
+            },
+            {
+              label: "البريد",
+              value: "info@redf.gov.sa",
+              href: "mailto:info@redf.gov.sa",
+            },
+          ],
+          langSelf: "AR",
+          langOther: { code: "EN", href: "en/" + currentFilename() },
+        }
+      : {
+          title: "Browse Report",
+          label: "Menu",
+          labelOpen: "Close",
+          brand: "Real Estate Development Fund",
+          brandSub: "Annual Report 2025",
+          links: [
+            {
+              href: "home.html",
+              text: "Home",
+              img: "hero-en.webp",
+              caption: "Families moving into their new homes",
+            },
 
-          {
-            text: "Presentation",
-            img: "02.png",
-            caption: "The Fund's role in the housing ecosystem",
-            href: "introduction.html",
-            sublinks: [
-              {
-                href: "introduction.html",
-                text: "Introduction",
-                img: "02.png",
-                caption: "The Fund's role in the housing ecosystem"
-              },
-              {
-                href: "chairman-message.html",
-                text: "Chairman's Message",
-                img: "02.png",
-                caption: "A word on the Fund's journey"
-              },
-              {
-                href: "ceo-message.html",
-                text: "CEO's Message",
-                img: "02.png",
-                caption: "A message from the CEO"
-              }
-            ]
-          },
-          {
-            text: "Executive Summary",
-            img: "03.png",
-            caption: "A comprehensive look at the year's achievements",
-            href: "executive-summary-1.html",
-            sublinks: [
-              {
-                href: "executive-summary-1.html",
-                text: "Executive Summary 1",
-                img: "03.png",
-                caption: "A comprehensive look at the year's achievements"
-              },
-              {
-                href: "executive-summary.html",
-                text: "Executive Summary 2",
-                img: "03.png",
-                caption: "A comprehensive look at the year's achievements"
-              }
-            ]
-          },
-          {
-            href: "strategic-direction.html",
-            text: "Strategic Direction",
-            img: "04.png",
-            caption: "Four Pillars · Vision 2030"
-          },
-          {
-            href: "performance-summary.html",
-            text: "Performance Summary",
-            img: "05.png",
-            caption: "More than 920,000 families since 2017"
-          },
-          {
-            href: "current-state.html",
-            text: "Current State",
-            img: "06.png",
-            caption: "The current status of the housing sector"
-          },
-          {
-            text: "Key Achievements",
-            img: "07.png",
-            caption: "Major works and accomplishments",
-            href: "housing-support-program.html",
-            sublinks: [
-              {
-                href: "housing-support-program.html",
-                text: "Housing Support Program",
-                img: "07.png",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "housing-support-empowerment-achievements.html",
-                text: "Empowering Housing Support Beneficiaries",
-                img: "07.png",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "digital-achievements.html",
-                text: "Digital Transformation",
-                img: "07.png",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "government-enablers.html",
-                text: "Governance Enablers",
-                img: "07.png",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "training-programs.html",
-                text: "Social Activities & Awards",
-                img: "07.png",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "notable-achievements.html",
-                text: "Communication Campaigns",
-                img: "07.png",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "subsidized-finance-cost.html",
-                text: "Subsidized Finance Cost",
-                img: "07.png",
-                caption: "Subsidized Finance Cost",
-              }
-            ]
-          },
-          {
-            href: "opportunities-and-enablers.html",
-            text: "Opportunities & Enablers",
-            img: "08.png",
-            caption: "Opportunities and factors enabling their achievement"
-          },
-          {
-            href: "subsidiaries.html",
-            text: "Subsidiaries",
-            img: "09.png",
-            caption: "Subsidiary Companies"
-          },
-          {
-            href: "challenges-and-support.html",
-            text: "Challenges & Support",
-            img: "10.png",
-            caption: "Challenges and support provided"
-          },
-          {
-            href: "conclusion.html",
-            text: "Conclusion",
-            img: "11.png",
-            caption: "Summary of the year 2025"
-          },
-        ],
-        contact: [
-          { label: "Call Center", value: "920000507", href: "tel:920000507" },
-          { label: "Email", value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
-        ],
-        langSelf: "EN",
-        langOther: { code: "AR", href: "ar/" + currentFilename() }
-      }
+            {
+              text: "Presentation",
+              img: "02.png",
+              caption: "The Fund's role in the housing ecosystem",
+              href: "introduction.html",
+              sublinks: [
+                {
+                  href: "introduction.html",
+                  text: "Introduction",
+                  img: "02.png",
+                  caption: "The Fund's role in the housing ecosystem",
+                },
+                {
+                  href: "chairman-message.html",
+                  text: "Chairman's Message",
+                  img: "02.png",
+                  caption: "A word on the Fund's journey",
+                },
+                {
+                  href: "ceo-message.html",
+                  text: "CEO's Message",
+                  img: "02.png",
+                  caption: "A message from the CEO",
+                },
+              ],
+            },
+            {
+              text: "Executive Summary",
+              img: "03.png",
+              caption: "A comprehensive look at the year's achievements",
+              href: "executive-summary-1.html",
+              sublinks: [
+                {
+                  href: "executive-summary-1.html",
+                  text: "Executive Summary 1",
+                  img: "03.png",
+                  caption: "A comprehensive look at the year's achievements",
+                },
+                {
+                  href: "executive-summary.html",
+                  text: "Executive Summary 2",
+                  img: "03.png",
+                  caption: "A comprehensive look at the year's achievements",
+                },
+              ],
+            },
+            {
+              href: "strategic-direction.html",
+              text: "Strategic Direction",
+              img: "04.png",
+              caption: "Four Pillars · Vision 2030",
+            },
+            {
+              href: "performance-summary.html",
+              text: "Performance Summary",
+              img: "05.png",
+              caption: "More than 920,000 families since 2017",
+            },
+            {
+              href: "current-state.html",
+              text: "Current State",
+              img: "06.png",
+              caption: "The current status of the housing sector",
+            },
+            {
+              text: "Key Achievements",
+              img: "07.png",
+              caption: "Major works and accomplishments",
+              href: "housing-support-program.html",
+              sublinks: [
+                {
+                  href: "housing-support-program.html",
+                  text: "Housing Support Program",
+                  img: "07.png",
+                  caption: "Major works and accomplishments",
+                },
+                {
+                  href: "housing-support-empowerment-achievements.html",
+                  text: "Empowering Housing Support Beneficiaries",
+                  img: "07.png",
+                  caption: "Major works and accomplishments",
+                },
+                {
+                  href: "digital-achievements.html",
+                  text: "Digital Transformation",
+                  img: "07.png",
+                  caption: "Major works and accomplishments",
+                },
+                {
+                  href: "government-enablers.html",
+                  text: "Governance Enablers",
+                  img: "07.png",
+                  caption: "Major works and accomplishments",
+                },
+                {
+                  href: "training-programs.html",
+                  text: "Social Activities & Awards",
+                  img: "07.png",
+                  caption: "Major works and accomplishments",
+                },
+                {
+                  href: "notable-achievements.html",
+                  text: "Communication Campaigns",
+                  img: "07.png",
+                  caption: "Major works and accomplishments",
+                },
+                {
+                  href: "subsidized-finance-cost.html",
+                  text: "Subsidized Finance Cost",
+                  img: "07.png",
+                  caption: "Subsidized Finance Cost",
+                },
+              ],
+            },
+            {
+              href: "opportunities-and-enablers.html",
+              text: "Opportunities & Enablers",
+              img: "08.png",
+              caption: "Opportunities and factors enabling their achievement",
+            },
+            {
+              href: "subsidiaries.html",
+              text: "Subsidiaries",
+              img: "09.png",
+              caption: "Subsidiary Companies",
+            },
+            {
+              href: "challenges-and-support.html",
+              text: "Challenges & Support",
+              img: "10.png",
+              caption: "Challenges and support provided",
+            },
+            {
+              href: "conclusion.html",
+              text: "Conclusion",
+              img: "11.png",
+              caption: "Summary of the year 2025",
+            },
+          ],
+          contact: [
+            { label: "Call Center", value: "920000507", href: "tel:920000507" },
+            {
+              label: "Email",
+              value: "info@redf.gov.sa",
+              href: "mailto:info@redf.gov.sa",
+            },
+          ],
+          langSelf: "EN",
+          langOther: { code: "AR", href: "ar/" + currentFilename() },
+        };
 
     // The legacy hamburger drawer is replaced by this overlay menu — remove the old toggle.
-    document.querySelectorAll("[data-nav-toggle]").forEach(btn => btn.remove());
+    document
+      .querySelectorAll("[data-nav-toggle]")
+      .forEach((btn) => btn.remove());
 
     const triggers = document.querySelectorAll("[data-menu-trigger]");
     if (!triggers.length) return;
 
-    triggers.forEach(t => {
+    triggers.forEach((t) => {
       t.classList.add("menu-trigger");
       t.innerHTML = `<span>${config.label}</span><span class="menu-trigger__icon" aria-hidden="true"></span>`;
       t.setAttribute("aria-controls", "staggered-menu");
@@ -543,7 +582,7 @@
       return target === here;
     };
 
-    let initMenu = document.getElementById("staggered-menu")
+    let initMenu = document.getElementById("staggered-menu");
 
     const menu = initMenu || document.createElement("div");
     menu.setAttribute("data-lenis-prevent", "");
@@ -554,17 +593,17 @@
     }
 
     // قبل الـ template، احسب الـ initial preview
-    const activeTopLink = config.links.find(link => {
+    const activeTopLink = config.links.find((link) => {
       if (link.href && isCurrentLink(link.href)) return true;
-      if (link.sublinks) return link.sublinks.some(sub => isCurrentLink(sub.href));
+      if (link.sublinks)
+        return link.sublinks.some((sub) => isCurrentLink(sub.href));
       return false;
     });
 
     const initialCaption = activeTopLink?.caption ?? "";
 
-    const initialImg = activeTopLink?.img
-      ?? (isAR ? "hero.webp" : "hero-en.webp");
-
+    const initialImg =
+      activeTopLink?.img ?? (isAR ? "hero.webp" : "hero-en.webp");
 
     menu.setAttribute("role", "dialog");
     menu.setAttribute("aria-modal", "true");
@@ -584,17 +623,22 @@
 
       <div class="staggered-menu__body">
         <ul class="staggered-menu__list" role="list">
-          ${config.links.map((link, i) => {
-      if (link.sublinks) {
-        const activeSublink = link.sublinks.find(sub => isCurrentLink(sub.href));
+          ${config.links
+            .map((link, i) => {
+              if (link.sublinks) {
+                const activeSublink = link.sublinks.find((sub) =>
+                  isCurrentLink(sub.href),
+                );
 
-        const parentHref = localePageHref(link.href);
-        // const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
-        const parentImg = activeSublink ? activeSublink.img : link.img;
-        const parentCaption = activeSublink ? activeSublink.caption : (link.caption || "");
-        const hasActiveChild = activeSublink ? " is-current" : "";
+                const parentHref = localePageHref(link.href);
+                // const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
+                const parentImg = activeSublink ? activeSublink.img : link.img;
+                const parentCaption = activeSublink
+                  ? activeSublink.caption
+                  : link.caption || "";
+                const hasActiveChild = activeSublink ? " is-current" : "";
 
-        return `
+                return `
                 <li 
                 class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
                   <a 
@@ -606,11 +650,14 @@
                     </span>
                   </a>
                   <ul class="staggered-menu__dropdown-menu">
-                    ${link.sublinks.map((sublink, j) => {
-          // فحص حالة الرابط الفرعي الحالي هنا
-          const isSubActive = isCurrentLink(sublink.href) ? " is-current" : "";
+                    ${link.sublinks
+                      .map((sublink, j) => {
+                        // فحص حالة الرابط الفرعي الحالي هنا
+                        const isSubActive = isCurrentLink(sublink.href)
+                          ? " is-current"
+                          : "";
 
-          return `
+                        return `
                         <li class="staggered-menu__dropdown-item${isSubActive}">
                           <a class="staggered-menu__dropdown-link${isSubActive}" href="${localePageHref(sublink.href)}"
                              data-preview="${sublink.img}" data-caption="${sublink.caption}">
@@ -622,12 +669,13 @@
                           </a>
                         </li>
                       `;
-        }).join("")}
+                      })
+                      .join("")}
                   </ul>
                 </li>
               `;
-      } else {
-        return `
+              } else {
+                return `
                 <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
                   <a class="staggered-menu__link${isCurrentLink(link.href) ? " is-current" : ""}" href="${localePageHref(link.href)}"
                      data-preview="${link.img}" data-caption="${link.caption}">
@@ -639,12 +687,14 @@
                   </a>
                 </li>
               `;
-      }
-    }).join("")}
+              }
+            })
+            .join("")}
 
     <li>
-    ${isAR ?
-        `
+    ${
+      isAR
+        ? `
     <div class="n-download-btn">
         <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
           حمل التقرير الكامل
@@ -655,8 +705,7 @@
 
         </a>
       </div>`
-        :
-        `
+        : `
    <div class="n-download-btn">
         <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
           Download Full Report
@@ -667,7 +716,7 @@
 
         </a>
       </div>`
-      }
+    }
     </li>
         </ul>
 
@@ -688,19 +737,21 @@
           <a href="${config.langOther.href}">${config.langOther.code}</a>
         </div>
         <div class="staggered-menu__contact">
-          ${config.contact.map(c => `
+          ${config.contact
+            .map(
+              (c) => `
             <span><strong>${c.label}</strong><a href="${c.href}">${c.value}</a></span>
-          `).join("")}
+          `,
+            )
+            .join("")}
         </div>
       </div>
     `;
 
-
     document.body.appendChild(menu);
 
-
     const setPreview = (imgName, cap) => {
-      previewImgs.forEach(img => {
+      previewImgs.forEach((img) => {
         if (img.dataset.img === imgName) return; // نفس الصورة، متعملش حاجة
 
         // crossfade: fade out → swap src → fade in
@@ -714,23 +765,24 @@
       if (previewCap && cap) previewCap.textContent = cap;
     };
 
-    menu.querySelectorAll(".staggered-menu__link, .staggered-menu__dropdown-link").forEach(link => {
-      link.addEventListener("mouseenter", () => {
-        setPreview(link.dataset.preview, link.dataset.caption);
+    menu
+      .querySelectorAll(".staggered-menu__link, .staggered-menu__dropdown-link")
+      .forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          setPreview(link.dataset.preview, link.dataset.caption);
+        });
+        link.addEventListener("focus", () => {
+          setPreview(link.dataset.preview, link.dataset.caption);
+        });
+        // ❌ مفيش mouseleave ولا blur — الصورة تفضل على آخر hover
       });
-      link.addEventListener("focus", () => {
-        setPreview(link.dataset.preview, link.dataset.caption);
-      });
-      // ❌ مفيش mouseleave ولا blur — الصورة تفضل على آخر hover
-    });
     let lastFocused = null;
 
-
-    const linksList = document.querySelector(".staggered-menu__list")
+    const linksList = document.querySelector(".staggered-menu__list");
 
     linksList.addEventListener("mouseleave", () => {
-      setPreview(initialImg, initialCaption)
-    })
+      setPreview(initialImg, initialCaption);
+    });
     const open = () => {
       lastFocused = document.activeElement;
       menu.removeAttribute("hidden");
@@ -739,7 +791,7 @@
 
       requestAnimationFrame(() => menu.classList.add("is-open"));
       document.body.classList.add("menu-open");
-      triggers.forEach(t => t.setAttribute("aria-expanded", "true"));
+      triggers.forEach((t) => t.setAttribute("aria-expanded", "true"));
       // setTimeout(() => {
       //   const first = menu.querySelector(".staggered-menu__link");
       //   if (first) first.focus({ preventScroll: true });
@@ -753,15 +805,18 @@
 
       // إعادة تشغيل Lenis
       if (window?.__lenis) window?.__lenis.start();
-      triggers.forEach(t => t.setAttribute("aria-expanded", "false"));
-      setTimeout(() => {
-        menu.setAttribute("hidden", "");
-        if (lastFocused && document.contains(lastFocused)) lastFocused.focus({ preventScroll: true });
-      }, reduceMotion ? 0 : 600);
+      triggers.forEach((t) => t.setAttribute("aria-expanded", "false"));
+      setTimeout(
+        () => {
+          menu.setAttribute("hidden", "");
+          if (lastFocused && document.contains(lastFocused))
+            lastFocused.focus({ preventScroll: true });
+        },
+        reduceMotion ? 0 : 600,
+      );
     };
 
-
-    triggers.forEach(t => t.addEventListener("click", open));
+    triggers.forEach((t) => t.addEventListener("click", open));
 
     menu.querySelector("[data-menu-close]").addEventListener("click", close);
 
@@ -769,9 +824,8 @@
       if (e.key === "Escape" && menu.classList.contains("is-open")) close();
     });
 
-
     // أضف هذا الجزء بعد إضافة القائمة للـ DOM (بعد document.body.appendChild(menu))
-    menu.querySelectorAll(".staggered-menu__link").forEach(link => {
+    menu.querySelectorAll(".staggered-menu__link").forEach((link) => {
       link.addEventListener("click", () => {
         const href = link.getAttribute("href") || "";
 
@@ -780,14 +834,14 @@
     });
 
     // Dropdown toggles
-    document.querySelectorAll('[data-dropdown-toggle]').forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
+    document.querySelectorAll("[data-dropdown-toggle]").forEach((toggle) => {
+      toggle.addEventListener("click", (e) => {
         // منع الرابط من الانتقال لصفحة أخرى عند الضغط لفتح القائمة
         e.preventDefault();
 
         // كود فتح وإغلاق القائمة المنسدلة الخاص بك هنا، مثال:
-        const parentLi = toggle.closest('.staggered-menu__dropdown');
-        parentLi.classList.toggle('is-open'); // أو الكلاس المسؤول عن الفتح عندك
+        const parentLi = toggle.closest(".staggered-menu__dropdown");
+        parentLi.classList.toggle("is-open"); // أو الكلاس المسؤول عن الفتح عندك
       });
     });
     const previewImgs = menu.querySelectorAll(".staggered-menu__preview-img");
@@ -796,14 +850,18 @@
     const activatePreview = (link) => {
       const target = link.dataset.preview;
       const cap = link.dataset.caption;
-      previewImgs.forEach(img => img.classList.toggle("is-active", img.dataset.img === target));
+      previewImgs.forEach((img) =>
+        img.classList.toggle("is-active", img.dataset.img === target),
+      );
       if (previewCap && cap) previewCap.textContent = cap;
     };
 
-    menu.querySelectorAll(".staggered-menu__link, .staggered-menu__dropdown-link").forEach(link => {
-      link.addEventListener("mouseenter", () => activatePreview(link));
-      link.addEventListener("focus", () => activatePreview(link));
-    });
+    menu
+      .querySelectorAll(".staggered-menu__link, .staggered-menu__dropdown-link")
+      .forEach((link) => {
+        link.addEventListener("mouseenter", () => activatePreview(link));
+        link.addEventListener("focus", () => activatePreview(link));
+      });
 
     // menu.addEventListener("keydown", (e) => {
     //   if (e.key !== "Tab") return;
@@ -820,17 +878,15 @@
     //   }
     // });
 
-
     if (initMenu) {
-      open()
+      open();
     }
-
   }
 
   /* ------ Footer Dropdown Accordion (Fixed Toggle) ---------------------- */
   const footerDropdowns = document.querySelectorAll(".site-footer .dropdown");
 
-  footerDropdowns.forEach(dropdown => {
+  footerDropdowns.forEach((dropdown) => {
     const toggleBtn = dropdown.querySelector(".nav__link");
     const arrow = dropdown.querySelector(".arrow svg");
 
@@ -842,7 +898,7 @@
         const isOpen = dropdown.classList.contains("is-open");
 
         // 1. إغلاق جميع الأكورديونات الأخرى في الفوتر
-        footerDropdowns.forEach(otherDropdown => {
+        footerDropdowns.forEach((otherDropdown) => {
           if (otherDropdown !== dropdown) {
             otherDropdown.classList.remove("is-open");
             const otherArrow = otherDropdown.querySelector(".arrow svg");
@@ -864,7 +920,6 @@
 
   // Ensure the DOM is fully loaded before creating the button
   document.addEventListener("DOMContentLoaded", () => {
-
     // 1. إنشاء الزر ديناميكياً وتجهيز السهم الداخلي
     const backToTopBtn = document.createElement("button");
     backToTopBtn.innerHTML = `
@@ -894,23 +949,26 @@
     // 4. آلية الاختفاء الذكي عند الوصول للفوتر باستخدام IntersectionObserver
     const footer = document.querySelector(".site-footer");
     if (footer) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          // تحديث المتغير بناءً على ما إذا كان الفوتر مرئياً في الشاشة أم لا
-          isFooterVisible = entry.isIntersecting;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // تحديث المتغير بناءً على ما إذا كان الفوتر مرئياً في الشاشة أم لا
+            isFooterVisible = entry.isIntersecting;
 
-          // إذا ظهر الفوتر، نسحب كلاس الظهور فوراً ليختفي الزر
-          if (isFooterVisible) {
-            backToTopBtn.classList.remove("show");
-          } else if (window.scrollY > 300) {
-            // إذا صعد المستخدم لأعلى واختفى الفوتر وكان السكرول فوق الـ 300px يعود الزر للظهور
-            backToTopBtn.classList.add("show");
-          }
-        });
-      }, {
-        root: null,      // يراقب نافذة التصفح (Viewport) بالكامل
-        threshold: 0.05  // يختفي الزر بمجرد ظهور أول 5% من الفوتر لضمان استجابة سريعة
-      });
+            // إذا ظهر الفوتر، نسحب كلاس الظهور فوراً ليختفي الزر
+            if (isFooterVisible) {
+              backToTopBtn.classList.remove("show");
+            } else if (window.scrollY > 300) {
+              // إذا صعد المستخدم لأعلى واختفى الفوتر وكان السكرول فوق الـ 300px يعود الزر للظهور
+              backToTopBtn.classList.add("show");
+            }
+          });
+        },
+        {
+          root: null, // يراقب نافذة التصفح (Viewport) بالكامل
+          threshold: 0.05, // يختفي الزر بمجرد ظهور أول 5% من الفوتر لضمان استجابة سريعة
+        },
+      );
 
       observer.observe(footer);
     }
@@ -919,10 +977,8 @@
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     });
-
   });
-
 })();

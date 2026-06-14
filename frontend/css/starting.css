@@ -200,6 +200,11 @@
         flex-direction: column;
         gap: 12px;
     }
+
+    .starting-sec__box-title {
+        font-size: clamp(1.75rem, 7vw, 2rem);
+        line-height: 1.15;
+    }
 }
 
 @media (max-width: 480px) {
@@ -232,7 +237,8 @@
     }
 
     .starting-sec__box-title {
-        font-size: 15px;
+        font-size: clamp(1.625rem, 6.5vw, 1.875rem);
+        line-height: 1.2;
     }
 
     /* .starting-sec__content-title,
@@ -363,6 +369,18 @@
 
 [dir="rtl"] .text-col p {
     text-align: justify;
+    text-justify: inter-word;
+    text-align-last: right;
+}
+
+/* CSS-native justify test block (chairman message — last section) */
+.msg-sec--css-justify .text-col p {
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: right;
+    hyphens: none;
+    word-spacing: normal;
+    letter-spacing: normal;
 }
 
 /* لتقسيم النص لأعمدة إذا كان داخل حاوية نصية */
@@ -443,6 +461,27 @@
         font-size: 16px;
         /* خط أصغر للموبايل للقراءة المريحة */
         line-height: 24px;
+    }
+
+    /* RTL + full width so justify aligns both edges like desktop columns */
+    [dir="rtl"] .text-col {
+        direction: rtl;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    [dir="rtl"] .text-col h3 {
+        direction: rtl;
+        text-align: right;
+        width: 100%;
+    }
+
+    [dir="rtl"] .text-col p {
+        direction: rtl;
+        text-align: justify;
+        text-align-last: right;
+        text-justify: inter-word;
+        width: 100%;
     }
 
     .text-col .box {

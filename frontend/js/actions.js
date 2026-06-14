@@ -6,7 +6,8 @@
 
   // 1. تحديد لغة الصفحة الحالية بناءً على كود الـ HTML الداخلي
   const isAR = (document.documentElement.getAttribute("lang") || "ar")
-    .toLowerCase().startsWith("ar");
+    .toLowerCase()
+    .startsWith("ar");
   const lang = isAR ? "ar" : "en";
 
   function pageHref(filename) {
@@ -47,12 +48,12 @@
     },
     {
       href: "strategic-direction.html",
-      nameAr: "التوجه الاستراتيجي",
+      nameAr: "التوجه الإستراتيجي",
       nameEn: "Strategic Direction",
     },
     {
       href: "performance-summary.html",
-      nameAr: "موجز الاداء",
+      nameAr: "موجز الأداء",
       nameEn: "Performance Summary",
     },
     {
@@ -123,14 +124,14 @@
       prev: "الصفحة السابقة",
       next: "الصفحة التالية",
       dlPage: "تنزيل هذه الصفحة",
-      dlAll: "تنزيل التقرير الكامل"
+      dlAll: "تنزيل التقرير الكامل",
     },
     en: {
       prev: "Previous page",
       next: "Next page",
       dlPage: "Download this page",
-      dlAll: "Download full report"
-    }
+      dlAll: "Download full report",
+    },
   };
   const fallback = FALLBACK_LABELS[lang];
 
@@ -144,21 +145,25 @@
   const slug = filename.replace(/\.html$/i, "") || "index";
 
   // 3. البحث عن رقم ترتيب الصفحة الحالية في المصفوفة (pages) المرفقة
-  const idx = pages.findIndex(page => page.href === filename);
+  const idx = pages.findIndex((page) => page.href === filename);
 
   const prevRaw = idx > 0 ? pages[idx - 1] : null;
   const nextRaw = idx >= 0 && idx < pages.length - 1 ? pages[idx + 1] : null;
 
   // تحويل البيانات للشكل النهائي واختيار الاسم بناءً على اللغة المفعّلة
-  const prevPage = prevRaw ? {
-    href: prevRaw.href,
-    text: isAR ? prevRaw.nameAr : prevRaw.nameEn
-  } : null;
+  const prevPage = prevRaw
+    ? {
+        href: prevRaw.href,
+        text: isAR ? prevRaw.nameAr : prevRaw.nameEn,
+      }
+    : null;
 
-  const nextPage = nextRaw ? {
-    href: nextRaw.href,
-    text: isAR ? nextRaw.nameAr : nextRaw.nameEn
-  } : null;
+  const nextPage = nextRaw
+    ? {
+        href: nextRaw.href,
+        text: isAR ? nextRaw.nameAr : nextRaw.nameEn,
+      }
+    : null;
 
   // مسارات الـ PDF الموجهة ديناميكياً بناءً على لغة واسم الصفحة الحالية
   const pagePdf = `assets/pdf/${lang}/${slug}.pdf`;
@@ -169,7 +174,7 @@
     prev: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="action-svg"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`,
     next: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="action-svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`,
     dlPage: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="action-svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg>`,
-    dlAll: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="action-svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="12" y1="10" x2="12" y2="16"/><polyline points="9 13 12 16 15 13"/></svg>`
+    dlAll: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="action-svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="12" y1="10" x2="12" y2="16"/><polyline points="9 13 12 16 15 13"/></svg>`,
   };
 
   // استخراج العناوين تلقائياً من مصفوفة الـ pages بناءً على المتغيرات الجديدة

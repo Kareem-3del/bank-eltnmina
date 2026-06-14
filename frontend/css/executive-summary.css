@@ -559,6 +559,65 @@
   }
 }
 
+/* Strategy metrics — mobile: unit beside number, clearer vertical rhythm */
+@media (max-width: 768px) {
+  .es-overview .es-panel--strategy .es-panel__metrics {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 5vw, 32px);
+    grid-template-rows: unset;
+  }
+
+  .es-overview .es-panel--strategy .es-panel-metric {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(6px, 1.5vw, 10px);
+    padding-inline: 0;
+  }
+
+  .es-overview .es-panel--strategy .es-panel-metric__figure {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.35em;
+    text-align: center;
+  }
+
+  [dir="rtl"] .es-overview .es-panel--strategy .es-panel-metric__figure {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .es-overview .es-panel--strategy .es-panel-metric__num {
+    display: inline;
+    align-self: auto;
+    width: auto;
+    line-height: 1.1;
+    text-align: inherit;
+  }
+
+  .es-overview .es-panel--strategy .es-panel-metric__unit {
+    display: inline;
+    margin-top: 0;
+    align-self: auto;
+    line-height: 1.1;
+  }
+
+  .es-overview .es-panel--strategy .es-panel-metric__unit-row {
+    display: inline-flex;
+    margin-top: 0;
+    align-self: auto;
+    vertical-align: baseline;
+  }
+
+  .es-overview .es-panel--strategy .es-panel-metric__cap {
+    text-align: center;
+    max-width: none;
+  }
+}
+
 .es-section--tint {
   background: #eef8f6;
 }
@@ -1967,10 +2026,10 @@
     line-height: 1.25;
   }
 
-  /* Financing banner: avoid overflow from 146px number */
+  /* Financing banner: number + unit + riyal on one row, flush with title */
   .es-financing-banner__inner {
     grid-template-columns: 1fr;
-    justify-items: end;
+    justify-items: stretch;
     gap: 16px;
   }
 
@@ -1985,29 +2044,38 @@
 
   .es-financing-banner__figure {
     width: 100%;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    gap: clamp(8px, 2vw, 14px);
+  }
+
+  [dir="rtl"] .es-financing-banner__figure {
+    direction: rtl;
+    justify-content: flex-start;
   }
 
   .es-financing-banner__num {
-    flex: 1 1 100%;
-    text-align: center;
+    flex: 0 0 auto;
+    text-align: right;
     padding-inline: 0;
-  }
-
-  .es-financing-banner__num {
     font-size: clamp(64px, 18vw, 110px);
+    line-height: 1;
   }
 
   .es-financing-banner__unit {
     font-size: clamp(26px, 7vw, 40px);
-    line-height: 1.1;
+    line-height: 1;
+    transform: none;
+    flex-shrink: 0;
   }
 
   .es-financing-banner__riyal {
     width: 40px;
     height: 40px;
+    transform: none;
+    flex-shrink: 0;
   }
 
   /* Channels cards: allow fluid width */
