@@ -435,7 +435,11 @@
   }
 
   .channel-tech-sec {
-    padding-bottom: 6rem;
+    padding-bottom: 1rem;
+  }
+
+  .channel-tech-sec + .section.bg-main {
+    padding-top: clamp(24px, 5vw, 36px);
   }
 
   .tech-boxes {
