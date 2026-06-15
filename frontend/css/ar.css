@@ -43,8 +43,16 @@
 [lang="ar"] .quote__text,
 [lang="ar"] .pillar-row__desc {
   text-align: justify;
-  text-justify: inter-word;
+  text-justify: auto;
   hanging-punctuation: first last;
+}
+
+[lang="ar"] .text-col p .num,
+[lang="ar"] .hero-text .num,
+[lang="ar"] .strategy-content-item p .num {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline;
 }
 
 /* Headlines stay flush-start in AR (top-right) */

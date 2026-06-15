@@ -2262,8 +2262,9 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
  */
 
 [dir="rtl"] :is(.hero-text, .strategy-content-item p) {
+  direction: rtl;
   text-align: justify;
-  text-justify: inter-word;
+  text-justify: auto;
   text-align-last: right;
 }
 

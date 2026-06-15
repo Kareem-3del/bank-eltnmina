@@ -365,8 +365,9 @@
 }
 
 [dir="rtl"] .text-col p {
+  direction: rtl;
   text-align: justify;
-  text-justify: inter-word;
+  text-justify: auto;
   text-align-last: right;
 }
 
@@ -381,7 +382,6 @@
 .hero-text,
 .strategy-content-item p {
   text-align: justify;
-  text-justify: inter-word;
   hyphens: none;
   word-spacing: normal;
   letter-spacing: normal;
@@ -390,13 +390,25 @@
 [dir="rtl"] .msg-sec--css-justify .text-col p,
 [dir="rtl"] .hero-text,
 [dir="rtl"] .strategy-content-item p {
+  direction: rtl;
+  text-justify: auto;
   text-align-last: right;
 }
 
 [dir="ltr"] .msg-sec--css-justify .text-col p,
 [dir="ltr"] .hero-text,
 [dir="ltr"] .strategy-content-item p {
+  text-justify: inter-word;
   text-align-last: left;
+}
+
+/* Isolate Western digits in RTL justified copy — fixes Safari line-start gaps */
+[dir="rtl"] .text-col p .num,
+[dir="rtl"] .hero-text .num,
+[dir="rtl"] .strategy-content-item p .num {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline;
 }
 
 /* لتقسيم النص لأعمدة إذا كان داخل حاوية نصية */
@@ -493,7 +505,7 @@
     direction: rtl;
     text-align: justify;
     text-align-last: right;
-    text-justify: inter-word;
+    text-justify: auto;
     width: 100%;
   }
 

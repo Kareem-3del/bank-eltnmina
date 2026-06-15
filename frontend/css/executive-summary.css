@@ -43,7 +43,7 @@
   line-height: 1;
 }
 
-.executive-summary+.site-footer {
+.executive-summary + .site-footer {
   margin-top: 0;
 }
 
@@ -167,7 +167,6 @@
   text-align: right;
 }
 
-
 .es-overview .es-panel__text-em {
   display: block;
   margin-top: 4px;
@@ -198,7 +197,6 @@
     white-space: normal;
   }
 }
-
 
 .es-overview .es-panel--strategy .es-panel__text-em {
   margin-top: 6px;
@@ -287,7 +285,10 @@
   text-align: right;
 }
 
-.es-overview .es-panel--strategy .es-panel-metric__unit-row .es-panel-metric__unit {
+.es-overview
+  .es-panel--strategy
+  .es-panel-metric__unit-row
+  .es-panel-metric__unit {
   margin-top: 0;
 }
 
@@ -947,7 +948,6 @@
 }
 
 @media (max-width: 540px) {
-
   /* On very small screens stack icon above text */
   .es-item {
     grid-template-columns: 1fr;
@@ -1147,10 +1147,12 @@
   width: 48px;
   height: 3px;
   margin: 12px 0 16px;
-  background: linear-gradient(90deg,
-      var(--es-mint) 0%,
-      var(--es-teal) 45%,
-      var(--es-teal-dark) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--es-mint) 0%,
+    var(--es-teal) 45%,
+    var(--es-teal-dark) 100%
+  );
 }
 
 .es-monthly__desc {
@@ -1408,8 +1410,16 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08), transparent 45%),
-    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.06), transparent 50%);
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(255, 255, 255, 0.06),
+      transparent 50%
+    );
   opacity: 0.45;
   pointer-events: none;
 }
@@ -1751,13 +1761,13 @@
   margin: 0;
 }
 
-.es-percent-card strong>span {
+.es-percent-card strong > span {
   direction: ltr;
   unicode-bidi: isolate;
   font: inherit;
 }
 
-.es-percent-card>span {
+.es-percent-card > span {
   margin-top: 18px;
   color: #6b7280;
   font-family: "Cairo", sans-serif;
@@ -1871,7 +1881,6 @@
    ----------------------------------------------------------------------- */
 
 @media (max-width: 1200px) {
-
   /* KPI cards: reduce excessive fixed widths */
   .es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1891,7 +1900,6 @@
 }
 
 @media (max-width: 900px) {
-
   #satisfaction,
   .es-digital {
     overflow-x: clip;
@@ -1982,7 +1990,6 @@
 }
 
 @media (max-width: 640px) {
-
   .es-percent-card strong {
     aspect-ratio: unset;
   }
@@ -2121,12 +2128,10 @@
 }
 
 @media (max-width: 420px) {
-
   /* Percent blocks: keep readable on small phones */
   .es-percent-card strong {
     aspect-ratio: unset;
   }
-
 
   .es-percent-card strong {
     width: 100%;
@@ -2167,17 +2172,17 @@
   justify-content: center;
   margin-inline: auto;
   direction: ltr;
-  /* render as %100 */
+  width: 100%;
+  max-width: 218px;
+  aspect-ratio: 218 / 130;
+  height: auto;
 }
 
-.es-digital-card__pct--wide {
-  width: 277px;
-  height: 130px;
-}
-
+.es-digital-card__pct--wide,
 .es-digital-card__pct--narrow {
-  width: 218px;
-  height: 130px;
+  width: 100%;
+  max-width: 218px;
+  height: auto;
 }
 
 .es-digital-card__pct[data-pct]::before {
@@ -2185,13 +2190,13 @@
   margin: 0;
 }
 
-.es-digital-card__pct>span {
+.es-digital-card__pct > span {
   direction: ltr;
   unicode-bidi: isolate;
   font: inherit;
 }
 
-.es-digital-card>span {
+.es-digital-card > span {
   margin-top: 18px;
   color: #6b7280;
   font-family: "Cairo", sans-serif;
@@ -2200,7 +2205,8 @@
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.75px;
-  width: min(416px, 100%);
+  width: 100%;
+  max-width: 100%;
 }
 
 .es-photo-band {
@@ -2346,20 +2352,55 @@
 }
 
 @media (max-width: 1040px) {
-
   .es-stat-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
   }
 
-  #satisfaction > .es-percent-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-content: stretch;
-  }
-
+  #satisfaction > .es-percent-grid,
   .es-digital > .es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
+    align-items: stretch;
+  }
+
+  #satisfaction > .es-percent-grid .es-percent-card,
+  .es-digital > .es-digital-grid .es-digital-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    align-content: start;
+    justify-content: unset;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: clamp(20px, 3vw, 24px) clamp(14px, 3vw, 18px);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  #satisfaction > .es-percent-grid .es-percent-card strong,
+  .es-digital > .es-digital-grid .es-digital-card__pct {
+    grid-row: 1;
+    align-self: center;
+    min-height: clamp(68px, 16vw, 100px);
+    width: 100%;
+    max-width: 218px;
+    height: auto;
+    aspect-ratio: unset;
+  }
+
+  #satisfaction > .es-percent-grid .es-percent-card > span,
+  .es-digital > .es-digital-grid .es-digital-card > span {
+    grid-row: 2;
+    align-self: start;
+    margin-top: 18px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .es-financial-grid {
@@ -2368,7 +2409,6 @@
 }
 
 @media (max-width: 820px) {
-
   .es-digital-card__pct--wide {
     height: auto;
   }
@@ -2381,7 +2421,6 @@
   .es-service-grid,
   .es-channel-grid,
   .es-company-grid,
-  .es-digital-grid,
   .es-hr-grid {
     grid-template-columns: 1fr;
   }
@@ -2412,7 +2451,8 @@
   }
 
   .es-stat-grid,
-  .es-percent-grid {
+  .es-percent-grid,
+  .es-digital-grid {
     grid-template-columns: 1fr;
     justify-content: stretch;
   }
