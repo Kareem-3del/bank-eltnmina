@@ -3,8 +3,8 @@
    Tokens, reset, type system, layout primitives, navbar, footer.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
 
 /* ------ Tokens (from DESIGN.md "Visionary Trust") ------------------------- */
 :root {
@@ -40,8 +40,9 @@
   --c-error: #ba1a1a;
 
   /* Typography */
-  --ff-sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ff-sans:
+    "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 
   --fs-xs: 0.75rem;
   /* 12 */
@@ -108,8 +109,8 @@
   --bg-main: #009892;
 
   /* colors */
-  --c-text-main: #FFF;
-  --c-dark: #009D98;
+  --c-text-main: #fff;
+  --c-dark: #009d98;
 
   --title-size: clamp(1.5rem, 5vw, 2.25rem);
   --t-line-height: clamp(1.875rem, 10vw, 2.5rem);
@@ -332,11 +333,11 @@ select {
   margin-bottom: var(--s-7);
 }
 
-.section-header>.eyebrow {
+.section-header > .eyebrow {
   margin-bottom: var(--s-3);
 }
 
-.section-header>.h-1 {
+.section-header > .h-1 {
   margin-bottom: var(--s-4);
 }
 
@@ -358,7 +359,6 @@ select {
 }
 
 @media (max-width: 960px) {
-
   .grid--3,
   .grid--4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -366,7 +366,6 @@ select {
 }
 
 @media (max-width: 640px) {
-
   .grid--2,
   .grid--3,
   .grid--4 {
@@ -421,7 +420,8 @@ select {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: background var(--d-fast) var(--ease-out),
+  transition:
+    background var(--d-fast) var(--ease-out),
     color var(--d-fast) var(--ease-out),
     border var(--d-fast) var(--ease-out),
     transform var(--d-fast) var(--ease-out),
@@ -578,11 +578,12 @@ select {
   z-index: 99999;
   background: #ffffff;
   border-bottom: 1px solid transparent;
-  transition: border-color var(--d-fast) var(--ease-out),
+  transition:
+    border-color var(--d-fast) var(--ease-out),
     box-shadow var(--d-fast) var(--ease-out);
 }
 
-.dropdown>.nav__link {
+.dropdown > .nav__link {
   pointer-events: none;
 }
 
@@ -600,8 +601,6 @@ select {
   gap: var(--s-5);
   padding: 1rem 2rem;
 }
-
-
 
 .nav__brand {
   display: inline-flex;
@@ -699,13 +698,13 @@ select {
 /* The legacy hamburger toggle is removed by main.js (initStaggeredMenu)
    in favor of the staggered overlay menu, so we don't render any drawer here. */
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
   .nav {
     padding: 8px 2rem;
   }
 
   .nav__brand img {
-    width: 240px
+    width: 240px;
   }
 }
 
@@ -771,7 +770,8 @@ select {
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity var(--d-slow) var(--ease-out),
+  transition:
+    opacity var(--d-slow) var(--ease-out),
     transform var(--d-slow) var(--ease-out);
   will-change: opacity, transform;
 }
@@ -849,8 +849,8 @@ html.lenis body {
   position: relative;
 }
 
-.parallax>img,
-.parallax>picture>img {
+.parallax > img,
+.parallax > picture > img {
   width: 100%;
   height: 115%;
   object-fit: cover;
@@ -858,7 +858,6 @@ html.lenis body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -929,20 +928,20 @@ html.lenis body {
   width: 100%;
 }
 
-.site-footer .dropdown>a {
+.site-footer .dropdown > a {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   cursor: pointer;
-  pointer-events: all
+  pointer-events: all;
 }
 
 .site-footer .footer__index .dropdown {
   position: static;
 }
 
-.site-footer .footer__index .dropdown>a {
+.site-footer .footer__index .dropdown > a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -960,7 +959,10 @@ html.lenis body {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height var(--d-fast) var(--ease-out), opacity var(--d-fast) var(--ease-out), padding var(--d-fast) var(--ease-out);
+  transition:
+    max-height var(--d-fast) var(--ease-out),
+    opacity var(--d-fast) var(--ease-out),
+    padding var(--d-fast) var(--ease-out);
 }
 
 .site-footer .footer__index .dropdown:hover .dropdown-menu {
@@ -991,7 +993,7 @@ html.lenis body {
   color: var(--c-on-primary);
 }
 
-.site-footer .footer__index .dropdown.is-open>a .icon-arrow {
+.site-footer .footer__index .dropdown.is-open > a .icon-arrow {
   transform: rotate(90deg) scaleX(-1);
 }
 
@@ -1052,7 +1054,8 @@ html.lenis body {
   letter-spacing: -0.005em;
   color: var(--c-on-primary);
   line-height: var(--lh-snug);
-  transition: padding-inline var(--d-fast) var(--ease-out),
+  transition:
+    padding-inline var(--d-fast) var(--ease-out),
     background var(--d-fast) var(--ease-out),
     color var(--d-fast) var(--ease-out);
 }
@@ -1066,12 +1069,12 @@ html.lenis body {
   min-width: 250px;
   min-height: 48px;
   padding: 16px;
-  color: #FFF;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  background-color: #00948F;
+  background-color: #00948f;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -1101,7 +1104,9 @@ html.lenis body {
   height: 18px;
   flex-shrink: 0;
   opacity: 0.55;
-  transition: opacity var(--d-fast) var(--ease-out), transform var(--d-fast) var(--ease-out);
+  transition:
+    opacity var(--d-fast) var(--ease-out),
+    transform var(--d-fast) var(--ease-out);
 }
 
 .footer__index a:hover .icon-arrow {
@@ -1155,7 +1160,9 @@ html.lenis body {
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: background var(--d-fast) var(--ease-out), border-color var(--d-fast) var(--ease-out);
+  transition:
+    background var(--d-fast) var(--ease-out),
+    border-color var(--d-fast) var(--ease-out);
 }
 
 .footer__social a:hover {
@@ -1186,9 +1193,11 @@ html.lenis body {
   letter-spacing: 0.02em;
   line-height: 1;
   border: 1px solid var(--c-primary);
-  box-shadow: 0 12px 28px -12px rgba(0, 104, 92, 0.55),
+  box-shadow:
+    0 12px 28px -12px rgba(0, 104, 92, 0.55),
     0 4px 10px -4px rgba(24, 29, 27, 0.18);
-  transition: background var(--d-fast) var(--ease-out),
+  transition:
+    background var(--d-fast) var(--ease-out),
     border-color var(--d-fast) var(--ease-out),
     transform var(--d-fast) var(--ease-out),
     box-shadow var(--d-fast) var(--ease-out),
@@ -1200,7 +1209,8 @@ html.lenis body {
   border-color: var(--c-primary-dark);
   color: var(--c-on-primary);
   transform: translateY(-2px);
-  box-shadow: 0 18px 36px -14px rgba(0, 104, 92, 0.6),
+  box-shadow:
+    0 18px 36px -14px rgba(0, 104, 92, 0.6),
     0 6px 14px -4px rgba(24, 29, 27, 0.22);
 }
 
@@ -1255,7 +1265,6 @@ html.lenis body {
   }
 }
 
-
 /* Common hero section */
 .c-hero {
   position: relative;
@@ -1270,7 +1279,11 @@ html.lenis body {
 
 .c-hero__overlay {
   z-index: 99;
-  background: linear-gradient(110.95deg, #00948F -6.17%, rgba(0, 102, 99, 0.85) 93.83%);
+  background: linear-gradient(
+    110.95deg,
+    #00948f -6.17%,
+    rgba(0, 102, 99, 0.85) 93.83%
+  );
 }
 
 .c-hero__image-wrapper {
@@ -1295,7 +1308,7 @@ html.lenis body {
   align-items: flex-start;
   height: 100%;
   flex-direction: column;
-  padding: 2rem 0
+  padding: 2rem 0;
 }
 
 .c-hero__title {
@@ -1303,7 +1316,7 @@ html.lenis body {
   font-size: 72px;
   line-height: 72px;
   letter-spacing: -0.72px;
-  color: #FFFFFF;
+  color: #ffffff;
   max-width: 920px;
 }
 
@@ -1394,7 +1407,7 @@ html.lenis body {
   margin-top: 24px;
 }
 
-.c-hero__boxes>div {
+.c-hero__boxes > div {
   padding: 16px;
   box-shadow: 0px 4px 16px 0px rgba(31, 71, 70, 0.04);
   box-shadow: 0px 1px 2px 0px rgba(31, 71, 70, 0.04);
@@ -1409,18 +1422,18 @@ html.lenis body {
   flex: 1;
 }
 
-.c-hero__boxes>div p {
+.c-hero__boxes > div p {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: #5E7278;
+  color: #5e7278;
 }
 
-.c-hero__boxes>div h4 {
+.c-hero__boxes > div h4 {
   font-weight: 700;
   font-size: 35px;
   line-height: 32px;
-  color: #008A85;
+  color: #008a85;
 }
 
 /* --- الشاشات المتوسطة (Tablets - 1024px) --- */
@@ -1484,14 +1497,13 @@ html.lenis body {
     flex-wrap: wrap;
   }
 
-  .c-hero__boxes>div {
+  .c-hero__boxes > div {
     flex: unset;
     width: calc(50% - 16px);
   }
 }
 
 @media (max-width: 480px) {
-
   /* .c-hero {
     height: 500px;
   } */
@@ -1612,7 +1624,9 @@ html.lenis body {
   font-size: 13.5px;
   font-weight: 700;
   font-family: inherit;
-  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  transition:
+    max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s ease;
 }
 
 /* السحر الحقيقي للـ LTR: نقوم بتبديل الترتيب البصري للنص ليصبح قبل الأيقونة دون تحريك الأيقونة برمجياً */
@@ -1661,7 +1675,6 @@ html.lenis body {
   margin-right: 8px;
 } */
 
-
 /* ==========================================================================
    DISABLED STATE
    ========================================================================== */
@@ -1672,7 +1685,6 @@ html.lenis body {
   pointer-events: none;
   box-shadow: none;
 }
-
 
 /* ==========================================================================
    RESPONSIVE (Mobile view untouched)
@@ -1724,9 +1736,9 @@ html.lenis body {
 .last-sec__wrapper {
   position: relative;
   padding: 48px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 20px 60px -25px rgba(0, 0, 0, 0.25);
-  border-inline-start: 9px solid #27A5A1
+  border-inline-start: 9px solid #27a5a1;
 }
 
 .last-sec__wrapper-overlay {
@@ -1735,7 +1747,11 @@ html.lenis body {
   height: 140px;
   bottom: 0;
   position: absolute;
-  background: linear-gradient(0deg, rgba(22, 125, 125, 0.8) 0%, rgba(18, 37, 63, 0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(22, 125, 125, 0.8) 0%,
+    rgba(18, 37, 63, 0) 100%
+  );
 }
 
 .last-sec__img {
@@ -1755,14 +1771,18 @@ html.lenis body {
   font-weight: 400;
   font-size: 20px;
   line-height: 40px;
-  color: #8C9494;
+  color: #8c9494;
   margin-bottom: 24px;
 }
 
 .last-sec__desc::after {
   content: "";
   display: block;
-  background: linear-gradient(270deg, rgba(0, 138, 133, 0.4) 0%, rgba(0, 138, 133, 0) 100%);
+  background: linear-gradient(
+    270deg,
+    rgba(0, 138, 133, 0.4) 0%,
+    rgba(0, 138, 133, 0) 100%
+  );
   width: 100%;
   height: 1px;
   margin-top: 44px;
@@ -1772,7 +1792,6 @@ html.lenis body {
   margin-bottom: 0;
 }
 
-
 .noborder.last-sec__desc::after {
   display: none;
 }
@@ -1781,7 +1800,7 @@ html.lenis body {
   font-weight: 800;
   font-size: 30px;
   line-height: 28px;
-  color: #00948F;
+  color: #00948f;
   margin-bottom: 10px;
 }
 
@@ -1790,7 +1809,7 @@ html.lenis body {
   font-size: 25px;
   line-height: 28px;
   letter-spacing: 0px;
-  color: #00948F;
+  color: #00948f;
 }
 
 @media (max-width: 1024px) {
@@ -1873,7 +1892,7 @@ html.lenis body {
   justify-content: center;
   text-align: center;
   font-weight: 700;
-  color: #008A85;
+  color: #008a85;
 
   /* Responsive Font Size: Min 24px, Max 36px */
   font-size: clamp(1.5rem, 5vw, 2.25rem);
@@ -2032,7 +2051,6 @@ html.lenis body {
 
 /* --- 1. الحركات الطافية (Float) --- */
 @keyframes float-up {
-
   0%,
   100% {
     transform: translateY(0);
@@ -2044,7 +2062,6 @@ html.lenis body {
 }
 
 @keyframes float-down {
-
   0%,
   100% {
     transform: translateY(0);
@@ -2057,7 +2074,6 @@ html.lenis body {
 
 /* --- 2. الحركات التفاعلية (Pulse & Shake) --- */
 @keyframes pulse-soft-down {
-
   0%,
   100% {
     transform: scale(1);
@@ -2069,7 +2085,6 @@ html.lenis body {
 }
 
 @keyframes pulse-soft {
-
   0%,
   100% {
     transform: scale(1);
@@ -2081,7 +2096,6 @@ html.lenis body {
 }
 
 @keyframes shake-side {
-
   0%,
   100% {
     transform: rotate(-2deg);
@@ -2092,9 +2106,7 @@ html.lenis body {
   }
 }
 
-
 @keyframes shake-side-rev {
-
   0%,
   100% {
     transform: rotate(2deg);
@@ -2107,7 +2119,6 @@ html.lenis body {
 
 /* --- 3. الحركات المتقدمة (Reveal & Swing) --- */
 @keyframes swing-slow {
-
   0%,
   100% {
     transform: rotate(-5deg);
@@ -2120,7 +2131,6 @@ html.lenis body {
 }
 
 @keyframes grow-up {
-
   0%,
   100% {
     transform: scale(1);
@@ -2133,7 +2143,6 @@ html.lenis body {
 
 /* --- 4. حركات الـ Slide على محور X --- */
 @keyframes slide-x-right {
-
   0%,
   100% {
     transform: translateX(0);
@@ -2145,7 +2154,6 @@ html.lenis body {
 }
 
 @keyframes slide-x-left {
-
   0%,
   100% {
     transform: translateX(0);
@@ -2157,7 +2165,6 @@ html.lenis body {
 }
 
 @keyframes slide-x-fast {
-
   0%,
   100% {
     transform: translateX(0);
@@ -2179,7 +2186,6 @@ html.lenis body {
 }
 
 @keyframes fade-anim {
-
   0%,
   100% {
     opacity: 0.3;
@@ -2243,7 +2249,6 @@ html.lenis body {
   animation: fade-anim 4s ease-in-out infinite;
 }
 
-
 /* الأنيميشن الخاص بالظهور */
 @keyframes fadeInMenu {
   from {
@@ -2270,7 +2275,7 @@ html.lenis body {
 }
 
 .colored-content {
-  color: #FFF !important;
+  color: #fff !important;
   padding: clamp(1rem, 3vw, 2rem);
   background: rgba(111, 196, 192, 1);
 }

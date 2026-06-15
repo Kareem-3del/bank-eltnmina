@@ -2261,6 +2261,14 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 }
  */
 
-[dir="rtl"] :is(.hero-text, .strategy-content-item) {
+[dir="rtl"] :is(.hero-text, .strategy-content-item p) {
   text-align: justify;
+  text-justify: inter-word;
+  text-align-last: right;
+}
+
+[dir="ltr"] :is(.hero-text, .strategy-content-item p) {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
 }

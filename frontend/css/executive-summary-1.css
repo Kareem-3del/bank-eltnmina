@@ -709,6 +709,24 @@
     text-align: center;
     margin-inline: auto;
   }
+
+  /* Safari iOS: float animation + % heights stretch teal panels while scrolling */
+  .es1-board--financial .es1-board__col,
+  .es1-board--financial .es1-board__panel,
+  .es1-board--hr .es1-board__col {
+    height: auto;
+    min-height: 0;
+  }
+
+  .es1-board--financial .es1-board__panel {
+    flex: none;
+  }
+
+  .es1-board-wrap .anim-float-up,
+  .es1-board-wrap .anim-float-down {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 640px) {

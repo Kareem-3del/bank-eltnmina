@@ -370,14 +370,33 @@
   text-align-last: right;
 }
 
-/* CSS-native justify test block (chairman message — last section) */
-.msg-sec--css-justify .text-col p {
+[dir="ltr"] .text-col p {
   text-align: justify;
   text-justify: inter-word;
-  text-align-last: right;
+  text-align-last: left;
+}
+
+/* CSS-native justify (chairman/CEO message sections + home page body text) */
+.msg-sec--css-justify .text-col p,
+.hero-text,
+.strategy-content-item p {
+  text-align: justify;
+  text-justify: inter-word;
   hyphens: none;
   word-spacing: normal;
   letter-spacing: normal;
+}
+
+[dir="rtl"] .msg-sec--css-justify .text-col p,
+[dir="rtl"] .hero-text,
+[dir="rtl"] .strategy-content-item p {
+  text-align-last: right;
+}
+
+[dir="ltr"] .msg-sec--css-justify .text-col p,
+[dir="ltr"] .hero-text,
+[dir="ltr"] .strategy-content-item p {
+  text-align-last: left;
 }
 
 /* لتقسيم النص لأعمدة إذا كان داخل حاوية نصية */
@@ -474,6 +493,27 @@
     direction: rtl;
     text-align: justify;
     text-align-last: right;
+    text-justify: inter-word;
+    width: 100%;
+  }
+
+  /* LTR + full width — same justify treatment for English */
+  [dir="ltr"] .text-col {
+    direction: ltr;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  [dir="ltr"] .text-col h3 {
+    direction: ltr;
+    text-align: left;
+    width: 100%;
+  }
+
+  [dir="ltr"] .text-col p {
+    direction: ltr;
+    text-align: justify;
+    text-align-last: left;
     text-justify: inter-word;
     width: 100%;
   }
