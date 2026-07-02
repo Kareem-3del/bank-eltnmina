@@ -10,34 +10,6 @@
     .startsWith("ar");
   const lang = isAR ? "ar" : "en";
 
-  const labels = {
-    ar: {
-      more: "اقرأ المزيد",
-      less: "عرض أقل"
-    },
-    en: {
-      more: "Read more",
-      less: "Show less"
-    }
-  };
-
-  document.querySelectorAll('.js-read-more-btn').forEach(btn => {
-    // ضبط النص الابتدائي للزر عند تحميل الصفحة
-    btn.textContent = labels[lang].more;
-
-    btn.addEventListener('click', function () {
-      const content = this.previousElementSibling;
-
-      content.classList.toggle('is-open');
-
-      // تغيير النص بناءً على حالة الفتح واللغة
-      if (content.classList.contains('is-open')) {
-        this.textContent = labels[lang].less;
-      } else {
-        this.textContent = labels[lang].more;
-      }
-    });
-  });
 
   function pageHref(filename) {
     return `${lang}/${filename}`;

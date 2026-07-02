@@ -2298,7 +2298,6 @@ html.lenis body {
 /* الزر مخفي في الشاشات الكبيرة */
 .js-read-more-btn {
   display: none;
-  margin-top: 15px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -2309,34 +2308,77 @@ html.lenis body {
   width: fit-content;
   padding: 8px 16px;
   border-radius: 30px;
+  margin-top: 16px;
 }
 
 .js-read-more-btn.green {
-  background-color: rgba(5, 142, 138, 1);
-  color: #fff;
+  background-color: #fff;
+  color: rgba(5, 142, 138, 1);
   border-color: #FFF;
 }
 
+@media (min-width: 769px) {
+  .mobile-sec {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+
+  .desktop-sec {
+    display: none;
+  }
+
   .js-read-more-btn {
     display: block;
   }
 
-  /* الحاوية التي تحتوي الـ grid */
   .js-read-more-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-    /* حركة انسيابية */
+    display: grid;
+    /* السر: الـ grid يبدأ بارتفاع صفر تماماً */
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s ease-out, opacity 0.5s ease;
     opacity: 0;
-    display: none
+    overflow: hidden;
+    will-change: grid-template-rows, opacity;
+    transform: translateZ(0);
   }
 
-  /* كلاس التفعيل */
+  /* عند الفتح، الـ grid يفتح تدريجياً */
   .js-read-more-content.is-open {
-    max-height: 2000px;
-    display: flex !important;
-    /* قيمة أكبر من المتوقع للمحتوى */
+    grid-template-rows: 1fr;
     opacity: 1;
+    margin-top: 16px;
+  }
+
+  .js-read-more-btn {
+    transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .js-read-more-btn:active {
+    transform: scale(0.98);
+  }
+
+  .mobile-sec.is-read-more-active {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* المحتوى الداخلي يجب أن يكون له min-height: 0 */
+  .js-read-more-content>* {
+    min-height: 0;
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    /* يبدأ من الأعلى قليلاً */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

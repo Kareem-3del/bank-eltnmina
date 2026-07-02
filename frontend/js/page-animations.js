@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+
     document.documentElement.classList.add("is-anim-ready");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const curtain = document.querySelector("[data-curtain]");
@@ -9,6 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
         'anim-swing', 'anim-grow', 'anim-slide-right', 'anim-slide-left',
         'anim-slide-fast', 'anim-spin', 'anim-fade', "anim-shake-rev"
     ];
+
+    let resizeTimer;
+
+    const isAR = (document.documentElement.getAttribute("lang") || "ar")
+        .toLowerCase()
+        .startsWith("ar");
+    const lang = isAR ? "ar" : "en";
+
+    const labels = {
+        ar: {
+            more: "اقرأ المزيد",
+            less: "عرض أقل"
+        },
+        en: {
+            more: "Read more",
+            less: "Show less"
+        }
+    };
 
     function getAnimClass(el) {
         if (el.classList.contains('js-float-up-enabled')) return 'anim-float-up';
@@ -27,124 +47,164 @@ document.addEventListener("DOMContentLoaded", () => {
         return null;
     }
 
-    if (curtain && !reduceMotion) {
-        tlEnter.fromTo(
-            curtain,
-            { scaleY: 1 },
-            {
-                scaleY: 0, duration: 1.1, ease: "expo.inOut",
-                onComplete: () => curtain.classList.add("is-done")
-            }
-        );
-    } else if (curtain) {
-        curtain.classList.add("is-done");
-    }
+    function initAnimations() {
 
-    const elements = document.querySelectorAll('.anim-element');
 
-    elements.forEach((el) => {
-        const animationType = el.dataset.anim || 'fade-up';
-        const delay = parseFloat(el.dataset.delay) || 0;
-
-        // الـ fromTo states
-        const fromVars = {};
-        const toVars = {};
-
-        switch (animationType) {
-            case 'fade-up':
-                Object.assign(fromVars, { opacity: 0, y: 50 });
-                Object.assign(toVars, { opacity: 1, y: 0 });
-                break;
-            case 'slide-left':
-                Object.assign(fromVars, { opacity: 0, x: 100 });
-                Object.assign(toVars, { opacity: 1, x: 0 });
-                break;
-            case 'slide-right':
-                Object.assign(fromVars, { opacity: 0, x: -100 });
-                Object.assign(toVars, { opacity: 1, x: 0 });
-                break;
-            case 'fade-in':
-                Object.assign(fromVars, { opacity: 0 });
-                Object.assign(toVars, { opacity: 1 });
-                break;
-            case 'zoom-in':
-                Object.assign(fromVars, { opacity: 0, scale: 0.8 });
-                Object.assign(toVars, { opacity: 1, scale: 1 });
-                break;
-
-            case 'image-reveal':
-                // حركة سريعة: تبدأ من 95% حجم وتكبر للـ 100% مع ظهور ناعم
-                Object.assign(fromVars, { opacity: 0, scale: 0.95 });
-                Object.assign(toVars, { opacity: 1, scale: 1 });
-                break;
-            case 'ethereal':
-                // يبدأ بـ ضبابية واختفاء، وينتهي بوضوح كامل
-                gsap.set(el, { filter: 'blur(10px)', opacity: 0 });
-                Object.assign(fromVars, { filter: 'blur(10px)', opacity: 0 });
-                Object.assign(toVars, { filter: 'blur(0px)', opacity: 1 });
-                break;
-            case 'powerful':
-                gsap.set(el, { transformPerspective: 1000, rotationY: 45, brightness: 0, scale: 0.9 });
-
-                Object.assign(fromVars, { rotationY: 45, brightness: 0, scale: 0.9 });
-                Object.assign(toVars, { rotationY: 0, brightness: 1, scale: 1 });
-                break;
-            default:
-                Object.assign(fromVars, { opacity: 0, y: 50 });
-                Object.assign(toVars, { opacity: 1, y: 0 });
+        if (curtain && !reduceMotion) {
+            tlEnter.fromTo(
+                curtain,
+                { scaleY: 1 },
+                {
+                    scaleY: 0, duration: 1.1, ease: "expo.inOut",
+                    onComplete: () => curtain.classList.add("is-done")
+                }
+            );
+        } else if (curtain) {
+            curtain.classList.add("is-done");
         }
 
-        // ضع العنصر في الحالة الابتدائية فوراً
-        gsap.set(el, fromVars);
-        gsap.fromTo(el, fromVars, {
-            ...toVars,
-            duration: 1,
-            ease: "power2.inOut",
-            delay: delay,
+        const elements = document.querySelectorAll('.anim-element');
+
+        elements.forEach((el) => {
+            const animationType = el.dataset.anim || 'fade-up';
+            const delay = parseFloat(el.dataset.delay) || 0;
+
+            // الـ fromTo states
+            const fromVars = {};
+            const toVars = {};
+
+            switch (animationType) {
+                case 'fade-up':
+                    Object.assign(fromVars, { opacity: 0, y: 50 });
+                    Object.assign(toVars, { opacity: 1, y: 0 });
+                    break;
+                case 'slide-left':
+                    Object.assign(fromVars, { opacity: 0, x: 100 });
+                    Object.assign(toVars, { opacity: 1, x: 0 });
+                    break;
+                case 'slide-right':
+                    Object.assign(fromVars, { opacity: 0, x: -100 });
+                    Object.assign(toVars, { opacity: 1, x: 0 });
+                    break;
+                case 'fade-in':
+                    Object.assign(fromVars, { opacity: 0 });
+                    Object.assign(toVars, { opacity: 1 });
+                    break;
+                case 'zoom-in':
+                    Object.assign(fromVars, { opacity: 0, scale: 0.8 });
+                    Object.assign(toVars, { opacity: 1, scale: 1 });
+                    break;
+
+                case 'image-reveal':
+                    // حركة سريعة: تبدأ من 95% حجم وتكبر للـ 100% مع ظهور ناعم
+                    Object.assign(fromVars, { opacity: 0, scale: 0.95 });
+                    Object.assign(toVars, { opacity: 1, scale: 1 });
+                    break;
+                case 'ethereal':
+                    // يبدأ بـ ضبابية واختفاء، وينتهي بوضوح كامل
+                    gsap.set(el, { filter: 'blur(10px)', opacity: 0 });
+                    Object.assign(fromVars, { filter: 'blur(10px)', opacity: 0 });
+                    Object.assign(toVars, { filter: 'blur(0px)', opacity: 1 });
+                    break;
+                case 'powerful':
+                    gsap.set(el, { transformPerspective: 1000, rotationY: 45, brightness: 0, scale: 0.9 });
+
+                    Object.assign(fromVars, { rotationY: 45, brightness: 0, scale: 0.9 });
+                    Object.assign(toVars, { rotationY: 0, brightness: 1, scale: 1 });
+                    break;
+                default:
+                    Object.assign(fromVars, { opacity: 0, y: 50 });
+                    Object.assign(toVars, { opacity: 1, y: 0 });
+            }
+
+            // ضع العنصر في الحالة الابتدائية فوراً
+            gsap.set(el, fromVars);
+            gsap.fromTo(el, fromVars, {
+                ...toVars,
+                duration: 1,
+                ease: "power2.inOut",
+                delay: delay,
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%", // يبدأ لما يوصل لـ 85% من الشاشة
+                    end: "bottom 15%",   // التوقيت اللي بيبدأ عنده الـ reverse
+                    // play: لما يظهر
+                    // reverse: لما يختفي (يعكس الحركة)
+                    // play: لما ترجع تاني
+                    // reverse: لما تطلع خالص
+                    toggleActions: "play reverse play reverse",
+                    markers: false,
+                    invalidateOnRefresh: true,
+                },
+                onComplete: () => {
+                    const targetClass = getAnimClass(el);
+                    if (targetClass) el.classList.add(targetClass);
+                },
+                onReverseStart: () => {
+                    el.classList.remove(...animClasses);
+                },
+                onReverseComplete: () => {
+                    el.classList.remove(...animClasses);
+                }
+            });
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.set(".row-trigger", { opacity: 0, y: 20 });
+
+        gsap.to(".row-trigger", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: { each: 0.15, from: "start" },
             scrollTrigger: {
-                trigger: el,
-                start: "top 85%", // يبدأ لما يوصل لـ 85% من الشاشة
-                end: "bottom 15%",   // التوقيت اللي بيبدأ عنده الـ reverse
-                // play: لما يظهر
-                // reverse: لما يختفي (يعكس الحركة)
-                // play: لما ترجع تاني
-                // reverse: لما تطلع خالص
+                trigger: ".anim-table",
+                start: "top 40%",        // ← يبدأ لما الجدول يدخل الشاشة
+                end: "bottom 40%",       // ← يتعكس لما الجدول يطلع من الشاشة
                 toggleActions: "play reverse play reverse",
-                markers: false
-            },
-            onComplete: () => {
-                const targetClass = getAnimClass(el);
-                if (targetClass) el.classList.add(targetClass);
-            },
-            onReverseStart: () => {
-                el.classList.remove(...animClasses);
-            },
-            onReverseComplete: () => {
-                el.classList.remove(...animClasses);
+                invalidateOnRefresh: true,
+                fastScrollEnd: true,
+            }
+        });
+    }
+
+    initAnimations();
+
+    // تشغيل عند تغيير حجم الشاشة (Resize)
+
+    //read more btn
+    document.querySelectorAll('.js-read-more-btn').forEach(btn => {
+
+        // 2. ضبط النص الابتدائي
+        btn.textContent = labels[lang].more;
+
+        // 3. ربط الحدث
+        btn.addEventListener('click', function () {
+            // نستخدم previousElementSibling للوصول للحاوية التي تسبق الزر مباشرة
+            const content = this.previousElementSibling;
+
+            if (content && content.classList.contains('js-read-more-content')) {
+                const isOpen = content.classList.contains('is-open');
+                content.classList.toggle('is-open', !isOpen);
+                ScrollTrigger.refresh();
+
+                if (this.closest('.mobile-sec')) {
+                    this.closest('.mobile-sec').classList.toggle('is-read-more-active', !isOpen);
+                }
+
+                // تغيير النص
+                this.textContent = !isOpen
+                    ? labels[lang].less
+                    : labels[lang].more;
+
+                setTimeout(() => {
+                    ScrollTrigger.refresh();
+                }, 500); // 500ms هي نفس مدة الـ transition في الـ CSS
             }
         });
     });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.set(".row-trigger", { opacity: 0, y: 20 });
-
-    gsap.to(".row-trigger", {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: { each: 0.15, from: "start" },
-        scrollTrigger: {
-            trigger: ".anim-table",
-            start: "top 40%",        // ← يبدأ لما الجدول يدخل الشاشة
-            end: "bottom 40%",       // ← يتعكس لما الجدول يطلع من الشاشة
-            toggleActions: "play reverse play reverse",
-            invalidateOnRefresh: true,
-            fastScrollEnd: true,
-        }
-    });
-
     /* ------ Target-vs-Achieved bracket SVGs — draw-on-scroll ----------- */
     // Each .pie-sec holds an SVG made of two right-angle "bracket" strokes
     // (outer = target / white, inner = achieved / #EEE9E9) plus the % value
@@ -365,7 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let pt = { x: 0, y: 0 };
                 try {
                     pt = p.getPointAtLength((len * i) / samples);
-                } catch (e) {}
+                } catch (e) { }
                 pts.push(pt);
             }
             const minY = pts.reduce((m, pt) => Math.min(m, pt.y), Infinity);
@@ -550,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (scale > 1) decimals = 0;
             const duration = parseFloat(
                 el.dataset.duration ||
-                    (el.closest(".budget-sec, .banner-section") ? "5" : "3.5")
+                (el.closest(".budget-sec, .banner-section") ? "5" : "3.5")
             );
 
             const finalFormattedText = formatNumber(target, decimals);
