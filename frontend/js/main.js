@@ -229,337 +229,337 @@
 
     const config = isAR
       ? {
-          title: "تصفح التقرير",
-          label: "القائمة",
-          labelOpen: "إغلاق",
-          brand: "صندوق التنمية العقارية",
-          brandSub: "التقرير السنوي 2025",
-          links: [
-            {
-              href: "home.html",
-              text: "الرئيسية",
-              img: "hero.webp",
-              caption: "أسرٌ تنتقل إلى منازلها الجديدة",
-            },
+        title: "تصفح التقرير",
+        label: "القائمة",
+        labelOpen: "إغلاق",
+        brand: "صندوق التنمية العقارية",
+        brandSub: "التقرير السنوي 2025",
+        links: [
+          {
+            href: "home.html",
+            text: "الرئيسية",
+            img: "hero.webp",
+            caption: "أسرٌ تنتقل إلى منازلها الجديدة",
+          },
 
-            {
-              text: "التقديم",
-              img: "02.png",
-              caption: "دور الصندوق في منظومة الإسكان",
-              href: "introduction.html",
-              sublinks: [
-                {
-                  href: "introduction.html",
-                  text: "المقدمة",
-                  img: "02.png",
-                  caption: "دور الصندوق في منظومة الإسكان",
-                },
-                {
-                  href: "chairman-message.html",
-                  text: "رسالة رئيس مجلس الإدارة",
-                  img: "02.png",
-                  caption: "كلمة عن مسيرة الصندوق",
-                },
-                {
-                  href: "ceo-message.html",
-                  text: "رسالة الرئيس التنفيذي",
-                  img: "02.png",
-                  caption: "رسالة من الرئيس التنفيذي",
-                },
-              ],
-            },
-            {
-              text: "الملخص التنفيذي",
-              img: "03.png",
-              caption: "نظرة شاملة على إنجازات العام",
-              href: "executive-summary-1.html",
-              sublinks: [
-                {
-                  href: "executive-summary-1.html",
-                  text: "الملخص التنفيذي 1",
-                  img: "03.png",
-                  caption: "نظرة شاملة على إنجازات العام",
-                },
-                {
-                  href: "executive-summary.html",
-                  text: "الملخص التنفيذي 2",
-                  img: "03.png",
-                  caption: "نظرة شاملة على إنجازات العام",
-                },
-              ],
-            },
-            {
-              href: "strategic-direction.html",
-              text: "التوجه الإستراتيجي",
-              img: "04.png",
-              caption: "أربع ركائز · رؤية 2030",
-            },
-            {
-              href: "performance-summary.html",
-              text: "موجز الأداء",
-              img: "05.png",
-              caption: "أكثر من 920,000 أسرة منذ 2017",
-            },
-            {
-              href: "current-state.html",
-              text: "الوضع الراهن",
-              img: "06.png",
-              caption: "الوضع الحالي لقطاع الإسكان",
-            },
-            {
-              text: "أبرز الأعمال والإنجازات",
-              img: "07.png",
-              caption: "أبرز الأعمال والإنجازات",
-              href: "housing-support-program.html",
-              sublinks: [
-                {
-                  href: "housing-support-program.html",
-                  text: "برنامج الدعم السكني",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-                {
-                  href: "housing-support-empowerment-achievements.html",
-                  text: " إنجازات تمكين مستفيدي برامج الدعم السكني",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-                {
-                  href: "digital-achievements.html",
-                  text: "إنجازات التحول الرقمي",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-                {
-                  href: "government-enablers.html",
-                  text: "مُمكِّنات الحوكمة",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-                {
-                  href: "training-programs.html",
-                  text: "النشاطات الاجتماعية والجوائز",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-                {
-                  href: "notable-achievements.html",
-                  text: "أعمال الحملات الاتصالية",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-                {
-                  href: "subsidized-finance-cost.html",
-                  text: "تكلفة التمويل المدعوم",
-                  img: "07.png",
-                  caption: "أبرز الأعمال والإنجازات",
-                },
-              ],
-            },
-            {
-              href: "opportunities-and-enablers.html",
-              text: "الفرص والعوامل المساعدة",
-              img: "08.png",
-              caption: "الفرص والعوامل المساعدة على تحقيقها",
-            },
-            {
-              href: "subsidiaries.html",
-              text: "الشركات التابعة",
-              img: "09.png",
-              caption: "الشركات التابعة",
-            },
-            {
-              href: "challenges-and-support.html",
-              text: "التحديات و الدعم المطلوب",
-              img: "10.png",
-              caption: "التحديات والدعم المقدم",
-            },
-            {
-              href: "conclusion.html",
-              text: "الخاتمة",
-              img: "11.png",
-              caption: "خلاصة عام 2025م",
-            },
-          ],
-          contact: [
-            {
-              label: "مركز الاتصال",
-              value: "920000507",
-              href: "tel:920000507",
-            },
-            {
-              label: "البريد",
-              value: "info@redf.gov.sa",
-              href: "mailto:info@redf.gov.sa",
-            },
-          ],
-          langSelf: "AR",
-          langOther: { code: "EN", href: "en/" + currentFilename() },
-        }
+          {
+            text: "التقديم",
+            img: "02.png",
+            caption: "دور الصندوق في منظومة الإسكان",
+            href: "introduction.html",
+            sublinks: [
+              {
+                href: "introduction.html",
+                text: "المقدمة",
+                img: "02.png",
+                caption: "دور الصندوق في منظومة الإسكان",
+              },
+              {
+                href: "chairman-message.html",
+                text: "رسالة رئيس مجلس الإدارة",
+                img: "02.png",
+                caption: "كلمة عن مسيرة الصندوق",
+              },
+              {
+                href: "ceo-message.html",
+                text: "رسالة الرئيس التنفيذي",
+                img: "02.png",
+                caption: "رسالة من الرئيس التنفيذي",
+              },
+            ],
+          },
+          {
+            text: "الملخص التنفيذي",
+            img: "03.png",
+            caption: "نظرة شاملة على إنجازات العام",
+            href: "executive-summary-1.html",
+            sublinks: [
+              {
+                href: "executive-summary-1.html",
+                text: "الملخص التنفيذي 1",
+                img: "03.png",
+                caption: "نظرة شاملة على إنجازات العام",
+              },
+              {
+                href: "executive-summary.html",
+                text: "الملخص التنفيذي 2",
+                img: "03.png",
+                caption: "نظرة شاملة على إنجازات العام",
+              },
+            ],
+          },
+          {
+            href: "strategic-direction.html",
+            text: "التوجه الإستراتيجي",
+            img: "04.png",
+            caption: "أربع ركائز · رؤية 2030",
+          },
+          {
+            href: "performance-summary.html",
+            text: "موجز الأداء",
+            img: "05.png",
+            caption: "أكثر من 920,000 أسرة منذ 2017",
+          },
+          {
+            href: "current-state.html",
+            text: "الوضع الراهن",
+            img: "06.png",
+            caption: "الوضع الحالي لقطاع الإسكان",
+          },
+          {
+            text: "أبرز الأعمال والإنجازات",
+            img: "07.png",
+            caption: "أبرز الأعمال والإنجازات",
+            href: "housing-support-program.html",
+            sublinks: [
+              {
+                href: "housing-support-program.html",
+                text: "برنامج الدعم السكني",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "housing-support-empowerment-achievements.html",
+                text: " إنجازات تمكين مستفيدي برامج الدعم السكني",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "digital-achievements.html",
+                text: "إنجازات التحول الرقمي",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "government-enablers.html",
+                text: "مُمكِّنات الحوكمة",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "training-programs.html",
+                text: "النشاطات الاجتماعية والجوائز",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "notable-achievements.html",
+                text: "أعمال الحملات الاتصالية",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+              {
+                href: "subsidized-finance-cost.html",
+                text: "تكلفة التمويل المدعوم",
+                img: "07.png",
+                caption: "أبرز الأعمال والإنجازات",
+              },
+            ],
+          },
+          {
+            href: "opportunities-and-enablers.html",
+            text: "الفرص والعوامل المساعدة",
+            img: "08.png",
+            caption: "الفرص والعوامل المساعدة على تحقيقها",
+          },
+          {
+            href: "subsidiaries.html",
+            text: "الشركات التابعة",
+            img: "09.png",
+            caption: "الشركات التابعة",
+          },
+          {
+            href: "challenges-and-support.html",
+            text: "التحديات و الدعم المطلوب",
+            img: "10.png",
+            caption: "التحديات والدعم المقدم",
+          },
+          {
+            href: "conclusion.html",
+            text: "الخاتمة",
+            img: "11.png",
+            caption: "خلاصة عام 2025م",
+          },
+        ],
+        contact: [
+          {
+            label: "مركز الاتصال",
+            value: "920000507",
+            href: "tel:920000507",
+          },
+          {
+            label: "البريد",
+            value: "info@redf.gov.sa",
+            href: "mailto:info@redf.gov.sa",
+          },
+        ],
+        langSelf: "AR",
+        langOther: { code: "EN", href: "en/" + currentFilename() },
+      }
       : {
-          title: "Browse Report",
-          label: "Menu",
-          labelOpen: "Close",
-          brand: "Real Estate Development Fund",
-          brandSub: "Annual Report 2025",
-          links: [
-            {
-              href: "home.html",
-              text: "Home",
-              img: "hero-en.webp",
-              caption: "Families moving into their new homes",
-            },
+        title: "Browse Report",
+        label: "Menu",
+        labelOpen: "Close",
+        brand: "Real Estate Development Fund",
+        brandSub: "Annual Report 2025",
+        links: [
+          {
+            href: "home.html",
+            text: "Home",
+            img: "hero-en.webp",
+            caption: "Families moving into their new homes",
+          },
 
-            {
-              text: "Presentation",
-              img: "02.png",
-              caption: "The Fund's role in the housing ecosystem",
-              href: "introduction.html",
-              sublinks: [
-                {
-                  href: "introduction.html",
-                  text: "Introduction",
-                  img: "02.png",
-                  caption: "The Fund's role in the housing ecosystem",
-                },
-                {
-                  href: "chairman-message.html",
-                  text: "Chairman's Message",
-                  img: "02.png",
-                  caption: "A word on the Fund's journey",
-                },
-                {
-                  href: "ceo-message.html",
-                  text: "CEO's Message",
-                  img: "02.png",
-                  caption: "A message from the CEO",
-                },
-              ],
-            },
-            {
-              text: "Executive Summary",
-              img: "03.png",
-              caption: "A comprehensive look at the year's achievements",
-              href: "executive-summary-1.html",
-              sublinks: [
-                {
-                  href: "executive-summary-1.html",
-                  text: "Executive Summary 1",
-                  img: "03.png",
-                  caption: "A comprehensive look at the year's achievements",
-                },
-                {
-                  href: "executive-summary.html",
-                  text: "Executive Summary 2",
-                  img: "03.png",
-                  caption: "A comprehensive look at the year's achievements",
-                },
-              ],
-            },
-            {
-              href: "strategic-direction.html",
-              text: "Strategic Direction",
-              img: "04.png",
-              caption: "Four Pillars · Vision 2030",
-            },
-            {
-              href: "performance-summary.html",
-              text: "Performance Summary",
-              img: "05.png",
-              caption: "More than 920,000 families since 2017",
-            },
-            {
-              href: "current-state.html",
-              text: "Current State",
-              img: "06.png",
-              caption: "The current status of the housing sector",
-            },
-            {
-              text: "Key Achievements",
-              img: "07.png",
-              caption: "Major works and accomplishments",
-              href: "housing-support-program.html",
-              sublinks: [
-                {
-                  href: "housing-support-program.html",
-                  text: "Housing Support Program",
-                  img: "07.png",
-                  caption: "Major works and accomplishments",
-                },
-                {
-                  href: "housing-support-empowerment-achievements.html",
-                  text: "Empowering Housing Support Beneficiaries",
-                  img: "07.png",
-                  caption: "Major works and accomplishments",
-                },
-                {
-                  href: "digital-achievements.html",
-                  text: "Digital Transformation",
-                  img: "07.png",
-                  caption: "Major works and accomplishments",
-                },
-                {
-                  href: "government-enablers.html",
-                  text: "Governance Enablers",
-                  img: "07.png",
-                  caption: "Major works and accomplishments",
-                },
-                {
-                  href: "training-programs.html",
-                  text: "Social Activities & Awards",
-                  img: "07.png",
-                  caption: "Major works and accomplishments",
-                },
-                {
-                  href: "notable-achievements.html",
-                  text: "Communication Campaigns",
-                  img: "07.png",
-                  caption: "Major works and accomplishments",
-                },
-                {
-                  href: "subsidized-finance-cost.html",
-                  text: "Subsidized Finance Cost",
-                  img: "07.png",
-                  caption: "Subsidized Finance Cost",
-                },
-              ],
-            },
-            {
-              href: "opportunities-and-enablers.html",
-              text: "Opportunities & Enablers",
-              img: "08.png",
-              caption: "Opportunities and factors enabling their achievement",
-            },
-            {
-              href: "subsidiaries.html",
-              text: "Subsidiaries",
-              img: "09.png",
-              caption: "Subsidiary Companies",
-            },
-            {
-              href: "challenges-and-support.html",
-              text: "Challenges & Support",
-              img: "10.png",
-              caption: "Challenges and support provided",
-            },
-            {
-              href: "conclusion.html",
-              text: "Conclusion",
-              img: "11.png",
-              caption: "Summary of the year 2025",
-            },
-          ],
-          contact: [
-            { label: "Call Center", value: "920000507", href: "tel:920000507" },
-            {
-              label: "Email",
-              value: "info@redf.gov.sa",
-              href: "mailto:info@redf.gov.sa",
-            },
-          ],
-          langSelf: "EN",
-          langOther: { code: "AR", href: "ar/" + currentFilename() },
-        };
+          {
+            text: "Presentation",
+            img: "02.png",
+            caption: "The Fund's role in the housing ecosystem",
+            href: "introduction.html",
+            sublinks: [
+              {
+                href: "introduction.html",
+                text: "Introduction",
+                img: "02.png",
+                caption: "The Fund's role in the housing ecosystem",
+              },
+              {
+                href: "chairman-message.html",
+                text: "Chairman's Message",
+                img: "02.png",
+                caption: "A word on the Fund's journey",
+              },
+              {
+                href: "ceo-message.html",
+                text: "CEO's Message",
+                img: "02.png",
+                caption: "A message from the CEO",
+              },
+            ],
+          },
+          {
+            text: "Executive Summary",
+            img: "03.png",
+            caption: "A comprehensive look at the year's achievements",
+            href: "executive-summary-1.html",
+            sublinks: [
+              {
+                href: "executive-summary-1.html",
+                text: "Executive Summary 1",
+                img: "03.png",
+                caption: "A comprehensive look at the year's achievements",
+              },
+              {
+                href: "executive-summary.html",
+                text: "Executive Summary 2",
+                img: "03.png",
+                caption: "A comprehensive look at the year's achievements",
+              },
+            ],
+          },
+          {
+            href: "strategic-direction.html",
+            text: "Strategic Direction",
+            img: "04.png",
+            caption: "Four Pillars · Vision 2030",
+          },
+          {
+            href: "performance-summary.html",
+            text: "Performance Summary",
+            img: "05.png",
+            caption: "More than 920,000 families since 2017",
+          },
+          {
+            href: "current-state.html",
+            text: "Current State",
+            img: "06.png",
+            caption: "The current status of the housing sector",
+          },
+          {
+            text: "Key Achievements",
+            img: "07.png",
+            caption: "Major works and accomplishments",
+            href: "housing-support-program.html",
+            sublinks: [
+              {
+                href: "housing-support-program.html",
+                text: "Housing Support Program",
+                img: "07.png",
+                caption: "Major works and accomplishments",
+              },
+              {
+                href: "housing-support-empowerment-achievements.html",
+                text: "Empowering Housing Support Beneficiaries",
+                img: "07.png",
+                caption: "Major works and accomplishments",
+              },
+              {
+                href: "digital-achievements.html",
+                text: "Digital Transformation",
+                img: "07.png",
+                caption: "Major works and accomplishments",
+              },
+              {
+                href: "government-enablers.html",
+                text: "Governance Enablers",
+                img: "07.png",
+                caption: "Major works and accomplishments",
+              },
+              {
+                href: "training-programs.html",
+                text: "Social Activities & Awards",
+                img: "07.png",
+                caption: "Major works and accomplishments",
+              },
+              {
+                href: "notable-achievements.html",
+                text: "Communication Campaigns",
+                img: "07.png",
+                caption: "Major works and accomplishments",
+              },
+              {
+                href: "subsidized-finance-cost.html",
+                text: "Subsidized Finance Cost",
+                img: "07.png",
+                caption: "Subsidized Finance Cost",
+              },
+            ],
+          },
+          {
+            href: "opportunities-and-enablers.html",
+            text: "Opportunities & Enablers",
+            img: "08.png",
+            caption: "Opportunities and factors enabling their achievement",
+          },
+          {
+            href: "subsidiaries.html",
+            text: "Subsidiaries",
+            img: "09.png",
+            caption: "Subsidiary Companies",
+          },
+          {
+            href: "challenges-and-support.html",
+            text: "Challenges & Support",
+            img: "10.png",
+            caption: "Challenges and support provided",
+          },
+          {
+            href: "conclusion.html",
+            text: "Conclusion",
+            img: "11.png",
+            caption: "Summary of the year 2025",
+          },
+        ],
+        contact: [
+          { label: "Call Center", value: "920000507", href: "tel:920000507" },
+          {
+            label: "Email",
+            value: "info@redf.gov.sa",
+            href: "mailto:info@redf.gov.sa",
+          },
+        ],
+        langSelf: "EN",
+        langOther: { code: "AR", href: "ar/" + currentFilename() },
+      };
 
     // The legacy hamburger drawer is replaced by this overlay menu — remove the old toggle.
     document
@@ -624,21 +624,21 @@
       <div class="staggered-menu__body">
         <ul class="staggered-menu__list" role="list">
           ${config.links
-            .map((link, i) => {
-              if (link.sublinks) {
-                const activeSublink = link.sublinks.find((sub) =>
-                  isCurrentLink(sub.href),
-                );
+        .map((link, i) => {
+          if (link.sublinks) {
+            const activeSublink = link.sublinks.find((sub) =>
+              isCurrentLink(sub.href),
+            );
 
-                const parentHref = localePageHref(link.href);
-                // const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
-                const parentImg = activeSublink ? activeSublink.img : link.img;
-                const parentCaption = activeSublink
-                  ? activeSublink.caption
-                  : link.caption || "";
-                const hasActiveChild = activeSublink ? " is-current" : "";
+            const parentHref = localePageHref(link.href);
+            // const parentHref = activeSublink ? localePageHref(activeSublink.href) : localePageHref("index.html");
+            const parentImg = activeSublink ? activeSublink.img : link.img;
+            const parentCaption = activeSublink
+              ? activeSublink.caption
+              : link.caption || "";
+            const hasActiveChild = activeSublink ? " is-current" : "";
 
-                return `
+            return `
                 <li 
                 class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
                   <a 
@@ -651,13 +651,13 @@
                   </a>
                   <ul class="staggered-menu__dropdown-menu">
                     ${link.sublinks
-                      .map((sublink, j) => {
-                        // فحص حالة الرابط الفرعي الحالي هنا
-                        const isSubActive = isCurrentLink(sublink.href)
-                          ? " is-current"
-                          : "";
+                .map((sublink, j) => {
+                  // فحص حالة الرابط الفرعي الحالي هنا
+                  const isSubActive = isCurrentLink(sublink.href)
+                    ? " is-current"
+                    : "";
 
-                        return `
+                  return `
                         <li class="staggered-menu__dropdown-item${isSubActive}">
                           <a class="staggered-menu__dropdown-link${isSubActive}" href="${localePageHref(sublink.href)}"
                              data-preview="${sublink.img}" data-caption="${sublink.caption}">
@@ -669,13 +669,13 @@
                           </a>
                         </li>
                       `;
-                      })
-                      .join("")}
+                })
+                .join("")}
                   </ul>
                 </li>
               `;
-              } else {
-                return `
+          } else {
+            return `
                 <li class="staggered-menu__item${isCurrentLink(link.href) ? " is-current" : ""}">
                   <a class="staggered-menu__link${isCurrentLink(link.href) ? " is-current" : ""}" href="${localePageHref(link.href)}"
                      data-preview="${link.img}" data-caption="${link.caption}">
@@ -687,13 +687,12 @@
                   </a>
                 </li>
               `;
-              }
-            })
-            .join("")}
+          }
+        })
+        .join("")}
 
     <li>
-    ${
-      isAR
+    ${isAR
         ? `
     <div class="n-download-btn">
         <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
@@ -716,7 +715,7 @@
 
         </a>
       </div>`
-    }
+      }
     </li>
         </ul>
 
@@ -738,12 +737,12 @@
         </div>
         <div class="staggered-menu__contact">
           ${config.contact
-            .map(
-              (c) => `
+        .map(
+          (c) => `
             <span><strong>${c.label}</strong><a href="${c.href}">${c.value}</a></span>
           `,
-            )
-            .join("")}
+        )
+        .join("")}
         </div>
       </div>
     `;

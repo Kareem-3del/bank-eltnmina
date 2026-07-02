@@ -333,11 +333,11 @@ select {
   margin-bottom: var(--s-7);
 }
 
-.section-header > .eyebrow {
+.section-header>.eyebrow {
   margin-bottom: var(--s-3);
 }
 
-.section-header > .h-1 {
+.section-header>.h-1 {
   margin-bottom: var(--s-4);
 }
 
@@ -359,6 +359,7 @@ select {
 }
 
 @media (max-width: 960px) {
+
   .grid--3,
   .grid--4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -366,6 +367,7 @@ select {
 }
 
 @media (max-width: 640px) {
+
   .grid--2,
   .grid--3,
   .grid--4 {
@@ -583,7 +585,7 @@ select {
     box-shadow var(--d-fast) var(--ease-out);
 }
 
-.dropdown > .nav__link {
+.dropdown>.nav__link {
   pointer-events: none;
 }
 
@@ -849,8 +851,8 @@ html.lenis body {
   position: relative;
 }
 
-.parallax > img,
-.parallax > picture > img {
+.parallax>img,
+.parallax>picture>img {
   width: 100%;
   height: 115%;
   object-fit: cover;
@@ -858,6 +860,7 @@ html.lenis body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -928,7 +931,7 @@ html.lenis body {
   width: 100%;
 }
 
-.site-footer .dropdown > a {
+.site-footer .dropdown>a {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -941,7 +944,7 @@ html.lenis body {
   position: static;
 }
 
-.site-footer .footer__index .dropdown > a {
+.site-footer .footer__index .dropdown>a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -993,7 +996,7 @@ html.lenis body {
   color: var(--c-on-primary);
 }
 
-.site-footer .footer__index .dropdown.is-open > a .icon-arrow {
+.site-footer .footer__index .dropdown.is-open>a .icon-arrow {
   transform: rotate(90deg) scaleX(-1);
 }
 
@@ -1279,11 +1282,9 @@ html.lenis body {
 
 .c-hero__overlay {
   z-index: 99;
-  background: linear-gradient(
-    110.95deg,
-    #00948f -6.17%,
-    rgba(0, 102, 99, 0.85) 93.83%
-  );
+  background: linear-gradient(110.95deg,
+      #00948f -6.17%,
+      rgba(0, 102, 99, 0.85) 93.83%);
 }
 
 .c-hero__image-wrapper {
@@ -1407,7 +1408,7 @@ html.lenis body {
   margin-top: 24px;
 }
 
-.c-hero__boxes > div {
+.c-hero__boxes>div {
   padding: 16px;
   box-shadow: 0px 4px 16px 0px rgba(31, 71, 70, 0.04);
   box-shadow: 0px 1px 2px 0px rgba(31, 71, 70, 0.04);
@@ -1422,14 +1423,14 @@ html.lenis body {
   flex: 1;
 }
 
-.c-hero__boxes > div p {
+.c-hero__boxes>div p {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   color: #5e7278;
 }
 
-.c-hero__boxes > div h4 {
+.c-hero__boxes>div h4 {
   font-weight: 700;
   font-size: 35px;
   line-height: 32px;
@@ -1497,13 +1498,14 @@ html.lenis body {
     flex-wrap: wrap;
   }
 
-  .c-hero__boxes > div {
+  .c-hero__boxes>div {
     flex: unset;
     width: calc(50% - 16px);
   }
 }
 
 @media (max-width: 480px) {
+
   /* .c-hero {
     height: 500px;
   } */
@@ -1747,11 +1749,9 @@ html.lenis body {
   height: 140px;
   bottom: 0;
   position: absolute;
-  background: linear-gradient(
-    0deg,
-    rgba(22, 125, 125, 0.8) 0%,
-    rgba(18, 37, 63, 0) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(22, 125, 125, 0.8) 0%,
+      rgba(18, 37, 63, 0) 100%);
 }
 
 .last-sec__img {
@@ -1778,11 +1778,9 @@ html.lenis body {
 .last-sec__desc::after {
   content: "";
   display: block;
-  background: linear-gradient(
-    270deg,
-    rgba(0, 138, 133, 0.4) 0%,
-    rgba(0, 138, 133, 0) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(0, 138, 133, 0.4) 0%,
+      rgba(0, 138, 133, 0) 100%);
   width: 100%;
   height: 1px;
   margin-top: 44px;
@@ -2051,6 +2049,7 @@ html.lenis body {
 
 /* --- 1. الحركات الطافية (Float) --- */
 @keyframes float-up {
+
   0%,
   100% {
     transform: translateY(0);
@@ -2062,6 +2061,7 @@ html.lenis body {
 }
 
 @keyframes float-down {
+
   0%,
   100% {
     transform: translateY(0);
@@ -2074,6 +2074,7 @@ html.lenis body {
 
 /* --- 2. الحركات التفاعلية (Pulse & Shake) --- */
 @keyframes pulse-soft-down {
+
   0%,
   100% {
     transform: scale(1);
@@ -2085,6 +2086,7 @@ html.lenis body {
 }
 
 @keyframes pulse-soft {
+
   0%,
   100% {
     transform: scale(1);
@@ -2096,6 +2098,7 @@ html.lenis body {
 }
 
 @keyframes shake-side {
+
   0%,
   100% {
     transform: rotate(-2deg);
@@ -2107,6 +2110,7 @@ html.lenis body {
 }
 
 @keyframes shake-side-rev {
+
   0%,
   100% {
     transform: rotate(2deg);
@@ -2119,6 +2123,7 @@ html.lenis body {
 
 /* --- 3. الحركات المتقدمة (Reveal & Swing) --- */
 @keyframes swing-slow {
+
   0%,
   100% {
     transform: rotate(-5deg);
@@ -2131,6 +2136,7 @@ html.lenis body {
 }
 
 @keyframes grow-up {
+
   0%,
   100% {
     transform: scale(1);
@@ -2143,6 +2149,7 @@ html.lenis body {
 
 /* --- 4. حركات الـ Slide على محور X --- */
 @keyframes slide-x-right {
+
   0%,
   100% {
     transform: translateX(0);
@@ -2154,6 +2161,7 @@ html.lenis body {
 }
 
 @keyframes slide-x-left {
+
   0%,
   100% {
     transform: translateX(0);
@@ -2165,6 +2173,7 @@ html.lenis body {
 }
 
 @keyframes slide-x-fast {
+
   0%,
   100% {
     transform: translateX(0);
@@ -2186,6 +2195,7 @@ html.lenis body {
 }
 
 @keyframes fade-anim {
+
   0%,
   100% {
     opacity: 0.3;
@@ -2283,4 +2293,50 @@ html.lenis body {
 [dir="rtl"] * {
   /* text-align: justify; */
   text-justify: inter-word !important;
+}
+
+/* الزر مخفي في الشاشات الكبيرة */
+.js-read-more-btn {
+  display: none;
+  margin-top: 15px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: rgba(5, 142, 138, 1);
+  border: 1px solid rgba(5, 142, 138, 1);
+  /* اختر اللون المناسب */
+  font-weight: bold;
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 30px;
+}
+
+.js-read-more-btn.green {
+  background-color: rgba(5, 142, 138, 1);
+  color: #fff;
+  border-color: #FFF;
+}
+
+@media (max-width: 768px) {
+  .js-read-more-btn {
+    display: block;
+  }
+
+  /* الحاوية التي تحتوي الـ grid */
+  .js-read-more-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    /* حركة انسيابية */
+    opacity: 0;
+    display: none
+  }
+
+  /* كلاس التفعيل */
+  .js-read-more-content.is-open {
+    max-height: 2000px;
+    display: flex !important;
+    /* قيمة أكبر من المتوقع للمحتوى */
+    opacity: 1;
+  }
 }

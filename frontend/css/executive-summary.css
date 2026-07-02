@@ -28,11 +28,9 @@
 
 /* Hero gradient overlay (Figma) */
 .c-hero--es2 .c-hero__overlay {
-  background: linear-gradient(
-    110.95deg,
-    #00948f -6.17%,
-    rgba(0, 102, 99, 0.85) 93.83%
-  );
+  background: linear-gradient(110.95deg,
+      #00948f -6.17%,
+      rgba(0, 102, 99, 0.85) 93.83%);
 }
 
 .executive-summary .c-hero__title {
@@ -43,7 +41,7 @@
   line-height: 1;
 }
 
-.executive-summary + .site-footer {
+.executive-summary+.site-footer {
   margin-top: 0;
 }
 
@@ -66,12 +64,12 @@
   background: #ffffff;
 }
 
-.es-overview > .container,
-.es-services > .container,
-.es-dev > .container,
-.es-advisor2 > .container,
-#satisfaction > .container,
-.es-digital > .container {
+.es-overview>.container,
+.es-services>.container,
+.es-dev>.container,
+.es-advisor2>.container,
+#satisfaction>.container,
+.es-digital>.container {
   max-width: var(--es-max);
   padding-inline: clamp(20px, 3vw, 40px);
 }
@@ -230,7 +228,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-align: right;
+  /* text-align: right; */
+  min-width: 150px;
 }
 
 .es-overview .es-panel--strategy .es-panel-metric__num {
@@ -285,10 +284,7 @@
   text-align: right;
 }
 
-.es-overview
-  .es-panel--strategy
-  .es-panel-metric__unit-row
-  .es-panel-metric__unit {
+.es-overview .es-panel--strategy .es-panel-metric__unit-row .es-panel-metric__unit {
   margin-top: 0;
 }
 
@@ -948,6 +944,7 @@
 }
 
 @media (max-width: 540px) {
+
   /* On very small screens stack icon above text */
   .es-item {
     grid-template-columns: 1fr;
@@ -1147,12 +1144,10 @@
   width: 48px;
   height: 3px;
   margin: 12px 0 16px;
-  background: linear-gradient(
-    90deg,
-    var(--es-mint) 0%,
-    var(--es-teal) 45%,
-    var(--es-teal-dark) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--es-mint) 0%,
+      var(--es-teal) 45%,
+      var(--es-teal-dark) 100%);
 }
 
 .es-monthly__desc {
@@ -1410,16 +1405,12 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      circle at 20% 30%,
+    radial-gradient(circle at 20% 30%,
       rgba(255, 255, 255, 0.08),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 70% 70%,
+      transparent 45%),
+    radial-gradient(circle at 70% 70%,
       rgba(255, 255, 255, 0.06),
-      transparent 50%
-    );
+      transparent 50%);
   opacity: 0.45;
   pointer-events: none;
 }
@@ -1702,7 +1693,7 @@
   margin-bottom: 0;
 }
 
-.es-satisfaction__head > div {
+.es-satisfaction__head>div {
   width: 100%;
 }
 
@@ -1761,13 +1752,13 @@
   margin: 0;
 }
 
-.es-percent-card strong > span {
+.es-percent-card strong>span {
   direction: ltr;
   unicode-bidi: isolate;
   font: inherit;
 }
 
-.es-percent-card > span {
+.es-percent-card>span {
   margin-top: 18px;
   color: #6b7280;
   font-family: "Cairo", sans-serif;
@@ -1791,11 +1782,11 @@
   padding-bottom: clamp(32px, 4.5vw, 56px);
 }
 
-.es-advisor2 + #satisfaction.es-section {
+.es-advisor2+#satisfaction.es-section {
   padding-top: clamp(36px, 5vw, 64px) !important;
 }
 
-#satisfaction.es-section + .es-digital {
+#satisfaction.es-section+.es-digital {
   padding-top: clamp(10px, 1.5vw, 16px);
 }
 
@@ -1846,8 +1837,9 @@
 
 /* Desktop: number-card grids — full section width (no 100vw overflow) */
 @media (min-width: 901px) {
-  #satisfaction > .es-percent-grid,
-  .es-digital > .es-digital-grid {
+
+  #satisfaction>.es-percent-grid,
+  .es-digital>.es-digital-grid {
     position: static;
     left: auto;
     transform: none;
@@ -1859,16 +1851,16 @@
     justify-content: stretch;
   }
 
-  #satisfaction > .es-percent-grid {
+  #satisfaction>.es-percent-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .es-digital > .es-digital-grid {
+  .es-digital>.es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  #satisfaction > .es-percent-grid .es-percent-card,
-  .es-digital > .es-digital-grid .es-digital-card {
+  #satisfaction>.es-percent-grid .es-percent-card,
+  .es-digital>.es-digital-grid .es-digital-card {
     width: 100%;
     max-width: none;
     min-width: 0;
@@ -1881,6 +1873,7 @@
    ----------------------------------------------------------------------- */
 
 @media (max-width: 1200px) {
+
   /* KPI cards: reduce excessive fixed widths */
   .es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1900,14 +1893,15 @@
 }
 
 @media (max-width: 900px) {
+
   #satisfaction,
   .es-digital {
     overflow-x: clip;
     max-width: 100%;
   }
 
-  #satisfaction > .es-percent-grid,
-  .es-digital > .es-digital-grid {
+  #satisfaction>.es-percent-grid,
+  .es-digital>.es-digital-grid {
     position: static;
     left: auto;
     transform: none;
@@ -1943,8 +1937,8 @@
     aspect-ratio: unset;
   }
 
-  .es-digital-card > span,
-  .es-percent-card > span {
+  .es-digital-card>span,
+  .es-percent-card>span {
     width: 100%;
     max-width: 100%;
     overflow-wrap: anywhere;
@@ -2128,6 +2122,7 @@
 }
 
 @media (max-width: 420px) {
+
   /* Percent blocks: keep readable on small phones */
   .es-percent-card strong {
     aspect-ratio: unset;
@@ -2190,13 +2185,13 @@
   margin: 0;
 }
 
-.es-digital-card__pct > span {
+.es-digital-card__pct>span {
   direction: ltr;
   unicode-bidi: isolate;
   font: inherit;
 }
 
-.es-digital-card > span {
+.es-digital-card>span {
   margin-top: 18px;
   color: #6b7280;
   font-family: "Cairo", sans-serif;
@@ -2357,15 +2352,15 @@
     justify-content: stretch;
   }
 
-  #satisfaction > .es-percent-grid,
-  .es-digital > .es-digital-grid {
+  #satisfaction>.es-percent-grid,
+  .es-digital>.es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
     align-items: stretch;
   }
 
-  #satisfaction > .es-percent-grid .es-percent-card,
-  .es-digital > .es-digital-grid .es-digital-card {
+  #satisfaction>.es-percent-grid .es-percent-card,
+  .es-digital>.es-digital-grid .es-digital-card {
     display: grid;
     grid-template-rows: auto 1fr;
     justify-items: center;
@@ -2380,8 +2375,8 @@
     overflow: hidden;
   }
 
-  #satisfaction > .es-percent-grid .es-percent-card strong,
-  .es-digital > .es-digital-grid .es-digital-card__pct {
+  #satisfaction>.es-percent-grid .es-percent-card strong,
+  .es-digital>.es-digital-grid .es-digital-card__pct {
     grid-row: 1;
     align-self: center;
     min-height: clamp(68px, 16vw, 100px);
@@ -2391,8 +2386,8 @@
     aspect-ratio: unset;
   }
 
-  #satisfaction > .es-percent-grid .es-percent-card > span,
-  .es-digital > .es-digital-grid .es-digital-card > span {
+  #satisfaction>.es-percent-grid .es-percent-card>span,
+  .es-digital>.es-digital-grid .es-digital-card>span {
     grid-row: 2;
     align-self: start;
     margin-top: 18px;

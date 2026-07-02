@@ -10,9 +10,39 @@
     .startsWith("ar");
   const lang = isAR ? "ar" : "en";
 
+  const labels = {
+    ar: {
+      more: "اقرأ المزيد",
+      less: "عرض أقل"
+    },
+    en: {
+      more: "Read more",
+      less: "Show less"
+    }
+  };
+
+  document.querySelectorAll('.js-read-more-btn').forEach(btn => {
+    // ضبط النص الابتدائي للزر عند تحميل الصفحة
+    btn.textContent = labels[lang].more;
+
+    btn.addEventListener('click', function () {
+      const content = this.previousElementSibling;
+
+      content.classList.toggle('is-open');
+
+      // تغيير النص بناءً على حالة الفتح واللغة
+      if (content.classList.contains('is-open')) {
+        this.textContent = labels[lang].less;
+      } else {
+        this.textContent = labels[lang].more;
+      }
+    });
+  });
+
   function pageHref(filename) {
     return `${lang}/${filename}`;
   }
+
 
   // مصفوفة الصفحات المرتبة بالتسلسل الصحيح
   const pages = [
@@ -153,16 +183,16 @@
   // تحويل البيانات للشكل النهائي واختيار الاسم بناءً على اللغة المفعّلة
   const prevPage = prevRaw
     ? {
-        href: prevRaw.href,
-        text: isAR ? prevRaw.nameAr : prevRaw.nameEn,
-      }
+      href: prevRaw.href,
+      text: isAR ? prevRaw.nameAr : prevRaw.nameEn,
+    }
     : null;
 
   const nextPage = nextRaw
     ? {
-        href: nextRaw.href,
-        text: isAR ? nextRaw.nameAr : nextRaw.nameEn,
-      }
+      href: nextRaw.href,
+      text: isAR ? nextRaw.nameAr : nextRaw.nameEn,
+    }
     : null;
 
   // مسارات الـ PDF الموجهة ديناميكياً بناءً على لغة واسم الصفحة الحالية

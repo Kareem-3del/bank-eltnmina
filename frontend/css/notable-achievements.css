@@ -782,7 +782,7 @@ html[dir="ltr"] .na-coll__card .na-coll__icon {
   direction: rtl;
   text-align: justify;
   text-justify: inter-word;
-  text-align-last: right;
+  /* text-align-last: right; */
 }
 
 [dir="ltr"] .na-coll__text {

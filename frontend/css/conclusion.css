@@ -72,6 +72,11 @@
   object-position: center top;
 }
 
+[dir="ltr"] .con-outlook__media img {
+  transform: scaleX(-1);
+  margin-top: 9px;
+}
+
 .con-outlook__title {
   margin: 0;
   font-family: "Cairo", sans-serif;
@@ -98,11 +103,12 @@
   margin: 0;
 }
 
-.con-outlook__panel p + p {
+.con-outlook__panel p+p {
   margin-top: 1em;
 }
 
 @media (min-width: 901px) {
+
   .con-sec .con-wrapper,
   .con-outlook,
   .con-outlook__hero,
@@ -199,6 +205,7 @@
 }
 
 @media (max-width: 768px) {
+
   .con-content,
   .con-box {
     font-weight: 400;
