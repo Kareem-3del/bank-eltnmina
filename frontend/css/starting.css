@@ -50,24 +50,22 @@
   display: flex;
   align-items: center;
   gap: 64px;
-  width: 50%;
+  align-items: stretch;
 }
 
-.starting-sec__content-wrapper > div {
+.starting-sec__content-wrapper>div {
   flex: 1;
 }
 
 .starting-sec__img {
   overflow: hidden;
   display: block;
-  position: absolute;
-  bottom: 0;
-  width: 50%;
-  inset-inline-end: 0;
 }
 
 .starting-sec__img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .starting-sec__content-title {
@@ -104,11 +102,12 @@
 
 .starting-sec__box-title {
   font-weight: 900;
-  font-size: 25px;
+  font-size: 40px;
   line-height: 16px;
   margin-bottom: 8px;
   letter-spacing: 0px;
   color: #019591;
+  padding-bottom: 4px;
 }
 
 .starting-sec__boxes .starting-sec__box-desc {
@@ -184,7 +183,7 @@
     gap: 32px;
   }
 
-  .starting-sec__content-wrapper > div {
+  .starting-sec__content-wrapper>div {
     width: 100%;
   }
 
@@ -439,9 +438,11 @@
 
 .text-col .box .num {
   font-weight: 800;
-  font-size: 34px;
+  font-size: clamp(30px, 5vw, 60px);
   line-height: 36px;
   letter-spacing: -0.75px;
+  text-align: center;
+  width: 100%;
 }
 
 /* 1. للشاشات المتوسطة (الأجهزة اللوحية) */

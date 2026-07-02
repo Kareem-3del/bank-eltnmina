@@ -1567,7 +1567,6 @@ body {
   flex-direction: column;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(12px, 1.5vw, 20px);
-  margin-top: 24px;
 }
 
 #achievements {
@@ -1584,17 +1583,12 @@ body {
   }
 } */
 
-@media (min-width: 1024px) {
-  #achievements .kpi-bars {
-    margin-top: clamp(56px, 8vw, 128px);
-  }
-}
 
 .kpi-img {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   inset-inline-start: 0;
-  width: 40%;
+  /* width: 40%; */
 }
 
 .kpi-img img {
@@ -1646,9 +1640,6 @@ body {
     margin-top: 24px;
   }
 
-  #achievements {
-    padding-bottom: 0;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1666,8 +1657,6 @@ body {
   justify-content: space-between;
   gap: var(--s-5);
   transition: transform var(--d-base) var(--ease-out);
-  width: 50%;
-  margin-inline-start: auto;
   backdrop-filter: blur(24px);
 }
 
@@ -1710,6 +1699,8 @@ body {
   /* flex-direction: column; */
   gap: 4px;
   min-width: 0;
+  flex-direction: column-reverse;
+  display: flex;
 }
 
 .kpi-bar__title {
@@ -2255,4 +2246,23 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
+}
+
+.kpi-section__bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-top: clamp(20px, 4vw, 50px);
+  gap: clamp(20px, 4vw, 50px);
+}
+
+.kpi-section__bottom>div {
+  flex: 1;
+}
+
+@media(max-width:768px) {
+
+  .kpi-section__bottom {
+    flex-direction: column;
+  }
 }
