@@ -850,7 +850,7 @@ document.addEventListener("DOMContentLoaded", () => {
             initCounterLoop({
                 el,
                 pulseEl: el,
-                triggerEl: el.closest(".kpi-card, .kpi-bar") || el,
+                triggerEl: el.closest(".kpi-card, .kpi-bar, .home-final-metric, .cta-strip") || el,
                 staggerDelay: (index % 8) * 0.12,
             });
         });
