@@ -183,7 +183,7 @@ html[lang="en"] body.page-notable .nav__brand img {
   font-weight: 800;
   font-size: clamp(24px, 4.2vw, 48px);
   line-height: 1.4;
-  color: #008a85;
+  color: #01938E;
   text-align: start;
 }
 
@@ -263,7 +263,7 @@ html[lang="en"] body.page-notable .nav__brand img {
   line-height: 1.33;
   color: #ffffff;
   text-align: start;
-  background: #008a85;
+  background: #01938E;
   border: none;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.06);
 }
@@ -291,7 +291,7 @@ html[lang="en"] body.page-notable .nav__brand img {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
-  color: #008a85;
+  color: #01938E;
   text-align: start;
   background: #ffffff;
   border: 1px solid #8dcfc5;
@@ -327,7 +327,7 @@ html[lang="en"] body.page-notable .nav__brand img {
   flex-shrink: 0;
   width: 5px;
   height: 5px;
-  background: #00948F;
+  background: #01938E;
   border: none;
   border-radius: 0;
 }
@@ -434,7 +434,7 @@ html[dir="ltr"] .na-comm__item {
   flex-shrink: 0;
   width: 64px;
   height: 64px;
-  background: #008a85;
+  background: #01938E;
 }
 
 .na-agre__icon img {
@@ -497,7 +497,7 @@ html[dir="ltr"] .na-agre__text strong {
   font-weight: 800;
   font-size: clamp(28px, 4.5vw, 48px);
   line-height: 60px;
-  color: #008a85;
+  color: #01938E;
   text-align: start;
 }
 
@@ -533,7 +533,7 @@ html[dir="ltr"] .na-agre__text strong {
   flex-shrink: 0;
   width: 64px;
   height: 64px;
-  background: #008a85;
+  background: #01938E;
 }
 
 .na-fin__icon img {
@@ -592,7 +592,7 @@ html[dir="ltr"] .na-fin__num {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #008a85;
+  background: #01938E;
 }
 
 .na-sus__inner,
@@ -665,7 +665,7 @@ html[dir="ltr"] .na-invperf__text {
   font-weight: 800;
   font-size: clamp(24px, 4.5vw, 48px);
   line-height: 1.4;
-  color: #008a85;
+  color: #01938E;
   text-align: start;
 }
 
@@ -745,7 +745,7 @@ html[dir="rtl"] .na-coll__card {
   justify-content: center;
   width: 64px;
   height: 64px;
-  background: #008a85;
+  background: #01938E;
 }
 
 .na-coll__icon img {
@@ -777,7 +777,7 @@ html[dir="ltr"] .na-coll__card .na-coll__icon {
   font-weight: 400;
   font-size: 16px;
   line-height: 32px;
-  color: #008A85;
+  color: #01938E;
   text-align: end;
 }
 
@@ -796,7 +796,7 @@ html[dir="ltr"] .na-coll__text {
   font-size: 25px;
   line-height: 32px;
   text-align: center;
-  color: #008A85;
+  color: #01938E;
 }
 
 .na-coll__chart svg {
@@ -857,7 +857,7 @@ html[dir="ltr"] .na-coll__text {
   font-weight: 800;
   font-size: clamp(26px, 4vw, 48px);
   line-height: 1.25;
-  color: #008a85;
+  color: #01938E;
   text-align: center;
 }
 
@@ -905,7 +905,7 @@ html[dir="ltr"] .na-coll__text {
   justify-content: center;
   width: 64px;
   height: 64px;
-  background: #008a85;
+  background: #01938E;
   font-family: "Cairo", sans-serif;
   font-weight: 700;
   font-size: clamp(28px, 3.6vw, 40px);
@@ -1024,7 +1024,7 @@ html[dir="ltr"] .na-inv__text strong {
   font-weight: 800;
   font-size: clamp(26px, 4vw, 48px);
   line-height: 1.25;
-  color: #008a85;
+  color: #01938E;
   text-align: center;
 }
 
@@ -1075,7 +1075,7 @@ html[dir="ltr"] .na-inv__text strong {
   font-weight: 600;
   font-size: clamp(16px, 2vw, 20px);
   line-height: 1.35;
-  color: #008A85;
+  color: #01938E;
   text-align: center;
   vertical-align: middle;
   background: #CFE0E0
@@ -1191,7 +1191,7 @@ html[dir="ltr"] .na-sfc__cell {
   font-weight: 800;
   font-size: clamp(26px, 4vw, 46px);
   line-height: 1.25;
-  color: #008a85;
+  color: #01938E;
   text-align: start;
 }
 
@@ -1213,7 +1213,7 @@ html[dir="ltr"] .na-sfc__cell {
   font-weight: 800;
   font-size: 27px;
   line-height: 60px;
-  color: #008a85;
+  color: #01938E;
 }
 
 .na-kpi__card {
@@ -1242,7 +1242,7 @@ html[dir="ltr"] .na-sfc__cell {
   flex-shrink: 0;
   width: 76px;
   height: 76px;
-  background: #008a85;
+  background: #01938E;
   color: #ffffff;
 }
 
@@ -1353,7 +1353,7 @@ html[dir="ltr"] .na-kpi__text .na-kpi__pct-inner {
   font-weight: 800;
   font-size: clamp(26px, 4vw, 48px);
   line-height: 1.25;
-  color: #008a85;
+  color: #01938E;
   text-align: center;
 }
 

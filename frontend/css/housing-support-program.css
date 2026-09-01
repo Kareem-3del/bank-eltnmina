@@ -1,5 +1,5 @@
 :root {
-    --title-color: #008A85;
+    --title-color: #01938E;
     --text-color: #5C7070;
     --main-teal-gradient: linear-gradient(109.83deg, #1D7C79 0%, #30A69E 100%);
     --overlay-gradient: linear-gradient(45deg, rgba(14, 78, 78, 0.6) 0%, rgba(29, 124, 121, 0.2) 50%, rgba(29, 124, 121, 0) 100%);
@@ -22,7 +22,7 @@
 }
 
 .icon-box {
-    background: #008A85;
+    background: #01938E;
     padding: 8px;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
 }
 
 .sc-title .title-box .icon-box {
-    background: #008A85;
+    background: #01938E;
 }
 
 .bg-main .title-box .icon-box {
@@ -57,7 +57,7 @@
     font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.44;
     letter-spacing: 0px;
-    color: #009892;
+    color: #00BCB4;
 }
 
 .sc-title__dec span {
@@ -511,14 +511,14 @@
     font-weight: 700;
     font-size: 13px;
     line-height: 32px;
-    color: #008A85 !important;
+    color: #01938E !important;
 }
 
 .app-box .desc {
     font-weight: 600;
     font-size: 12px;
     line-height: 32px;
-    color: #008A85 !important;
+    color: #01938E !important;
 }
 
 .apple-img {
@@ -534,7 +534,7 @@
     font-weight: 800;
     font-size: 12px;
     line-height: 32px;
-    color: #008A85 !important;
+    color: #01938E !important;
 }
 
 .apple-img p span {
@@ -545,7 +545,7 @@
 .app-box .note {
     font-weight: 700;
     font-size: 13px;
-    color: #008A85 !important;
+    color: #01938E !important;
 }
 
 .app-icon {
@@ -734,7 +734,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.5px solid #008A85;
+    border: 0.5px solid #01938E;
     border-top: 0;
     font-weight: 400;
     font-size: 10px;
@@ -746,7 +746,7 @@
 
 .t-body.women-row>div {
     height: 212px;
-    color: #008A85;
+    color: #01938E;
 }
 
 
@@ -811,7 +811,7 @@
 }
 
 .women-row.tb-head>div:first-child {
-    background: #00948F;
+    background: #01938E;
 }
 
 .women-table .main {
@@ -832,7 +832,7 @@
     line-height: 16px;
     letter-spacing: 0px;
     text-align: center;
-    color: #008A85;
+    color: #01938E;
 }
 
 
@@ -981,7 +981,7 @@
     font-size: 48px;
     line-height: 48px;
     letter-spacing: 0px;
-    color: #00948F;
+    color: #01938E;
 }
 
 .signal>div p {
@@ -1025,7 +1025,7 @@
     font-size: 20px;
     line-height: 28px;
     letter-spacing: 0px;
-    color: #008A85;
+    color: #01938E;
 }
 
 /* --- Responsive Updates for Support Signal Section --- */
@@ -1093,7 +1093,7 @@
 
 .banner-sec {
     overflow-x: hidden;
-    background: linear-gradient(110.04deg, #048F8B 0%, #008A85 55%, #30A69E 100%);
+    background: linear-gradient(110.04deg, #048F8B 0%, #01938E 55%, #30A69E 100%);
 }
 
 .banner-sec .stack {
@@ -1167,7 +1167,7 @@
     font-size: 36px;
     line-height: 40px;
     letter-spacing: 0px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .last-sec p {

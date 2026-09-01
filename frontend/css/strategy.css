@@ -4,7 +4,7 @@
 
 /* ------ Strategic Framework ---------------------------------------------- */
 .sd-framework {
-  background: #009892;
+  background: #00BCB4;
   padding: clamp(48px, 8vw, 96px) 0 clamp(40px, 6vw, 64px);
   overflow-x: clip;
 }
@@ -128,7 +128,7 @@
   font-size: clamp(16px, 1.6vw, 18px);
   line-height: clamp(28px, 3vw, 36px);
   text-align: right;
-  color: #009892;
+  color: #00BCB4;
 }
 
 .sd-vm__bar--vision p {
@@ -185,7 +185,7 @@
   font-size: 48px;
   line-height: 48px;
   letter-spacing: -0.48px;
-  color: #00948f;
+  color: #01938e;
   text-align: center;
   margin: 0 0 64px;
 }
@@ -259,7 +259,7 @@
 }
 
 .sd-pillars__side-label {
-  background: #009892;
+  background: #00BCB4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,11 +296,11 @@
 /* Pillar columns — single solid tone */
 .sd-pillars__headers .sd-pillar__head,
 .sd-pillars__body > .sd-pillar {
-  --sd-pillar-tone: #009892;
+  --sd-pillar-tone: #00BCB4;
 }
 
 .sd-pillar__head {
-  background: var(--sd-pillar-tone, #009892);
+  background: var(--sd-pillar-tone, #00BCB4);
   color: #ffffff;
   font-weight: 700;
   font-size: 20px;
@@ -324,7 +324,7 @@
 }
 
 .sd-pillar__tag {
-  background: var(--sd-pillar-tone, #009892);
+  background: var(--sd-pillar-tone, #00BCB4);
   color: #ffffff;
   font-weight: 800;
   font-size: 13px;
@@ -338,7 +338,7 @@
 }
 
 .sd-pillar__desc {
-  background: var(--sd-pillar-tone, #009892);
+  background: var(--sd-pillar-tone, #00BCB4);
   color: #ffffff;
   font-weight: 600;
   font-size: 12px;
@@ -418,7 +418,7 @@
   top: -40px;
   inset-inline-start: -40px;
   border-radius: 50%;
-  background: #00948f;
+  background: #01938e;
   filter: blur(64px);
   pointer-events: none;
 }
@@ -556,14 +556,14 @@
 .sd-goals__dot {
   width: 15px;
   height: 15px;
-  background: #009892;
+  background: #00BCB4;
   flex-shrink: 0;
 }
 
 .sd-goals__line {
   width: 3px;
   height: 35px;
-  background: #008a85;
+  background: #01938E;
   flex-shrink: 0;
 }
 
@@ -839,7 +839,7 @@
   font-size: 48px;
   line-height: 48px;
   letter-spacing: -0.48px;
-  color: #00948f;
+  color: #01938e;
 }
 
 .layer-desc {
@@ -890,7 +890,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  color: #00948f;
+  color: #01938e;
 }
 
 .strategy-box__item p {
@@ -901,7 +901,7 @@
 }
 
 .strategy-box__item:first-child {
-  background: linear-gradient(119.41deg, #0f8481 0%, #00948f 100%);
+  background: linear-gradient(119.41deg, #0f8481 0%, #01938e 100%);
 }
 
 .strategy-box__item:first-child .box-top .num-box {
@@ -942,7 +942,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 27.5px;
-  color: #00948f;
+  color: #01938e;
 }
 
 .main-item ul {
@@ -960,7 +960,7 @@
 
 .main-item ul li div:first-child {
   padding: 4px;
-  background: #00948f;
+  background: #01938e;
   color: #fff;
   font-weight: 600;
   font-size: 10px;
@@ -1027,7 +1027,7 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00948f 0%, #008f85 100%);
+  background: linear-gradient(135deg, #01938e 0%, #008f85 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1041,7 +1041,7 @@
   font-size: 18px;
   line-height: 24.75px;
   text-align: center;
-  color: #00948f;
+  color: #01938e;
 }
 
 [dir="ltr"] .vision-right::before {

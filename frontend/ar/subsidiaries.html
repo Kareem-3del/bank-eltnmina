@@ -5,7 +5,7 @@
   <base href="../" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#008375" />
+  <meta name="theme-color" content="#00BCB4" />
   <meta name="description"
     content="الشركات التابعة — التقرير السنوي 2025 لصندوق التنمية العقارية: نظرة على الشركات التابعة للصندوق." />
   <meta name="robots" content="index,follow" />
@@ -13,7 +13,7 @@
   <title>الشركات التابعة — التقرير السنوي 2025</title>
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
-  <link rel="preload" as="image" href="assets/image%20(49).png" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/appendix-hero-bg.png" fetchpriority="high" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,7 @@
 
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/subsidiaries.css?v=6" />
+  <link rel="stylesheet" href="css/subsidiaries-appendix.css?v=2" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/ar.css" />
 
@@ -102,15 +103,9 @@
                 برنامج الدعم السكني
               </a>
             </li>
-            <li>
-              <a class="nav__link" href="ar/housing-support-empowerment-achievements.html">
-                إنجازات تمكين مستفيدي برامج الدعم السكني
-              </a>
-            </li>
             <li><a class="nav__link" href="ar/digital-achievements.html">إنجازات التحول الرقمي</a></li>
             <li><a class="nav__link" href="ar/government-enablers.html">مُمكِّنات الحوكمة</a></li>
             <li><a class="nav__link" href="ar/training-programs.html">النشاطات الاجتماعية والجوائز</a></li>
-            <li><a class="nav__link" href="ar/notable-achievements.html">أعمال الحملات الاتصالية</a></li>
             <li>
               <a class="nav__link" href="ar/subsidized-finance-cost.html">
                 تكلفة التمويل المدعوم
@@ -118,19 +113,25 @@
             </li>
           </ul>
         </li>
-        <li>
-          <a class="nav__link" href="ar/opportunities-and-enablers.html">الفرص
-            والعوامل المساعدة</a>
-        </li>
-        <li>
+        <li class="dropdown">
           <a class="nav__link" href="ar/subsidiaries.html">
             الشركات التابعة
+            <span class="arrow">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_760_148)">
+                  <path d="M8 10L4 6.25H12L8 10Z" fill="white" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_760_148">
+                    <rect width="16" height="15" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </span>
           </a>
-        </li>
-        <li>
-          <a class="nav__link" href="ar/challenges-and-support.html">
-            التحديات و الدعم المطلوب
-          </a>
+          <ul class="dropdown-menu">
+            <li><a class="nav__link" href="ar/subsidiaries-appendix.html">الملاحق</a></li>
+          </ul>
         </li>
         <li><a class="nav__link" href="ar/conclusion.html">الخاتمة</a></li>
       </ul> -->
@@ -145,25 +146,25 @@
 
 
   <main id="main" class="subsidiaries">
-    <section class="c-hero c-hero--subsidiaries" aria-labelledby="subs-hero-title">
+    <section class="c-hero c-hero--appendix" aria-labelledby="subs-hero-title">
       <div class="c-hero__overlay"></div>
       <div class="c-hero__image-wrapper">
-        <img src="assets/image%20(49).png" class="c-hero__img" alt="صندوق التنمية العقارية" fetchpriority="high" />
+        <img src="assets/appendix-hero-bg.png" class="c-hero__img" alt="صندوق التنمية العقارية" fetchpriority="high" />
       </div>
       <div class="container h-100">
         <div class="c-hero__content">
           <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
             <ol class="c-hero__breadcrumb-list">
-              <li class="c-hero__breadcrumb-item">
-                <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
-              </li>
               <li class="c-hero__breadcrumb-item c-hero__breadcrumb-item--active" aria-current="page">
                 الشركات التابعة
+              </li>
+              <li class="c-hero__breadcrumb-item">
+                <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
               </li>
             </ol>
           </nav>
 
-          <h1 id="subs-hero-title" class="c-hero__title">الشركات التابعة</h1>
+          <h1 id="subs-hero-title" class="c-hero__title">الملاحق الشركات التابعة</h1>
         </div>
       </div>
     </section>
@@ -241,6 +242,23 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="appx-goals appx-goals--cta-only">
+      <div class="container">
+        <div class="appx-goals__cta">
+          <a class="btn btn--pill" href="assets/pdf/ar/subsidiaries.pdf" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M8 12.6667L3.33333 8L8 3.33333" stroke="#00BCB2" stroke-width="1.33333" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M12.6667 8H3.33333" stroke="#00BCB2" stroke-width="1.33333" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            استعرض التقرير الكامل
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -328,39 +346,41 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="nav__link" href="ar/housing-support-program.html">برنامج الدعم السكني</a></li>
-            <li><a class="nav__link" href="ar/housing-support-empowerment-achievements.html">
-                إنجازات تمكين مستفيدي برامج الدعم السكني
-              </a></li>
             <li><a class="nav__link" href="ar/digital-achievements.html">إنجازات التحول الرقمي</a></li>
             <li><a class="nav__link" href="ar/government-enablers.html">مُمكِّنات الحوكمة</a></li>
             <li><a class="nav__link" href="ar/training-programs.html">النشاطات الاجتماعية والجوائز</a></li>
-            <li><a class="nav__link" href="ar/notable-achievements.html">أعمال الحملات الاتصالية</a></li>
             <li><a class="nav__link" href="ar/subsidized-finance-cost.html">
                 تكلفة التمويل المدعوم
               </a>
             </li>
           </ul>
         </li>
-        <li>
-          <a class="nav__link" href="ar/opportunities-and-enablers.html">الفرص
-            والعوامل المساعدة</a>
-        </li>
-        <li>
+        <li class="dropdown">
           <a class="nav__link" href="ar/subsidiaries.html">
             الشركات التابعة
+            <span class="arrow">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_760_148)">
+                  <path d="M8 10L4 6.25H12L8 10Z" fill="white" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_760_148">
+                    <rect width="16" height="15" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </span>
           </a>
-        </li>
-        <li>
-          <a class="nav__link" href="ar/challenges-and-support.html">
-            التحديات و الدعم المطلوب
-          </a>
+          <ul class="dropdown-menu">
+            <li><a class="nav__link" href="ar/subsidiaries-appendix.html">الملاحق</a></li>
+          </ul>
         </li>
         <li><a class="nav__link" href="ar/conclusion.html">الخاتمة</a></li>
       </ul>
 
       <div class="footer__bottom">
         <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
-          استعرض التقرير الكامل
+          استعرض التقرير المختصر
 
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.00016 12.6668L3.3335 8.00016L8.00016 3.3335" stroke="white" stroke-width="1.33333"

@@ -3,11 +3,11 @@
    ========================================================================== */
 
 :root {
-  --es1-teal: #009892;
-  --es1-teal-dark: #019591;
+  --es1-teal: #00BCB4;
+  --es1-teal-dark: #01938E;
   --es1-num: #8dcfc5;
   --es1-text-muted: #6b7280;
-  --es1-border: #008a85;
+  --es1-border: #01938E;
   --es1-max: 1528px;
 }
 
@@ -19,7 +19,7 @@
 /* Hero gradient overlay (Figma) */
 .c-hero--es1 .c-hero__overlay {
   background: linear-gradient(110.95deg,
-      #00948f -6.17%,
+      #01938e -6.17%,
       rgba(0, 102, 99, 0.85) 93.83%);
 }
 
@@ -562,7 +562,7 @@
 .es1-subs__card {
   box-sizing: border-box;
   background: #ffffff;
-  border: 1px solid #008a85;
+  border: 1px solid #01938E;
   padding: clamp(24px, 3vw, 36px);
   min-height: clamp(280px, 24vw, 359px);
   display: grid;
@@ -600,7 +600,7 @@
   font-weight: 800;
   font-size: 17px;
   line-height: 21px;
-  color: #01938e;
+  color: #01938E;
   text-align: right;
   max-width: 114px;
 }

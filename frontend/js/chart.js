@@ -169,7 +169,7 @@ const alwaysShowProgramValues = {
         chart.data.datasets.forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
             if (i === 0) {
-                ctx.fillStyle = "#008A85";
+                ctx.fillStyle = "#01938E";
             } else {
                 ctx.fillStyle = "#5E7278";
             }
@@ -313,7 +313,7 @@ function createStateChart(target, actual, id) {
                 {
                     label: isAR ? "المعتمدة" : "Approved",
                     data: target,
-                    backgroundColor: '#008A85',
+                    backgroundColor: '#01938E',
                     barPercentage: 0.3,
                     categoryPercentage: windowWidth < 767 ? 0.97 : 0.8,
                     order: 1,
@@ -407,7 +407,7 @@ function createProgramChart(target, actual, id) {
                 {
                     label: isAR ? 'المستهدف السنوي' : "Annual Target",
                     data: target,
-                    backgroundColor: '#008A85',
+                    backgroundColor: '#01938E',
                     barPercentage: 0.3,
                     categoryPercentage: 0.5,
                     order: 2,
@@ -460,7 +460,7 @@ function createProgramChart(target, actual, id) {
                     border: { display: false },
                     ticks: {
                         font: { size: isAR ? 14 : 7 },
-                        color: '#008A85',
+                        color: '#01938E',
                         autoSkip: false
                     }
                 },

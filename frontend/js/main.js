@@ -165,9 +165,42 @@
     if (href && href === here) link.setAttribute("aria-current", "page");
   });
 
+  /* ------ Two-state language switch ----------------------------------- */
+  document.querySelectorAll(".nav__lang").forEach(link => {
+    const isAR = (document.documentElement.getAttribute("lang") || "en").toLowerCase().startsWith("ar");
+    const otherHref = link.getAttribute("href") || "#";
+    const currentHref = `${isAR ? "ar" : "en"}/${here}`;
+    const switcher = document.createElement("div");
+
+    switcher.className = "nav__lang-switch";
+    switcher.setAttribute("aria-label", isAR ? "تبديل اللغة" : "Switch language");
+    switcher.innerHTML = `
+      <a class="nav__lang-option${isAR ? "" : " is-active"}" href="${isAR ? otherHref : currentHref}" lang="en" ${isAR ? "" : "aria-current=\"true\""}>EN</a>
+      <a class="nav__lang-option${isAR ? " is-active" : ""}" href="${isAR ? currentHref : otherHref}" lang="ar" ${isAR ? "aria-current=\"true\"" : ""}>AR</a>
+    `;
+    link.replaceWith(switcher);
+  });
+
   /* ------ Footer year ------------------------------------------------- */
   const yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ------ Remove routes that were intentionally dropped ---------------- */
+  const removedRoutes = new Set([
+    "housing-support-empowerment-achievements.html",
+    "notable-achievements.html",
+    "opportunities-and-enablers.html",
+    "challenges-and-support.html"
+  ]);
+
+  document.querySelectorAll("a[href]").forEach(link => {
+    const file = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
+    if (!removedRoutes.has(file)) return;
+
+    const item = link.closest("li");
+    if (item) item.remove();
+    else link.remove();
+  });
 
   /* =====================================================================
      Staggered overlay menu
@@ -272,12 +305,6 @@
                 caption: "أبرز الأعمال والإنجازات",
               },
               {
-                href: "housing-support-empowerment-achievements.html",
-                text: " إنجازات تمكين مستفيدي برامج الدعم السكني",
-                img: "challenges-and-support.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
                 href: "digital-achievements.html",
                 text: "إنجازات التحول الرقمي",
                 img: "digital-achievements-.webp",
@@ -296,12 +323,6 @@
                 caption: "أبرز الأعمال والإنجازات",
               },
               {
-                href: "notable-achievements.html",
-                text: "أعمال الحملات الاتصالية",
-                img: "government-enablers.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
                 href: "subsidized-finance-cost.html",
                 text: "تكلفة التمويل المدعوم",
                 img: "government-enablers.webp",
@@ -310,22 +331,10 @@
             ]
           },
           {
-            href: "opportunities-and-enablers.html",
-            text: "الفرص والعوامل المساعدة",
-            img: "opportunities-and-enablers.png",
-            caption: "الفرص والعوامل المساعدة على تحقيقها"
-          },
-          {
             href: "subsidiaries.html",
             text: "الشركات التابعة",
             img: "image%20(49).png",
             caption: "الشركات التابعة"
-          },
-          {
-            href: "challenges-and-support.html",
-            text: "التحديات و الدعم المطلوب",
-            img: "challenges-and-support.webp",
-            caption: "التحديات والدعم المقدم"
           },
           {
             href: "conclusion.html",
@@ -430,12 +439,6 @@
                 caption: "Major works and accomplishments",
               },
               {
-                href: "housing-support-empowerment-achievements.html",
-                text: "Empowering Housing Support Beneficiaries",
-                img: "challenges-and-support.webp",
-                caption: "Major works and accomplishments",
-              },
-              {
                 href: "digital-achievements.html",
                 text: "Digital Transformation",
                 img: "digital-achievements-.webp",
@@ -454,12 +457,6 @@
                 caption: "Major works and accomplishments",
               },
               {
-                href: "notable-achievements.html",
-                text: "Communication Campaigns",
-                img: "government-enablers.webp",
-                caption: "Major works and accomplishments",
-              },
-              {
                 href: "subsidized-finance-cost.html",
                 text: "Subsidized Finance Cost",
                 img: "government-enablers.webp",
@@ -468,22 +465,10 @@
             ]
           },
           {
-            href: "opportunities-and-enablers.html",
-            text: "Opportunities & Enablers",
-            img: "opportunities-and-enablers.png",
-            caption: "Opportunities and factors enabling their achievement"
-          },
-          {
             href: "subsidiaries.html",
             text: "Subsidiaries",
             img: "image%20(49).png",
             caption: "Subsidiary Companies"
-          },
-          {
-            href: "challenges-and-support.html",
-            text: "Challenges & Support",
-            img: "challenges-and-support.webp",
-            caption: "Challenges and support provided"
           },
           {
             href: "conclusion.html",
@@ -558,9 +543,7 @@
         const hasActiveChild = activeSublink ? " is-current" : "";
 
         return `
-                <li 
-                onclick = "menu.classList.remove("is-index")
-                class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
+                <li class="staggered-menu__item staggered-menu__dropdown${hasActiveChild}">
                   <a 
                   href="${parentHref}" data-caption="${parentCaption}" data-preview="${parentImg}" class="staggered-menu__link staggered-menu__dropdown-toggle${hasActiveChild}" data-dropdown-toggle>
                     <span class="staggered-menu__num">${String(i + 1).padStart(2, "0")}</span>
@@ -634,9 +617,13 @@
 
 
     let lastFocused = null;
+    let closeTimer = null;
+    const closeDuration = reduceMotion ? 0 : 900;
 
     const open = () => {
       lastFocused = document.activeElement;
+      window.clearTimeout(closeTimer);
+      menu.classList.remove("is-closing");
       menu.removeAttribute("hidden");
 
       if (window?.__lenis) window.__lenis.stop();
@@ -651,18 +638,22 @@
     };
 
     const close = () => {
+      if (menu.hasAttribute("hidden") || menu.classList.contains("is-closing")) return;
+
+      window.clearTimeout(closeTimer);
+      menu.classList.add("is-closing");
       menu.classList.remove("is-open");
       menu.classList.remove("is-index");
-      document.body.classList.remove("menu-open");
-      document.body.classList.remove("menu-open");
 
       // إعادة تشغيل Lenis
-      if (window?.__lenis) window?.__lenis.start();
       triggers.forEach(t => t.setAttribute("aria-expanded", "false"));
-      setTimeout(() => {
+      closeTimer = window.setTimeout(() => {
+        menu.classList.remove("is-closing");
         menu.setAttribute("hidden", "");
+        document.body.classList.remove("menu-open");
+        if (window?.__lenis) window?.__lenis.start();
         if (lastFocused && document.contains(lastFocused)) lastFocused.focus({ preventScroll: true });
-      }, reduceMotion ? 0 : 600);
+      }, closeDuration);
     };
 
 
@@ -747,10 +738,6 @@
     //   }
     // });
 
-
-    if (initMenu) {
-      open()
-    }
 
   }
 

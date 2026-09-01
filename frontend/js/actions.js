@@ -62,11 +62,6 @@
       nameEn: "Housing Support Program",
     },
     {
-      href: "housing-support-empowerment-achievements.html",
-      nameAr: " إنجازات تمكين مستفيدي برامج الدعم السكني",
-      nameEn: "Empowering Housing Support Beneficiaries",
-    },
-    {
       href: "digital-achievements.html",
       nameAr: "إنجازات التحول الرقمي",
       nameEn: "Digital Transformation",
@@ -82,29 +77,14 @@
       nameEn: "Social Activities & Awards",
     },
     {
-      href: "notable-achievements.html",
-      nameAr: "أعمال الحملات الاتصالية",
-      nameEn: "Communication Campaigns",
-    },
-    {
       href: "subsidized-finance-cost.html",
       nameAr: "تكلفة التمويل المدعوم",
       nameEn: "Subsidized Finance Cost",
     },
     {
-      href: "opportunities-and-enablers.html",
-      nameAr: "الفرص و العوامل المساعدة",
-      nameEn: "Opportunities & Enablers",
-    },
-    {
       href: "subsidiaries.html",
       nameAr: "الشركات التابعة",
       nameEn: "Subsidiaries",
-    },
-    {
-      href: "challenges-and-support.html",
-      nameAr: "التحديات و الدعم المطلوب",
-      nameEn: "Challenges & Support",
     },
     {
       href: "conclusion.html",
@@ -119,13 +99,13 @@
       prev: "الصفحة السابقة",
       next: "الصفحة التالية",
       dlPage: "تنزيل هذه الصفحة",
-      dlAll: "تنزيل التقرير الكامل"
+      dlAll: "تنزيل التقرير المختصر"
     },
     en: {
       prev: "Previous page",
       next: "Next page",
       dlPage: "Download this page",
-      dlAll: "Download full report"
+      dlAll: "Download summary report"
     }
   };
   const fallback = FALLBACK_LABELS[lang];

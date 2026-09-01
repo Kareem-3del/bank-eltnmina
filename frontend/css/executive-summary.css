@@ -3,10 +3,10 @@
    ========================================================================== */
 
 :root {
-  --es-teal: #00948f;
-  --es-teal-mid: #009892;
+  --es-teal: #01938e;
+  --es-teal-mid: #00BCB4;
   --es-teal-dark: #006c67;
-  --es-teal-accent: #01938e;
+  --es-teal-accent: #01938E;
   --es-teal-soft: #e4f3f1;
   --es-mint: #d9e8e9;
   --es-mint-card: #d7eceb;
@@ -30,7 +30,7 @@
 .c-hero--es2 .c-hero__overlay {
   background: linear-gradient(
     110.95deg,
-    #00948f -6.17%,
+    #01938e -6.17%,
     rgba(0, 102, 99, 0.85) 93.83%
   );
 }
@@ -101,7 +101,7 @@
   gap: clamp(10px, 1.5vw, 16px);
 }
 
-/* Rectangle 156/157 — header 52px #009892 */
+/* Rectangle 156/157 — header 52px #00BCB4 */
 .es-overview .es-panel__head {
   display: flex;
   align-items: center;
@@ -109,7 +109,7 @@
   height: 52px;
   min-height: 52px;
   padding: 0 20px;
-  background: #009892;
+  background: #00BCB4;
   color: #ffffff;
   font-family: "Cairo", sans-serif;
   font-weight: 800;
@@ -241,7 +241,7 @@
   font-weight: 700;
   font-size: 40px;
   line-height: 28px;
-  color: #01938e;
+  color: #01938E;
   direction: ltr;
   text-align: right;
 }
@@ -254,7 +254,7 @@
   font-weight: 800;
   font-size: 18px;
   line-height: 12px;
-  color: #01938e;
+  color: #01938E;
   text-align: right;
 }
 
@@ -335,7 +335,7 @@
   font-weight: 800;
   font-size: 30px;
   line-height: 31px;
-  color: #01938e;
+  color: #01938E;
   direction: ltr;
   unicode-bidi: isolate;
   text-align: right;
@@ -374,7 +374,7 @@
   font-weight: 800;
   font-size: 50px;
   line-height: 28px;
-  color: #009892;
+  color: #00BCB4;
   direction: ltr;
 }
 
@@ -442,7 +442,7 @@
 }
 
 .es-section--teal {
-  background: linear-gradient(135deg, #00948f 0%, #22a99e 100%);
+  background: linear-gradient(135deg, #01938e 0%, #22a99e 100%);
   color: #ffffff;
 }
 
@@ -480,7 +480,7 @@
   /* Figma uses 28px line-height for a single line; in the browser the title
      may wrap, so keep a safe readable line-height to avoid overlap. */
   line-height: 1.25;
-  color: #01938e;
+  color: #01938E;
   text-align: center;
   white-space: normal;
   /* overflow-wrap: anywhere; */
@@ -633,7 +633,7 @@
   height: 168px;
   max-width: 100%;
   padding: 12px 20px;
-  background: #01938e;
+  background: #01938E;
   color: #ffffff;
   text-align: center;
 }
@@ -929,7 +929,7 @@
   font-size: 48px;
   line-height: 60px;
   text-align: right;
-  color: #01938e;
+  color: #01938E;
 }
 
 .es-monthly__rule {
@@ -1089,7 +1089,7 @@
   font-weight: 800;
   font-size: 64px;
   line-height: 1.05;
-  color: #01938e;
+  color: #01938E;
   width: 100%;
   text-align: right;
 }
@@ -1101,7 +1101,7 @@
   font-weight: 600;
   font-size: 30px;
   line-height: 1.1;
-  color: #01938e;
+  color: #01938E;
   width: 100%;
   /* text-align: right; */
 }
@@ -1148,7 +1148,7 @@
 .es-dev__riyal {
   width: 28px;
   height: 28px;
-  color: #01938e;
+  color: #01938E;
   transform: translateY(2px);
 }
 
@@ -1402,7 +1402,7 @@
   width: 322px;
   height: 168px;
   padding: 10px 12px;
-  background: #01938e;
+  background: #01938E;
   border: none;
   display: flex;
   align-items: center;
@@ -1511,7 +1511,7 @@
 }
 
 .es-percent-card strong {
-  color: #01938e;
+  color: #01938E;
   font-family: "Cairo", sans-serif;
   font-weight: 800;
   letter-spacing: -0.75px;
@@ -1936,7 +1936,7 @@
 }
 
 .es-digital-card__pct {
-  color: #01938e;
+  color: #01938E;
   font-size: clamp(60px, 8vw, 100px);
   line-height: 1;
   font-family: "Cairo", sans-serif;

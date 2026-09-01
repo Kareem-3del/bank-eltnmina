@@ -70,7 +70,7 @@
 }
 
 .intro-box__desc {
-    color: #009892;
+    color: #00BCB4;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.4;
@@ -111,7 +111,7 @@
 }
 
 .func-grid .head h3 {
-    color: #009892 !important;
+    color: #00BCB4 !important;
     font-weight: 800;
     font-size: clamp(16px, 1.2vw + 0.8rem, 18px);
     line-height: clamp(24px, 1.5vw + 1rem, 26px);

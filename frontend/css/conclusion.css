@@ -14,7 +14,7 @@
     font-weight: 400;
     font-size: clamp(20px, 1.5vw + 1rem, 30px);
     line-height: clamp(28px, 2vw + 1rem, 33px);
-    color: #008A85 !important;
+    color: #01938E !important;
     border-radius: 16px;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .action-link:first-child {
-    color: #008A85 !important;
+    color: #01938E !important;
     background-color: #FFF;
 }
 
