@@ -11,6 +11,28 @@ body {
     margin-bottom: 2rem;
 }
 
+.sc-title {
+    margin-bottom: 1rem;
+}
+
+.sc-title__title {
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 48px);
+    /* حجم مرن يتغير تلقائياً حسب حجم الشاشة */
+    line-height: 1.2;
+    color: #00BCB2;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.sc-title__dec {
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 25px);
+    /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
+    line-height: 1.6;
+    color: #00BCB2;
+    text-align: justify;
+}
+
 .anly-block {
     padding: 1rem 2rem;
     display: flex;
@@ -55,7 +77,7 @@ body {
     color: #00BCB2;
 }
 
-.anly-block .icon-dev {
+.icon-dev {
     display: flex;
     gap: 1rem;
     align-items: center;

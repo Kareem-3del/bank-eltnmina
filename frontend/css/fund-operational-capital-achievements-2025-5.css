@@ -1,0 +1,299 @@
+.bullets {
+    display: flex;
+    gap: clamp(4px, 1vw, 8px);
+    flex-direction: column;
+}
+
+.bullets li {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 25px);
+    /* حجم مرن للنص يتناسب مع شاشات الموبايل والديسك توب */
+    line-height: 1.5;
+    /* استخدام نسبة مرنة بدلاً من الثابت لمنع التداخل */
+    color: #5E7278;
+    gap: 1rem;
+}
+
+.bullets li::before {
+    display: block;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #5E7278;
+    flex-shrink: 0;
+}
+
+/* ========================================== */
+/*  تحسينات إضافية للهواتف المحمولة (Phones)  */
+/* ========================================== */
+@media (max-width: 767px) {
+    .bullets {
+        gap: 6px;
+    }
+
+    .bullets li {
+        gap: 0.8rem;
+        /* تقليل المسافة بين النقطة والنص قليلاً في الموبايل */
+        align-items: flex-start;
+        /* محاذاة النقطة مع بداية السطر الأول في حال كان النص طويلاً ويتكون من سطرين */
+        padding-top: 2px;
+    }
+}
+
+/* goals-sec */
+.goals-sec h2 {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 48px;
+    color: #FFFFFF;
+}
+
+.goals-sec p {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 43px;
+    text-align: justify;
+    color: #FFFFFF;
+}
+
+.goals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 1rem 0;
+}
+
+.goals>div {
+    flex: 1 1 calc(50% - 0.25rem);
+    box-sizing: border-box;
+    padding: 24px 16px;
+    background: #fff;
+    font-weight: 500;
+    font-size: clamp(15px, 2vw, 24px);
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.15px;
+    color: #5E7278;
+}
+
+/* للشاشات الصغيرة جداً (الهواتف المحمولة)، جعلها عنصراً واحداً في كل صف لراحة القراءة */
+@media (max-width: 767px) {
+    .goals>div {
+        flex: 1 1 100%;
+    }
+}
+
+/* info-sec */
+
+.info-sec {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.info-sec>div {
+    flex: 1 1 calc(50% - 1rem);
+    box-sizing: border-box;
+}
+
+.info-sec .icon-dev {
+    margin-bottom: 1rem;
+}
+
+.info-sec h3 {
+    font-weight: 800;
+    font-size: clamp(22px, 3.5vw, 35px);
+    /* حجم مرن للعنوان يتناسب مع كافة الشاشات */
+    line-height: 1.3;
+    color: #009892;
+}
+
+.info-sec p {
+    font-weight: 600;
+    font-size: clamp(16px, 2.5vw, 24px);
+    /* حجم مرن للنص الوصفي */
+    line-height: 1.5;
+    color: #5E7278;
+}
+
+/* تحسينات إضافية لأجهزة التابلت والشاشات المتوسطة */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .info-sec {
+        gap: 1.5rem;
+    }
+
+    .info-sec>div {
+        flex: 1 1 calc(50% - 0.75rem);
+    }
+}
+
+/* للشاشات الصغيرة جداً (الهواتف المحمولة)، جعلها عنصراً واحداً في كل صف لراحة القراءة */
+@media (max-width: 767px) {
+
+    .info-sec p,
+    .info-sec h3 {
+        text-align: center;
+    }
+
+    .info-sec {
+        gap: 1.5rem;
+    }
+
+    .info-sec>div {
+        flex: 1 1 100%;
+    }
+}
+
+/* conter-sec  */
+.conter-sec p {
+    font-weight: 600;
+    font-size: clamp(18px, 3.5vw, 33px);
+    /* حجم مرن للنص يتناسب مع جميع الشاشات */
+    line-height: 1.4;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.conter-sec .num {
+    font-weight: 700;
+    font-size: clamp(50px, 12vw, 110px);
+    /* حجم مرن وضخم للرقم يتقلص تلقائياً على الموبايل */
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: -1px;
+    /* تقليل المسافة بين الأرقام في الشاشات الصغيرة لمنع التمدد */
+    color: #E2E9E9;
+}
+
+.conter-sec .num span {
+    color: #FFF;
+}
+
+/* ========================================== */
+/*  تحسينات إضافية للهواتف المحمولة (Phones)  */
+/* ========================================== */
+@media (max-width: 767px) {
+    .conter-sec {
+        padding: 1rem;
+        /* إضافة مساحة داخلية آمنة لحواف الشاشة */
+    }
+}
+
+/* last-boxes */
+.last-boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.last-boxes:first-child {
+    margin-top: 2px;
+}
+
+.last-boxes>div {
+    padding: clamp(1rem, 2vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+    flex-basis: 25%;
+    /* 4 عناصر في الصف للديسك توب */
+    box-sizing: border-box;
+}
+
+.last-boxes:first-child>div:nth-last-child(even),
+.last-boxes:last-child>div:nth-last-child(odd) {
+    background: #DFF2F1;
+}
+
+.last-boxes h2 {
+    font-weight: 700;
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.3;
+    text-align: center;
+    color: #5E7278;
+}
+
+.last-boxes p {
+    font-weight: 500;
+    font-size: clamp(18px, 2.5vw, 26px);
+    line-height: 1.3;
+    text-align: center;
+    color: #00948F;
+}
+
+.last-boxes .num {
+    font-weight: 700;
+    font-size: clamp(18px, 2.5vw, 26px);
+    line-height: 1.3;
+    text-align: center;
+    color: #00948F;
+}
+
+.last-boxes ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    direction: ltr;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.last-boxes ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(14px, 2vw, 18px);
+    color: #5E7278;
+}
+
+/* ========================================== */
+/*  تحسينات الاستجابة للتابلت والموبايل      */
+/* ========================================== */
+
+/* أجهزة التابلت (Tablets) من 768px إلى 1024px -> عنصرين في كل صف (50%) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .last-boxes>div {
+        flex-basis: 50%;
+        background: #FFFFFF;
+        /* الخلفية الأساسية بيضاء */
+    }
+
+    .last-boxes:first-child>div:nth-last-child(even),
+    .last-boxes:last-child>div:nth-last-child(odd) {
+        background: transparent;
+    }
+
+    /* تطبيق نمط الشطرنج (عنصرين ملونين في منتصف كل مجموعة من 4 عناصر) */
+    .last-boxes>div:nth-child(4n-2),
+    .last-boxes>div:nth-child(4n-1) {
+        background: #DFF2F1 !important;
+    }
+}
+
+/* الهواتف المحمولة (Phones) أقل من 768px -> عنصر واحد في كل صف (100%) */
+@media (max-width: 767px) {
+    .last-boxes>div {
+        flex-basis: 100%;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+
+    .last-boxes:first-child>div:nth-last-child(even),
+    .last-boxes:last-child>div:nth-last-child(even) {
+        background: #DFF2F1;
+    }
+
+    .last-boxes:last-child>div:nth-last-child(odd) {
+        background: #fff;
+    }
+
+
+}

@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const animationType = el.dataset.anim || 'fade-up';
             const delay = parseFloat(el.dataset.delay) || 0;
 
+
             // الـ fromTo states
             const fromVars = {};
             const toVars = {};
