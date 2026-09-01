@@ -1,0 +1,220 @@
+/* فرص وعوامل — Hero additions only */
+
+.c-hero--opportunities .c-hero__title {
+  max-width: 100%;
+}
+
+.c-hero--opportunities .c-hero__boxes {
+  max-width: 460px;
+}
+
+.c-hero--opportunities .c-hero__boxes>div {
+  height: auto;
+  min-height: 85px;
+}
+
+.c-hero--opportunities .c-hero__stat p {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c-hero--opportunities .c-hero__stat .c-hero__stat-line {
+  display: block;
+}
+
+.c-hero--opportunities .c-hero__stat .c-hero__stat-value {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #008a85;
+  white-space: nowrap;
+  unicode-bidi: isolate;
+  margin-inline-start: 4px;
+}
+
+@media (max-width: 768px) {
+  .c-hero--opportunities .c-hero__boxes {
+    max-width: 100%;
+  }
+
+  .c-hero--opportunities .c-hero__stat p {
+    max-width: 22ch;
+  }
+}
+
+/* فرص وعوامل — Triptych section (25% / 50% / 25%) */
+.page-oe,
+.page-oe .opportunities-and-enablers {
+  background-color: var(--bg-main);
+}
+
+.page-oe .site-footer {
+  margin-top: 0;
+}
+
+.oe-triptych {
+  padding-top: clamp(28px, 4vw, 56px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  background-color: var(--bg-main);
+}
+
+.page-oe .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.oe-triptych__grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .oe-triptych__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.oe-panel {
+  box-sizing: border-box;
+  box-shadow: 0px 8px 30px -10px rgba(1, 147, 142, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.oe-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 24px;
+  min-height: 64px;
+}
+
+.oe-panel__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 28px;
+}
+
+.oe-panel__icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  opacity: 0.95;
+}
+
+.oe-panel--impact .oe-panel__icon {
+  width: 44px;
+  height: 44px;
+}
+
+.oe-panel__body {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 24px;
+  flex: 1 1 auto;
+}
+
+.oe-panel__item {
+  margin: 0;
+  padding-inline-start: 16px;
+  border-inline-start: 1.06667px solid rgba(255, 255, 255, 0.7);
+  font-family: "Cairo", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: right;
+  color: #ffffff;
+}
+
+[dir="rtl"] .oe-panel--impact .oe-panel__item {
+  text-align: justify;
+  text-align-last: right;
+  text-justify: inter-word;
+}
+
+[dir="ltr"] .oe-panel__item {
+  padding-inline-start: 16px;
+  padding-inline-end: 0;
+  border-inline-end: 0;
+  border-inline-start: 1.06667px solid rgba(255, 255, 255, 0.7);
+  text-align: left;
+}
+
+.oe-panel__item--muted {
+  color: #6b7280;
+  border-inline-start-color: #6b7280;
+}
+
+.oe-panel--opportunity .oe-panel__item--muted {
+  color: #009892;
+}
+
+[dir="ltr"] .oe-panel__item--muted {
+  border-inline-start-color: #6b7280;
+}
+
+[dir="ltr"] .oe-panel--impact .oe-panel__item {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+
+[dir="ltr"] .oe-panel--opportunity .oe-panel__head,
+[dir="ltr"] .oe-panel--impact .oe-panel__head,
+[dir="ltr"] .oe-panel--support .oe-panel__head {
+  background: linear-gradient(90deg,
+      rgba(1, 147, 142, 0.05) 0%,
+      rgba(1, 147, 142, 0) 100%);
+}
+
+/* Opportunity + Impact + Support (solid white cards) */
+.oe-panel--opportunity,
+.oe-panel--impact,
+.oe-panel--support {
+  background: #ffffff;
+  border: 1px solid #dae7e6;
+}
+
+.oe-panel--opportunity .oe-panel__head,
+.oe-panel--impact .oe-panel__head,
+.oe-panel--support .oe-panel__head {
+  background: linear-gradient(270deg,
+      rgba(1, 147, 142, 0.05) 0%,
+      rgba(1, 147, 142, 0) 100%);
+  border-bottom: 1.06667px solid #dae7e6;
+}
+
+.oe-panel--opportunity .oe-panel__title,
+.oe-panel--impact .oe-panel__title,
+.oe-panel--support .oe-panel__title {
+  color: #019591;
+  font-weight: 700;
+}
+
+.oe-panel--impact .oe-panel__icon,
+.oe-panel--support .oe-panel__icon {
+  width: 44px;
+  height: 44px;
+  filter: none;
+  opacity: 1;
+}
+
+.oe-panel--opportunity .oe-panel__icon {
+  width: 52px;
+  height: 52px;
+  filter: none;
+  opacity: 1;
+}

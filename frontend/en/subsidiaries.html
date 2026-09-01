@@ -13,7 +13,7 @@
   <title>Subsidiaries — Annual Report 2025</title>
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
-  <link rel="preload" as="image" href="assets/appendix-hero-bg.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/su-hero.png" fetchpriority="high" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -134,8 +134,8 @@
     <section class="c-hero c-hero--appendix" aria-labelledby="subs-hero-title">
       <div class="c-hero__overlay"></div>
       <div class="c-hero__image-wrapper">
-        <img src="assets/appendix-hero-bg.png" class="c-hero__img" alt="Real Estate Development Fund"
-          fetchpriority="high" />
+        <img style="transform: scaleX(-1) rotate(180deg);" src="assets/su-hero.png" class="c-hero__img"
+          alt="Real Estate Development Fund" fetchpriority="high" />
       </div>
       <div class="container h-100">
         <div class="c-hero__content">
@@ -265,7 +265,7 @@
       </div>
 
       <ul class="footer__index" aria-label="Report contents">
-        <li><a class="nav__link" href="en/index.html">Home</a></li>
+        <li><a class="nav__link" href="en/home.html">Home</a></li>
 
         <li class="dropdown">
           <a class="nav__link" href="en/introduction.html">Presentation<span class="arrow">▼</span></a>
@@ -344,31 +344,6 @@
   </footer>
 
 
-
-
-  <ul class="actions-box">
-    <li class="action-box">
-      <a href="en/executive-summary.html" aria-label="Previous page">
-        <img src="assets/arrow-left.svg" alt="" />
-      </a>
-    </li>
-    <li class="action-box">
-      <a href="en/contact.html" aria-label="Next page">
-        <img src="assets/arrow-right.svg" alt="" />
-      </a>
-    </li>
-    <li class="action-box">
-      <a href="#" aria-label="Add to my report">
-        <img src="assets/file.svg" alt="" />
-      </a>
-    </li>
-    <li class="action-box">
-      <a href="#" aria-label="Downloads center">
-        <img src="assets/files.svg" alt="" />
-      </a>
-    </li>
-  </ul>
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
@@ -379,9 +354,9 @@
       if (curtain && !curtain.classList.contains("is-done")) curtain.classList.add("is-done");
     }, 1800);
   </script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
   <script src="js/animations.js?v=2"></script>
-  <script src="js/actions.js"></script>
+  <script src="js/actions.js?v=3"></script>
 </body>
 
 </html>

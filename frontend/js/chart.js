@@ -186,14 +186,31 @@ const alwaysShowProgramValues = {
 };
 
 
+const balanceMobileYAxis = {
+    id: 'balanceMobileYAxis',
+    afterLayout(chart) {
+        if (window.innerWidth >= 768 || chart.$yAxisBalanced) return;
+        const yWidth = chart.scales.y && chart.scales.y.width;
+        if (!yWidth) return;
+        const padding = typeof chart.options.layout.padding === 'object'
+            ? chart.options.layout.padding
+            : {};
+        chart.options.layout.padding = { ...padding, right: yWidth };
+        chart.$yAxisBalanced = true;
+        chart.update('none');
+    },
+};
+
 function createChart(target, actual, id) {
     const ele = document.getElementById(id);
     if (!ele)
         return;
 
+    const isMobileChart = window.innerWidth < 768;
+
     const chart = new Chart(ele, {
         type: 'bar',
-        plugins: [alwaysShowValues], // ✅ تفعيل الـ Plugin هنا
+        plugins: [alwaysShowValues, balanceMobileYAxis],
         data: {
             labels: years,
             datasets: [
@@ -234,6 +251,11 @@ function createChart(target, actual, id) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    right: 0,
+                },
+            },
             animation: { duration: 1400, easing: 'easeOutQuart' },
             // Every bar's top starts pinned to the y=0 baseline and grows up
             // to its value, so the bars (and their counting labels) clearly
@@ -282,10 +304,11 @@ function createChart(target, actual, id) {
                     },
                     ticks: {
                         stepSize: 10,
-                        font: { size: 10 },
+                        font: { size: isMobileChart ? 9 : 10 },
                         color: '#fff',
-                        padding: 0,
+                        padding: isMobileChart ? 4 : 0,
                         callback: function (value) {
+                            if (isMobileChart) return value;
                             return isAR ? "   " + value : value + "   ";
                         }
                     }

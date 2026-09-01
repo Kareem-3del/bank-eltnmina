@@ -11,6 +11,10 @@
   --es1-max: 1528px;
 }
 
+.es1-banner-subsidiaries img {
+  object-position: top;
+}
+
 .es1-page {
   font-family: "Cairo", "Almarai", sans-serif;
   background: #ffffff;
@@ -167,7 +171,6 @@
   height: 100%;
 }
 
-
 .es1-board--financial .es1-board__panel {
   background: var(--es1-teal);
   padding: clamp(20px, 3vw, 32px) clamp(16px, 2.5vw, 24px) clamp(32px, 4vw, 48px);
@@ -234,9 +237,15 @@
   line-height: 24px;
   color: #ffffff;
   text-align: right;
+  /* text-align-last: right; */
   direction: rtl;
-  unicode-bidi: plaintext;
   width: 100%;
+}
+
+.es1-board--financial .es1-stat__desc .num {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline;
 }
 
 .es1-board--financial .es1-stat__desc .riyal {
@@ -290,7 +299,7 @@
 .es1-board--hr .es1-board__panel {
   background: var(--es1-teal);
   border: 1px solid #8dcfc5;
-  padding: clamp(24px, 3vw, 36px) clamp(20px, 2.5vw, 28px);
+  padding: clamp(24px, 3vw, 36px) 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -310,38 +319,56 @@
 /* First column — evenly spaced, vertically centered rows */
 .es1-board--hr .es1-board__col:first-child .es1-board__panel {
   justify-content: center;
+  padding-right: clamp(32px, 5vw, 52px);
+  --es1-hr-num-fs: clamp(32px, 8vw, 50px);
+  --es1-hr-unit-fs: clamp(16px, 4vw, 20px);
+  --es1-hr-fig-gap: 0.45em;
+  --es1-hr-fig-w: calc(var(--es1-hr-num-fs) * 4.05);
 }
 
 .es1-board--hr .es1-board__col:first-child .es1-stat {
+  display: grid;
+  grid-template-columns: var(--es1-hr-fig-w) minmax(0, 1fr);
+  grid-template-rows: auto;
+  column-gap: clamp(12px, 1.75vw, 20px);
   align-items: center;
+  direction: rtl;
   min-width: 0;
 }
 
 .es1-board--hr .es1-board__col:first-child .es1-stat__figure {
-  display: flex;
-  flex-direction: row;
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1.35em 2.25em;
+  column-gap: var(--es1-hr-fig-gap);
+  font-size: var(--es1-hr-num-fs);
+  width: var(--es1-hr-fig-w);
+  max-width: var(--es1-hr-fig-w);
   align-items: center;
-  align-self: center;
-  flex: 0 0 auto;
-  width: auto;
-  column-gap: 0.35em;
-  direction: ltr;
+  direction: rtl;
+  padding-inline-start: clamp(10px, 1.75vw, 16px);
+  unicode-bidi: isolate;
+  white-space: nowrap;
 }
 
 .es1-board--hr .es1-board__col:first-child .es1-stat__unit {
-  flex: 0 0 3.5em;
-  order: 1;
-  text-align: end;
-  align-self: center;
+  grid-column: 2;
+  font-size: var(--es1-hr-unit-fs);
+  width: auto;
+  flex: none;
+  text-align: start;
+  justify-self: start;
+  white-space: nowrap;
 }
 
 .es1-board--hr .es1-board__col:first-child .es1-stat__num {
-  flex: 0 0 2.55em;
-  width: 2.55em;
-  order: 2;
-  text-align: start;
-  align-self: center;
-  font-variant-numeric: tabular-nums;
+  grid-column: 1;
+  font-size: 1em;
+  width: auto;
+  flex: none;
+  text-align: center;
+  justify-self: center;
 }
 
 .es1-board--hr .es1-stat {
@@ -364,6 +391,7 @@
   flex: 0 0 auto;
   gap: 0.35em;
   direction: rtl;
+  unicode-bidi: isolate;
   white-space: nowrap;
   line-height: 1;
 }
@@ -376,6 +404,9 @@
   color: #8dcfc5;
   letter-spacing: -0.02em;
   white-space: nowrap;
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
 }
 
 .es1-board--hr .es1-stat__num--tight {
@@ -395,6 +426,7 @@
 
 .es1-board--hr .es1-stat__figure:has(.es1-stat__unit--pct) {
   direction: ltr;
+  unicode-bidi: isolate;
   align-items: center;
   gap: 0;
   padding-inline: clamp(8px, 1.25vw, 16px);
@@ -414,12 +446,26 @@
   margin: 0;
   font-family: "Cairo", "Almarai", sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 24px;
   color: #ffffff;
   text-align: right;
   direction: rtl;
-  unicode-bidi: plaintext;
+}
+
+.es1-board--hr .es1-stat__desc .num {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline;
+}
+
+.es1-board--hr .es1-board__col:first-child .es1-stat__desc {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  min-width: 0;
+  justify-self: stretch;
+  align-self: center;
 }
 
 [dir="ltr"] .es1-board--hr .es1-board__panel,
@@ -591,7 +637,6 @@
   color: #8dcfc5;
   text-align: center;
   white-space: nowrap;
-  direction: ltr;
   unicode-bidi: isolate;
 }
 
@@ -660,8 +705,6 @@
 
 /* ------ Responsive ------------------------------------------------------- */
 @media (max-width: 1024px) {
-
-
   .c-hero--es1+.es1-banner {
     margin-top: 18px;
   }
@@ -705,13 +748,30 @@
     text-align: center;
     margin-inline: auto;
   }
+
+  /* Safari iOS: float animation + % heights stretch teal panels while scrolling */
+  .es1-board--financial .es1-board__col,
+  .es1-board--financial .es1-board__panel,
+  .es1-board--hr .es1-board__col {
+    height: auto;
+    min-height: 0;
+  }
+
+  .es1-board--financial .es1-board__panel {
+    flex: none;
+  }
+
+  .es1-board-wrap .anim-float-up,
+  .es1-board-wrap .anim-float-down {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 640px) {
   .es1-board--financial .es1-board__col {
     margin-top: 30px;
   }
-
 
   .es1-board-wrap {
     margin-bottom: 40px;
@@ -798,10 +858,5 @@
   .es1-board--hr .es1-stat__desc {
     font-size: clamp(15px, 3.5vw, 18px);
     line-height: 24px;
-  }
-
-  .es1-board--hr .es1-board__col:first-child .es1-stat__num {
-    flex-basis: 2.55em;
-    width: 2.55em;
   }
 }

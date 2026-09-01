@@ -1,0 +1,239 @@
+body {
+    background: #fff;
+}
+
+.h2-title {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #00BCB2;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.anly-block {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.anly-block.colored {
+    background: #F2F9F9;
+}
+
+.anly-block h3 {
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 32px;
+    text-align: center;
+    color: #00BCB2;
+}
+
+.desc-dark {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    color: #5E7278;
+}
+
+.anly-block .desc-top {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 32px;
+    text-align: center;
+    color: #00BCB2;
+}
+
+.anly-block .desc-bottom {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    color: #00BCB2;
+}
+
+.anly-block .icon-dev {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icon-dev .icon {
+    position: relative;
+}
+
+.icon-dev .icon svg {
+    position: relative;
+    z-index: 999;
+}
+
+.icon-dev .icon::after {
+    content: "";
+    position: absolute;
+    height: 43px;
+    width: 53px;
+    bottom: 16px;
+    background: #C1E4E2;
+}
+
+.icon-dev .num {
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 32px;
+    color: #00BCB2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.num-desc {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 32px;
+    color: #00BCB2;
+}
+
+@media(min-width:1025px) {
+    .anly-block .content {
+        max-width: 440px;
+        flex-shrink: 0;
+    }
+}
+
+/* ========================================== */
+/*  تحسينات التابلت والموبايل مع خطوط أصغر    */
+/* ========================================== */
+
+/* أجهزة التابلت (Tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .anly-block {
+        padding: 1rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .anly-block .content {
+        max-width: 350px;
+        flex-shrink: 0;
+    }
+
+    .icon-dev .num {
+        font-size: 42px;
+    }
+}
+
+/* الهواتف المحمولة (Phones) - خطوط أصغر وتصميم مرتب */
+@media (max-width: 767px) {
+    .h2-title {
+        font-size: 22px;
+        line-height: 26px;
+        margin-bottom: 1rem;
+    }
+
+    .anly-block {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0.8rem 1rem;
+        gap: 1rem;
+    }
+
+    .anly-block .content {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .anly-block h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .desc-dark {
+        font-size: 10px;
+        line-height: 20px;
+    }
+
+    .anly-block .desc-top {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .anly-block .desc-bottom {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .icon-dev {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .icon-dev .icon::after {
+        height: 35px;
+        width: 42px;
+        bottom: 10px;
+    }
+
+    .icon-dev .num {
+        font-size: 32px;
+        line-height: 28px;
+    }
+
+    .num-desc {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+
+.qt-title {
+    font-size: 34px;
+    line-height: 28px;
+    color: #5E7278;
+    margin-bottom: 2rem;
+}
+
+.qt-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.qt-wrapper>div {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 90px;
+    background: #D6EEED;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 28px;
+    color: #0FB9B2;
+}
+
+.qt-wrapper>div:first-child {
+    background-color: #0FB9B2;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+@media(max-width:767px) {
+    .qt-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .qt-wrapper>div {
+        font-weight: 700;
+        font-size: 24px !important;
+        line-height: 28px;
+        flex-basis: 40%;
+    }
+
+    .qt-wrapper>div:first-of-type {
+        flex-basis: 100%;
+    }
+}
