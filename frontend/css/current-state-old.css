@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #008A85 0%, #0E7C78 100%);
+    background: linear-gradient(135deg, #01938E 0%, #0E7C78 100%);
 }
 
 .org-sec-title_title {
@@ -32,7 +32,7 @@
     font-size: 36px;
     line-height: 40px;
     letter-spacing: -0.54px;
-    color: #008A85;
+    color: #01938E;
 }
 
 /* list */
@@ -154,7 +154,7 @@
     line-height: 24px;
     letter-spacing: 0px;
     text-align: center;
-    background: linear-gradient(135deg, #008A85 0%, #007974 100%);
+    background: linear-gradient(135deg, #01938E 0%, #007974 100%);
     box-shadow: 0px 4px 20px -8px rgba(0, 121, 116, 0.18);
     color: #FFF;
 }
@@ -286,7 +286,7 @@
 .level-arrow__box {
     height: 8px;
     width: 8px;
-    background: #008A85;
+    background: #01938E;
 }
 
 .divider-line-hr {
@@ -312,7 +312,7 @@
     background: #FFF;
     padding: 24px;
     box-shadow: 0px 4px 20px -8px rgba(0, 121, 116, 0.18);
-    border-top: 4px solid #008A85;
+    border-top: 4px solid #01938E;
 }
 
 .user-box .org-sec-title__box {
@@ -331,7 +331,7 @@
     font-size: 48px;
     line-height: 48px;
     letter-spacing: -1.2px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .user-content p {
@@ -364,7 +364,7 @@
 
 /* 3. الجزء المتحرك (الـ Handle) */
 .table-container::-webkit-scrollbar-thumb {
-    background: var(--main-color, #008A85);
+    background: var(--main-color, #01938E);
     /* استخدام لونك الأساسي */
     border-radius: 10px;
     border: 2px solid #F1F5F5;
@@ -380,7 +380,7 @@
 .table-container {
     scrollbar-width: thin;
     /* جعل الـ scroll نحيفاً */
-    scrollbar-color: var(--main-color, #008A85) #F1F5F5;
+    scrollbar-color: var(--main-color, #01938E) #F1F5F5;
     /* (لون الـ thumb) (لون الـ track) */
 }
 
@@ -402,7 +402,7 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.24px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .table-header p {
@@ -435,7 +435,7 @@
 
 .table-col:not(:last-child) .t-body::after {
 
-    background: #00948F;
+    background: #01938E;
 }
 
 .table-col>div {
@@ -452,7 +452,7 @@
 
 .table-col .head {
     height: 105px;
-    background: #00948F;
+    background: #01938E;
     color: #fff;
     font-size: 10px;
 }
@@ -483,7 +483,7 @@
 /* banner-sec */
 .banner-sec {
     padding: 52px;
-    background: #00948F;
+    background: #01938E;
     box-shadow: 0px 24px 60px -20px rgba(0, 121, 116, 0.28);
     display: flex;
     flex-direction: column;
@@ -525,7 +525,7 @@
     background: #FFF;
     padding: 1.5rem;
     box-shadow: 0px 0.25rem 1.25rem -0.5rem rgba(0, 121, 116, 0.18);
-    border-inline-start: 0.25rem solid #008A85;
+    border-inline-start: 0.25rem solid #01938E;
     font-weight: 400;
     font-size: clamp(0.8125rem, 2vw, 0.9375rem);
     line-height: 2.13;
@@ -534,7 +534,7 @@
 
 .budget-top span {
     font-weight: 700;
-    color: #008A85;
+    color: #01938E;
 }
 
 .budget-middle {
@@ -588,7 +588,7 @@
 }
 
 .budget-middle>div:first-child {
-    background-color: #008A85;
+    background-color: #01938E;
 }
 
 .budget-middle>div:last-child {
@@ -645,7 +645,7 @@
     line-height: 24px;
     letter-spacing: 0px;
     margin-top: 16px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .chart-note {
@@ -681,7 +681,7 @@
 }
 
 .legend-item:first-child .legend-dot {
-    background: #008A85;
+    background: #01938E;
 }
 
 .legend-item:last-child .legend-dot {
@@ -696,7 +696,7 @@
     display: flex;
     align-items: center;
     padding: 8px 24px;
-    background-color: #008A85;
+    background-color: #01938E;
     justify-content: space-between;
 }
 
@@ -753,7 +753,7 @@
 
 .flex-table .row-1,
 .flex-table .row-4 {
-    background: #008A85;
+    background: #01938E;
 }
 
 .flex-table .row-2 {
@@ -941,7 +941,7 @@
         left: 50%;
         width: 2px;
         height: 40px;
-        background: linear-gradient(180deg, #008A85 0%, transparent 100%);
+        background: linear-gradient(180deg, #01938E 0%, transparent 100%);
     }
 
     /* إلغاء الخط لآخر عنصر */

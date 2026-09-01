@@ -1,0 +1,272 @@
+/* الملاحق — الشركات التابعة (shared with subsidiaries.html) */
+
+/* —— الترويسة —— */
+.c-hero--appendix .c-hero__overlay {
+  background: linear-gradient(76.95deg, rgba(0, 188, 178, 0.9) 47.81%, rgba(209, 239, 237, 0.9) 102.62%);
+}
+
+.c-hero--appendix .c-hero__title {
+  max-width: 100%;
+  font-size: clamp(40px, 6vw, 65px);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.c-hero__title-sub {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: clamp(26px, 4vw, 45px);
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+/* —— قسم الركائز الاستراتيجية —— */
+.appx-goals {
+  padding-block: clamp(40px, 6vw, 72px);
+  background-color: var(--bg-main);
+}
+
+.appx-goals__header {
+  max-width: 760px;
+  margin: 0 auto clamp(32px, 5vw, 48px);
+  text-align: center;
+}
+
+.appx-goals__kicker {
+  margin: 0 0 8px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.appx-goals__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.appx-goals__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx-goals__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 205px;
+  padding: 28px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(212, 225, 223, 0.7);
+  box-shadow: 0px 1px 2px rgba(63, 108, 110, 0.05), 0px 18px 40px -24px rgba(20, 113, 117, 0.35);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.appx-goals__card-title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx-goals__card-list {
+  margin: 0;
+  padding-inline-start: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: disc;
+}
+
+.appx-goals__card-list li {
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 15.2px;
+  line-height: 1.6;
+  color: #404345;
+}
+
+.appx-goals__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(32px, 5vw, 48px);
+}
+
+.appx-goals--cta-only {
+  padding-top: 0;
+}
+
+.appx-goals--cta-only .appx-goals__cta {
+  margin-top: 0;
+}
+
+/* —— قسم عن الشركة (رؤيتنا / رسالتنا) —— */
+.appx-about {
+  padding-top: clamp(40px, 6vw, 72px);
+  background-color: var(--bg-main);
+}
+
+.appx-about__header {
+  max-width: 1252px;
+  margin: 0 auto 20px;
+}
+
+.appx-about__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx-about__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 28px;
+  text-align: center;
+  background: linear-gradient(147deg, #ffffff 0%, #f3fbfc 100%);
+  border: 1px solid rgba(223, 244, 246, 0.6);
+  box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
+}
+
+.appx-about__icon {
+  width: auto;
+  height: clamp(72px, 10vw, 110px);
+  object-fit: contain;
+}
+
+.appx-about__card-title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx-about__card-desc {
+  margin: 0;
+  max-width: 46ch;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #5f5b5c;
+}
+
+/* —— قسم خدماتنا —— */
+.appx-services {
+  padding-block: clamp(40px, 6vw, 72px);
+  background-color: var(--bg-main);
+}
+
+.appx-services__header {
+  max-width: 760px;
+  margin: 0 auto clamp(32px, 5vw, 48px);
+  text-align: center;
+}
+
+.appx-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx-services__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.appx-services__icon {
+  width: auto;
+  height: clamp(64px, 8vw, 91px);
+  object-fit: contain;
+}
+
+.appx-services__card-title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 24px);
+  color: #ffffff;
+}
+
+.appx-services__card-list {
+  margin: 0;
+  padding-inline-start: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: disc;
+  text-align: start;
+}
+
+.appx-services__card-list li {
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Deliberate exception to the sharp-corners rule: this CTA reuses the
+   site's --radius-pill token, matching approved nav/badge pill usage. */
+.btn--pill {
+  border-radius: var(--radius-pill, 9999px);
+  background: #d1efed;
+  color: var(--c-primary-container, #00bcb2);
+  border-color: transparent;
+}
+
+.btn--pill:hover {
+  background: var(--c-primary-container, #00bcb2);
+  color: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .appx-goals__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .appx-services__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 720px) {
+  .appx-about__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 560px) {
+  .appx-goals__grid {
+    grid-template-columns: 1fr;
+  }
+}

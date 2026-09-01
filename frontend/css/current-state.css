@@ -50,7 +50,7 @@ h2.org-sec-title_title {
 
 .org-sec-list-title h2.org-sec-title_title,
 .banner-section h2.org-sec-title_title {
-    color: #009892 !important;
+    color: #00BCB4 !important;
 }
 
 /* list */
@@ -167,7 +167,7 @@ h3.crr-aside__list-tile {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0px;
-    color: #009892 !important;
+    color: #00BCB4 !important;
 }
 
 [dir="ltr"] .org-aside .crr-aside__list-item {
@@ -233,7 +233,7 @@ h3.crr-aside__list-tile {
 
 .ot-card {
     background: #fff;
-    color: #009892;
+    color: #00BCB4;
     font-weight: 700;
     font-size: 15px;
     line-height: 1.4;
@@ -330,7 +330,7 @@ h3.crr-aside__list-tile {
 .ot-num {
     flex: none;
     min-width: 20px;
-    color: #009892;
+    color: #00BCB4;
     font-weight: 800;
     font-size: 12px;
 }
@@ -441,7 +441,7 @@ h3.crr-aside__list-tile {
     text-align: center;
     background: #fff;
     box-shadow: 0px 4px 20px -8px rgba(0, 121, 116, 0.18);
-    color: #009892;
+    color: #00BCB4;
     min-width: 240px;
 }
 
@@ -455,7 +455,7 @@ h3.crr-aside__list-tile {
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;
-    color: #009892;
+    color: #00BCB4;
     width: 270px;
     z-index: 999;
 }
@@ -774,7 +774,7 @@ h3.crr-aside__list-tile {
     background: #FFF;
     padding: 24px;
     box-shadow: 0px 4px 20px -8px rgba(0, 121, 116, 0.18);
-    border-top: 4px solid #008A85;
+    border-top: 4px solid #01938E;
 }
 
 .user-box .org-sec-title__box {
@@ -793,7 +793,7 @@ h3.crr-aside__list-tile {
     font-size: 48px;
     line-height: 48px;
     letter-spacing: -1.2px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .user-content p {
@@ -826,7 +826,7 @@ h3.crr-aside__list-tile {
 
 /* 3. الجزء المتحرك (الـ Handle) */
 .table-container::-webkit-scrollbar-thumb {
-    background: var(--main-color, #008A85);
+    background: var(--main-color, #01938E);
     /* استخدام لونك الأساسي */
     border-radius: 10px;
     border: 2px solid #F1F5F5;
@@ -842,7 +842,7 @@ h3.crr-aside__list-tile {
 .table-container {
     scrollbar-width: thin;
     /* جعل الـ scroll نحيفاً */
-    scrollbar-color: var(--main-color, #008A85) #F1F5F5;
+    scrollbar-color: var(--main-color, #01938E) #F1F5F5;
     /* (لون الـ thumb) (لون الـ track) */
 }
 
@@ -864,7 +864,7 @@ h3.crr-aside__list-tile {
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.24px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .table-header p {
@@ -897,7 +897,7 @@ h3.crr-aside__list-tile {
 
 .table-col:not(:last-child) .t-body::after {
 
-    background: #00948F;
+    background: #01938E;
 }
 
 .table-col>div {
@@ -914,7 +914,7 @@ h3.crr-aside__list-tile {
 
 .table-col .head {
     height: 105px;
-    background: #00948F;
+    background: #01938E;
     color: #fff;
     font-size: 10px;
 }
@@ -945,7 +945,7 @@ h3.crr-aside__list-tile {
 /* banner-sec */
 .banner-sec {
     padding: 52px;
-    background: #00948F;
+    background: #01938E;
     box-shadow: 0px 24px 60px -20px rgba(0, 121, 116, 0.28);
     display: flex;
     flex-direction: column;
@@ -990,7 +990,7 @@ h3.crr-aside__list-tile {
     /* background: #FFF;
     padding: 1.5rem;
     box-shadow: 0px 0.25rem 1.25rem -0.5rem rgba(0, 121, 116, 0.18);
-    border-inline-start: 0.25rem solid #008A85;
+    border-inline-start: 0.25rem solid #01938E;
     font-weight: 400;
     font-size: clamp(0.8125rem, 2vw, 0.9375rem);
     line-height: 2.13;
@@ -999,7 +999,7 @@ h3.crr-aside__list-tile {
 
 .budget-top span {
     font-weight: 700;
-    color: #008A85;
+    color: #01938E;
 }
 
 .budget-middle {
@@ -1053,7 +1053,7 @@ h3.crr-aside__list-tile {
 }
 
 .budget-middle>div:first-child {
-    background-color: #008A85;
+    background-color: #01938E;
 }
 
 .budget-middle>div:last-child {
@@ -1110,7 +1110,7 @@ h3.crr-aside__list-tile {
     line-height: 24px;
     letter-spacing: 0px;
     margin-top: 16px;
-    color: #008A85;
+    color: #01938E;
 }
 
 .chart-note {
@@ -1146,7 +1146,7 @@ h3.crr-aside__list-tile {
 }
 
 .legend-item:first-child .legend-dot {
-    background: #008A85;
+    background: #01938E;
 }
 
 .legend-item:last-child .legend-dot {
@@ -1161,7 +1161,7 @@ h3.crr-aside__list-tile {
     display: flex;
     align-items: center;
     padding: 8px 24px;
-    background-color: #008A85;
+    background-color: #01938E;
     justify-content: space-between;
 }
 
@@ -1218,7 +1218,7 @@ h3.crr-aside__list-tile {
 
 .flex-table .row-1,
 .flex-table .row-4 {
-    background: #008A85;
+    background: #01938E;
 }
 
 .flex-table .row-2 {
@@ -1269,11 +1269,11 @@ h3.crr-aside__list-tile {
 }
 
 .budget-sec .org-sec-title__box {
-    background: #009892;
+    background: #00BCB4;
 }
 
 .budget-sec h2.org-sec-title_title {
-    color: #009892 !important;
+    color: #00BCB4 !important;
 }
 
 .budget-sec .org-sec-title {

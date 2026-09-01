@@ -96,7 +96,7 @@
     font-weight: 700;
     font-size: 14px;
     background: #BFE4E3;
-    color: #008A85;
+    color: #01938E;
     padding: 4px 16px;
     width: fit-content;
     min-width: 82px;
@@ -113,7 +113,7 @@
 }
 
 .chart-sec .left .box {
-    background-color: #008A85;
+    background-color: #01938E;
     color: #FFF;
 }
 
@@ -134,7 +134,7 @@
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0px;
-    color: #008A85;
+    color: #01938E;
 } */
 
 @media (max-width: 768px) {
@@ -191,7 +191,7 @@
     margin-top: 2rem;
     padding: clamp(1.25rem, 4vw, 2rem);
     box-shadow: 0px 20px 60px -25px rgba(0, 91, 85, 0.35);
-    background: #008A85;
+    background: #01938E;
 }
 
 .progress-sec .stack {
@@ -317,7 +317,7 @@
     font-weight: 800;
     letter-spacing: 0px;
     text-align: center;
-    color: #008A85;
+    color: #01938E;
     margin: auto;
     margin-bottom: 4rem;
     max-width: 900px;
@@ -351,7 +351,7 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: 0px;
-    color: #008A85 !important
+    color: #01938E !important
 }
 
 .boxes-sec .box .desc {
@@ -383,7 +383,7 @@
 }
 
 .boxes-sec .box:first-child .bottom {
-    background: #008A85;
+    background: #01938E;
     padding: 24px;
 }
 
@@ -517,7 +517,7 @@
 
 /* banner-sec */
 .banner-sec .box {
-    /* background: #008A85; */
+    /* background: #01938E; */
     display: flex;
     align-items: center;
     justify-content: center;

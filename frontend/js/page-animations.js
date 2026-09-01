@@ -835,9 +835,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* ------ Every other counter on the page — loop count + pulse -------- */
+    // Hero and banner-stat counters are wired above by their own dedicated
+    // init functions (they use a purpose-built .counter-title__pulse /
+    // .banner-stat__pulse wrapper for the scale animation). Every remaining
+    // [data-counter-loop] on the page — the KPI card/bar values and the
+    // smaller inline stat numbers in their description text — pulses the
+    // counter element itself instead, so numbers keep moving (count up,
+    // reset, count up again) rather than sitting still once scrolled into
+    // view.
+    function initRemainingCounterLoops() {
+        document.querySelectorAll("[data-counter-loop]").forEach((el, index) => {
+            if (el.closest(".hero-counter") || el.closest(".banner-stat__num")) return;
+
+            initCounterLoop({
+                el,
+                pulseEl: el,
+                triggerEl: el.closest(".kpi-card, .kpi-bar, .home-final-metric, .cta-strip") || el,
+                staggerDelay: (index % 8) * 0.12,
+            });
+        });
+    }
+
     document.fonts.ready.then(() => {
         initBannerStatCounterLoop();
         initHeroCounterLoops();
+        initRemainingCounterLoops();
         initKpiAchievementsImg();
     });
 
