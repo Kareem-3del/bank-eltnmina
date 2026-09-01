@@ -253,6 +253,12 @@
                 text: "رسالة الرئيس التنفيذي",
                 img: "chairman-message.webp",
                 caption: "رسالة من الرئيس التنفيذي"
+              },
+              {
+                href: "board-members.html",
+                text: "أعضاء مجلس الإدارة",
+                img: "board-hero.webp",
+                caption: "قيادة الصندوق العقاري"
               }
             ]
           },
@@ -387,6 +393,12 @@
                 text: "CEO's Message",
                 img: "chairman-message.webp",
                 caption: "A message from the CEO"
+              },
+              {
+                href: "board-members.html",
+                text: "Board of Directors",
+                img: "board-hero.webp",
+                caption: "REDF leadership"
               }
             ]
           },
