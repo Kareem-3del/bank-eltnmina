@@ -635,8 +635,8 @@ select {
 
 .nav__brand img {
   height: auto;
-  width: 160px;
-  max-width: 30vw;
+  width: 210px;
+  max-width: 34vw;
   filter: brightness(0) invert(1);
 }
 
@@ -851,8 +851,8 @@ html[lang="ar"] .nav__lang-switch::before {
   }
 
   .nav__brand img {
-    width: 122px;
-    max-width: 36vw;
+    width: 160px;
+    max-width: 42vw;
   }
 
   .nav__lang-switch,
