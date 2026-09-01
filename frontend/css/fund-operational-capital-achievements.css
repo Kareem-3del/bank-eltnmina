@@ -55,7 +55,7 @@ body {
     color: #00BCB2;
 }
 
-.anly-block .icon-dev {
+.icon-dev {
     display: flex;
     gap: 1rem;
     align-items: center;

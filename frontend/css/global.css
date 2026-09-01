@@ -1496,7 +1496,7 @@ html.lenis body {
   }
 
   .c-hero__content {
-    padding: 3rem 1rem;
+    /* padding: 3rem 1rem; */
 
     /* زيادة البادينج الجانبي */
     /* justify-content: flex-end; */
@@ -1504,8 +1504,8 @@ html.lenis body {
   }
 
   .c-hero__title {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 34px;
+    line-height: 40px;
   }
 
   .c-hero__desc {

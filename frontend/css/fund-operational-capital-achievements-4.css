@@ -1,0 +1,392 @@
+@media(min-width:1400px) {
+    .container {
+        padding: 0;
+    }
+}
+
+.sc-title {
+    margin-bottom: 1rem;
+}
+
+.sc-title__title {
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 48px);
+    /* حجم مرن يتغير تلقائياً حسب حجم الشاشة */
+    line-height: 1.2;
+    color: #00BCB2;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.sc-title__dec {
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 25px);
+    /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
+    line-height: 1.6;
+    color: #00BCB2;
+    text-align: justify;
+}
+
+/* women table */
+.women-table-container h3 {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+    color: #00BCB2;
+    margin: 16px 0;
+}
+
+.women-table-head {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(94.05deg, #1D7C79 0%, #30A69E 100%);
+}
+
+.women-table-head h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #FFF;
+}
+
+.women-table {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-shadow: 0px 2px 12px -4px rgba(31, 71, 71, 0.08);
+
+}
+
+.women-table::-webkit-scrollbar {
+    display: none;
+}
+
+.women-row {
+    display: flex;
+    min-width: 1240px;
+}
+
+.women-row:nth-of-type(even) {
+    background-color: #FFF;
+}
+
+.women-row>div {
+    flex: 1;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid #fff;
+    border-top: 0;
+    letter-spacing: 0px;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 25px;
+    text-align: center;
+    color: #66C7C2;
+}
+
+.women-row>div span {
+
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+.t-body.women-row>div {
+    height: 280px;
+    color: #66C7C2;
+}
+
+
+.women-row>div:first-child {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
+.t-body.women-row>div:first-child {
+    color: #FFF;
+    background: #9CD7D4 !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+}
+
+.t-body .item {
+    display: flex;
+    gap: 4px;
+    text-align: start;
+}
+
+.t-body .item::before {
+    content: "";
+    flex-shrink: 0;
+    transform: translateY(6px);
+    width: 12px;
+    height: 12px;
+    background: #D9D9D9;
+}
+
+.t-body span {
+    font-weight: 800 !important;
+    text-align: start !important;
+    font-size: 13px !important;
+    line-height: 21px !important;
+    color: #66C7C2 !important;
+}
+
+.t-body .num {
+    font-size: 21px !important;
+    display: block;
+}
+
+.women-row.t-body>div:nth-child(odd) {
+    background: #DFF2F1;
+}
+
+.women-row.t-body:last-child>div:nth-child(even) {
+    background: #DFF2F1;
+}
+
+.women-row.t-body:last-child>div:nth-child(odd) {
+    background: #fff;
+}
+
+
+.women-row.tb-head>div {
+    background-color: #66C7C2;
+    color: #FFF;
+}
+
+.women-row.tb-head>div:first-child {
+    background: #03B9B2;
+}
+
+.women-table .main {
+    color: #1D7C79;
+}
+
+.women-row .stack {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0px;
+    text-align: center;
+    gap: 32px;
+    justify-content: start;
+    padding-top: 16px;
+}
+
+.women-row .stack span {
+    font-size: 7px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #008A85;
+}
+
+
+.women-table-container p {
+    font-weight: 400;
+    font-size: clamp(0.9375rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    letter-spacing: 0px;
+    color: var(--text-color);
+    margin-top: clamp(1rem, 4vh, 2rem);
+}
+
+.women-row .item {
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    line-height: 25px !important;
+    color: #66C7C2;
+}
+
+.women-row .item ._num {
+    font-weight: 800 !important;
+    font-size: 21px !important;
+}
+
+/* --- تعديلات إضافية للموبايل --- */
+@media (max-width: 768px) {
+    .women-table-container p {
+        text-align: center;
+        /* توسيط النص في الشاشات الصغيرة يعطي توازناً أفضل */
+        padding: 0 1rem;
+        /* إضافة مساحة جانبية لكي لا يلتصق النص بحواف الشاشة */
+    }
+}
+
+/* --- Responsive Updates --- */
+
+@media (max-width: 1100px) {
+
+    .women-sec .wrap .women-table-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* تصغير العناوين الضخمة لتناسب الموبايل */
+
+    /* تحسين شكل جدول النساء في الموبايل */
+    .women-table-head {
+        padding: 1rem;
+    }
+
+    .women-table-head h3 {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .women-row>div {
+        padding: 12px 8px;
+        /* تقليل البادينج الداخلي للجدول */
+        font-size: 11px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.wrapper .image {
+    position: relative;
+    flex-basis: 240px;
+    flex-shrink: 0;
+}
+
+.wrapper .image img {
+    position: relative;
+    z-index: 999;
+}
+
+
+.wrapper .image::after {
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: #D0E9E8;
+    inset-inline-end: -25px;
+    bottom: 20px;
+}
+
+@media(min-width:1025px) {
+    .wrapper {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+    }
+}
+
+@media(max-width:768px) {
+    .wrapper .image::after {
+        height: 250px;
+        width: 250px;
+        inset-inline-end: -10px;
+        bottom: 10px;
+    }
+}
+
+/* housing-sec */
+.housing-sec h2 {
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    color: #5E7278;
+    font-size: clamp(20px, 3vw, 28px);
+    /* حجم مرن للنص العادي داخل الـ h2 */
+}
+
+.housing-sec h2 span {
+    font-size: clamp(45px, 8vw, 75px);
+    /* حجم مرن للرقم البارز */
+    display: inline-block;
+    line-height: 1;
+}
+
+.housing-steps {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.step {
+    flex: 1;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-title {
+    font-weight: 700;
+    font-size: clamp(18px, 2.5vw, 25px);
+    line-height: 1.3;
+    color: #0FB9B2;
+}
+
+.step-desc {
+    font-weight: 400;
+    font-size: clamp(15px, 2vw, 25px);
+    line-height: 1.5;
+    color: #5E7278;
+}
+
+/* ========================================== */
+/*  تحسينات الاستجابة للتابلت والموبايل      */
+/* ========================================== */
+
+/* أجهزة التابلت (Tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .housing-steps {
+        gap: 1.5rem;
+    }
+
+    .step {
+        gap: 15px;
+    }
+}
+
+/* الهواتف المحمولة (Phones) أقل من 768px */
+@media (max-width: 767px) {
+    .housing-sec h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    .housing-steps {
+        flex-direction: column;
+        /* تحويل الخطوات لتصبح عمودية تحت بعضها */
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    .step {
+        gap: 10px;
+        text-align: center;
+        /* توسيط المحتوى في الموبايل ليبدو أكثر ترتيباً */
+    }
+
+    .step-num {
+        display: flex;
+        justify-content: center;
+    }
+
+    .step-desc {
+        text-align: center;
+        /* محاذاة وصف الخطوة بشكل مريح للقراءة */
+    }
+}
