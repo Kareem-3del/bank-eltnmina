@@ -33,6 +33,13 @@ body {
     text-align: justify;
 }
 
+.sc-title__subtitle {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 31px;
+    color: #03B9B2;
+}
+
 .anly-block {
     padding: 1rem 2rem;
     display: flex;

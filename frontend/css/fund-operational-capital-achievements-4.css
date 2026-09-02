@@ -215,6 +215,11 @@
 
 /* --- تعديلات إضافية للموبايل --- */
 @media (max-width: 768px) {
+
+    .women-row img {
+        max-width: 60px;
+    }
+
     .women-table-container p {
         text-align: center;
         /* توسيط النص في الشاشات الصغيرة يعطي توازناً أفضل */
@@ -252,7 +257,7 @@
     .women-row>div {
         padding: 12px 8px;
         /* تقليل البادينج الداخلي للجدول */
-        font-size: 11px;
+        /* font-size: 11px; */
     }
 }
 

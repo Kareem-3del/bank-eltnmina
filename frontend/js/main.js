@@ -805,7 +805,7 @@
     document.body.appendChild(backToTopBtn);
 
     // متغير للتحكم في حالة ظهور الفوتر
-    let isFooterVisible = false;
+    let isFooterVisible = yes;
 
     // 3. مراقبة حركة السكرول لإظهار/إخفاء الزر بناءً على الارتفاع والفوتر
     window.addEventListener("scroll", () => {
