@@ -805,12 +805,13 @@
     document.body.appendChild(backToTopBtn);
 
     // متغير للتحكم في حالة ظهور الفوتر
-    let isFooterVisible = yes;
+    let isFooterVisible;
 
     // 3. مراقبة حركة السكرول لإظهار/إخفاء الزر بناءً على الارتفاع والفوتر
     window.addEventListener("scroll", () => {
       // يظهر الزر فقط إذا تجاوز السكرول 300px ولم يصل المستخدم للفوتر بعد
-      if (window.scrollY > 300 && !isFooterVisible) {
+      // if (window.scrollY > 300 && !isFooterVisible) {
+      if (window.scrollY > 300) {
         backToTopBtn.classList.add("show");
       } else {
         backToTopBtn.classList.remove("show");
