@@ -136,6 +136,13 @@ body {
 /*  تحسينات التابلت والموبايل مع خطوط أصغر    */
 /* ========================================== */
 
+
+@media(max-width:768px) {
+    p.sc-title__dec {
+        text-align: start;
+    }
+}
+
 /* أجهزة التابلت (Tablets) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .anly-block {
