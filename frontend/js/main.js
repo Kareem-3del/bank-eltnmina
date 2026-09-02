@@ -259,6 +259,12 @@
                 text: "أعضاء مجلس الإدارة",
                 img: "board-hero.webp",
                 caption: "قيادة الصندوق العقاري"
+              },
+              {
+                href: "definitions.html",
+                text: "التعريفات",
+                img: "definitions-hero.webp",
+                caption: "المصطلحات الواردة في التقرير"
               }
             ]
           },
@@ -399,6 +405,12 @@
                 text: "Board of Directors",
                 img: "board-hero.webp",
                 caption: "REDF leadership"
+              },
+              {
+                href: "definitions.html",
+                text: "Definitions",
+                img: "definitions-hero.webp",
+                caption: "Terms used in the report"
               }
             ]
           },

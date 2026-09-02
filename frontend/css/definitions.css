@@ -1,0 +1,248 @@
+/* ==========================================================================
+   definitions.css — التعريفات / Definitions
+     · Figma: "Real Estate Fund — Website Sub-Pages" › definitions
+     · Two glossary tables (856px) each paired with a 288px image column,
+       sides alternating between the blocks.
+     · RTL-first — DOM order is reading order, so the mirror is wholesale
+       (CLAUDE.md) rather than per-component flipping.
+
+   NOTE ON CORNERS: the Figma frame specifies border-radius 6px on the table
+   shells and the images. That contradicts the sharp-corners rule in
+   DESIGN.md / CLAUDE.md ("every container, card, button, banner, table cell
+   … border-radius: 0"). The frame is followed here because it is the newer,
+   explicit spec for this page — flip --defs-radius to 0 to conform instead.
+   ========================================================================== */
+
+.defs {
+  --defs-teal: var(--c-primary-container, #00bcb2);
+  --defs-row-tint: #edf9f7;
+  --defs-hairline: rgba(91, 175, 167, 0.15);
+  --defs-ink: rgba(2, 6, 24, 0.8);
+  --defs-radius: 6px;
+  --defs-media-w: 288px;
+  --defs-gap: 32px;
+}
+
+/* Visually-hidden helper — the site has no global .sr-only, and the two
+   tables need distinguishable accessible names. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------ Section shell -------------------------------------------------- */
+
+.defs__section {
+  padding-block: clamp(48px, 7vw, 80px);
+  background: var(--c-bg, #fff);
+}
+
+.defs__header {
+  max-width: 768px;
+  margin-block-end: 40px;
+}
+
+.defs__title {
+  margin: 0 0 13px;
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 1.875rem); /* → 30px */
+  line-height: 1.2;
+  font-weight: var(--fw-bold, 700);
+  color: var(--defs-teal);
+}
+
+.defs__lede {
+  margin: 0;
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: var(--fw-regular, 400);
+  color: var(--defs-ink);
+}
+
+/* ------ Block: glossary table + image column --------------------------- */
+
+/* DOM order is the visual order at the reading edge, so block 1 leads with
+   the table and block 2 leads with the media — which mirrors correctly in
+   LTR without any direction-specific rules. */
+.defs__block {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--defs-gap);
+}
+
+.defs__block + .defs__block {
+  margin-block-start: 40px;
+}
+
+.defs__media {
+  flex: 0 0 var(--defs-media-w);
+  /* As a flex item its default min-width:auto is the images' intrinsic width,
+     which stops it shrinking and overflows the row once stacked — same reason
+     .defs__table-wrap needs it. */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+
+.defs__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--defs-radius);
+}
+
+/* ------ Glossary table ------------------------------------------------- */
+
+.defs__table-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid var(--defs-hairline);
+  border-radius: var(--defs-radius);
+  overflow: hidden; /* clips the header fill to the rounded shell */
+}
+
+.defs__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.defs__table th,
+.defs__table td {
+  text-align: start;
+  vertical-align: top;
+}
+
+.defs__table thead th {
+  padding: 16px 24px;
+  background: var(--defs-teal);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: var(--fw-bold, 700);
+  color: var(--c-on-primary, #fff);
+}
+
+/* Term cells are <th scope="row">, so these must cover th as well as td —
+   otherwise the term sits flush to the edge with no padding or row rule. */
+.defs__table tbody :is(th, td) {
+  padding: 20px 24px;
+  border-block-end: 1px solid var(--defs-hairline);
+}
+
+/* Zebra: the Figma tints the first row and every other one after it. */
+.defs__table tbody tr:nth-child(odd) {
+  background: var(--defs-row-tint);
+}
+
+.defs__table tbody tr:nth-child(even) {
+  background: var(--c-surface, #fff);
+}
+
+.defs__table tbody tr:last-child :is(th, td) {
+  border-block-end: 0;
+}
+
+.defs__term {
+  width: 240px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: var(--fw-bold, 700);
+  color: var(--defs-teal);
+}
+
+.defs__def {
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: var(--fw-regular, 400);
+  color: var(--defs-ink);
+}
+
+/* ------ Responsive ----------------------------------------------------- */
+
+/* Below the two-column threshold the image strip drops under its table and
+   runs horizontally, so the tiles stay visible instead of stretching tall. */
+@media (max-width: 1080px) {
+  /* align-items:flex-start is what keeps the table and media top-aligned as a
+     row; once the block stacks, that same value stops children stretching, so
+     the table sizes to its intrinsic (very wide) content and overflows. */
+  .defs__block {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .defs__media {
+    flex: none;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .defs__media img {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .defs__term {
+    width: 200px;
+  }
+}
+
+/* Narrow: the fixed 240px term column no longer fits beside a definition,
+   so each row becomes term-over-definition and the header is dropped
+   (its labels would be redundant once the columns are stacked). */
+@media (max-width: 620px) {
+  .defs__table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .defs__table,
+  .defs__table tbody,
+  .defs__table tr,
+  .defs__table td {
+    display: block;
+    width: auto;
+  }
+
+  .defs__table tbody :is(th, td) {
+    padding: 0 20px;
+    border-block-end: 0;
+  }
+
+  .defs__table tbody tr {
+    padding-block: 16px;
+    border-block-end: 1px solid var(--defs-hairline);
+  }
+
+  .defs__term {
+    width: auto;
+    padding-block-end: 4px;
+  }
+
+  .defs__def {
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 460px) {
+  .defs__media {
+    flex-direction: column;
+  }
+
+  .defs__lede {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}

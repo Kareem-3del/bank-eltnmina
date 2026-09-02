@@ -37,6 +37,11 @@
       href: "board-members.html",
     },
     {
+      nameAr: "التعريفات",
+      nameEn: "Definitions",
+      href: "definitions.html",
+    },
+    {
       nameAr: "الملخص التنفيذي 1",
       nameEn: "Executive Summary 1",
       href: "executive-summary-1.html",
