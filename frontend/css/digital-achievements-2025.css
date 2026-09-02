@@ -1,3 +1,12 @@
+.sc-title__dec {
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 22px);
+    /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
+    line-height: 1.8;
+    color: #00BCB2;
+    text-align: justify;
+}
+
 .wrap {
     display: flex;
     gap: 4rem;
@@ -673,5 +682,106 @@
 @media (max-width: 767px) {
     .srv-box-top h3 {
         max-width: 180px;
+    }
+}
+
+/* service-block */
+.service-block {
+    max-width: 830px;
+    margin: 48px auto;
+}
+
+
+@media (max-width: 767px) {
+    .service-block {
+        max-width: 830px;
+        margin: 16px auto;
+    }
+}
+
+
+/* .gov-sec */
+.gov-sec .sc-title__title {
+    margin-bottom: 2rem;
+}
+
+.gov-sec .image img {
+    width: 100%;
+}
+
+.lap {
+    display: none !important;
+}
+
+@media(min-width:981px) {
+    .lap {
+        display: flex !important;
+    }
+
+    .mob {
+        display: none !important;
+    }
+}
+
+/* gov-desc-sec */
+.gov-desc-sec .sc-title__title {
+    margin-bottom: 2rem;
+}
+
+.gov-logos {
+    display: flex;
+    /* السماح للعناصر بالنزول لسطر جديد عند ضيق الشاشة */
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gov-logo {
+    flex: 1 1 250px;
+    /* ضمان توزيع عادل وألا يقل عرض العنصر عن 250px في الشاشات المتوسطة */
+    padding-inline-end: 24px;
+    box-sizing: border-box;
+}
+
+/* إخفاء خط الفاصل الرأعي في الشاشات الصغيرة عندما تنزل العناصر تحت بعضها */
+@media (min-width: 769px) {
+    .gov-logo:not(:last-child) {
+        border-inline-end: 1px solid #008A85;
+    }
+}
+
+.gov-logo h3 {
+    text-align: center;
+    background: rgba(209, 239, 237, 0.53);
+    padding: 16px 32px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 38px);
+    /* جعل حجم الخط متجاوباً بسلاسة */
+    line-height: 1.3;
+    color: #00B9B2;
+    margin: 0;
+    border-radius: 6px;
+    /* إضافة تدوير بسيط للحواف لتبدو أكثر عصرية */
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات المتوسطة والصغيرة (الموبايل) */
+/* ========================================== */
+@media (max-width: 768px) {
+    .gov-logos {
+        flex-direction: column;
+        /* ترتيب العناصر تحت بعضها بشكل عمودي في الموبايل */
+        gap: 16px;
+    }
+
+    .gov-logo {
+        padding-inline-end: 0;
+        /* إزالة المسافة الجانبية في العرض العمودي */
+        width: 100%;
+    }
+
+    .gov-logo h3 {
+        padding: 14px 20px;
     }
 }
