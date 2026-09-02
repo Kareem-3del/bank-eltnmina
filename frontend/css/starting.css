@@ -428,11 +428,28 @@
 .text-col p {
     font-weight: 400;
     font-size: 18px;
-    line-height: 30px;
+    line-height: 32px;
     letter-spacing: 0;
     color: #00BCB2;
-    text-align: right;
+    text-align: justify;
     text-justify: inter-word;
+}
+
+/* Responsive-variant content: .desktop-sec/.mobile-sec hold the same copy
+   laid out differently per breakpoint (4-col grid vs. stacked + read-more).
+   Without this toggle both render at once, showing the text twice. */
+.mobile-sec {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-sec {
+        display: none;
+    }
+
+    .mobile-sec {
+        display: block;
+    }
 }
 
 .msg-sec.bg-main .text-col h3,

@@ -21,7 +21,7 @@
     font-weight: 400;
     font-size: clamp(16px, 2.5vw, 25px);
     /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
-    line-height: 1.6;
+    line-height: 1.9;
     color: #00BCB2;
     text-align: justify;
 }
@@ -172,10 +172,16 @@
     color: #1D7C79;
 }
 
+.women-table .main img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 .women-row .stack {
     font-weight: 500;
-    font-size: 9px;
-    line-height: 12px;
+    font-size: 15px;
+    line-height: 21px;
     letter-spacing: 0px;
     text-align: center;
     gap: 32px;
@@ -184,8 +190,8 @@
 }
 
 .women-row .stack span {
-    font-size: 7px;
-    line-height: 16px;
+    font-size: 13px;
+    line-height: 21px;
     letter-spacing: 0px;
     text-align: center;
     color: #008A85;
@@ -195,8 +201,9 @@
 .women-table-container p {
     font-weight: 400;
     font-size: clamp(0.9375rem, 2vw, 1.125rem);
-    line-height: 1.6;
+    line-height: 1.9;
     letter-spacing: 0px;
+    text-align: justify;
     color: var(--text-color);
     margin-top: clamp(1rem, 4vh, 2rem);
 }
@@ -276,6 +283,10 @@
 .wrapper .image img {
     position: relative;
     z-index: 999;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin-inline: auto;
 }
 
 
