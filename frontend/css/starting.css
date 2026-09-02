@@ -656,6 +656,7 @@
         font-size: 16px;
         /* خط أصغر للموبايل للقراءة المريحة */
         line-height: 1.75;
+        text-align: start;
     }
 
     .msg-sec.bg-main .text-col p,
@@ -689,6 +690,7 @@
 }
 
 @media (max-width: 420px) {
+
     .board-img,
     .msg-sec.bg-main .board-img {
         width: 100%;

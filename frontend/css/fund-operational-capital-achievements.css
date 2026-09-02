@@ -18,8 +18,7 @@ body {
 .sc-title__title {
     font-weight: 800;
     font-size: clamp(28px, 5vw, 48px);
-    /* حجم مرن يتغير تلقائياً حسب حجم الشاشة */
-    line-height: 1.2;
+    line-height: 1.4;
     color: #00BCB2;
     margin-bottom: clamp(1rem, 3vw, 2rem);
 }
