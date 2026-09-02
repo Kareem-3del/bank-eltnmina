@@ -309,10 +309,15 @@
 }
 
 @media(max-width:768px) {
+
+    .wrapper .image img {
+        max-width: 200px;
+    }
+
     .wrapper .image::after {
-        height: 250px;
-        width: 250px;
-        inset-inline-end: -10px;
+        height: 120px;
+        width: 120px;
+        inset-inline-end: 35px;
         bottom: 10px;
     }
 }
