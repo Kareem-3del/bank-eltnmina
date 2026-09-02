@@ -205,6 +205,7 @@
 }
 
 @media (min-width: 1025px) {
+
   .sd-pillars__headers,
   .sd-pillars__body {
     column-gap: 16px;
@@ -223,6 +224,7 @@
 
 @supports (grid-template-rows: subgrid) {
   @media (min-width: 1025px) {
+
     /* Equal height per objective row across all pillar columns */
     .sd-pillars__body {
       grid-template-rows: repeat(4, auto);
@@ -289,13 +291,13 @@
 }
 
 .sd-pillars__headers .sd-pillar__head,
-.sd-pillars__body > .sd-pillar {
+.sd-pillars__body>.sd-pillar {
   will-change: transform;
 }
 
 /* Pillar columns — single solid tone */
 .sd-pillars__headers .sd-pillar__head,
-.sd-pillars__body > .sd-pillar {
+.sd-pillars__body>.sd-pillar {
   --sd-pillar-tone: #00BCB4;
 }
 
@@ -567,7 +569,7 @@
   flex-shrink: 0;
 }
 
-.sd-goals__card > p {
+.sd-goals__card>p {
   margin: 0;
   background: #00a6a3;
   color: #ffffff;
@@ -616,6 +618,7 @@
 }
 
 @media (max-width: 1024px) {
+
   .sd-framework__container,
   .sd-pillars__container {
     padding-inline: clamp(20px, 5vw, 48px);
@@ -678,6 +681,11 @@
     align-items: flex-end;
   }
 
+  [dir="rtl"] .vision-right,
+  [dir="ltr"] .vision-right {
+    align-items: center
+  }
+
   [dir="ltr"] .vision-left,
   [dir="ltr"] .vision-right {
     align-items: flex-start;
@@ -704,7 +712,7 @@
     margin-bottom: 32px;
   }
 
-  .sd-framework__text p + p {
+  .sd-framework__text p+p {
     margin-top: 1em;
   }
 
@@ -762,7 +770,7 @@
     padding-bottom: 0;
   }
 
-  .sd-goals__card > p {
+  .sd-goals__card>p {
     max-width: 100%;
     min-height: 180px;
     font-size: 20px;
@@ -779,6 +787,7 @@
 }
 
 @media (max-width: 480px) {
+
   .sd-framework__container,
   .sd-pillars__container {
     padding-inline: 20px;
@@ -804,12 +813,10 @@
 
 /* ------ Legacy layout (EN page — remove when EN is refactored) ------------ */
 .layer-sec {
-  background: linear-gradient(
-    197.49deg,
-    #dbf0ee -0.21%,
-    #f7f8f8 23.75%,
-    #fcfcfc 47.71%
-  );
+  background: linear-gradient(197.49deg,
+      #dbf0ee -0.21%,
+      #f7f8f8 23.75%,
+      #fcfcfc 47.71%);
 }
 
 .layer-container {
@@ -817,17 +824,17 @@
   gap: 62px;
 }
 
-.layer-container > div {
+.layer-container>div {
   flex: 1;
 }
 
-.layer-container > div:first-child {
+.layer-container>div:first-child {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.layer-container > div:last-child img {
+.layer-container>div:last-child img {
   display: flex;
   height: 100%;
   width: 100%;
@@ -990,12 +997,10 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(
-    270deg,
-    rgba(0, 143, 133, 0) 0%,
-    rgba(0, 143, 133, 0.3) 50%,
-    rgba(0, 143, 133, 0) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(0, 143, 133, 0) 0%,
+      rgba(0, 143, 133, 0.3) 50%,
+      rgba(0, 143, 133, 0) 100%);
 }
 
 .goal-step {

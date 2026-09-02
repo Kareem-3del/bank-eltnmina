@@ -161,6 +161,8 @@
   document.querySelectorAll(".nav__link").forEach(link => {
 
     const href = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
+    console.log("href", href)
+    console.log("here = ", here)
 
     if (href && href === here) {
       link.setAttribute("aria-current", "page");
@@ -301,7 +303,7 @@
           },
           {
             href: "performance-summary.html",
-            text: "موجز الاداء",
+            text: "موجز الأداء",
             img: "performance-summary.webp",
             caption: "أكثر من 920,000 أسرة منذ 2017"
           },

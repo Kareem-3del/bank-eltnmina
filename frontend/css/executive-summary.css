@@ -28,11 +28,9 @@
 
 /* Hero gradient overlay (Figma) */
 .c-hero--es2 .c-hero__overlay {
-  background: linear-gradient(
-    110.95deg,
-    #01938e -6.17%,
-    rgba(0, 102, 99, 0.85) 93.83%
-  );
+  background: linear-gradient(110.95deg,
+      #01938e -6.17%,
+      rgba(0, 102, 99, 0.85) 93.83%);
 }
 
 .executive-summary .c-hero__title {
@@ -66,12 +64,12 @@
   background: #ffffff;
 }
 
-.es-overview > .container,
-.es-services > .container,
-.es-dev > .container,
-.es-advisor2 > .container,
-#satisfaction > .container,
-.es-digital > .container {
+.es-overview>.container,
+.es-services>.container,
+.es-dev>.container,
+.es-advisor2>.container,
+#satisfaction>.container,
+.es-digital>.container {
   max-width: var(--es-max);
   padding-inline: clamp(20px, 3vw, 40px);
 }
@@ -429,6 +427,7 @@
   .es-overview .es-panel--strategy .es-panel-metric {
     flex-direction: column;
     text-align: center;
+    margin-top: 16px;
   }
 
   .es-overview .es-panel--strategy .es-panel-metric__cap {
@@ -1482,7 +1481,7 @@
   margin-bottom: 0;
 }
 
-.es-satisfaction__head > div {
+.es-satisfaction__head>div {
   width: 100%;
 }
 
@@ -1571,11 +1570,11 @@
   padding-bottom: clamp(32px, 4.5vw, 56px);
 }
 
-.es-advisor2 + #satisfaction.es-section {
+.es-advisor2+#satisfaction.es-section {
   padding-top: clamp(36px, 5vw, 64px) !important;
 }
 
-#satisfaction.es-section + .es-digital {
+#satisfaction.es-section+.es-digital {
   padding-top: clamp(10px, 1.5vw, 16px);
 }
 
@@ -1626,8 +1625,9 @@
 
 /* Desktop: number-card grids — full section width (no 100vw overflow) */
 @media (min-width: 901px) {
-  #satisfaction > .es-percent-grid,
-  .es-digital > .es-digital-grid {
+
+  #satisfaction>.es-percent-grid,
+  .es-digital>.es-digital-grid {
     position: static;
     left: auto;
     transform: none;
@@ -1639,16 +1639,16 @@
     justify-content: stretch;
   }
 
-  #satisfaction > .es-percent-grid {
+  #satisfaction>.es-percent-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .es-digital > .es-digital-grid {
+  .es-digital>.es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  #satisfaction > .es-percent-grid .es-percent-card,
-  .es-digital > .es-digital-grid .es-digital-card {
+  #satisfaction>.es-percent-grid .es-percent-card,
+  .es-digital>.es-digital-grid .es-digital-card {
     width: 100%;
     max-width: none;
     min-width: 0;
@@ -1688,8 +1688,8 @@
     max-width: 100%;
   }
 
-  #satisfaction > .es-percent-grid,
-  .es-digital > .es-digital-grid {
+  #satisfaction>.es-percent-grid,
+  .es-digital>.es-digital-grid {
     position: static;
     left: auto;
     transform: none;
@@ -1725,8 +1725,8 @@
     aspect-ratio: unset;
   }
 
-  .es-digital-card > span,
-  .es-percent-card > span {
+  .es-digital-card>span,
+  .es-percent-card>span {
     width: 100%;
     max-width: 100%;
     overflow-wrap: anywhere;
@@ -2133,12 +2133,12 @@
     justify-content: stretch;
   }
 
-  #satisfaction > .es-percent-grid {
+  #satisfaction>.es-percent-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
   }
 
-  .es-digital > .es-digital-grid {
+  .es-digital>.es-digital-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
   }

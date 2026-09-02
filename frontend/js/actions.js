@@ -58,7 +58,7 @@
     },
     {
       href: "performance-summary.html",
-      nameAr: "موجز الاداء",
+      nameAr: "موجز الأداء",
       nameEn: "Performance Summary",
     },
     {
