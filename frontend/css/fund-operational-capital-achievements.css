@@ -28,7 +28,7 @@ body {
     font-weight: 400;
     font-size: clamp(16px, 2.5vw, 25px);
     /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
-    line-height: 1.6;
+    line-height: 1.9;
     color: #00BCB2;
     text-align: justify;
 }
@@ -148,6 +148,10 @@ body {
 
 /* الهواتف المحمولة (Phones) - خطوط أصغر وتصميم مرتب */
 @media (max-width: 767px) {
+    .sc-title__dec {
+        text-align: start;
+    }
+
     .h2-title {
         font-size: 22px;
         line-height: 26px;

@@ -162,7 +162,13 @@
 
     const href = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
 
-    if (href && href === here) link.setAttribute("aria-current", "page");
+    if (href && href === here) {
+      link.setAttribute("aria-current", "page");
+      // A dropdown parent (e.g. "أبرز الأعمال والإنجازات") should read as
+      // active too when the current page is one of its own sub-pages.
+      const parentLink = link.closest(".dropdown-menu")?.closest("li.dropdown")?.querySelector(":scope > .nav__link");
+      if (parentLink) parentLink.setAttribute("aria-current", "page");
+    }
   });
 
   /* ------ Two-state language switch ----------------------------------- */

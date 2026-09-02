@@ -109,13 +109,13 @@
       prev: "الصفحة السابقة",
       next: "الصفحة التالية",
       dlPage: "تنزيل هذه الصفحة",
-      dlAll: "تنزيل التقرير المختصر"
+      dlAll: "تنزيل التقرير السنوي 2025م"
     },
     en: {
       prev: "Previous page",
       next: "Next page",
       dlPage: "Download this page",
-      dlAll: "Download summary report"
+      dlAll: "Download Annual Report 2025"
     }
   };
   const fallback = FALLBACK_LABELS[lang];
