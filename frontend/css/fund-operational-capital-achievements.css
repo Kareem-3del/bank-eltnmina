@@ -148,6 +148,10 @@ body {
 
 /* الهواتف المحمولة (Phones) - خطوط أصغر وتصميم مرتب */
 @media (max-width: 767px) {
+    .sc-title__dec {
+        text-align: start;
+    }
+
     .h2-title {
         font-size: 22px;
         line-height: 26px;

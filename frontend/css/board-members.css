@@ -1,0 +1,235 @@
+/* ==========================================================================
+   board-members.css — أعضاء مجلس الإدارة / Board of Directors
+     · Figma: "Real Estate Fund — Website Sub-Pages" › board members
+     · Grid  : 4-up, 276px card / 24px gutter inside the 1176px content band
+     · Card  : 3:4 portrait · teal identity band · #D1EFED role panel
+     · RTL-first — logical properties only, per the CLAUDE.md mirroring rule.
+   Cards carry `.card` purely as the animations.js hook: that class makes the
+   card the reveal unit so its portrait/name/role ride with it instead of each
+   animating separately (see js/animations.js › CARD_SEL).
+   ========================================================================== */
+
+.board {
+  /* Figma values that have no equivalent in the global palette */
+  --board-teal: var(--c-primary-container, #00bcb2);
+  --board-panel: #d1efed;
+  --board-portrait-empty: #9de2de;
+  --board-role-ink: rgba(2, 6, 24, 0.75);
+  --board-lede-ink: #62748e;
+  --board-gutter: 24px;
+}
+
+/* Hero standfirst. Overrides .c-hero__desc's 4rem gap / 20px regular so the
+   line sits tight under the title at the weight the Figma frame shows. */
+.board__hero-note {
+  margin-block-start: 20px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: var(--fw-bold, 700);
+  color: #fff;
+}
+
+/* ------ Section shell -------------------------------------------------- */
+
+.board__section {
+  padding-block: clamp(48px, 7vw, 80px);
+  background: var(--c-bg, #fff);
+}
+
+/* Intro block sits flush to the reading edge (right in AR, left in EN) —
+   normal block flow already does that, the max-width just holds the measure. */
+.board__header {
+  max-width: 672px;
+  margin-block-end: 40px;
+}
+
+.board__eyebrow {
+  margin: 0 0 9px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: var(--fw-bold, 700);
+  color: var(--board-teal);
+}
+
+.board__title {
+  margin: 0 0 12px;
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 1.875rem); /* → 30px */
+  line-height: 1.2;
+  font-weight: var(--fw-bold, 700);
+  color: var(--board-teal);
+}
+
+.board__lede {
+  margin: 0;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: var(--fw-regular, 400);
+  color: var(--board-lede-ink);
+}
+
+/* ------ Roster grid ---------------------------------------------------- */
+
+.board__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--board-gutter);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------ Member card ---------------------------------------------------- */
+
+.board-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--c-surface, #fff);
+  border: 1px solid var(--board-teal);
+  border-radius: var(--radius, 0); /* sharp corners — DESIGN.md */
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Portrait — fixed 3:4 so every card in a row lines up regardless of crop.
+   White ground: the supplied portraits are cut-outs on transparency, so the
+   card itself provides the backdrop the design shows behind each member. */
+.board-card__portrait {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  overflow: hidden;
+}
+
+.board-card__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; /* keep faces in frame when cropping */
+}
+
+/* Awaiting-photo state: the Figma placeholder tint plus a quiet Lucide
+   "user" glyph, so an empty slot reads as pending rather than broken.
+   Keeping these teal (rather than white) makes the still-missing portraits
+   obvious at a glance — drop the tint once all nine photos are in. */
+.board-card__portrait--pending {
+  background: var(--board-portrait-empty);
+}
+
+.board-card__portrait--pending::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 64px 64px;
+  opacity: 0.38;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+/* Identity band */
+.board-card__id {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  background: var(--board-teal);
+}
+
+.board-card__honorific {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: var(--fw-semi, 600);
+  color: var(--c-on-primary, #fff);
+  opacity: 0.9;
+}
+
+.board-card__name {
+  margin: 0;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: var(--fw-bold, 700);
+  color: var(--c-on-primary, #fff);
+}
+
+/* Transliterated names run long enough to wrap to two lines, which would
+   leave the teal bands — and the role panels under them — at different
+   heights across a row. Reserve the two-line height in LTR only; Arabic
+   names all set on one line, so AR keeps the Figma's exact 77px band. */
+[dir="ltr"] .board-card__id {
+  min-height: 102px;
+}
+
+/* Role panel — flex-grows so cards in a row end level, and the seat label
+   is pinned to the bottom whether the role runs one line or three. */
+.board-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--board-panel);
+}
+
+.board-card__roles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.board-card__role {
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: var(--fw-regular, 400);
+  color: var(--board-role-ink);
+}
+
+.board-card__seat {
+  margin: 0;
+  margin-block-start: auto; /* pin to the card floor */
+  padding-block-start: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: var(--fw-bold, 700);
+  color: var(--board-teal);
+}
+
+/* No section-level CTA here by design: the "استعرض التقرير الكامل" pill in the
+   Figma frame sits at top:5124px, inside the footer band (4244–5255) — it is
+   the shared footer's own CTA, not part of the board section. */
+
+/* ------ Responsive ----------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  .board__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .board__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .board__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .board__header {
+    margin-block-end: 28px;
+  }
+
+  .board__lede {
+    line-height: 28px;
+  }
+}
