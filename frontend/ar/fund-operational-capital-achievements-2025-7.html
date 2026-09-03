@@ -57,21 +57,43 @@
 
     <main id="main">
         <!-- ===================== Hero ===================== -->
+        <section class="c-hero">
+            <div class="c-hero__overlay"></div>
+            <div class="c-hero__image-wrapper anim-element js-float-up-enabled" data-anim="zoom-in" data-delay="0.1">
+                <!-- TODO: swap for the exact Figma export of this hero photo (geometric/triangle interior shot) -->
+                <img src="assets/ach-hero-6.png" class="c-hero__img" alt="REDF About Us" />
+            </div>
+            <div class="container h-100">
+                <div class="c-hero__content">
+                    <nav class="c-hero__breadcrumb anim-element js-float-up-enabled" data-anim="fade-in"
+                        data-delay="0.5" aria-label="Breadcrumb">
+                        <ol class="c-hero__breadcrumb-list">
+                            <li class="c-hero__breadcrumb-item">
+                                <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
+                            </li>
+                            <li class="c-hero__breadcrumb-item c-hero__breadcrumb-item--active" aria-current="page">
+                                أبرز الأعمال والانجازات
+                            </li>
+                        </ol>
+                    </nav>
+                    <div>
+                        <h1 class="c-hero__title anim-element js-float-up-enabled" data-anim="fade-up" data-delay="0.5">
+                            أبرز الأعمال والإنجازات
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== شريط الرقم التسلسلي ===================== -->
         <section class="fca7-hero">
             <div class="container">
-                <nav class="c-hero__breadcrumb" aria-label="Breadcrumb" style="justify-content: center;">
-                    <ol class="c-hero__breadcrumb-list">
-                        <li class="c-hero__breadcrumb-item">
-                            <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
-                        </li>
-                        <li class="c-hero__breadcrumb-item c-hero__breadcrumb-item--active" aria-current="page">
-                            معلومات أخرى ذات أهمية
-                        </li>
-                    </ol>
-                </nav>
-                <h1 class="fca7-hero__title">
-                    معلومات أخرى ذات أهمية لأبرز أعمال وإنجازات الصندوق العقاري
-                </h1>
+                <div class="fca7-hero__numbered">
+                    <p class="fca7-hero__title">
+                        معلومات أخرى ذات أهمية لأبرز أعمال وإنجازات الصندوق العقاري
+                    </p>
+                    <span class="fca7-hero__num" aria-hidden="true">05</span>
+                </div>
             </div>
         </section>
 

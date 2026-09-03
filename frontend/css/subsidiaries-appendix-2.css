@@ -44,7 +44,7 @@
 /* —— قسم من نحن (طموحنا / رؤيتنا / رسالتنا) —— */
 .appx2-about {
   padding-block: clamp(40px, 6vw, 72px);
-  background-color: var(--bg-main);
+  background-color: #fcfefd;
 }
 
 .appx2-about__grid {
@@ -66,6 +66,11 @@
   background: linear-gradient(147deg, #ffffff 0%, #f3fbfc 100%);
   border: 1px solid rgba(223, 244, 246, 0.6);
   box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
+}
+
+.appx2-about__icon {
+  color: var(--c-primary-container, #00bcb2);
+  flex-shrink: 0;
 }
 
 .appx2-about__card-title {
@@ -137,7 +142,7 @@
 /* —— قسم المنتجات —— */
 .appx2-products {
   padding-block: clamp(40px, 6vw, 72px);
-  background-color: var(--bg-main);
+  background-color: #fcfefd;
 }
 
 .appx2-products__header {
@@ -148,7 +153,7 @@
 
 .appx2-products__body {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: auto 1fr 1fr;
   gap: 32px;
   align-items: start;
   max-width: 1252px;
@@ -225,7 +230,7 @@
 }
 
 .appx2-products__figure {
-  align-self: center;
+  align-self: start;
   justify-self: center;
   width: 100%;
   max-width: 307px;
@@ -271,6 +276,10 @@
 .appx2-partners__header {
   max-width: 1252px;
   margin: 0 auto clamp(32px, 5vw, 48px);
+}
+
+.appx2-partners__header .appx2-heading {
+  color: #1cafa4;
 }
 
 .appx2-partners__list {
@@ -401,7 +410,7 @@
 /* —— قسم الجوائز + شراكة الأكاديمية المالية —— */
 .appx2-awards {
   padding-block: clamp(40px, 6vw, 72px);
-  background-color: var(--bg-main);
+  background-color: #fcfefd;
 }
 
 .appx2-awards__grid {
@@ -411,6 +420,16 @@
   max-width: 1252px;
   margin-inline: auto;
   align-items: start;
+}
+
+.appx2-awards__placeholder {
+  height: 176px;
+  background: #f1f9f9;
+  margin-bottom: 20px;
+}
+
+.appx2-awards__placeholder--dim {
+  opacity: 0.92;
 }
 
 .appx2-awards__card {

@@ -224,3 +224,134 @@
         gap: 12px;
     }
 }
+/* ==========================================================================
+   Report overview — sections 2/3/4 + housing-support banner
+   Figma: "Website Sub-Pages" › المقدمة و دور صندوق التنمية
+   Two bordered cards side by side, then a text+image row, then a tinted
+   full-bleed banner. RTL-first: DOM order is reading order, so LTR mirrors
+   wholesale with no direction-specific rules.
+   ========================================================================== */
+
+.intro-report {
+  background: #fcfefd;
+}
+
+.intro-report__pair,
+.intro-report__parts {
+  display: flex;
+  gap: 64px;
+  min-width: 0;
+}
+
+.intro-report__pair {
+  align-items: stretch; /* both cards end level regardless of copy length */
+  padding-block: 80px;
+}
+
+.intro-report__parts {
+  align-items: center;
+  padding-block-end: 80px;
+}
+
+.intro-report__card {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  padding: 40px;
+  background: var(--c-surface, #fff);
+  border: 1px solid #d3e1e0;
+  border-radius: var(--radius, 0);
+  box-shadow: 0 10px 30px -18px rgba(45, 118, 114, 0.4);
+}
+
+.intro-report__h {
+  margin: 0;
+  font-size: 24px;
+  line-height: 39px;
+  font-weight: var(--fw-bold, 700);
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.intro-report__p {
+  margin: 0;
+  font-size: 15.7px;
+  line-height: 31px;
+  font-weight: var(--fw-regular, 400);
+  color: #657578;
+  text-align: justify;
+}
+
+.intro-report__col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.intro-report__figure {
+  flex: 0 0 543px;
+  min-width: 0;
+  margin: 0;
+  box-shadow: 0 24px 60px -28px rgba(45, 118, 114, 0.45);
+}
+
+.intro-report__figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 543 / 368;
+  object-fit: cover;
+}
+
+/* Awaiting-photo state, same convention as the board portraits. */
+.intro-report__figure--pending {
+  aspect-ratio: 543 / 368;
+  background: #d1efed;
+}
+
+/* An inset panel, not a full-bleed band: the Figma places it at left 149 /
+   right 147 inside the 1536 frame, so it sits within the content column and
+   carries its own shadow. */
+.intro-report__banner {
+  margin-block-end: 80px;
+  padding: 96px 32px;
+  background: #d1efed;
+  box-shadow: 0 10px 30px -18px rgba(45, 118, 114, 0.4);
+}
+
+.intro-report__banner p {
+  max-width: 846px; /* Figma text box; wider than its 768px container by design */
+  margin-inline: auto;
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 3rem); /* reaches the Figma's 48px by ~1450px */
+  line-height: 1.6;
+  font-weight: var(--fw-bold, 700);
+  text-align: center;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+/* Riyal glyph sits with the numeral — see DESIGN.md § Currency. */
+.intro-report__riyal {
+  height: 0.95em;
+  width: auto;
+  display: inline-block;
+  vertical-align: -0.06em;
+}
+
+@media (max-width: 900px) {
+  .intro-report__pair,
+  .intro-report__parts {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .intro-report__figure {
+    flex: none;
+    width: 100%;
+  }
+
+  .intro-report__banner {
+    padding: 64px 24px;
+  }
+}
