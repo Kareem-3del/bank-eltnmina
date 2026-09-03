@@ -1,0 +1,682 @@
+.intro-sec {
+    padding: clamp(30px, 8vw, 80px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.intro-sec p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.6;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* العنوان الكبير الثاني داخل القسم */
+.intro-sec p:nth-child(2) {
+    font-weight: 800;
+    /* حجم خط متجاوب يقل بسلاسة من 48px للديسك توب إلى 28px للموبايل */
+    font-size: clamp(28px, 4.5vw, 48px);
+    line-height: 1.3;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* النص البارز (span) داخل العنوان الكبير */
+.intro-sec p:nth-child(2) span {
+    font-weight: 900;
+    /* حجم خط متجاوب للـ span لضمان عدم انقسامه بشكل مزعج على الشاشات الصغيرة */
+    font-size: clamp(36px, 6.5vw, 66px);
+    line-height: 1.2;
+    display: inline-block;
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات الصغيرة (الموبايل)     */
+/* ========================================== */
+@media (max-width: 768px) {
+    .intro-sec {
+        padding: 40px 20px;
+    }
+}
+
+/* charts-sec */
+.charts-sec h2 {
+    text-align: center;
+}
+
+.wrap .left {
+    flex-direction: row !important;
+    justify-content: flex-end;
+}
+
+.charts-wrapper {
+    display: flex;
+    gap: 4rem;
+}
+
+.chart-sec {
+    background-color: #FFF;
+}
+
+.charts-wrap {
+    display: flex;
+    gap: 3rem;
+}
+
+.charts-wrap .left {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.charts-wrap .left .boxes {
+    justify-content: center !important;
+}
+
+.chart-sec .wrap {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* padding: clamp(1rem, 3vw, 2rem); */
+}
+
+.chart-title {
+    font-weight: 800;
+    font-size: clamp(18px, 2.5vw, 20px);
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: #19827A;
+    margin-bottom: 1rem;
+}
+
+.legend-sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #576767;
+}
+
+.legend .mark {
+    width: 8px;
+    height: 8px;
+}
+
+.legend:first-child .mark {
+    background: #DFF2F1;
+}
+
+.legend:last-child .mark {
+    background: #DFF2F1;
+}
+
+.chart-sec .boxes {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.chart-sec .boxes .label {
+    display: none;
+    background: #00BCB2;
+    padding: 4px 16px;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-sec .box {
+    font-weight: 700;
+    font-size: 21px;
+    background: #BFE4E3;
+    color: #00BCB2;
+    padding: 4px 16px;
+    width: fit-content;
+    min-width: 82px;
+    text-align: center;
+}
+
+.chart-sec .wrap .boxes {
+    /* max-width: 90%; */
+}
+
+.chart-sec .left .boxes {
+    justify-content: center;
+    gap: 8px;
+}
+
+.chart-sec .left .box {
+    background-color: #00BCB2;
+    color: #FFF;
+}
+
+.left-mokc {
+    height: 16px;
+}
+
+/* .chart-sec .box p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #576767;
+} */
+
+/* .chart-sec .box span {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #01938E;
+} */
+
+@media (max-width: 768px) {
+
+    .chart-sec .boxes .label,
+    .chart-sec .box {
+        padding: 4px 8px;
+        font-size: 12px !important;
+    }
+
+
+    .chart-sec .box {
+        width: 100%;
+    }
+
+    .chart-sec .boxes .label {
+        flex-shrink: 0;
+    }
+
+    .charts-wrap {
+        flex-direction: column;
+    }
+
+    .chart-sec .box span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-sec .wrap .boxes {
+        max-width: 100%;
+    }
+
+    .chart-sec .boxes .label,
+    .chart-sec .box {
+        font-size: 10px;
+    }
+
+
+    .chart-sec .box {
+        min-width: 62px;
+    }
+
+    .legend-sec {
+        gap: 0.75rem;
+    }
+
+    .legend {
+        font-size: 11px;
+    }
+}
+
+.title-sec {
+    /* تكييف الـ padding عمودياً وأفقياً بسلاسة حسب عرض الشاشة */
+    padding: clamp(50px, 10vw, 120px) clamp(16px, 4vw, 32px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title-sec p {
+    font-weight: 800;
+    /* حجم خط متجاوب للنص الأساسي يقل تدريجياً على الموبايل */
+    font-size: clamp(28px, 4.5vw, 48px);
+    line-height: 1.3;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.title-sec p span {
+    font-weight: 900;
+    /* حجم خط متجاوب للكلمات المميزة (span) لضمان عدم خروجها عن الشاشة */
+    font-size: clamp(36px, 6vw, 60px);
+    line-height: 1.2;
+    color: rgba(220, 229, 229, 0.6);
+    display: inline-block;
+    /* لضمان التنسيق السليم والتحكم بالمسافات مع النصوص */
+}
+
+/* ========================================== */
+/*  تعديلات إضافية للشاشات الصغيرة جداً      */
+/* ========================================== */
+@media (max-width: 480px) {
+    .title-sec {
+        padding: 40px 16px;
+    }
+}
+
+/* awrd-sec */
+.awrd-wrap {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.awrd-wrap h2 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: clamp(20px, 2.5vw, 24px);
+    line-height: 1.3;
+    color: #00BCB2;
+    margin: 0 0 1rem 0;
+}
+
+.awrd-wrap p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.6;
+    color: #000000;
+    margin: 0;
+}
+
+.awrd-wrap .content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.awrd-wrap .content>div {
+    flex-basis: calc(50% - 1rem);
+    box-sizing: border-box;
+}
+
+.awrd-wrap h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.4;
+    color: #00B9B2;
+    margin: 0 0 0.5rem 0;
+}
+
+.awrd-wrap .content p {
+    font-weight: 400;
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.6;
+    color: #000000;
+}
+
+.awrd-wrap .aw-img {
+    flex-shrink: 0;
+    max-width: 100%;
+}
+
+.awrd-wrap .aw-img img {
+    height: auto;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات المتوسطة والصغيرة (الموبايل) */
+/* ========================================== */
+
+@media (min-width: 1024px) {
+    .awrd-wrap .aw-img img {
+        max-height: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .awrd-wrap {
+        flex-direction: column;
+        /* جعل الصورة والنصوص فوق بعضها في الشاشات المتوسطة والموبايل */
+        align-items: center;
+    }
+
+    .awrd-wrap .aw-img {
+        width: 100%;
+    }
+
+    .awrd-wrap .aw-img img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .awrd-wrap .content>div {
+        flex-basis: 100%;
+        /* تحويل محتوى الـ grid لعمود واحد في الموبايل الصغير */
+    }
+
+    .awrd-wrap .content {
+        gap: 1.5rem;
+    }
+}
+
+/* table-sec  */
+.table-sec .stack {
+    gap: 2rem;
+}
+
+.table-sec h2 {
+    font-weight: 800;
+    /* حجم خط متجاوب للعنوان يتناسب بسلاسة مع الشاشات المختلفة */
+    font-size: clamp(20px, 2.5vw, 24px);
+    line-height: 1.4;
+    text-align: center;
+    color: #00BCB2;
+}
+
+.table-sec p {
+    font-weight: 400;
+    /* حجم خط متجاوب للنصف التوضيحي لضمان قراءة مريحة */
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.6;
+    text-align: center;
+    color: #000000;
+    max-width: 900px;
+    /* تحديد عرض أقصى لئلا يتمدد النص بشكل مزعج على شاشات الديسك توب */
+    margin: 0 auto;
+}
+
+/* حاوية الجدول العامة لضمان التجاوب والتحكم بالعرض */
+.table-container {
+    width: 100%;
+    max-width: 896px;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+/* تنسيق الجدول الرئيسي */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    text-align: right;
+    background-color: #FFFFFF;
+}
+
+/* تنسيق رأس الجدول (Header) */
+.custom-table th {
+    background-color: #01B9B2;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 16px;
+    white-space: nowrap;
+    border-bottom: 2px solid #FFFFFF;
+    /* خط أبيض فاصل تحت الهيدر */
+}
+
+/* تنسيق خلايا محتوى الجدول (Body Cells) */
+.custom-table td {
+    font-weight: 400;
+    font-size: 13px;
+    padding: 12px 16px;
+    color: #5E7278;
+    white-space: nowrap;
+}
+
+/* إضافة خط أبيض فاصل أفقياً بين الصفوف وبعضها */
+.custom-table tbody tr:not(:last-child) td {
+    border-bottom: 2px solid #FFFFFF;
+}
+
+/* الحدود البيضاء الفاصلة بين الأعمدة (مع إزالة الفاصل بين العمود الأول والثاني) */
+.custom-table th:not(:last-child):not(:nth-child(1)),
+.custom-table td:not(:last-child):not(:nth-child(1)) {
+    border-inline-end: 2px solid #FFFFFF;
+}
+
+/* تلوين الصفوف بالتبادل (Zebra Striping) */
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #DFF1F1;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+/* تخصيص نسب أعراض الأعمدة */
+.custom-table .col-num {
+    width: 5%;
+    text-align: center;
+}
+
+.custom-table .col-name {
+    width: 35%;
+}
+
+.custom-table .col-date {
+    width: 20%;
+}
+
+.custom-table .col-location {
+    width: 30%;
+}
+
+.custom-table .col-city {
+    width: 10%;
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات الصغيرة (Responsive)   */
+/* ========================================== */
+@media (max-width: 768px) {
+
+    .custom-table th,
+    .custom-table td {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+}
+
+/* .cer-sec  */
+.cer-sec .stack {
+    gap: 4rem;
+}
+
+.cer-sec h2 {
+    font-weight: 700;
+    font-size: clamp(20px, 2.5vw, 24px);
+    line-height: 1.4;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.cer-sec p {
+    font-weight: 400;
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.6;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* الحاوية العامة للقسم */
+.certificates-section {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* الصندوق الخلفي الحاضن للشهادات */
+.certificates-container {
+    width: 100%;
+    max-width: 1000px;
+    /* العرض المطابق تماماً للفيجما */
+    min-height: 201px;
+    background: #E9F5F5;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+    padding: 28px 40px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* تقسيم الصندوق إلى عمودين متساويين */
+    gap: 20px 40px;
+    direction: rtl;
+}
+
+/* تنسيق أعمدة الشهادات */
+.cert-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* تنسيق عنصر الشهادة الفردي */
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* اسم الشهادة */
+.cert-name {
+    font-weight: 600;
+    font-size: clamp(14px, 1.6vw, 16px);
+    /* حجم متجاوب ليتناسب مع الشاشات المختلفة */
+    color: #5F5B5C;
+    text-align: right;
+    flex: 1;
+}
+
+/* كود الآيسو */
+.cert-code {
+    font-weight: 500;
+    font-size: clamp(13px, 1.4vw, 16px);
+    color: #5F5B5C;
+    white-space: nowrap;
+    margin-inline-start: 16px;
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات الصغيرة (الموبايل)     */
+/* ========================================== */
+@media (max-width: 768px) {
+    .cer-sec .stack {
+        gap: 1rem;
+    }
+
+    .certificates-container {
+        grid-template-columns: 1fr;
+        /* تحويل الأعمدة إلى عمود واحد فوق بعضها في الموبايل */
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .cert-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(95, 91, 92, 0.15);
+        /* فاصل خفيف بين العناصر في الموبايل */
+    }
+
+    .cert-code {
+        margin-inline-start: 0;
+    }
+}
+
+.cert-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cert-name::before {
+    content: "";
+    height: 4px;
+    width: 4px;
+    background: #5F5B5C;
+}
+
+.ac-container {
+    display: flex;
+    gap: 4rem;
+}
+
+.ac-container p {
+    text-align: justify;
+}
+
+.ac-images-grid {
+    flex-shrink: 0;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+
+
+.ac-bottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.ac-mob {
+    display: none;
+}
+
+@media(max-width:1024px) {
+    .ac-container {
+        flex-direction: column;
+    }
+
+    .ac-images-grid,
+    .ac-bottom {
+        display: none;
+    }
+
+    .ac-mob {
+        gap: 16px;
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
