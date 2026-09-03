@@ -1,0 +1,675 @@
+/* الملاحق — الشركات التابعة (٢) — المنتجات، الشراكات، الجوائز، الأثر الاجتماعي */
+
+/* —— الترويسة —— */
+.c-hero--appendix2 .c-hero__overlay {
+  background: linear-gradient(76.95deg, rgba(0, 188, 178, 0.92) 40%, rgba(1, 147, 142, 0.92) 100%);
+}
+
+.c-hero--appendix2 .c-hero__deco {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.c-hero--appendix2 .c-hero__deco img {
+  position: absolute;
+  opacity: 0.9;
+}
+
+.c-hero--appendix2 .c-hero__deco img:nth-child(1) {
+  inset-inline-start: clamp(120px, 20vw, 340px);
+  bottom: -20px;
+  width: clamp(90px, 9vw, 140px);
+}
+
+.c-hero--appendix2 .c-hero__deco img:nth-child(2) {
+  inset-inline-start: clamp(340px, 40vw, 820px);
+  bottom: 0;
+  width: clamp(90px, 9vw, 138px);
+}
+
+.c-hero--appendix2 .c-hero__deco img:nth-child(3) {
+  inset-inline-end: clamp(40px, 8vw, 160px);
+  bottom: -8px;
+  width: clamp(95px, 10vw, 146px);
+}
+
+@media (max-width: 900px) {
+  .c-hero--appendix2 .c-hero__deco {
+    display: none;
+  }
+}
+
+/* —— قسم من نحن (طموحنا / رؤيتنا / رسالتنا) —— */
+.appx2-about {
+  padding-block: clamp(40px, 6vw, 72px);
+  background-color: #fcfefd;
+}
+
+.appx2-about__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx2-about__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  background: linear-gradient(147deg, #ffffff 0%, #f3fbfc 100%);
+  border: 1px solid rgba(223, 244, 246, 0.6);
+  box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
+}
+
+.appx2-about__icon {
+  color: var(--c-primary-container, #00bcb2);
+  flex-shrink: 0;
+}
+
+.appx2-about__card-title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx2-about__card-desc {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #5f5b5c;
+}
+
+@media (max-width: 900px) {
+  .appx2-about__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
+
+/* —— قسم شائع للكِكر والعنوان —— */
+.appx2-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx2-kicker::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  border-radius: var(--radius-pill, 9999px);
+  background: currentColor;
+}
+
+.appx2-heading {
+  margin: 0 0 16px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.25;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx2-lede {
+  margin: 0;
+  max-width: 62ch;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #313335;
+}
+
+/* —— قسم المنتجات —— */
+.appx2-products {
+  padding-block: clamp(40px, 6vw, 72px);
+  background-color: #fcfefd;
+}
+
+.appx2-products__header {
+  max-width: 1252px;
+  margin: 0 auto clamp(32px, 5vw, 48px);
+  text-align: end;
+}
+
+.appx2-products__body {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx2-products__card {
+  border-top: 2px solid rgba(28, 175, 164, 0.7);
+  padding-top: 26px;
+}
+
+.appx2-products__num {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+  color: #c9e5e0;
+}
+
+.appx2-products__title {
+  margin: 12px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx2-products__desc {
+  margin: 16px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-products__impact-title {
+  margin: 28px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #313335;
+}
+
+.appx2-products__list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appx2-products__list li {
+  position: relative;
+  padding-inline-end: 18px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-products__list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1cafa4;
+}
+
+.appx2-products__figure {
+  align-self: start;
+  justify-self: center;
+  width: 100%;
+  max-width: 307px;
+}
+
+.appx2-products__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: inset 0 0 0 1px rgba(49, 51, 53, 0.1);
+}
+
+@media (max-width: 1100px) {
+  .appx2-products__body {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .appx2-products__figure {
+    grid-column: 1 / -1;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 720px) {
+  .appx2-products__body {
+    grid-template-columns: 1fr;
+  }
+
+  .appx2-products__header {
+    text-align: center;
+  }
+}
+
+/* —— قسم أبرز الشراكات —— */
+.appx2-partners {
+  position: relative;
+  padding-block: clamp(40px, 6vw, 72px);
+  background-color: #f1f9f9;
+  overflow: hidden;
+}
+
+.appx2-partners__header {
+  max-width: 1252px;
+  margin: 0 auto clamp(32px, 5vw, 48px);
+}
+
+.appx2-partners__header .appx2-heading {
+  color: #1cafa4;
+}
+
+.appx2-partners__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1252px;
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.appx2-partners__card {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 1fr;
+  gap: 24px;
+  padding: 37px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(212, 225, 223, 0.7);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.appx2-partners__col {
+  border-inline-end: 1px solid rgba(212, 225, 223, 0.7);
+  padding-inline-end: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appx2-partners__col:last-child {
+  border-inline-end: 0;
+  padding-inline-end: 0;
+  align-items: flex-start;
+}
+
+.appx2-partners__label {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #313335;
+}
+
+.appx2-partners__list-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appx2-partners__list-items li {
+  position: relative;
+  padding-inline-end: 18px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-partners__list-items li::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1cafa4;
+}
+
+.appx2-partners__desc {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-partners__logo {
+  height: 64px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.appx2-partners__name {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #313335;
+}
+
+.appx2-partners__handshake {
+  position: absolute;
+  inset-inline-start: -40px;
+  bottom: -16px;
+  width: clamp(160px, 16vw, 256px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .appx2-partners__card {
+    grid-template-columns: 1fr;
+  }
+
+  .appx2-partners__col {
+    border-inline-end: 0;
+    padding-inline-end: 0;
+    border-bottom: 1px solid rgba(212, 225, 223, 0.7);
+    padding-bottom: 16px;
+  }
+
+  .appx2-partners__col:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* —— قسم الجوائز + شراكة الأكاديمية المالية —— */
+.appx2-awards {
+  padding-block: clamp(40px, 6vw, 72px);
+  background-color: #fcfefd;
+}
+
+.appx2-awards__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  max-width: 1252px;
+  margin-inline: auto;
+  align-items: start;
+}
+
+.appx2-awards__placeholder {
+  height: 176px;
+  background: #f1f9f9;
+  margin-bottom: 20px;
+}
+
+.appx2-awards__placeholder--dim {
+  opacity: 0.92;
+}
+
+.appx2-awards__card {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 32px;
+  background: #f2f9f9;
+}
+
+.appx2-awards__figure {
+  flex-shrink: 0;
+  width: clamp(150px, 18vw, 240px);
+}
+
+.appx2-awards__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.appx2-awards__title {
+  margin: 0 0 8px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-awards__meta {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #767b80;
+}
+
+.appx2-academy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: end;
+  gap: 8px;
+}
+
+.appx2-academy__logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.appx2-academy__title {
+  margin: 4px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #313335;
+}
+
+.appx2-academy__label {
+  margin: 8px 0 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #313335;
+}
+
+.appx2-academy__desc {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-academy__list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.appx2-academy__list li {
+  position: relative;
+  padding-inline-end: 18px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-academy__list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1cafa4;
+}
+
+@media (max-width: 1000px) {
+  .appx2-awards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .appx2-awards__card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .appx2-academy {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .appx2-awards__card {
+    padding: 20px;
+  }
+}
+
+/* —— قسم الأثر الاجتماعي —— */
+.appx2-impact {
+  padding-block: clamp(40px, 6vw, 72px);
+  background: var(--c-primary-container, #00bcb2);
+}
+
+.appx2-impact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1252px;
+  margin-inline: auto;
+  align-items: start;
+}
+
+.appx2-impact__header {
+  text-align: end;
+}
+
+.appx2-impact__header .appx2-kicker {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.appx2-impact__header .appx2-heading {
+  color: #ffffff;
+}
+
+.appx2-impact__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.appx2-impact__card {
+  box-sizing: border-box;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(212, 225, 223, 0.7);
+  box-shadow: 0px 1px 2px rgba(63, 108, 110, 0.05), 0px 18px 40px -24px rgba(20, 113, 117, 0.35);
+}
+
+.appx2-impact__card--highlight {
+  background: #ccf2f0;
+  border-color: transparent;
+}
+
+.appx2-impact__card-title {
+  margin: 0 0 10px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx2-impact__card-desc {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 15.2px;
+  line-height: 2;
+  color: #404345;
+}
+
+.appx2-impact__card--highlight .appx2-impact__card-desc {
+  color: #313335;
+}
+
+.appx2-impact__card-list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.appx2-impact__card-list li {
+  position: relative;
+  padding-inline-end: 18px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 300;
+  font-size: 15.2px;
+  line-height: 2;
+  color: #313335;
+}
+
+.appx2-impact__card-list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1cafa4;
+}
+
+@media (max-width: 1100px) {
+  .appx2-impact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .appx2-impact__header {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .appx2-impact__cards {
+    grid-template-columns: 1fr;
+  }
+}

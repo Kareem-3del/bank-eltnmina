@@ -18,8 +18,7 @@ body {
 .sc-title__title {
     font-weight: 800;
     font-size: clamp(28px, 5vw, 48px);
-    /* حجم مرن يتغير تلقائياً حسب حجم الشاشة */
-    line-height: 1.2;
+    line-height: 1.4;
     color: #00BCB2;
     margin-bottom: clamp(1rem, 3vw, 2rem);
 }
@@ -31,6 +30,13 @@ body {
     line-height: 1.9;
     color: #00BCB2;
     text-align: justify;
+}
+
+.sc-title__subtitle {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 31px;
+    color: #03B9B2;
 }
 
 .anly-block {
@@ -128,6 +134,13 @@ body {
 /* ========================================== */
 /*  تحسينات التابلت والموبايل مع خطوط أصغر    */
 /* ========================================== */
+
+
+@media(max-width:768px) {
+    p.sc-title__dec {
+        text-align: start;
+    }
+}
 
 /* أجهزة التابلت (Tablets) */
 @media (min-width: 768px) and (max-width: 1024px) {

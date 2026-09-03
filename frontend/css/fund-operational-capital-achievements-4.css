@@ -12,7 +12,7 @@
     font-weight: 800;
     font-size: clamp(28px, 5vw, 48px);
     /* حجم مرن يتغير تلقائياً حسب حجم الشاشة */
-    line-height: 1.2;
+    line-height: 1.4;
     color: #00BCB2;
     margin-bottom: clamp(1rem, 3vw, 2rem);
 }
@@ -222,6 +222,11 @@
 
 /* --- تعديلات إضافية للموبايل --- */
 @media (max-width: 768px) {
+
+    .women-row img {
+        max-width: 60px;
+    }
+
     .women-table-container p {
         text-align: center;
         /* توسيط النص في الشاشات الصغيرة يعطي توازناً أفضل */
@@ -259,7 +264,7 @@
     .women-row>div {
         padding: 12px 8px;
         /* تقليل البادينج الداخلي للجدول */
-        font-size: 11px;
+        /* font-size: 11px; */
     }
 }
 
@@ -304,10 +309,15 @@
 }
 
 @media(max-width:768px) {
+
+    .wrapper .image img {
+        max-width: 200px;
+    }
+
     .wrapper .image::after {
-        height: 250px;
-        width: 250px;
-        inset-inline-end: -10px;
+        height: 120px;
+        width: 120px;
+        inset-inline-end: 35px;
         bottom: 10px;
     }
 }

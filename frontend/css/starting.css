@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     gap: 64px;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .starting-sec__content-wrapper>div {
@@ -62,10 +62,10 @@
 .starting-sec__img {
     overflow: hidden;
     display: block;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 50%;
-    inset-inline-end: 0;
+    /* inset-inline-end: 0; */
 }
 
 
@@ -496,7 +496,7 @@
     font-size: 18px;
     line-height: 30px;
     font-weight: 400;
-    text-align: right;
+    /* text-align: right; */
 }
 
 [dir="rtl"] .msg-sec--ceo-home .board-sec {
@@ -507,8 +507,24 @@
     order: 2;
 }
 
-[dir="rtl"] .msg-sec--ceo-home .board-img {
+/* [dir="rtl"] .msg-sec--ceo-home .board-img {
     order: 1;
+} */
+
+.msg-sec--ceo-home h3 {
+    margin-bottom: 16px;
+}
+
+
+@media(min-width:1024px) {
+    .msg-sec--ceo-home h3 {
+        max-width: 240px;
+    }
+
+    .board-grid p {
+        text-align: start;
+    }
+
 }
 
 [dir="ltr"] .msg-sec__title,
@@ -547,16 +563,17 @@
     align-items: center;
     justify-self: center;
     gap: 24px;
-    background-color: #68B8B6;
+    background-color: #D1EFED;
     font-weight: 400;
     font-size: 22px;
     text-align: center;
-    color: #fff;
+    color: #00BCB4;
 
 }
 
 .board-col-4 .text-col:last-child {
-    justify-content: space-between
+    justify-content: space-between;
+    height: 100%;
 }
 
 
@@ -656,6 +673,7 @@
         font-size: 16px;
         /* خط أصغر للموبايل للقراءة المريحة */
         line-height: 1.75;
+        text-align: start;
     }
 
     .msg-sec.bg-main .text-col p,
@@ -689,6 +707,7 @@
 }
 
 @media (max-width: 420px) {
+
     .board-img,
     .msg-sec.bg-main .board-img {
         width: 100%;

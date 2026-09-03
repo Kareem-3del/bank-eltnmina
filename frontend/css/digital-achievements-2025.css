@@ -1,11 +1,68 @@
+.sc-title__dec {
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 22px);
+    /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
+    line-height: 1.8;
+    color: #00BCB2;
+    text-align: justify;
+}
+
 .wrap {
     display: flex;
-    /* السماح بالالتفاف في الشاشات الصغيرة */
-    gap: 2rem;
+    gap: 4rem;
+    align-items: start;
 }
 
 .icon-wrap {
     flex-shrink: 0;
+    max-width: 320px;
+    position: relative;
+}
+
+.icon-wrap {
+    position: relative;
+    /* ضروري لكي يتموضع عنصر الـ ::after بالنسبة له بشكل صحيح */
+    display: inline-block;
+    /* لضمان احتواء العنصر للصورة والخلفية بدقة */
+}
+
+.icon-wrap img {
+    position: relative;
+    z-index: 999;
+    max-width: 100%;
+    height: auto;
+}
+
+.icon-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    inset-inline-end: clamp(-15px, -3vw, -25px);
+    /* حجم مرن للمسافة */
+    width: 180px;
+    height: 180px;
+    background-color: #D0E9E8;
+    z-index: 1;
+    /* لتبقى خلف الصورة مباشرة */
+}
+
+.icon-wrap.secku::after {
+    transform: rotate(-45deg);
+    bottom: clamp(-15px, -2.5vw, -25px);
+    inset-inline-end: clamp(-10px, -2vw, -15px);
+}
+
+
+@media (max-width: 768px) {
+    .wrap {
+        flex-direction: column;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .icon-wrap {
+        margin: 0 auto;
+    }
 }
 
 .table-side {
@@ -116,7 +173,7 @@
 }
 
 .charts>div:nth-child(odd) {
-    background-color: #DFF2F1;
+    background-color: #F2F9F9;
 }
 
 .charts p {
@@ -153,5 +210,578 @@
 
     .charts>div {
         width: 100%;
+    }
+}
+
+
+/* transform-sec */
+.transform-sec {
+    margin-top: 2rem;
+}
+
+.transform-sec h2 {
+    text-align: center;
+}
+
+.transfare-progress {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.transfare-progress>div {
+    padding: 1.5rem;
+}
+
+.transfare-progress>div:last-child {
+    background-color: #AFDEDB;
+    width: 20%
+}
+
+.transfare-progress>div:first-child {
+    background-color: #03B9B2;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 31px;
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%
+}
+
+
+.digital-progress-section {
+    position: relative;
+    width: 100%;
+    max-width: 1385px;
+    margin: 90px auto;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* حاوية الشريط الأفقي (5 أعمدة في الديسك توب) */
+.progress-bar-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    height: 108px;
+    box-sizing: border-box;
+}
+
+/* أجزاء الشريط */
+.prog-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 29px);
+    color: #FFFFFF;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* ألوان التصميم */
+.item-ibdaa {
+    background: #03B9B2;
+}
+
+.item-takamol {
+    background: #5CC4BE;
+}
+
+.item-tahseen {
+    background: #87D0CD;
+}
+
+.item-itaha {
+    background: #AFDEDB;
+}
+
+.item-bina {
+    background: #D6EEED;
+    color: #5E7278;
+}
+
+/* حاويات المؤشرات الافتراضية (للديسك توب) */
+.indicator-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.top-at-itaha {
+    bottom: 120%;
+    inset-inline-end: 0px;
+}
+
+.bottom-at-itaha {
+    top: 120%;
+    inset-inline-start: 2px;
+}
+
+/* تنسيق النصوص داخل المؤشر */
+.indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.indicator .year {
+    font-weight: 600;
+    font-size: 20px;
+    color: #5E7278;
+    white-space: nowrap;
+}
+
+.indicator .val {
+    font-weight: 700;
+    font-size: 26px;
+    color: #5E7278;
+    direction: ltr;
+    white-space: nowrap;
+}
+
+/* الأسهم */
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+}
+
+.down-arrow {
+    border-top: 13px solid #03B9B2;
+    margin-top: 3px;
+}
+
+.up-arrow {
+    border-bottom: 13px solid #03B9B2;
+    margin-bottom: 3px;
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات الصغيرة (الموبايل)     */
+/* ========================================== */
+@media (max-width: 767px) {
+    .digital-progress-section {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    /* تحويل الشريط لصفوف عمودية فوق بعضها */
+    .progress-bar-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .prog-item {
+        height: 55px;
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    /* إلغاء التموضع المطلق (absolute) تماماً في الموبايل لمنع التداخل والخروج عن الشاشة */
+    .indicator-container {
+        position: static;
+        transform: none;
+        width: auto;
+    }
+
+    /* جعل صندوق الإتاحة يتحول لـ Flex ليحتوي المؤشرات بداخله بشكل أفقي أو مرتب أنيق */
+    .prog-item.item-itaha {
+        flex-direction: row;
+        justify-content: space-around;
+        background: #AFDEDB;
+        height: auto;
+        padding: 12px 5px;
+    }
+
+    /* تنسيق شكل المؤشر داخل الموبايل ليكون مريحاً ونظيفاً */
+    .indicator {
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        background: #ffffff;
+        padding: 4px 10px;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .indicator .year {
+        font-size: 13px;
+    }
+
+    .indicator .val {
+        font-size: 14px;
+    }
+
+    /* إخفاء الأسهم في الموبايل لأنها تستهلك مساحة عرضية ولا داعي لها في العرض الرأسي */
+    .arrow {
+        display: none;
+    }
+}
+
+/* services */
+
+.services-title {
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.2;
+    color: #03B9B2;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+
+}
+
+/* الخدمات الرقمية المقدمة */
+.services-subtitle {
+    font-weight: 700;
+    font-size: clamp(22px, 3vw, 35px);
+    line-height: 1.3;
+    color: #03B9B2;
+}
+
+/* النص والوصف: يتجاوب تلقائياً من 16px إلى 24px لضمان سهولة القراءة على الموبايل */
+.services-description {
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.8;
+    text-align: justify;
+    color: #03B9B2;
+
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات الصغيرة (الموبايل)     */
+/* ========================================== */
+@media (max-width: 767px) {
+    .services-description {
+        text-align: start;
+        /* في الموبايل يفضل اليمين بدلاً من justify لمنع تباعد الكلمات الكبير */
+    }
+}
+
+/* sevirvce-goals */
+.sevirvce-goals {
+    margin-top: 2rem;
+}
+
+.sevirvce-goals .services-subtitle {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 570px;
+    height: 62px;
+    background: linear-gradient(90deg, rgba(1, 147, 142, 0.05) 0%, rgba(1, 147, 142, 0) 100%);
+    margin-bottom: 1rem;
+}
+
+.goals-cards {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.goal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 16px;
+    gap: 2px;
+    background: #FFFFFF;
+    border: 1px solid #DAE7E6;
+    box-shadow: 0px 8px 30px rgba(1, 147, 142, 0.18);
+}
+
+.goal-card h4 {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 34px;
+    color: #03B9B2;
+}
+
+.goal-divider {
+    width: 148px;
+    height: 4px;
+
+    background: linear-gradient(270deg, #01938E 0%, rgba(1, 147, 142, 0) 100%);
+    border-radius: 9999px;
+    margin: 16px 0;
+}
+
+@media(min-width:768px) {
+    .goal-card {
+        flex-basis: calc(50% - 4px);
+    }
+}
+
+@media(min-width:1025px) {
+    .goal-card {
+        flex-basis: calc(33% - 4px);
+    }
+}
+
+@media(min-width:1400px) {
+    .goal-card {
+        flex-basis: calc(25% - 4px);
+    }
+}
+
+/* ========================================== */
+/*  تنسيق حاوية البطاقات (Desktop الأساسي)    */
+/* ========================================== */
+.serviece-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    /* السماح للبطاقات بالنزول لسطر جديد عند ضيق الشاشة */
+    gap: 32px;
+    margin: 75px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sevice-box {
+    position: relative;
+    flex: 1 1 300px;
+    /* ضمان أخذ مساحة مرنة وألا تقل عن 300px في الشاشات المتوسطة */
+    min-width: 280px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    /* زيادة التباعد الداخلي قليلاً لراحة العين */
+    gap: 24px;
+    background: linear-gradient(140.8deg, #FFFFFF 0%, #F3FBFC 100%);
+    border: 1px solid rgba(223, 244, 246, 0.6);
+    border-radius: 8px;
+    /* إضافة حواف دائرية خفيفة لتجميل الشكل */
+}
+
+/* الأرقام الخلفية الكبيرة */
+.sevice-box::after {
+    position: absolute;
+    top: 16px;
+    inset-inline-end: 16px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: clamp(80px, 10vw, 110px);
+    /* جعل حجم الرقم متجاوباً */
+    line-height: 1;
+    color: rgba(223, 244, 246, 0.8);
+    pointer-events: none;
+    /* لضمان عدم تأثير الرقم على الضغط داخل البطاقة */
+}
+
+.sevice-box:first-child::after {
+    content: '1';
+}
+
+.sevice-box:nth-child(2)::after {
+    content: '2';
+}
+
+.sevice-box:nth-child(3)::after {
+    content: '3';
+}
+
+.srv-box-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+    /* لضمان ظهور العنوان والأيقونة فوق الرقم الخلفي */
+}
+
+.srv-box-top .icon {
+    height: 60px;
+    width: 60px;
+    min-width: 60px;
+    /* لضمان عدم انكماش الأيقونة */
+    background-color: #01B1AF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.srv-box-top h3 {
+    font-weight: 700;
+    font-size: clamp(20px, 2vw, 24px);
+    /* عنوان متجاوب */
+    line-height: 1.3;
+    color: #01B1AF;
+    margin: 0;
+    max-width: 230px;
+}
+
+.srv-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.srv-items li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 20px);
+    /* حجم خط متجاوب للبنود الداخلية */
+    line-height: 1.4;
+    color: rgba(15, 38, 46, 0.8);
+}
+
+
+/* ========================================== */
+/*  التجاوب مع الشاشات الصغيرة والمتوسطة     */
+/* ========================================== */
+
+@media (max-width: 1024px) {
+    .serviece-boxes {
+        gap: 20px;
+        margin: 40px 0;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 1024px) {
+    .srv-box-top h3 {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    .serviece-boxes {
+        flex-direction: column;
+        /* تحويل العرض إلى عمودي (تحت بعض) في الموبايل */
+        gap: 24px;
+        padding: 0 16px;
+        /* إضافة مسافات جانبية لئلا تلتصق البطاقات بحواف الشاشة */
+    }
+
+    .sevice-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .srv-box-top h3 {
+        max-width: 180px;
+    }
+}
+
+/* service-block */
+.service-block {
+    max-width: 830px;
+    margin: 48px auto;
+}
+
+
+@media (max-width: 767px) {
+    .service-block {
+        max-width: 830px;
+        margin: 16px auto;
+    }
+}
+
+
+/* .gov-sec */
+.gov-sec .sc-title__title {
+    margin-bottom: 2rem;
+}
+
+.gov-sec .image img {
+    width: 100%;
+}
+
+.lap {
+    display: none !important;
+}
+
+@media(min-width:981px) {
+    .lap {
+        display: flex !important;
+    }
+
+    .mob {
+        display: none !important;
+    }
+}
+
+/* gov-desc-sec */
+.gov-desc-sec .sc-title__title {
+    margin-bottom: 2rem;
+}
+
+.gov-logos {
+    display: flex;
+    /* السماح للعناصر بالنزول لسطر جديد عند ضيق الشاشة */
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gov-logo {
+    flex: 1 1 250px;
+    /* ضمان توزيع عادل وألا يقل عرض العنصر عن 250px في الشاشات المتوسطة */
+    padding-inline-end: 24px;
+    box-sizing: border-box;
+}
+
+/* إخفاء خط الفاصل الرأعي في الشاشات الصغيرة عندما تنزل العناصر تحت بعضها */
+@media (min-width: 769px) {
+    .gov-logo:not(:last-child) {
+        border-inline-end: 1px solid #008A85;
+    }
+}
+
+.gov-logo h3 {
+    text-align: center;
+    background: rgba(209, 239, 237, 0.53);
+    padding: 16px 32px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 38px);
+    /* جعل حجم الخط متجاوباً بسلاسة */
+    line-height: 1.3;
+    color: #00B9B2;
+    margin: 0;
+    border-radius: 6px;
+    /* إضافة تدوير بسيط للحواف لتبدو أكثر عصرية */
+}
+
+/* ========================================== */
+/*  التجاوب مع الشاشات المتوسطة والصغيرة (الموبايل) */
+/* ========================================== */
+@media (max-width: 768px) {
+    .gov-logos {
+        flex-direction: column;
+        /* ترتيب العناصر تحت بعضها بشكل عمودي في الموبايل */
+        gap: 16px;
+    }
+
+    .gov-logo {
+        padding-inline-end: 0;
+        /* إزالة المسافة الجانبية في العرض العمودي */
+        width: 100%;
+    }
+
+    .gov-logo h3 {
+        padding: 14px 20px;
     }
 }

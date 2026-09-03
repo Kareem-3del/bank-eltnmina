@@ -161,6 +161,8 @@
   document.querySelectorAll(".nav__link").forEach(link => {
 
     const href = (link.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
+    console.log("href", href)
+    console.log("here = ", here)
 
     if (href && href === here) {
       link.setAttribute("aria-current", "page");
@@ -301,7 +303,7 @@
           },
           {
             href: "performance-summary.html",
-            text: "موجز الاداء",
+            text: "موجز الأداء",
             img: "performance-summary.webp",
             caption: "أكثر من 920,000 أسرة منذ 2017"
           },
@@ -823,12 +825,13 @@
     document.body.appendChild(backToTopBtn);
 
     // متغير للتحكم في حالة ظهور الفوتر
-    let isFooterVisible = false;
+    let isFooterVisible;
 
     // 3. مراقبة حركة السكرول لإظهار/إخفاء الزر بناءً على الارتفاع والفوتر
     window.addEventListener("scroll", () => {
       // يظهر الزر فقط إذا تجاوز السكرول 300px ولم يصل المستخدم للفوتر بعد
-      if (window.scrollY > 300 && !isFooterVisible) {
+      // if (window.scrollY > 300 && !isFooterVisible) {
+      if (window.scrollY > 300) {
         backToTopBtn.classList.add("show");
       } else {
         backToTopBtn.classList.remove("show");

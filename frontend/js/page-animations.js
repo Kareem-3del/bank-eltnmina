@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //read more btn
     document.querySelectorAll('.js-read-more-btn').forEach(btn => {
 
+
         // 2. ضبط النص الابتدائي
         btn.textContent = labels[lang].more;
 
