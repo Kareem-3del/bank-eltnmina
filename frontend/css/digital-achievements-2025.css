@@ -255,7 +255,7 @@
     position: relative;
     width: 100%;
     max-width: 1385px;
-    margin: 90px auto;
+    margin: 95px auto;
     padding: 30px 20px;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
@@ -530,11 +530,11 @@
     }
 }
 
-@media(min-width:1400px) {
+/* @media(min-width:1400px) {
     .goal-card {
         flex-basis: calc(25% - 4px);
     }
-}
+} */
 
 /* ========================================== */
 /*  تنسيق حاوية البطاقات (Desktop الأساسي)    */
