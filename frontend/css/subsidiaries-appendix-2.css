@@ -68,6 +68,11 @@
   box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
 }
 
+.appx2-about__icon {
+  color: var(--c-primary-container, #00bcb2);
+  flex-shrink: 0;
+}
+
 .appx2-about__card-title {
   margin: 0;
   font-family: "Cairo", sans-serif;
@@ -148,7 +153,7 @@
 
 .appx2-products__body {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: auto 1fr 1fr;
   gap: 32px;
   align-items: start;
   max-width: 1252px;
@@ -411,6 +416,16 @@
   max-width: 1252px;
   margin-inline: auto;
   align-items: start;
+}
+
+.appx2-awards__placeholder {
+  height: 176px;
+  background: #f1f9f9;
+  margin-bottom: 20px;
+}
+
+.appx2-awards__placeholder--dim {
+  opacity: 0.92;
 }
 
 .appx2-awards__card {
