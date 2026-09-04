@@ -163,14 +163,15 @@
 
     <main id="main" class="es1-page">
 
-        <section class="c-hero c-hero--es1">
+        <section class="c-hero">
             <div class="c-hero__overlay"></div>
-            <div class="c-hero__image-wrapper">
-                <img src="assets/executive-summary.webp" class="c-hero__img" alt="الملخص التنفيذي">
+            <div class="c-hero__image-wrapper anim-element" data-anim="zoom-in" data-delay="0.1">
+                <img src="assets/es-h-1.png" class="c-hero__img" alt="chairman-message">
             </div>
             <div class="container h-100">
                 <div class="c-hero__content">
-                    <nav class="c-hero__breadcrumb" aria-label="Breadcrumb">
+                    <nav class="c-hero__breadcrumb anim-element" data-anim="fade-in" data-delay="0.5"
+                        aria-label="Breadcrumb">
                         <ol class="c-hero__breadcrumb-list">
                             <li class="c-hero__breadcrumb-item">
                                 <a href="ar/index.html" class="c-hero__breadcrumb-link">الرئيسية</a>
@@ -180,130 +181,20 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title">الملخص التنفيذي</h1>
-                </div>
-            </div>
-        </section>
-
-        <!-- البيانات المالية -->
-        <section class="es1-banner">
-            <div class="es1-banner__media">
-                <img src="assets/image%20(83).png" alt="">
-            </div>
-            <div class="es1-banner__overlay"></div>
-            <div class="es1-banner__container">
-                <h2 class="es1-banner__title">البيانات المالية</h2>
-            </div>
-        </section>
-
-        <section class="es1-board-wrap">
-            <div class="es1-board es1-board--financial">
-                <div class="es1-financial__headers">
-                    <h3 class="es1-board__head es1-board__head--wide anim-float-up">الأداء المالي والاستدامة المالية
-                    </h3>
-                    <h3 class="es1-board__head es1-board__head--narrow anim-float-down">التحصيل</h3>
-                </div>
-
-                <div class="es1-board__col es1-board__col--primary anim-float-up">
-                    <div class="es1-board__panel">
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="180.2" data-decimals="1">0</span>
-                                <span class="es1-stat__unit">مليار</span>
-                            </div>
-                            <p class="es1-stat__desc">رأس المال المدفوع، وثبت رأس المال المصرح به عند 190.9 مليار ريال
-                            </p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="5.49" data-decimals="2">0</span>
-                                <span class="es1-stat__unit es1-stat__unit--pct">%</span>
-                            </div>
-                            <p class="es1-stat__desc">المتوسط السنوي لتكلفة التمويل المدعوم</p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="884">0</span>
-                                <span class="es1-stat__unit">مليون</span>
-                            </div>
-                            <p class="es1-stat__desc">إجمالي الموازنة المعتمدة وبلغت نسبة الصرف %99.99</p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="113">0</span>
-                                <span class="es1-stat__unit es1-stat__unit--pct">%</span>
-                            </div>
-                            <p class="es1-stat__desc">نسبة تجاوز المستهدف السنوي من قيمة المبالغ المحصلة</p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="949.3" data-decimals="1">0</span>
-                                <span class="es1-stat__unit">مليون</span>
-                            </div>
-                            <p class="es1-stat__desc">إيرادات تشغيلية متجاوزة المستهدف %120</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="es1-board__col es1-board__col--mid anim-float-up">
-                    <div class="es1-board__panel">
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="2434">0</span>
-                                <span class="es1-stat__unit">مليون</span>
-                            </div>
-                            <p class="es1-stat__desc">إيرادات استثمارية متجاوزة المستهدف بنسبة %133</p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="3383">0</span>
-                                <span class="es1-stat__unit">مليون</span>
-                            </div>
-                            <p class="es1-stat__desc">إجمالي الإيرادات متجاوزة المستهدف بنسبة %129</p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="5.11" data-decimals="2">0</span>
-                                <span class="es1-stat__unit es1-stat__unit--pct">%</span>
-                            </div>
-                            <p class="es1-stat__desc">معدل العائد على الاستثمار بعد الإيرادات الاستثمارية</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="es1-board__col es1-board__col--collection anim-float-down">
-                    <div class="es1-board__panel">
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="6393">0</span>
-                            </div>
-                            <p class="es1-stat__desc">أداء التحصيل بنسبة تجاوز المستهدف السنوي 5.681 مليون <svg
-                                    class="riyal" aria-hidden="true">
-                                    <use href="#riyal"></use>
-                                </svg></p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="596" data-decimals="0">0</span>
-                                <span class="es1-stat__unit">مليون</span>
-                            </div>
-                            <p class="es1-stat__desc">تم تحصيلها عبر تفعيل برنامج خصم السداد المبكر</p>
-                        </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__value">
-                                <span class="es1-stat__num" data-counter="19583">0</span>
-                            </div>
-                            <p class="es1-stat__desc">عدد مستفيدي إغلاق كامل القرض لعام 2025م</p>
-                        </div>
+                    <div>
+                        <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
+                            الملخص التنفيذي
+                        </h1>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- القوى البشرية -->
         <section class="es1-banner es1-banner--flip">
             <div class="es1-banner__media">
-                <img src="assets/image%20(84).png" alt="">
+                <img src="assets/hp.png" alt="">
             </div>
             <div class="es1-banner__overlay"></div>
             <div class="es1-banner__container">
@@ -331,14 +222,6 @@
                             </div>
                             <p class="es1-stat__desc">حصلوا على شهادات مهنية وتخصصية متنوعة</p>
                         </div>
-                        <div class="es1-stat">
-                            <div class="es1-stat__figure">
-                                <span class="es1-stat__num es1-stat__num--tight" data-counter="1104">0</span>
-                                <span class="es1-stat__unit">وظيفة</span>
-                            </div>
-                            <p class="es1-stat__desc">عدد الوظائف المعتمدة في صندوق التنمية، المشغول منها 950 وظيفة
-                                بنسبة بلغت 86% وجميعها بكوادر وطنية</p>
-                        </div>
                     </div>
                 </div>
 
@@ -361,7 +244,7 @@
         <!-- الشركات التابعة -->
         <section class="es1-banner">
             <div class="es1-banner__media">
-                <img src="assets/image%20(85).png" alt="">
+                <img src="assets/sc.png" alt="">
             </div>
             <div class="es1-banner__overlay"></div>
             <div class="es1-banner__container">
@@ -401,6 +284,12 @@
                     </div>
                 </article>
             </div>
+        </section>
+
+        <section class="e-l">
+            <p>
+                تم دعم <span data-counter="18676">0</span> عقدًا لمنتج البيع على الخارطة من خلال برامج الدعم السكني.
+            </p>
         </section>
 
     </main>

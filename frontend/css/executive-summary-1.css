@@ -305,7 +305,6 @@
   justify-content: flex-start;
   gap: clamp(20px, 2.5vw, 32px);
   flex: 1;
-  min-height: clamp(280px, 28vw, 357px);
   min-width: 0;
   box-sizing: border-box;
   direction: rtl;
@@ -859,4 +858,35 @@
     font-size: clamp(15px, 3.5vw, 18px);
     line-height: 24px;
   }
+}
+
+.e-l {
+  background: #D1EFED;
+  padding: clamp(30px, 6vw, 60px) clamp(16px, 4vw, 32px);
+  /* مسافات داخلية مرنة تتناسب مع حجم الشاشة */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.e-l p {
+  max-width: 900px;
+  margin: auto;
+  font-style: normal;
+  font-weight: 800;
+  /* حجم خط متجاوب للنص الأساسي يتراوح بين 22px على الموبايل و 40px على الشاشات الكبيرة */
+  font-size: clamp(22px, 3.5vw, 40px);
+  line-height: 1.4;
+  /* ضبط ارتفاع السطر ليناسب التجاوب بدون تداخل */
+  text-align: center;
+  color: #00BCB2;
+}
+
+.e-l p span {
+  font-weight: 800;
+  /* حجم خط متجاوب للـ span البارز يتراوح بين 40px على الموبايل و 70px على الشاشات الكبيرة */
+  font-size: clamp(40px, 6.5vw, 70px);
+  line-height: 1.2;
+  color: #00BCB2;
+  display: inline-block;
+  /* لضمان تمركز وحركة صحيحة للرقم أو الكلمة البارزة عند تغير حجم الشاشة */
 }

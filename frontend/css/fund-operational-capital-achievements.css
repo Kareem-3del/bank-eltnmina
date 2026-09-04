@@ -34,8 +34,8 @@ body {
 
 .sc-title__subtitle {
     font-weight: 700;
-    font-size: 36px;
-    line-height: 31px;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.2;
     color: #03B9B2;
 }
 

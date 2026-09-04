@@ -171,13 +171,11 @@
   justify-content: flex-start;
 }
 
-.es-page--en .es-advisor2__titlebox,
+/* .es-page--en .es-advisor2__titlebox,
 .es-page--en .es-advisor2__stat,
-.es-page--en .es-advisor2__value,
-.es-page--en .es-advisor2__label,
 .es-page--en .es-advisor2__desc {
   text-align: left;
-}
+} */
 
 .es-page--en .es-advisor2__stats {
   margin-inline: 0;
@@ -187,7 +185,7 @@
 .es-page--en .es-advisor2__channel-title,
 .es-page--en .es-advisor2__channel-value,
 .es-page--en .es-advisor2__channel-label {
-  text-align: left;
+  /* text-align: left; */
   align-items: flex-start;
 }
 
@@ -219,6 +217,7 @@
 }
 
 @media (max-width: 540px) {
+
   .es-page--en .es-overview .es-panel--strategy .es-panel-metric,
   .es-page--en .es-overview .es-panel--strategy .es-panel-metric__cap {
     text-align: left;
