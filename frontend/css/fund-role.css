@@ -1,6 +1,10 @@
 /* Section title — accent under a single highlighted word.
    When the title carries an accent, suppress the default centered underline
    from .sec-title::after so the accent reads cleanly on its own. */
+.sec-title {
+    color: #00BCB2;
+}
+
 .sec-title__accent {
     text-decoration: underline;
     text-decoration-color: #009485;
@@ -59,7 +63,7 @@
     max-width: 1120px;
     display: flex;
     margin: auto;
-    gap: 48px;
+    gap: 32px;
 }
 
 .intro-box__item {
@@ -70,11 +74,17 @@
 }
 
 .intro-box__desc {
-    color: #00BCB4;
+    color: #00BCB2;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.4;
     letter-spacing: 0px;
+}
+
+@media(min-width:1024px) {
+    .intro-box__desc {
+        text-align: justify;
+    }
 }
 
 /* func-grid */
@@ -111,7 +121,7 @@
 }
 
 .func-grid .head h3 {
-    color: #00BCB4 !important;
+    color: #00BCB2 !important;
     font-weight: 800;
     font-size: clamp(16px, 1.2vw + 0.8rem, 18px);
     line-height: clamp(24px, 1.5vw + 1rem, 26px);
@@ -224,6 +234,7 @@
         gap: 12px;
     }
 }
+
 /* ==========================================================================
    Report overview — sections 2/3/4 + housing-support banner
    Figma: "Website Sub-Pages" › المقدمة و دور صندوق التنمية
@@ -233,125 +244,151 @@
    ========================================================================== */
 
 .intro-report {
-  background: #fcfefd;
+    background: #fcfefd;
 }
 
 .intro-report__pair,
 .intro-report__parts {
-  display: flex;
-  gap: 64px;
-  min-width: 0;
+    display: flex;
+    gap: 64px;
+    min-width: 0;
 }
 
 .intro-report__pair {
-  align-items: stretch; /* both cards end level regardless of copy length */
-  padding-block: 80px;
+    align-items: stretch;
+    /* both cards end level regardless of copy length */
+    padding-block: 80px;
 }
 
 .intro-report__parts {
-  align-items: center;
-  padding-block-end: 80px;
+    align-items: center;
+    padding-block-end: 80px;
 }
 
 .intro-report__card {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
-  padding: 40px;
-  background: var(--c-surface, #fff);
-  border: 1px solid #d3e1e0;
-  border-radius: var(--radius, 0);
-  box-shadow: 0 10px 30px -18px rgba(45, 118, 114, 0.4);
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding: 40px;
+    background: var(--c-surface, #fff);
+    border: 1px solid #d3e1e0;
+    border-radius: var(--radius, 0);
+    box-shadow: 0 10px 30px -18px rgba(45, 118, 114, 0.4);
 }
 
 .intro-report__h {
-  margin: 0;
-  font-size: 24px;
-  line-height: 39px;
-  font-weight: var(--fw-bold, 700);
-  color: var(--c-primary-container, #00bcb2);
+    margin: 0;
+    font-size: 24px;
+    line-height: 39px;
+    font-weight: var(--fw-bold, 700);
+    color: var(--c-primary-container, #00bcb2);
 }
 
 .intro-report__p {
-  margin: 0;
-  font-size: 15.7px;
-  line-height: 31px;
-  font-weight: var(--fw-regular, 400);
-  color: #657578;
-  text-align: justify;
+    margin: 0;
+    font-size: 15.7px;
+    line-height: 31px;
+    font-weight: var(--fw-regular, 400);
+    color: #657578;
+    text-align: justify;
 }
 
 .intro-report__col {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
 }
 
 .intro-report__figure {
-  flex: 0 0 543px;
-  min-width: 0;
-  margin: 0;
-  box-shadow: 0 24px 60px -28px rgba(45, 118, 114, 0.45);
+    flex: 0 0 543px;
+    min-width: 0;
+    margin: 0;
+    box-shadow: 0 24px 60px -28px rgba(45, 118, 114, 0.45);
 }
 
 .intro-report__figure img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 543 / 368;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    aspect-ratio: 543 / 368;
+    object-fit: cover;
 }
 
 /* Awaiting-photo state, same convention as the board portraits. */
 .intro-report__figure--pending {
-  aspect-ratio: 543 / 368;
-  background: #d1efed;
+    aspect-ratio: 543 / 368;
+    background: #d1efed;
 }
 
 /* An inset panel, not a full-bleed band: the Figma places it at left 149 /
    right 147 inside the 1536 frame, so it sits within the content column and
    carries its own shadow. */
 .intro-report__banner {
-  margin-block-end: 80px;
-  padding: 96px 32px;
-  background: #d1efed;
-  box-shadow: 0 10px 30px -18px rgba(45, 118, 114, 0.4);
+    margin-block-end: 80px;
+    padding: 96px 32px;
+    background: #d1efed;
+    box-shadow: 0 10px 30px -18px rgba(45, 118, 114, 0.4);
 }
 
 .intro-report__banner p {
-  max-width: 846px; /* Figma text box; wider than its 768px container by design */
-  margin-inline: auto;
-  font-size: clamp(1.5rem, 1rem + 2.2vw, 3rem); /* reaches the Figma's 48px by ~1450px */
-  line-height: 1.6;
-  font-weight: var(--fw-bold, 700);
-  text-align: center;
-  color: var(--c-primary-container, #00bcb2);
+    max-width: 846px;
+    /* Figma text box; wider than its 768px container by design */
+    margin-inline: auto;
+    font-size: clamp(1.5rem, 1rem + 2.2vw, 3rem);
+    /* reaches the Figma's 48px by ~1450px */
+    line-height: 1.6;
+    font-weight: var(--fw-bold, 700);
+    text-align: center;
+    color: var(--c-primary-container, #00bcb2);
 }
 
 /* Riyal glyph sits with the numeral — see DESIGN.md § Currency. */
 .intro-report__riyal {
-  height: 0.95em;
-  width: auto;
-  display: inline-block;
-  vertical-align: -0.06em;
+    height: 0.95em;
+    width: auto;
+    display: inline-block;
+    vertical-align: -0.06em;
 }
 
 @media (max-width: 900px) {
-  .intro-report__pair,
-  .intro-report__parts {
-    flex-direction: column;
-    gap: 32px;
-  }
 
-  .intro-report__figure {
-    flex: none;
+    .intro-report__pair,
+    .intro-report__parts {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .intro-report__figure {
+        flex: none;
+        width: 100%;
+    }
+
+    .intro-report__banner {
+        padding: 64px 24px;
+    }
+}
+
+.intro-img {
+    /* ارتفاع مرن يتراوح بين 200px على الموبايل و 360px على الشاشات الكبيرة */
+    max-height: clamp(200px, 35vw, 360px);
+    /* هوامش عمودية مرنة تتناسب مع الشاشات المختلفة لئلا تكون المسافات ضخمة على الهواتف */
+    margin: clamp(40px, 8vw, 90px) 0;
+    overflow: hidden;
     width: 100%;
-  }
+    box-sizing: border-box;
+}
 
-  .intro-report__banner {
-    padding: 64px 24px;
-  }
+.intro-img img {
+    width: 100%;
+    /* ضمان ملء العرض بالكامل */
+    height: 100%;
+    /* ملء الارتفاع المحدد للحاوية */
+    max-height: clamp(200px, 35vw, 360px);
+    /* مطابقة الارتفاع المرن للحاوية */
+    object-fit: cover;
+    /* لضمان قص الصورة وتناسبها بشكل جميل دون تشويه */
+    display: block;
 }
