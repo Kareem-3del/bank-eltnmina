@@ -233,3 +233,11 @@
     line-height: 28px;
   }
 }
+
+/* Riyal glyph in the hero stat — DESIGN.md § Currency (never the letters "SAR"). */
+.board__riyal {
+  height: 0.95em;
+  width: auto;
+  display: inline-block;
+  vertical-align: -0.06em;
+}
