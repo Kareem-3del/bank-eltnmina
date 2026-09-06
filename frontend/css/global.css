@@ -1034,7 +1034,8 @@ html.lenis body {
   /* z-index: 99999; */
 }
 
-.site-footer .nav__link[aria-current="page"] {
+.site-footer .nav__link[aria-current="page"],
+.site-footer .nav__link.active {
   color: #8dcfc5 !important;
 }
 

@@ -216,6 +216,275 @@
      · CSS owns the stagger via per-nth-child transition-delay
      · JS owns open/close, focus return, escape, and image swap on hover
      ===================================================================== */
+
+  function generatedLinks(lang) {
+    return lang === "ar" ? [
+      {
+        href: "index.html",
+        text: "الرئيسية",
+        img: "hero.webp",
+        caption: "أسرٌ تنتقل إلى منازلها الجديدة"
+      },
+
+      {
+        text: "التقديم",
+        img: "introduction.webp",
+        caption: "دور الصندوق في منظومة الإسكان",
+        sublinks: [
+          {
+            href: "introduction.html",
+            text: "المقدمة",
+            img: "introduction.webp",
+            caption: "دور الصندوق في منظومة الإسكان"
+          },
+          {
+            href: "chairman-message.html",
+            text: "رسالة رئيس مجلس الإدارة",
+            img: "chairman-message.webp",
+            caption: "كلمة عن مسيرة الصندوق"
+          },
+          {
+            href: "ceo-message.html",
+            text: "رسالة الرئيس التنفيذي",
+            img: "chairman-message.webp",
+            caption: "رسالة من الرئيس التنفيذي"
+          },
+          {
+            href: "board-members.html",
+            text: "أعضاء مجلس الإدارة",
+            img: "board-hero.webp",
+            caption: "قيادة الصندوق العقاري"
+          },
+          {
+            href: "definitions.html",
+            text: "التعريفات",
+            img: "definitions-hero.webp",
+            caption: "المصطلحات الواردة في التقرير"
+          }
+        ]
+      },
+      {
+        text: "الملخص التنفيذي",
+        img: "executive-summary.webp",
+        caption: "نظرة شاملة على إنجازات العام",
+        sublinks: [
+          {
+            href: "executive-summary-1.html",
+            text: "الملخص التنفيذي 1",
+            img: "executive-summary.webp",
+            caption: "نظرة شاملة على إنجازات العام"
+          },
+          {
+            href: "executive-summary.html",
+            text: "الملخص التنفيذي 2",
+            img: "executive-summary.webp",
+            caption: "نظرة شاملة على إنجازات العام"
+          }
+        ]
+      },
+      {
+        href: "strategic-direction.html",
+        text: "التوجه الاستراتيجي",
+        img: "strategic-direction.webp",
+        caption: "أربع ركائز · رؤية 2030"
+      },
+      {
+        href: "performance-summary.html",
+        text: "موجز الأداء",
+        img: "performance-summary.webp",
+        caption: "أكثر من 920,000 أسرة منذ 2017"
+      },
+      {
+        href: "current-state.html",
+        text: "الوضع الراهن",
+        img: "current-state.webp",
+        caption: "الوضع الحالي لقطاع الإسكان"
+      },
+      {
+        text: "أبرز الأعمال والإنجازات",
+        img: "challenges-and-support.webp",
+        caption: "أبرز الأعمال والإنجازات",
+        sublinks: [
+          {
+            href: "housing-support-program.html",
+            text: "برنامج الدعم السكني",
+            img: "challenges-and-support.webp",
+            caption: "أبرز الأعمال والإنجازات",
+          },
+          {
+            href: "digital-achievements.html",
+            text: "إنجازات التحول الرقمي",
+            img: "digital-achievements-.webp",
+            caption: "أبرز الأعمال والإنجازات",
+          },
+          {
+            href: "government-enablers.html",
+            text: "مُمكِّنات الحوكمة",
+            img: "government-enablers.webp",
+            caption: "أبرز الأعمال والإنجازات",
+          },
+          {
+            href: "training-programs.html",
+            text: "النشاطات الاجتماعية والجوائز",
+            img: "government-enablers.webp",
+            caption: "أبرز الأعمال والإنجازات",
+          },
+          {
+            href: "subsidized-finance-cost.html",
+            text: "تكلفة التمويل المدعوم",
+            img: "government-enablers.webp",
+            caption: "أبرز الأعمال والإنجازات",
+          }
+        ]
+      },
+      {
+        href: "subsidiaries.html",
+        text: "الشركات التابعة",
+        img: "image%20(49).png",
+        caption: "الشركات التابعة"
+      },
+      {
+        href: "conclusion.html",
+        text: "الخاتمة",
+        img: "conclusion.webp",
+        caption: "خلاصة عام 2025م"
+      },
+    ]
+      :
+      [
+        {
+          href: "index.html",
+          text: "Home",
+          img: "hero-en.webp",
+          caption: "Families moving into their new homes"
+        },
+
+        {
+          text: "Presentation",
+          img: "introduction.webp",
+          caption: "The Fund's role in the housing ecosystem",
+          sublinks: [
+            {
+              href: "introduction.html",
+              text: "Introduction",
+              img: "introduction.webp",
+              caption: "The Fund's role in the housing ecosystem"
+            },
+            {
+              href: "chairman-message.html",
+              text: "Chairman's Message",
+              img: "chairman-message.webp",
+              caption: "A word on the Fund's journey"
+            },
+            {
+              href: "ceo-message.html",
+              text: "CEO's Message",
+              img: "chairman-message.webp",
+              caption: "A message from the CEO"
+            },
+            {
+              href: "board-members.html",
+              text: "Board of Directors",
+              img: "board-hero.webp",
+              caption: "REDF leadership"
+            },
+            {
+              href: "definitions.html",
+              text: "Definitions",
+              img: "definitions-hero.webp",
+              caption: "Terms used in the report"
+            }
+          ]
+        },
+        {
+          text: "Executive Summary",
+          img: "executive-summary.webp",
+          caption: "A comprehensive look at the year's achievements",
+          sublinks: [
+            {
+              href: "executive-summary-1.html",
+              text: "Executive Summary 1",
+              img: "executive-summary.webp",
+              caption: "A comprehensive look at the year's achievements"
+            },
+            {
+              href: "executive-summary.html",
+              text: "Executive Summary 2",
+              img: "executive-summary.webp",
+              caption: "A comprehensive look at the year's achievements"
+            }
+          ]
+        },
+        {
+          href: "strategic-direction.html",
+          text: "Strategic Direction",
+          img: "strategic-direction.webp",
+          caption: "Four Pillars · Vision 2030"
+        },
+        {
+          href: "performance-summary.html",
+          text: "Performance Summary",
+          img: "performance-summary.webp",
+          caption: "More than 920,000 families since 2017"
+        },
+        {
+          href: "current-state.html",
+          text: "Current State",
+          img: "current-state.webp",
+          caption: "The current status of the housing sector"
+        },
+        {
+          text: "Key Achievements",
+          img: "challenges-and-support.webp",
+          caption: "Major works and accomplishments",
+          sublinks: [
+            {
+              href: "housing-support-program.html",
+              text: "Housing Support Program",
+              img: "challenges-and-support.webp",
+              caption: "Major works and accomplishments",
+            },
+            {
+              href: "digital-achievements.html",
+              text: "Digital Transformation",
+              img: "digital-achievements-.webp",
+              caption: "Major works and accomplishments",
+            },
+            {
+              href: "government-enablers.html",
+              text: "Governance Enablers",
+              img: "government-enablers.webp",
+              caption: "Major works and accomplishments",
+            },
+            {
+              href: "training-programs.html",
+              text: "Social Activities & Awards",
+              img: "government-enablers.webp",
+              caption: "Major works and accomplishments",
+            },
+            {
+              href: "subsidized-finance-cost.html",
+              text: "Subsidized Finance Cost",
+              img: "government-enablers.webp",
+              caption: "Subsidized Finance Cost",
+            }
+          ]
+        },
+        {
+          href: "subsidiaries.html",
+          text: "Subsidiaries",
+          img: "image%20(49).png",
+          caption: "Subsidiary Companies"
+        },
+        {
+          href: "conclusion.html",
+          text: "Conclusion",
+          img: "conclusion.webp",
+          caption: "Summary of the year 2025"
+        },
+      ];
+  }
+
   initStaggeredMenu();
 
   function initStaggeredMenu() {
@@ -231,138 +500,7 @@
         labelOpen: "إغلاق",
         brand: "صندوق التنمية العقارية",
         brandSub: "التقرير السنوي 2025",
-        links: [
-          {
-            href: "index.html",
-            text: "الرئيسية",
-            img: "hero.webp",
-            caption: "أسرٌ تنتقل إلى منازلها الجديدة"
-          },
-
-          {
-            text: "التقديم",
-            img: "introduction.webp",
-            caption: "دور الصندوق في منظومة الإسكان",
-            sublinks: [
-              {
-                href: "introduction.html",
-                text: "المقدمة",
-                img: "introduction.webp",
-                caption: "دور الصندوق في منظومة الإسكان"
-              },
-              {
-                href: "chairman-message.html",
-                text: "رسالة رئيس مجلس الإدارة",
-                img: "chairman-message.webp",
-                caption: "كلمة عن مسيرة الصندوق"
-              },
-              {
-                href: "ceo-message.html",
-                text: "رسالة الرئيس التنفيذي",
-                img: "chairman-message.webp",
-                caption: "رسالة من الرئيس التنفيذي"
-              },
-              {
-                href: "board-members.html",
-                text: "أعضاء مجلس الإدارة",
-                img: "board-hero.webp",
-                caption: "قيادة الصندوق العقاري"
-              },
-              {
-                href: "definitions.html",
-                text: "التعريفات",
-                img: "definitions-hero.webp",
-                caption: "المصطلحات الواردة في التقرير"
-              }
-            ]
-          },
-          {
-            text: "الملخص التنفيذي",
-            img: "executive-summary.webp",
-            caption: "نظرة شاملة على إنجازات العام",
-            sublinks: [
-              {
-                href: "executive-summary-1.html",
-                text: "الملخص التنفيذي 1",
-                img: "executive-summary.webp",
-                caption: "نظرة شاملة على إنجازات العام"
-              },
-              {
-                href: "executive-summary.html",
-                text: "الملخص التنفيذي 2",
-                img: "executive-summary.webp",
-                caption: "نظرة شاملة على إنجازات العام"
-              }
-            ]
-          },
-          {
-            href: "strategic-direction.html",
-            text: "التوجه الاستراتيجي",
-            img: "strategic-direction.webp",
-            caption: "أربع ركائز · رؤية 2030"
-          },
-          {
-            href: "performance-summary.html",
-            text: "موجز الأداء",
-            img: "performance-summary.webp",
-            caption: "أكثر من 920,000 أسرة منذ 2017"
-          },
-          {
-            href: "current-state.html",
-            text: "الوضع الراهن",
-            img: "current-state.webp",
-            caption: "الوضع الحالي لقطاع الإسكان"
-          },
-          {
-            text: "أبرز الأعمال والإنجازات",
-            img: "challenges-and-support.webp",
-            caption: "أبرز الأعمال والإنجازات",
-            sublinks: [
-              {
-                href: "housing-support-program.html",
-                text: "برنامج الدعم السكني",
-                img: "challenges-and-support.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "digital-achievements.html",
-                text: "إنجازات التحول الرقمي",
-                img: "digital-achievements-.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "government-enablers.html",
-                text: "مُمكِّنات الحوكمة",
-                img: "government-enablers.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "training-programs.html",
-                text: "النشاطات الاجتماعية والجوائز",
-                img: "government-enablers.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              },
-              {
-                href: "subsidized-finance-cost.html",
-                text: "تكلفة التمويل المدعوم",
-                img: "government-enablers.webp",
-                caption: "أبرز الأعمال والإنجازات",
-              }
-            ]
-          },
-          {
-            href: "subsidiaries.html",
-            text: "الشركات التابعة",
-            img: "image%20(49).png",
-            caption: "الشركات التابعة"
-          },
-          {
-            href: "conclusion.html",
-            text: "الخاتمة",
-            img: "conclusion.webp",
-            caption: "خلاصة عام 2025م"
-          },
-        ],
+        links: generatedLinks("ar"),
         contact: [
           { label: "مركز الاتصال", value: "920000507", href: "tel:920000507" },
           { label: "البريد", value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
@@ -377,138 +515,7 @@
         labelOpen: "Close",
         brand: "Real Estate Development Fund",
         brandSub: "Annual Report 2025",
-        links: [
-          {
-            href: "index.html",
-            text: "Home",
-            img: "hero-en.webp",
-            caption: "Families moving into their new homes"
-          },
-
-          {
-            text: "Presentation",
-            img: "introduction.webp",
-            caption: "The Fund's role in the housing ecosystem",
-            sublinks: [
-              {
-                href: "introduction.html",
-                text: "Introduction",
-                img: "introduction.webp",
-                caption: "The Fund's role in the housing ecosystem"
-              },
-              {
-                href: "chairman-message.html",
-                text: "Chairman's Message",
-                img: "chairman-message.webp",
-                caption: "A word on the Fund's journey"
-              },
-              {
-                href: "ceo-message.html",
-                text: "CEO's Message",
-                img: "chairman-message.webp",
-                caption: "A message from the CEO"
-              },
-              {
-                href: "board-members.html",
-                text: "Board of Directors",
-                img: "board-hero.webp",
-                caption: "REDF leadership"
-              },
-              {
-                href: "definitions.html",
-                text: "Definitions",
-                img: "definitions-hero.webp",
-                caption: "Terms used in the report"
-              }
-            ]
-          },
-          {
-            text: "Executive Summary",
-            img: "executive-summary.webp",
-            caption: "A comprehensive look at the year's achievements",
-            sublinks: [
-              {
-                href: "executive-summary-1.html",
-                text: "Executive Summary 1",
-                img: "executive-summary.webp",
-                caption: "A comprehensive look at the year's achievements"
-              },
-              {
-                href: "executive-summary.html",
-                text: "Executive Summary 2",
-                img: "executive-summary.webp",
-                caption: "A comprehensive look at the year's achievements"
-              }
-            ]
-          },
-          {
-            href: "strategic-direction.html",
-            text: "Strategic Direction",
-            img: "strategic-direction.webp",
-            caption: "Four Pillars · Vision 2030"
-          },
-          {
-            href: "performance-summary.html",
-            text: "Performance Summary",
-            img: "performance-summary.webp",
-            caption: "More than 920,000 families since 2017"
-          },
-          {
-            href: "current-state.html",
-            text: "Current State",
-            img: "current-state.webp",
-            caption: "The current status of the housing sector"
-          },
-          {
-            text: "Key Achievements",
-            img: "challenges-and-support.webp",
-            caption: "Major works and accomplishments",
-            sublinks: [
-              {
-                href: "housing-support-program.html",
-                text: "Housing Support Program",
-                img: "challenges-and-support.webp",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "digital-achievements.html",
-                text: "Digital Transformation",
-                img: "digital-achievements-.webp",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "government-enablers.html",
-                text: "Governance Enablers",
-                img: "government-enablers.webp",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "training-programs.html",
-                text: "Social Activities & Awards",
-                img: "government-enablers.webp",
-                caption: "Major works and accomplishments",
-              },
-              {
-                href: "subsidized-finance-cost.html",
-                text: "Subsidized Finance Cost",
-                img: "government-enablers.webp",
-                caption: "Subsidized Finance Cost",
-              }
-            ]
-          },
-          {
-            href: "subsidiaries.html",
-            text: "Subsidiaries",
-            img: "image%20(49).png",
-            caption: "Subsidiary Companies"
-          },
-          {
-            href: "conclusion.html",
-            text: "Conclusion",
-            img: "conclusion.webp",
-            caption: "Summary of the year 2025"
-          },
-        ],
+        links: generatedLinks("en"),
         contact: [
           { label: "Call Center", value: "920000507", href: "tel:920000507" },
           { label: "Email", value: "info@redf.gov.sa", href: "mailto:info@redf.gov.sa" }
@@ -773,6 +780,110 @@
 
   }
 
+
+  // footer genreated
+  function renderFooter() {
+    const isAR = (document.documentElement.getAttribute("lang") || "en").toLowerCase().startsWith("ar");
+    const lang = isAR ? "ar" : "en";
+
+    // الحصول على مسار الصفحة الحالي للمقارنة وتحديد العنصر النشط (Active)
+    const currentPath = window.location.pathname;
+
+    const data = isAR ? {
+      dir: "rtl",
+      logo: "assets/logo-white.png",
+      downloadText: "استعرض التقرير السنوي 2025م",
+      pdfPath: "assets/pdf/ar/MT-final.pdf",
+      ariaLabel: "محتويات التقرير",
+      menu: generatedLinks("ar")
+    } : {
+      dir: "ltr",
+      logo: "assets/logo-white.png",
+      downloadText: "View Annual Report 2025",
+      pdfPath: "assets/pdf/en/MT-final.pdf",
+      ariaLabel: "Report contents",
+      menu: generatedLinks("en")
+    };
+
+    const arrowSvg = `<span class="arrow"><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_760_148)"><path d="M8 10L4 6.25H12L8 10Z" fill="white"/></g><defs><clipPath id="clip0_760_148"><rect width="16" height="15" fill="white"/></clipPath></defs></svg></span>`;
+    const downloadSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.00016 12.6668L3.3335 8.00016L8.00016 3.3335" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.6668 8H3.3335" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+    let menuHtml = '';
+
+    data.menu.forEach(item => {
+      const fullItemHref = item.href ? `${lang}/${item.href}` : "";
+      const isItemActive = item.href && currentPath.includes(fullItemHref);
+
+      if (item.sublinks) {
+        let hasActiveSub = false;
+        let activeSubHref = "";
+        let subMenuHtml = '<ul class="dropdown-menu">';
+
+        item.sublinks.forEach(sub => {
+          const fullSubHref = `${lang}/${sub.href}`;
+          const isSubActive = currentPath.includes(fullSubHref);
+
+          if (isSubActive) {
+            hasActiveSub = true;
+            activeSubHref = fullSubHref; // حفظ رابط الفرعي الحالي النشط
+          }
+
+          subMenuHtml += `<li><a class="nav__link ${isSubActive ? 'active' : ''}" href="${fullSubHref}">${sub.text}</a></li>`;
+        });
+        subMenuHtml += '</ul>';
+
+        // تفعيل الـ dropdown إذا كان الأب أو أحد فروعه نشطاً
+        const dropdownClass = (isItemActive || hasActiveSub) ? 'dropdown active' : 'dropdown';
+
+        // منطق الرابط للأب: إذا كان هناك فرع نشط، يأخذ رابطه، وإلا يصبح '#' (أو رابط الأب الأصلي إن وجد)
+        const finalParentHref = hasActiveSub ? activeSubHref : (fullItemHref || '#');
+
+        menuHtml += `
+        <li class="${dropdownClass}">
+          <a class="nav__link ${finalParentHref && finalParentHref !== "#" ? 'active' : ''}" href="${finalParentHref}">
+            ${item.text}
+            ${arrowSvg}
+          </a>
+          ${subMenuHtml}
+        </li>`;
+      } else {
+        menuHtml += `
+        <li>
+          <a class="nav__link ${isItemActive ? 'active' : ''}" href="${fullItemHref}">${item.text}</a>
+        </li>`;
+      }
+    });
+
+    const footerHTML = `
+    <footer class="site-footer" dir="${data.dir}">
+      <div class="container">
+        <div class="footer__head">
+          <div class="footer__brand">
+            <img src="${data.logo}" alt="Logo" />
+          </div>
+        </div>
+
+        <ul class="footer__index" aria-label="${data.ariaLabel}">
+          ${menuHtml}
+        </ul>
+
+        <div class="footer__bottom">
+          <a class="footer-download__link" href="${data.pdfPath}" download>
+            ${data.downloadText}
+            ${downloadSvg}
+          </a>
+        </div>
+      </div>
+    </footer>
+    `;
+
+    const container = document.getElementById('footer-container');
+    if (container) {
+      container.innerHTML = footerHTML;
+    }
+  }
+
+  renderFooter()
   /* ------ Footer Dropdown Accordion (Fixed Toggle) ---------------------- */
   const footerDropdowns = document.querySelectorAll(".site-footer .dropdown");
 
