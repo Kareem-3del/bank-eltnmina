@@ -316,3 +316,7 @@
 
 
 }
+
+.fc-5 .icon::after {
+    display: none;
+}

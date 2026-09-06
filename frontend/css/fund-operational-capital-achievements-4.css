@@ -172,11 +172,14 @@
     color: #1D7C79;
 }
 
-.women-table .main img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
+@media(max-width:767px) {
+    .women-table .main img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
 }
+
 
 .women-row .stack {
     font-weight: 500;
