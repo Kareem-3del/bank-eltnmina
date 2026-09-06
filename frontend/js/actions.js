@@ -67,30 +67,57 @@
       nameEn: "Current State",
     },
     {
-      href: "housing-support-program.html",
-      nameAr: "برنامج الدعم السكني",
-      nameEn: "Housing Support Program",
+      href: "fund-operational-capital-achievements-2025-1.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 1",
+      nameEn: "Operational and Capital Activities and Achievements 1",
     },
     {
-      href: "digital-achievements.html",
-      nameAr: "إنجازات التحول الرقمي",
-      nameEn: "Digital Transformation",
+      href: "fund-operational-capital-achievements-2025-2.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 2",
+      nameEn: "Operational and Capital Activities and Achievements 2",
     },
     {
-      href: "government-enablers.html",
-      nameAr: "مُمكِّنات الحوكمة",
-      nameEn: "Governance Enablers",
+      href: "fund-operational-capital-achievements-2025-3.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 3",
+      nameEn: "Operational and Capital Activities and Achievements 3",
     },
     {
-      href: "training-programs.html",
-      nameAr: "النشاطات الاجتماعية والجوائز",
-      nameEn: "Social Activities & Awards",
+      href: "fund-operational-capital-achievements-2025-4.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 4",
+      nameEn: "Operational and Capital Activities and Achievements 4",
     },
     {
-      href: "subsidized-finance-cost.html",
-      nameAr: "تكلفة التمويل المدعوم",
-      nameEn: "Subsidized Finance Cost",
+      href: "fund-operational-capital-achievements-2025-5.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 5",
+      nameEn: "Operational and Capital Activities and Achievements 5",
     },
+    {
+      href: "fund-operational-capital-achievements-2025-6.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 6",
+      nameEn: "Operational and Capital Activities and Achievements 6",
+    },
+
+    {
+      href: "digital-achievements-2025-1.html",
+      nameAr: "التحول الرقمي 1",
+      nameEn: "Digital Transformation 1",
+    },
+    {
+      href: "digital-achievements-2025-2.html",
+      nameAr: "التحول الرقمي 2",
+      nameEn: "Digital Transformation 2",
+    },
+    {
+      href: "digital-achievements-2025-3.html",
+      nameAr: "التحول الرقمي 3",
+      nameEn: "Digital Transformation 3",
+    },
+    {
+      href: "digital-achievements-2025-4.html",
+      nameAr: "التحول الرقمي 4",
+      nameEn: "Digital Transformation 4",
+    },
+
     {
       href: "subsidiaries.html",
       nameAr: "الشركات التابعة",
