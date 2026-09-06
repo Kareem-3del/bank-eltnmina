@@ -41,7 +41,7 @@
   }
 }
 
-/* —— قسم من نحن (طموحنا / رؤيتنا / رسالتنا) —— */
+/* —— قسم من نحن (رسالتنا / رؤيتنا / طموحنا) —— */
 .appx2-about {
   padding-block: clamp(40px, 6vw, 72px);
   background-color: #fcfefd;
@@ -50,50 +50,93 @@
 .appx2-about__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: clamp(24px, 4vw, 84px);
   max-width: 1252px;
   margin-inline: auto;
 }
 
 .appx2-about__card {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+
+/* الأيقونة والعنوان يجلسان فوق حافة البطاقة العلوية، والأيقونة تتجاوز الحافة اليمنى قليلًا */
+.appx2-about__head {
+  position: relative;
+  z-index: 1;
+  display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  background: linear-gradient(147deg, #ffffff 0%, #f3fbfc 100%);
-  border: 1px solid rgba(223, 244, 246, 0.6);
-  box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
+  gap: 8px;
+  margin-inline-end: -24px;
+  margin-bottom: -2px;
 }
 
 .appx2-about__icon {
-  color: var(--c-primary-container, #00bcb2);
   flex-shrink: 0;
+  width: auto;
+  height: auto;
+  max-height: 153px;
+  object-fit: contain;
 }
 
 .appx2-about__card-title {
   margin: 0;
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(32px, 3.2vw, 43px);
+  line-height: 1.2;
   color: var(--c-primary-container, #00bcb2);
+  white-space: nowrap;
+}
+
+.appx2-about__body {
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 303px;
+  padding: 16px;
+  background: linear-gradient(140.8deg, #ffffff 0%, #f3fbfc 100%);
+  border: 1px solid rgba(223, 244, 246, 0.6);
+  box-shadow: 0px 8px 24px -8px rgba(15, 52, 61, 0.1);
 }
 
 .appx2-about__card-desc {
   margin: 0;
   font-family: "Cairo", sans-serif;
   font-weight: 500;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: start;
   color: #5f5b5c;
+}
+
+.appx2-about__card--ambition .appx2-about__card-desc {
+  color: #5e7278;
+}
+
+@media (max-width: 1100px) {
+  .appx2-about__icon {
+    max-height: 120px;
+  }
+
+  .appx2-about__card-desc {
+    font-size: 18px;
+    line-height: 30px;
+  }
 }
 
 @media (max-width: 900px) {
   .appx2-about__grid {
     grid-template-columns: 1fr;
+    gap: 40px;
     max-width: 480px;
+  }
+
+  .appx2-about__head {
+    margin-inline-end: 0;
+  }
+
+  .appx2-about__body {
+    min-height: 0;
   }
 }
 
