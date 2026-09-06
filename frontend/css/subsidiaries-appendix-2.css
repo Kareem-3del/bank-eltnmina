@@ -493,6 +493,22 @@
   height: auto;
 }
 
+/* جائزة IFA: الكأس بجانب الشهادة */
+.appx2-awards__figure--pair {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: clamp(220px, 26vw, 340px);
+}
+
+.appx2-awards__figure--pair .appx2-awards__trophy {
+  width: 38%;
+}
+
+.appx2-awards__figure--pair img:first-child {
+  width: 62%;
+}
+
 .appx2-awards__title {
   margin: 0 0 8px;
   font-family: "Cairo", sans-serif;
