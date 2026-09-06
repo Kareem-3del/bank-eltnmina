@@ -148,7 +148,7 @@
 .appx2-products__header {
   max-width: 1252px;
   margin: 0 auto clamp(32px, 5vw, 48px);
-  text-align: end;
+  text-align: start;
 }
 
 .appx2-products__body {
@@ -210,7 +210,7 @@
 
 .appx2-products__list li {
   position: relative;
-  padding-inline-end: 18px;
+  padding-inline-start: 18px;
   font-family: "Cairo", sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -221,7 +221,7 @@
 .appx2-products__list li::before {
   content: "";
   position: absolute;
-  inset-inline-end: 0;
+  inset-inline-start: 0;
   top: 0.75em;
   width: 6px;
   height: 6px;
@@ -294,7 +294,7 @@
 
 .appx2-partners__card {
   display: grid;
-  grid-template-columns: 1.4fr 1.4fr 1fr;
+  grid-template-columns: 1fr 1.4fr 1.4fr;
   gap: 24px;
   padding: 37px;
   background: rgba(255, 255, 255, 0.7);
@@ -314,7 +314,11 @@
 .appx2-partners__col:last-child {
   border-inline-end: 0;
   padding-inline-end: 0;
+}
+
+.appx2-partners__col--brand {
   align-items: flex-start;
+  text-align: start;
 }
 
 .appx2-partners__label {
@@ -336,7 +340,7 @@
 
 .appx2-partners__list-items li {
   position: relative;
-  padding-inline-end: 18px;
+  padding-inline-start: 18px;
   font-family: "Cairo", sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -347,7 +351,7 @@
 .appx2-partners__list-items li::before {
   content: "";
   position: absolute;
-  inset-inline-end: 0;
+  inset-inline-start: 0;
   top: 0.75em;
   width: 6px;
   height: 6px;
@@ -415,21 +419,11 @@
 
 .appx2-awards__grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1fr 1.6fr;
   gap: 40px;
   max-width: 1252px;
   margin-inline: auto;
   align-items: start;
-}
-
-.appx2-awards__placeholder {
-  height: 176px;
-  background: #f1f9f9;
-  margin-bottom: 20px;
-}
-
-.appx2-awards__placeholder--dim {
-  opacity: 0.92;
 }
 
 .appx2-awards__card {
@@ -438,6 +432,11 @@
   align-items: center;
   padding: 32px;
   background: #f2f9f9;
+  margin-bottom: 20px;
+}
+
+.appx2-awards__card:last-child {
+  margin-bottom: 0;
 }
 
 .appx2-awards__figure {
@@ -472,8 +471,8 @@
 .appx2-academy {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: end;
+  align-items: flex-start;
+  text-align: start;
   gap: 8px;
 }
 
@@ -520,7 +519,7 @@
 
 .appx2-academy__list li {
   position: relative;
-  padding-inline-end: 18px;
+  padding-inline-start: 18px;
   font-family: "Cairo", sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -531,7 +530,7 @@
 .appx2-academy__list li::before {
   content: "";
   position: absolute;
-  inset-inline-end: 0;
+  inset-inline-start: 0;
   top: 0.75em;
   width: 6px;
   height: 6px;
@@ -577,7 +576,7 @@
 }
 
 .appx2-impact__header {
-  text-align: end;
+  text-align: start;
 }
 
 .appx2-impact__header .appx2-kicker {
@@ -639,7 +638,7 @@
 
 .appx2-impact__card-list li {
   position: relative;
-  padding-inline-end: 18px;
+  padding-inline-start: 18px;
   font-family: "Cairo", sans-serif;
   font-weight: 300;
   font-size: 15.2px;
@@ -650,7 +649,7 @@
 .appx2-impact__card-list li::before {
   content: "";
   position: absolute;
-  inset-inline-end: 0;
+  inset-inline-start: 0;
   top: 0.75em;
   width: 6px;
   height: 6px;
