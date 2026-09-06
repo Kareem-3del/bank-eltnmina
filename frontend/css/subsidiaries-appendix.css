@@ -113,6 +113,130 @@
   margin-top: 0;
 }
 
+/* —— هوية الشركة التابعة (الاسم / نسبة ملكية الصندوق / الشعار) ——
+   Each appendix opens with this block in the printed report: ضمانات on p104,
+   NFSSC on p110. Three columns in DOM order — identity, about copy, logo —
+   so RTL reads them right-to-left and LTR mirrors wholesale (CLAUDE.md).
+   The #8cd8c9 card fill is sampled from the report; it is a lighter teal than
+   --c-primary-container and has no equivalent in the global palette. */
+.appx-intro {
+  padding-block: clamp(40px, 6vw, 72px) 0;
+  background-color: var(--bg-main);
+}
+
+.appx-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: start;
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx-intro__name {
+  margin: 0 0 24px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 2.9vw, 32px);
+  line-height: 1.5;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+/* Ownership figure. Sharp corners per DESIGN.md; the report shows no radius. */
+.appx-intro__stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-height: clamp(180px, 20vw, 246px);
+  padding: 28px 24px;
+  text-align: center;
+  background: #8cd8c9;
+  border-radius: var(--radius, 0);
+}
+
+.appx-intro__stat-label,
+.appx-intro__stat-value {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 25px);
+  line-height: 1.35;
+  color: #ffffff;
+}
+
+.appx-intro__kicker {
+  margin: 0 0 10px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.3;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx-intro__standfirst {
+  margin: 0 0 16px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #404345;
+}
+
+.appx-intro__desc {
+  margin: 0 0 14px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #404345;
+}
+
+.appx-intro__desc:last-child {
+  margin-bottom: 0;
+}
+
+/* Riyal glyph — DESIGN.md § Currency (never the letters "SAR"). */
+.appx-intro__riyal {
+  height: 0.85em;
+  width: auto;
+  display: inline-block;
+  vertical-align: -0.04em;
+}
+
+.appx-intro__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.appx-intro__logo img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+@media (max-width: 980px) {
+  .appx-intro__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  /* Logo drops to a full-width footer row rather than squeezing a column. */
+  .appx-intro__logo {
+    grid-column: 1 / -1;
+    justify-content: start;
+    min-height: 0;
+    margin-block-start: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .appx-intro__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* —— قسم عن الشركة (رؤيتنا / رسالتنا) —— */
 .appx-about {
   padding-top: clamp(40px, 6vw, 72px);
