@@ -54,21 +54,31 @@
 }
 
 .fca7-campaigns__outro {
-    color: #fff;
-    margin: 0;
+    margin: clamp(24px, 4vw, 40px) 0 0;
 }
 
-.fca7-campaigns__list {
+.fca7-campaigns__cols {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin-top: clamp(24px, 4vw, 40px);
 }
 
-.fca7-campaigns__list-col {
+.fca7-campaigns__col {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.fca7-campaigns__img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: #f5f5f5;
+}
+
+.fca7-campaigns__col--wide .fca7-campaigns__poster {
+    margin-top: 12px;
 }
 
 .fca7-campaigns__item h3 {
@@ -109,38 +119,27 @@
     color: #fff;
 }
 
-.fca7-campaigns {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 24px;
-    margin-top: clamp(24px, 4vw, 40px);
+.fca7-quote-heading__num {
+    margin-inline-end: 8px;
+    font-family: "Cairo", sans-serif;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.fca7-agreements__intro {
+    max-width: 860px;
+    margin: clamp(24px, 4vw, 40px) auto 0;
+    text-align: center;
 }
 
 .fca7-campaigns__poster {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.fca7-campaigns__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.fca7-campaigns__grid img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 377 / 213;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
 }
 
 @media (max-width: 900px) {
-    .fca7-campaigns__list {
-        grid-template-columns: 1fr;
-    }
-
-    .fca7-campaigns {
+    .fca7-campaigns__cols {
         grid-template-columns: 1fr;
     }
 }
@@ -250,6 +249,23 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 1.9;
+    color: var(--c-primary-container, #00bcb2);
+}
+
+/* —— إحصائية ختامية (المطورون العقاريون) —— */
+.fca7-stat-highlight {
+    margin-top: clamp(32px, 5vw, 48px);
+    padding: clamp(24px, 4vw, 32px);
+    background: #d1efec;
+}
+
+.fca7-stat-highlight p {
+    margin: 0;
+    font-family: "Cairo", sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 2.4vw, 22px);
+    line-height: 1.7;
+    text-align: center;
     color: var(--c-primary-container, #00bcb2);
 }
 
