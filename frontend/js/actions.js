@@ -124,6 +124,16 @@
       nameEn: "Subsidiaries",
     },
     {
+      href: "subsidiaries-appendix.html",
+      nameAr: "الملاحق 1",
+      nameEn: "Appendices 1",
+    },
+    {
+      href: "subsidiaries-appendix-2.html",
+      nameAr: "الملاحق 2",
+      nameEn: "Appendices 2",
+    },
+    {
       href: "conclusion.html",
       nameAr: "الخاتمة",
       nameEn: "Conclusion",

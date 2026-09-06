@@ -368,10 +368,29 @@
         ]
       },
       {
-        href: "subsidiaries.html",
         text: "الشركات التابعة",
         img: "image%20(49).png",
-        caption: "الشركات التابعة"
+        caption: "الشركات التابعة",
+        sublinks: [
+          {
+            href: "subsidiaries.html",
+            text: "الشركات التابعة",
+            img: "image%20(49).png",
+            caption: "الشركات التابعة"
+          },
+          {
+            href: "subsidiaries-appendix.html",
+            text: "الملاحق 1",
+            img: "appendix-hero-bg.webp",
+            caption: "خدمات المحافظ والتحصيل والاسترداد"
+          },
+          {
+            href: "subsidiaries-appendix-2.html",
+            text: "الملاحق 2",
+            img: "appx2-hero-bg.webp",
+            caption: "المنتجات والشراكات والأثر الاجتماعي"
+          }
+        ]
       },
       {
         href: "conclusion.html",
@@ -531,10 +550,29 @@
           ]
         },
         {
-          href: "subsidiaries.html",
           text: "Subsidiaries",
           img: "image%20(49).png",
-          caption: "Subsidiary Companies"
+          caption: "Subsidiary Companies",
+          sublinks: [
+            {
+              href: "subsidiaries.html",
+              text: "Subsidiaries",
+              img: "image%20(49).png",
+              caption: "Subsidiary Companies"
+            },
+            {
+              href: "subsidiaries-appendix.html",
+              text: "Appendices 1",
+              img: "appendix-hero-bg.webp",
+              caption: "Portfolio, collection and recovery services"
+            },
+            {
+              href: "subsidiaries-appendix-2.html",
+              text: "Appendices 2",
+              img: "appx2-hero-bg.webp",
+              caption: "Products, partnerships and social impact"
+            }
+          ]
         },
         {
           href: "conclusion.html",
