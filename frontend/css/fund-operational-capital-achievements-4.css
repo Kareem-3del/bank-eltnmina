@@ -404,13 +404,29 @@
         /* توسيط المحتوى في الموبايل ليبدو أكثر ترتيباً */
     }
 
-    .step-num {
+    /* .step-num {
         display: flex;
         justify-content: center;
-    }
+    } */
 
     .step-desc {
         text-align: center;
         /* محاذاة وصف الخطوة بشكل مريح للقراءة */
     }
+}
+
+.step-num {
+    gap: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 24px;
+    align-items: center;
+    color: #CDE8E8;
+}
+
+[dir="ltr"] .step-num svg {
+    transform: scale(-1);
 }
