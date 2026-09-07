@@ -1,370 +1,237 @@
+/* ==========================================================================
+   performance-summary.css — موجز الأداء / Performance Summary
+     · Figma: "Real Estate Fund — Website Sub-Pages" › موجز الأداء
+     · Body band is the solid brand teal; every text layer on it is white.
+     · Two numbered sections, each holding two chart blocks:
+         01  مؤشر رضا المستفيدين   → CSI, NPS
+         02  مؤشر ثقة ووعي المستفيدين → الثقة, الوعي
+     · RTL-first — logical properties only, per the CLAUDE.md mirroring rule,
+       so the LTR edition mirrors wholesale with no per-element overrides.
+   ========================================================================== */
+
+/* Numerals in the design are set in Inter. Inter is not among the site's
+   loaded families, so fall back through Public Sans (which IS loaded and is
+   the closest geometric grotesque) rather than adding another font request. */
+:root {
+    --perf-numeral: "Inter", "Public Sans", system-ui, -apple-system, sans-serif;
+    --perf-gauge-target: #ffffff;
+    --perf-gauge-actual: #d9d9d9;
+}
+
+/* ------ Hero ----------------------------------------------------------- */
+
+/* The shared .c-hero__desc is a 45px display line; here it is a 20px
+   standfirst sitting just above the KPI cards. */
+.c-hero-perform .c-hero__desc {
+    font-weight: 400;
+    font-size: clamp(15px, 1.4vw, 20px);
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 871px;
+    margin-top: 24px;
+}
+
+/* KPI cards. Only this page uses .c-hero__boxes, so it is restyled here
+   rather than in global.css. */
+.c-hero-perform .c-hero__boxes {
+    max-width: 693px;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.c-hero-perform .c-hero__boxes>div {
+    gap: 8px;
+    height: 95px;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    background: #f3fbfc;
+    border: 0;
+    border-radius: var(--radius, 0);
+    /* Both shadows, not the second silently replacing the first. */
+    box-shadow:
+        0 1px 2px rgba(31, 71, 70, 0.04),
+        0 4px 16px rgba(31, 71, 70, 0.04);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+/* The counter script gives <data> `display:inline-block`, which makes it an
+   atomic inline: bidi then stops treating the "%" and the digits as one number
+   run, and in RTL the sign flips to the wrong side (86% instead of %86).
+   Forcing LTR flow on the value line keeps the DOM order — which is what
+   CLAUDE.md's percent rule is written against — and centring still applies. */
+.c-hero-perform .c-hero__boxes>div h4 {
+    font-family: var(--perf-numeral);
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 32px;
+    color: #00bcb2;
+    direction: ltr;
+}
+
+.c-hero-perform .c-hero__boxes>div p {
+    font-weight: 400;
+    font-size: clamp(14px, 1.3vw, 20px);
+    line-height: 1.3;
+    color: #5e7278;
+}
+
+/* ------ Section header (heading + ghost numeral) ------------------------ */
+
 .performance-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: 32px;
 }
 
 .performance-head .stack {
     gap: 24px;
-}
-
-.performance-head__subtitle {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0px;
-    color: #fff;
+    max-width: 919px;
 }
 
 .performance-head__title {
     font-weight: 700;
-    font-size: 48px;
-    line-height: 48px;
+    font-size: clamp(28px, 3.4vw, 48px);
+    line-height: 1;
     letter-spacing: -0.48px;
-    color: #01938E;
-}
-
-.performance-head__subtitle .divider {
-    background-color: #fff;
-    width: 40px;
-    height: 1px;
+    /* .bg-main forces white on h1-h3 already; stated here so the rule reads
+       correctly on its own. */
+    color: #fff;
 }
 
 .performance-head__desc {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0px;
-    color: #5E7278;
-    max-width: 800px;
-}
-
-/* table-sec */
-.table-sec .stack {
-    gap: 24px;
-}
-
-.table-char {
-    width: 400px;
-    flex-shrink: 0;
-    padding: 16px;
-    border-radius: 12px;
-    background-color: #FFF;
-    border: 1px solid rgba(220, 229, 229, 0.6);
-    box-shadow: 0px 4px 16px 0px rgba(31, 71, 70, 0.04), 0px 1px 2px 0px rgba(31, 71, 70, 0.04);
-}
-
-.table-char h2 {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0px;
-    color: #5E7278 !important;
-}
-
-.table-char__stat {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.table-char__stat>div {
-    width: calc(50% - 12px);
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 16px;
-    letter-spacing: 0px;
-    color: #142429;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.table-char__stat>div p {
-    color: #142429 !important;
-}
-
-.mark {
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-}
-
-.mark.green {
-    background-color: #2BAB6F;
-}
-
-.mark.yellow {
-    background-color: #F48525
-}
-
-.mark.red {
-    background-color: #E63333
-}
-
-.mark.blue {
-    background-color: #307DE8
-}
-
-.teble-desc {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #5E7278;
-}
-
-/* حاوية الجدول لضمان الـ Responsiveness */
-.table-container {
-    width: 100%;
-    overflow-x: hidden;
-    /* يسمح بالتمرير الأفقي على الشاشات الصغيرة */
-    margin: 20px 0;
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); */
-    border-radius: 8px;
-}
-
-.kpi-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 1200px;
-    overflow: hidden;
-    /* يمنع الجدول من الانضغاط بشكل يفسد المحتوى */
-    /* background: white; */
-    /* اتجاه النص العربي */
-    /* font-family: sans-serif; */
-}
-
-/* table header */
-.kpi-table thead th {
-    background-color: #01938E;
-    padding: 16px 24px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: start;
+    font-weight: 500;
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.5;
+    letter-spacing: 0;
     color: #fff;
+    max-width: 903px;
+    text-align: justify;
+}
+
+/* Ghost numeral. A real flex child rather than an absolutely-positioned
+   ::before, so it mirrors with the row instead of needing an [dir] override
+   and can never overlap the charts below.
+   It must NOT be an h1-h3 or p: global.css forces `.bg-main :is(h3,p,h2,h1)`
+   to solid white with !important, which would blow out the 9% alpha. */
+.perf-num {
+    flex: 0 0 auto;
+    font-family: var(--perf-numeral);
+    font-weight: 700;
+    font-size: clamp(120px, 21vw, 320px);
+    line-height: 0.82;
+    color: rgba(255, 255, 255, 0.09);
+    text-align: start;
+    user-select: none;
+}
+
+/* ------ Chart block ---------------------------------------------------- */
+
+.perf-sec {
+    padding-block: clamp(40px, 6vw, 72px);
+}
+
+.perf-chart {
+    margin-top: clamp(32px, 4vw, 56px);
+}
+
+.perf-chart__title {
+    font-weight: 700;
+    font-size: clamp(24px, 3.4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.48px;
     text-align: center;
+    color: #fff;
+    margin-bottom: 32px;
 }
 
-.kpi-table td {
-    background-color: #FFF;
-}
-
-.kpi-table thead th:first-child {
-    text-align: start;
-}
-
-.kpi-table td {
-    padding: 12px 15px;
-    padding: 16px 24px;
-    text-align: center;
-}
-
-.kpi-table tr td:first-child {
-    text-align: start;
-}
-
-.kpi-table .group-row td {
-    background-color: #FBFBFB;
-    padding: 16px 24px;
-    text-align: start;
-}
-
-.table-sec .group-row-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.group-row-item::before {
-    content: "";
-    display: block;
-    border-radius: 12px;
-    width: 4px;
-    height: 34px;
-    background: #01938E;
-}
-
-.group-row-item .stack {
-    gap: 4px;
-}
-
-.group-row-item h4 {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0px;
-    color: #01938E;
-}
-
-.group-row-item p {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 13px;
-    letter-spacing: 0px;
-    color: #868686 !important;
-}
-
-.kpi-table .status-cell.highlight {
-    background-color: #f0fdf4;
-    color: #166534;
-    font-weight: 700;
-}
-
-
-.kpi-table tbody tr:not(.group-row):hover {
-    background-color: #f9f9f9;
-}
-
-.col-bold {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #142429;
-}
-
-.col-light {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
-    color: #5E7278;
-}
-
-.col-heighlight {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: 0px;
-    color: #01938E;
-}
-
-.table-state {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(43, 171, 111, 0.1);
-    padding: 4px 8px;
-    border-radius: 30px;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 16px;
-    letter-spacing: 0px;
-    color: #2BAB6F;
-}
-
-/* hl-sec */
-.hl-container {
-    position: relative;
-}
-
-.hl-container::before {
-    position: absolute;
-    z-index: 9;
-    color: rgba(255, 255, 255, 0.08);
-    font-weight: 700;
-    font-size: 320px;
-    line-height: 320px;
-    left: -40px;
-    top: -195px;
-}
-
-
-[dir="ltr"] .hl-container::before {
-
-    left: auto;
-    right: -40px;
-}
-
-@media(min-width:1400) {
-    .hl-container::before {
-        left: -88px;
-    }
-
-    [dir="ltr"] .hl-container::before {
-
-        left: auto;
-        right: -88px;
-    }
-}
-
-
-
-.h-1-sec-1 .hl-container::before {
-    content: "01";
-}
-
-.h-1-sec-2 .hl-container::before {
-    content: "02";
-}
-
-
-.h-1-sec-3 .hl-container::before {
-    content: "03";
-}
-
-
-.h-1-sec-4 .hl-container::before {
-    content: "04";
-}
-
-
-
-
+/* align-items must not be `stretch`: that ties the chart column's height to
+   the shorter bracket column and squeezes the plot area below its 272px. */
 .hl-container {
     display: flex;
-    align-items: stretch;
-    gap: 32px;
-    margin-top: 65px;
-    position: relative;
+    align-items: center;
     justify-content: space-between;
-    z-index: 999;
+    gap: 32px;
+    position: relative;
 }
 
 .pie-sec {
-    padding: 0 32px;
-    padding-top: 30px;
+    flex: 0 0 auto;
+    padding: 30px 32px 0;
     gap: 60px;
 }
 
+.pie-sec__figure {
+    display: flex;
+    justify-content: center;
+}
+
+.pie-sec__figure svg {
+    max-width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* The Figma export baked these two values in as outlined glyph paths, which
+   pinned the Arabic percent order (%86) into the English page too. They are
+   live <text> now: correct per-edition ordering, selectable, and ~40KB lighter
+   per page. Sized to land on the same baselines the outlines occupied. */
+.pie-sec__value {
+    font-family: "Cairo", sans-serif;
+    font-weight: 700;
+    /* 28px reproduces the 48.7-unit advance of the outlines it replaced, and
+       keeps the right-hand label inside the viewBox. */
+    font-size: 28px;
+    fill: #fff;
+    /* SVG text inherits `direction`, and under RTL `text-anchor: start` anchors
+       on the RIGHT — the label would then run leftward into the bracket. The
+       content is a bare numeral, so pin it to LTR and anchor on the left, which
+       is where the Figma outlines sat. */
+    direction: ltr;
+    text-anchor: start;
+}
+
 .chart-wrap {
-    flex-grow: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 65%;
-}
-
-.chart-title {
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0px;
-    margin-top: 16px;
-    color: #01938E;
+    max-width: 62%;
 }
 
 .chart-container {
-    flex-grow: 1;
-    padding-top: 0;
-
     display: flex;
 }
+
+/* Chart.js needs a positioned, explicitly-sized parent to size its canvas.
+   flex-shrink:0 keeps the plot at its design height inside the flex column.
+   The design gives section 01's charts a 272px plot and section 02's a 355px
+   one, measured off the axis rules in the Figma frame. */
+.chart-canvas {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 272px;
+}
+
+.perf-chart--tall .chart-canvas {
+    height: 355px;
+}
+
+/* ------ Legends -------------------------------------------------------- */
 
 .legend {
     display: flex;
     gap: 20px;
-    font-size: 13px;
-    color: #FFFFFF;
+    justify-content: center;
     font-weight: 400;
     font-size: 11px;
     line-height: 16.5px;
-    letter-spacing: 0px;
-    justify-content: center;
+    letter-spacing: 0;
+    color: #fff;
 }
 
 .legend-item {
@@ -376,45 +243,40 @@
 .legend-dot {
     width: 15px;
     height: 15px;
+    border-radius: var(--radius, 0);
+    flex: 0 0 auto;
 }
 
-.legend-item:first-child .legend-dot {
-    background: #D9D9D9;
+/* Bar chart: المستهدف السنوي is grey, الفعلي بالسنوات is white — the swatch
+   colours are keyed to the item's own class, not to :first-child, so the
+   reading order can change without silently inverting the key. */
+.legend-item--target .legend-dot,
+.legend:not(.legend--gauge) .legend-item:first-child .legend-dot {
+    background: var(--perf-gauge-actual);
 }
 
-.legend-item:last-child .legend-dot {
-    background: #fff;
+.legend-item--actual .legend-dot,
+.legend:not(.legend--gauge) .legend-item:last-child .legend-dot {
+    background: var(--perf-gauge-target);
 }
 
-/* --- الشاشات المتوسطة (Tablets - 1024px وأقل) --- */
+/* Gauge bracket: المستهدف is the outer white bracket, المحقق the inner grey
+   one — the inverse of the bar-chart pairing above. */
+.legend--gauge .legend-item:first-child .legend-dot {
+    background: var(--perf-gauge-target);
+}
+
+.legend--gauge .legend-item:last-child .legend-dot {
+    background: var(--perf-gauge-actual);
+}
+
+/* ------ Responsive ----------------------------------------------------- */
+
 @media (max-width: 1024px) {
-
-    .hl-container::before {
-        font-size: 250px;
-    }
-
-
-    .hl-container::before {
-        left: -30px;
-    }
-
-    [dir="ltr"] .hl-container::before {
-
-        left: auto;
-        right: -30px;
-    }
 
     .hl-container,
     .performance-head {
         flex-direction: column;
-        /* جعل الـ Pie Chart والـ Bar Chart فوق بعض */
-        gap: 0;
-        margin-top: 0;
-    }
-
-
-
-    .chart-wrap {
         gap: 0;
     }
 
@@ -422,205 +284,36 @@
         align-items: flex-start;
     }
 
-    .pie-sec {
-        width: 100%;
-        /* عرض كامل */
-        flex-direction: row !important;
-        /* توزيع المحتوى أفقياً في التابلت */
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .table-char {
-        width: 100%;
-        margin-top: 24px;
-        /* الـ Sidebar الصغير في قسم الجدول يأخذ العرض كامل */
-    }
-
-    .performance-head__title {
-        font-size: 36px;
-        /* تصغير العنوان الرئيسي */
-        line-height: 40px;
-    }
-
-    .pie-sec {
-        padding: 20px;
-        flex-direction: column !important;
-        align-items: center;
+    /* Numeral leads the header on narrow screens, where there is no room to
+       set it beside the heading. */
+    .perf-num {
+        order: -1;
+        line-height: 1;
+        margin-inline-start: -0.06em;
     }
 
     .chart-wrap {
+        gap: 0;
         width: 100%;
+        max-width: 100%;
         min-width: 100%;
     }
 
+    .pie-sec {
+        width: 100%;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
 }
 
-/* --- الشاشات الصغيرة (Mobile - 768px وأقل) --- */
 @media (max-width: 768px) {
-
     .pie-sec {
         margin-top: 34px;
     }
 
-    .hl-container::before {
-        display: none;
-    }
-
-    .hl-sec {
-        position: relative;
-    }
-
-    .hl-sec::before {
-        font-size: 150px;
-        line-height: 150px;
-
-        position: absolute;
-        z-index: 9;
-        left: 5.2%;
-        color: rgba(255, 255, 255, 0.09);
-        font-weight: 700;
-    }
-
-    .h-1-sec-1::before {
-        content: "01";
-        top: -40px;
-    }
-
-    .h-1-sec-2::before {
-        content: "02";
-        top: 0;
-    }
-
-    .h-1-sec-3::before {
-        content: "03";
-        top: -45px;
-    }
-
-    .h-1-sec-4::before {
-        content: "04";
-        top: 15px;
-    }
-
-    /* 1. العناوين والخلفيات الكبيرة */
-    .performance-head {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .performance-head__title {
-        font-size: 28px;
-        line-height: 32px;
-    }
-
-    .hl-sec::before {
-        font-size: 150px;
-        /* تصغير أرقام الخلفية (01, 02...) */
-        line-height: 150px;
-        left: 2%;
-    }
-
-    .h-1-sec-1::before {}
-
-    .h-1-sec-2::before {}
-
-
-
-
-
-    /* 2. الـ Pie Chart Section */
-
-    .pie-stat {
-        width: 100%;
-        padding: 16px 0;
-    }
-
-    /* 3. الـ Bar Chart Section */
-
-
-    .chart-container {
+    .chart-canvas {
         height: 300px;
-        /* تحديد ارتفاع ثابت للموبايل لضمان ظهور الـ Chart */
     }
-
-    /* 4. إحصائيات الجدول الصغير */
-    .table-char__stat>div {
-        width: 100%;
-        /* جعل العناصر تحت بعضها في الموبايل */
-    }
-}
-
-/* --- شاشات الموبايل الصغيرة جداً (480px وأقل) --- */
-@media (max-width: 480px) {
-    .performance-head__title {
-        font-size: 24px;
-    }
-
-    .pie-inner p {
-        font-size: 32px;
-        /* تصغير الرقم داخل الدائرة */
-    }
-
-    .pie-inner p span {
-        font-size: 16px;
-    }
-
-    .kpi-table thead th,
-    .kpi-table td {
-        padding: 10px 8px;
-        /* تقليل المسافات داخل الجدول */
-        font-size: 12px;
-    }
-
-    .group-row-item::before {
-        height: 24px;
-        /* تصغير العلامة الخضراء الجانبية */
-    }
-}
-
-/* --- لمسة إضافية لتحسين التمرير في الجداول --- */
-/* .table-container {
-    -webkit-overflow-scrolling: touch;
-} */
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-
-    /* تفعيل ميزة السكرول السلس على هواتف الآيفون */
-    -webkit-overflow-scrolling: touch;
-
-    /* للمتصفحات الحديثة جداً مثل Firefox: نحدد لون الـ Thumb ثم لون الـ Track */
-    scrollbar-width: thin;
-    scrollbar-color: #01938E #f4f9f8;
-}
-
-/* تخصيص الـ Scrollbar لمتصفحات Webkit (Chrome, Safari, Edge, Opera) */
-
-/* 1. الحجم الكلي للشريط (ارتفاعه في السكرول الأفقي) */
-.table-container::-webkit-scrollbar {
-    height: 6px;
-    /* جعل الشريط نحيفاً وأنيقاً بدلاً من الشكل العريض الافتراضي */
-}
-
-/* 2. خلفية مسار الشريط (Track) */
-.table-container::-webkit-scrollbar-track {
-    background: #f4f9f8;
-    /* نفس لون الخلفية الهادئة المستخدم في موقعك */
-    border-radius: 10px;
-}
-
-/* 3. الجزء المتحرك الذي يمسكه المستخدم (Thumb) */
-.table-container::-webkit-scrollbar-thumb {
-    background-color: #01938E;
-    /* اللون الأخضر الأساسي للموقع */
-    border-radius: 10px;
-    border: 1px solid #f4f9f8;
-    /* إضافة حافة صغيرة ليعطي تأثيراً عائماً ونظيفاً */
-}
-
-/* 4. تأثير عند تمرير الماوس فوق الجزء المتحرك (Hover) */
-.table-container::-webkit-scrollbar-thumb:hover {
-    background-color: #8dcfc5;
-    /* يتحول للأخضر الفاتح ليعطي استجابة تفاعلية (Feedback) للمستخدم */
 }
