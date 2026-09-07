@@ -355,19 +355,19 @@
     color: var(--c-primary-container, #00bcb2);
 }
 
-/* —— إحصائية ختامية (المطورون العقاريون) —— */
+/* —— إحصائية ختامية (المطورون العقاريون) — شريط كامل العرض، Figma 282px —— */
 .fca7-stat-highlight {
-    margin-top: clamp(32px, 5vw, 48px);
-    padding: clamp(24px, 4vw, 32px);
+    padding: clamp(40px, 5.6vw, 81px) 24px;
     background: #d1efec;
 }
 
 .fca7-stat-highlight p {
-    margin: 0;
+    max-width: 1249px;
+    margin: 0 auto;
     font-family: "Cairo", sans-serif;
-    font-weight: 700;
-    font-size: clamp(18px, 2.4vw, 22px);
-    line-height: 1.7;
+    font-weight: 800;
+    font-size: clamp(26px, 3.34vw, 48px);
+    line-height: 1.25;
     text-align: center;
     color: var(--c-primary-container, #00bcb2);
 }

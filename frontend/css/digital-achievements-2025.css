@@ -58,6 +58,13 @@
         flex-direction: column;
         gap: 1rem;
         flex-wrap: wrap;
+        /* The decorative square behind the illustration is offset outward with
+           a negative inset-inline-end, which is the intent — but on a phone
+           there is no gutter left for it to bleed into, so it widened the
+           document and gave the whole page a horizontal scroll. `clip` trims
+           the paint without creating a scroll container the way `hidden`
+           would. */
+        overflow-x: clip;
     }
 
     .icon-wrap {
@@ -89,6 +96,90 @@
     width: 100%;
     min-width: 930px;
     /* ضمان عدم انضغاط الجدول بشدة وإتاحة التمرير الأفقي بسلاسة */
+}
+
+/* The table needs its 930px floor and the gauge beside it wants ~320px more,
+   so the two only fit side by side above roughly 1300px. Below that the table
+   was being squeezed — 456px on an iPad Air — which left two of its four
+   columns behind a horizontal scrollbar most people never find. Stack the two
+   from there down so the table always gets the container's full width. */
+@media (max-width: 1299px) {
+    .wraper {
+        flex-direction: column;
+    }
+
+    .chart {
+        width: 100%;
+    }
+}
+
+/* Once stacked below tablet width, even the full container is narrower than
+   930px. Relax the floor to what four legible columns actually need, so the
+   whole table fits without scrolling wherever it can. */
+@media (max-width: 1023px) {
+    .details-table {
+        min-width: 680px;
+    }
+}
+
+/* On a phone no floor fits, and the table would fall back to a horizontal
+   scroll that shows two of the four metrics with nothing to hint at the rest.
+   Comparing the four side by side is the whole point of this table, so drop
+   the floor entirely and scale the cells down instead — the icons shrink
+   rather than disappear, since they are what distinguishes the columns once
+   the headings wrap. */
+@media (max-width: 767px) {
+    .details-table {
+        min-width: 0;
+    }
+
+    /* A flex item defaults to `min-width: auto` and will not shrink below its
+       min-content width. The header cells carry 95px-wide icon SVGs, so
+       without this the four cells still demanded 395px on a 375px screen. */
+    .d-table-row>div {
+        min-width: 0;
+    }
+
+    .d-table-header>div {
+        padding: 12px 3px;
+        gap: 8px;
+    }
+
+    .d-table-header .icon {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .d-table-header .icon svg {
+        width: 100%;
+        max-width: 44px;
+        height: auto;
+    }
+
+    /* break-word, not anywhere: only hyphen-less words that genuinely cannot
+       fit the column get broken. `anywhere` breaks eagerly and chopped
+       "Percentage" and "Government" mid-word. */
+    .d-table-header h3 {
+        font-size: 10px;
+        line-height: 1.35;
+        letter-spacing: -0.2px;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .d-table-title>div {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+
+    .d-table-data>div {
+        padding: 12px 4px;
+    }
+
+    .d-table-data .num {
+        font-size: 18px;
+    }
 }
 
 .d-table-row {
@@ -150,6 +241,10 @@
     line-height: 1.2;
     text-align: center;
     color: #03B9B2;
+    /* The counter script makes the inner span an inline-block, so the trailing
+       "%" is free to wrap onto its own line once the column gets narrow.
+       A figure and its percent sign should never be split. */
+    white-space: nowrap;
 }
 
 .charts {
