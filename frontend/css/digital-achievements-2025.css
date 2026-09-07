@@ -377,14 +377,18 @@
 
     /* تحويل الشريط لصفوف عمودية فوق بعضها */
     .progress-bar-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         height: auto;
-        overflow: hidden;
     }
 
+    /* A grid item's default `min-width: auto` refuses to shrink below its
+       min-content width. The Integration cell lays its two callouts out in a
+       row, so its min-content was ~431px and it dragged the whole column past
+       the viewport, where `overflow: hidden` then silently clipped it. */
     .prog-item {
         height: 55px;
         width: 100%;
+        min-width: 0;
         margin-bottom: 2px;
     }
 
@@ -393,15 +397,20 @@
         position: static;
         transform: none;
         width: auto;
+        max-width: 100%;
     }
 
-    /* جعل صندوق الإتاحة يتحول لـ Flex ليحتوي المؤشرات بداخله بشكل أفقي أو مرتب أنيق */
-    .prog-item.item-itaha {
-        flex-direction: row;
-        justify-content: space-around;
-        background: #AFDEDB;
+    /* The callouts live inside .item-takamol (Integration), not .item-itaha —
+       the rule that used to sit here named the wrong cell, so the stacking it
+       intended never applied and the row overflowed instead. Stacked, so the
+       2025 reading sits above the label and 2024 below it, mirroring the
+       desktop callouts. */
+    .prog-item.item-takamol {
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
         height: auto;
-        padding: 12px 5px;
+        padding: 12px 8px;
     }
 
     /* تنسيق شكل المؤشر داخل الموبايل ليكون مريحاً ونظيفاً */
@@ -411,8 +420,10 @@
         gap: 6px;
         background: #ffffff;
         padding: 4px 10px;
-        border-radius: 4px;
+        /* Sharp corners — DESIGN.md allows a radius only on table status dots. */
+        border-radius: var(--radius, 0);
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        max-width: 100%;
     }
 
     .indicator .year {

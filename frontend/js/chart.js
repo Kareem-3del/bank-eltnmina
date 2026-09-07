@@ -74,31 +74,71 @@ function setupGrowOnView(chart) {
     return chart;
 }
 
+// CLAUDE.md § numerals: the percent sign precedes the number in Arabic and
+// follows it in English. Canvas text is not laid out by the bidi algorithm,
+// so the order has to be chosen explicitly.
+function pctLabel(value) {
+    return isAR ? '%' + value : value + '%';
+}
+
 const alwaysShowValues = {
     id: 'alwaysShowValues',
     // afterDatasetsDraw بتضمن إن الرسم يحصل فوق الأعمدة في كل تحديث (حتى الـ Hover)
     afterDatasetsDraw(chart) {
         const { ctx } = chart;
+        const metas = chart.data.datasets.map((_, i) => chart.getDatasetMeta(i));
+        const bars = metas.map(m => m.data);
+        if (!bars.length || !bars[0].length) return;
+
+        // Every label must fit in the horizontal room its own bar has, or the
+        // two values in a year collide. Measure that room from the bars as
+        // they are laid out RIGHT NOW rather than from a width sampled at page
+        // load: the chart is re-laid-out on resize, rotation and DevTools
+        // device switching, and a stale snapshot is what made the pair labels
+        // overlap on narrow screens.
+        let pitch = Infinity;
+        for (let j = 0; j < bars[0].length; j++) {
+            for (let i = 1; i < bars.length; i++) {
+                if (bars[i][j]) pitch = Math.min(pitch, Math.abs(bars[i][j].x - bars[i - 1][j].x));
+            }
+        }
+        if (!isFinite(pitch) || pitch <= 0) pitch = chart.width / (bars[0].length * 2);
+
+        const texts = [];
+        metas.forEach((meta, i) => meta.data.forEach((bar, j) => {
+            texts.push(pctLabel(animatedBarValue(chart, chart.data.datasets[i], bar, j)));
+        }));
+
         ctx.save();
-        // 15px bold is the Figma size for these callouts; drop to 10px only
-        // where the narrow layout cannot fit it.
-        ctx.font = (windowWidth < 767 ? 'bold 10px ' : 'bold 15px ') + 'Segoe UI, Arial';
+        // 15px is the Figma size; shrink only as far as the room demands, and
+        // never below 8px where it would stop being readable.
+        let size = 15;
+        for (; size > 8; size--) {
+            ctx.font = 'bold ' + size + 'px Segoe UI, Arial';
+            const widest = texts.reduce((w, t) => Math.max(w, ctx.measureText(t).width), 0);
+            if (widest <= pitch - 3) break;
+        }
+        ctx.font = 'bold ' + size + 'px Segoe UI, Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'bottom';
+        ctx.fillStyle = "#fff";
 
-        chart.data.datasets.forEach((dataset, i) => {
-            const meta = chart.getDatasetMeta(i);
-            ctx.fillStyle = "#fff";
+        // Even at the smallest size the two labels of a year can still sit at
+        // the same height when their values are close (88 vs 87). Lift the
+        // second one clear rather than letting the glyphs interleave.
+        const placed = [];
+        metas.forEach((meta, i) => {
             meta.data.forEach((bar, j) => {
-                const value = animatedBarValue(chart, dataset, bar, j);
-
-                // CLAUDE.md § numerals: the percent sign precedes the number in
-                // Arabic and follows it in English. Canvas text is not laid out
-                // by the bidi algorithm, so the order has to be chosen here.
-                const text = isAR ? '%' + value : value + '%';
-
-                // الرسم بيعتمد على إحداثيات العمود الحالية (bar.x, bar.y)
-                ctx.fillText(text, bar.x, bar.y - 5);
+                const text = pctLabel(animatedBarValue(chart, chart.data.datasets[i], bar, j));
+                const w = ctx.measureText(text).width;
+                let y = bar.y - 5;
+                const left = bar.x - w / 2, right = bar.x + w / 2;
+                for (const p of placed) {
+                    const overlapsX = left < p.right && right > p.left;
+                    if (overlapsX && Math.abs(y - p.y) < size + 2) y = p.y - size - 2;
+                }
+                placed.push({ left, right, y });
+                ctx.fillText(text, bar.x, y);
             });
         });
         ctx.restore();
@@ -203,12 +243,37 @@ const balanceMobileYAxis = {
     },
 };
 
+// Bar geometry for a given plot width. Desktop follows the Figma frame (33px
+// bars on a 124px year pitch, the pair touching); narrow screens widen the
+// group so the two bars stay legible. Applied from the chart's real width, and
+// re-applied whenever it changes, so a resize or rotation cannot leave desktop
+// sizing on a phone-width canvas.
+function barGeometryFor(width) {
+    return width < 520
+        ? { barPercentage: 0.9, categoryPercentage: 0.8 }
+        : { barPercentage: 0.92, categoryPercentage: 0.58 };
+}
+
+function applyBarGeometry(chart) {
+    const g = barGeometryFor(chart.width);
+    let changed = false;
+    chart.data.datasets.forEach((ds) => {
+        if (ds.barPercentage !== g.barPercentage || ds.categoryPercentage !== g.categoryPercentage) {
+            ds.barPercentage = g.barPercentage;
+            ds.categoryPercentage = g.categoryPercentage;
+            changed = true;
+        }
+    });
+    if (changed) chart.update('none');
+}
+
 function createChart(target, actual, id) {
     const ele = document.getElementById(id);
     if (!ele)
         return;
 
     const isMobileChart = window.innerWidth < 768;
+    const narrow = (c) => c.chart.width < 520;
 
     const chart = new Chart(ele, {
         type: 'bar',
@@ -304,13 +369,17 @@ function createChart(target, actual, id) {
                     },
                     ticks: {
                         stepSize: 10,
-                        // 15px bold matches the Figma axis; the mobile chart
-                        // keeps the smaller size so the ticks still fit.
-                        font: { size: isMobileChart ? 9 : 15, weight: isMobileChart ? 'normal' : 'bold' },
+                        // 15px bold matches the Figma axis; narrow charts keep
+                        // the smaller size so the ticks still fit. Scriptable,
+                        // so it tracks the live width rather than a load-time
+                        // snapshot.
+                        font: (c) => (narrow(c)
+                            ? { size: 9, weight: 'normal' }
+                            : { size: 15, weight: 'bold' }),
                         color: '#fff',
-                        padding: isMobileChart ? 4 : 0,
+                        padding: (c) => (narrow(c) ? 4 : 0),
                         callback: function (value) {
-                            if (isMobileChart) return value;
+                            if (this.chart.width < 520) return value;
                             return isAR ? "   " + value : value + "   ";
                         }
                     }
@@ -318,6 +387,11 @@ function createChart(target, actual, id) {
             }
         }
     });
+
+    // Size the bars off the real plot width now, and again whenever it
+    // changes — a resize, a rotation, or a DevTools device switch.
+    applyBarGeometry(chart);
+    chart.options.onResize = (c) => applyBarGeometry(c);
 
     return setupGrowOnView(chart);
 }
