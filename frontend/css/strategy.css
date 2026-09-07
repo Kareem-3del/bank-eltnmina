@@ -338,12 +338,15 @@
   background: #00BCB2;
   padding: 6px 16px;
   width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
   font-weight: 700;
   font-size: 25px;
-  line-height: 20px;
+  line-height: 1.3;
   color: #ffffff;
   align-self: start;
   text-align: center;
+  text-wrap: balance;
 }
 
 .vision-left h2 {
@@ -668,6 +671,17 @@
     font-size: 16px;
     line-height: 28px;
   }
+
+  /* Justified Arabic on a narrow column stretches word gaps — start-align */
+  .vision-left h2 {
+    text-align: start;
+    font-size: 28px;
+    line-height: 1.35;
+  }
+
+  .vision-box {
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -692,6 +706,15 @@
 
   .vision-precent {
     font-size: 72px;
+  }
+
+  .vision-left h2 {
+    font-size: 24px;
+  }
+
+  .vision-box {
+    font-size: 19px;
+    padding: 6px 12px;
   }
 }
 
