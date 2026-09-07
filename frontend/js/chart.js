@@ -80,23 +80,25 @@ const alwaysShowValues = {
     afterDatasetsDraw(chart) {
         const { ctx } = chart;
         ctx.save();
-        ctx.font = 'bold 10px Segoe UI, Arial';
+        // 15px bold is the Figma size for these callouts; drop to 10px only
+        // where the narrow layout cannot fit it.
+        ctx.font = (windowWidth < 767 ? 'bold 10px ' : 'bold 15px ') + 'Segoe UI, Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'bottom';
 
         chart.data.datasets.forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
-            if (i === 0) {
-                ctx.fillStyle = "#fff";
-            } else {
-                ctx.fillStyle = "#fff";
-            }
-            // ✅ بنحدد لون النص هنا بناءً على لون الـ Dataset (العمود)
+            ctx.fillStyle = "#fff";
             meta.data.forEach((bar, j) => {
                 const value = animatedBarValue(chart, dataset, bar, j);
 
+                // CLAUDE.md § numerals: the percent sign precedes the number in
+                // Arabic and follows it in English. Canvas text is not laid out
+                // by the bidi algorithm, so the order has to be chosen here.
+                const text = isAR ? '%' + value : value + '%';
+
                 // الرسم بيعتمد على إحداثيات العمود الحالية (bar.x, bar.y)
-                ctx.fillText(value + '%', bar.x, bar.y - 5);
+                ctx.fillText(text, bar.x, bar.y - 5);
             });
         });
         ctx.restore();
@@ -218,33 +220,31 @@ function createChart(target, actual, id) {
                     label: isAR ? 'المستهدف السنوي' : "Annual Target",
                     data: target,
                     backgroundColor: '#D9D9D9',
-                    barPercentage: 0.7,
-                    categoryPercentage: windowWidth < 767 ? 0.8 : 0.35,
+                    // Figma: 33px bars on a 124px year pitch, the pair touching
+                    // — i.e. ~0.58 of the slot, each bar ~0.92 of its half.
+                    barPercentage: 0.92,
+                    categoryPercentage: windowWidth < 767 ? 0.8 : 0.58,
                     // categoryPercentage: (context) => {
                     //     const chartWidth = context.chart.width;
                     //     return chartWidth < 767 ? 0.8 : 0.35; // 0.9 للموبايل و 0.4 للديسك توب
                     // },
                     order: 2,
-                    borderRadius: {
-                        topLeft: 4,
-                        topRight: 4,
-                        bottomLeft: 0,
-                        bottomRight: 0
-                    },
+                    borderRadius: 0,
                 },
                 {
-                    label: isAR ? 'الفعلي بالسنوات' : "Actual by Years",
+                    // "Actual" is the report's own legend wording (p50), and the
+                    // tooltip must not disagree with the legend printed beside
+                    // the chart. Only createChart is retitled here — the
+                    // training-programs chart below keeps its own wording.
+                    label: isAR ? 'الفعلي بالسنوات' : "Actual",
                     data: actual,
                     backgroundColor: '#fff',
-                    barPercentage: 0.7,
-                    categoryPercentage: windowWidth < 767 ? 0.8 : 0.35,
+                    // Figma: 33px bars on a 124px year pitch, the pair touching
+                    // — i.e. ~0.58 of the slot, each bar ~0.92 of its half.
+                    barPercentage: 0.92,
+                    categoryPercentage: windowWidth < 767 ? 0.8 : 0.58,
                     order: 1,
-                    borderRadius: {
-                        topLeft: 4,
-                        topRight: 4,
-                        bottomLeft: 0,
-                        bottomRight: 0
-                    },
+                    borderRadius: 0,
                 }
             ]
         },
@@ -304,7 +304,9 @@ function createChart(target, actual, id) {
                     },
                     ticks: {
                         stepSize: 10,
-                        font: { size: isMobileChart ? 9 : 10 },
+                        // 15px bold matches the Figma axis; the mobile chart
+                        // keeps the smaller size so the ticks still fit.
+                        font: { size: isMobileChart ? 9 : 15, weight: isMobileChart ? 'normal' : 'bold' },
                         color: '#fff',
                         padding: isMobileChart ? 4 : 0,
                         callback: function (value) {
