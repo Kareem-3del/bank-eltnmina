@@ -160,7 +160,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--c-primary);
+  background: #A3E0DC;
   z-index: -1;
   transform: translateY(-100%);
   transition: transform 0.7s var(--ease-inout);
@@ -174,7 +174,7 @@
   inset-inline-end: 0;
   width: 32%;
   height: 100%;
-  background: var(--c-primary-dark);
+  background: #D3EFED;
   z-index: -1;
   transform: translateX(100%);
   transition: transform 0.85s var(--ease-inout);
@@ -204,31 +204,16 @@
   transform: translateX(100%);
 }
 
-/* ------ Top bar inside menu ----------------------------------------- */
-.staggered-menu__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--s-5) var(--container-pad);
-  /* height: var(--header-h); */
+/* ------ Site header inside menu ------------------------------------- */
+.staggered-menu>.site-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: var(--c-primary);
 }
 
-.staggered-menu__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-3);
-  color: #FFF;
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-base);
-}
-
-.staggered-menu__brand img {
-  height: auto;
-  width: 170px;
-  filter: brightness(0) invert(1);
-  /* logo to white */
+.site-header .brand-sub {
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 50px;
+  color: #FFFFFF;
 }
 
 .staggered-menu__close {
@@ -296,22 +281,6 @@
 }
 
 
-@media(min-width:768px) {
-
-  .staggered-menu__top {
-    padding: 8px var(--container-pad);
-
-  }
-
-  .staggered-menu__brand img {
-    width: 240px
-  }
-
-  .staggered-menu__brand span small {
-    font-size: 14px !important;
-  }
-}
-
 @media(max-width:460px) {
   .staggered-menu__close {
     padding: 0;
@@ -367,14 +336,6 @@
 }
 
 @media(max-width:480px) {
-  .staggered-menu__top {
-    height: auto;
-  }
-
-  .staggered-menu__brand {
-    gap: 8px;
-  }
-
   .staggered-menu::after {
     display: none;
   }
@@ -520,7 +481,7 @@
 .staggered-menu__item.is-current .staggered-menu__link,
 .staggered-menu__dropdown-menu .is-current span,
 .staggered-menu__item .staggered-menu__link:hover {
-  color: #00C7C0
+  color: #00BCB2
 }
 
 .staggered-menu__num {
@@ -800,8 +761,9 @@
 
 /* ------ Bottom bar inside menu ------------------------------------- */
 .staggered-menu__bottom {
-  display: flex;
+  /* display: flex; */
   /* flex-wrap: wrap; */
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: var(--s-5);
@@ -1056,4 +1018,10 @@ html[dir="ltr"] .dropdown-menu {
 
 .staggered-menu:not(.is-open):not(.is-closing) li {
   transition-delay: 0s !important;
+}
+
+.staggered-menu__list .footer-download__link {
+  background: #FFF;
+  color: #00BCB2;
+  width: fit-content;
 }

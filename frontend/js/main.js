@@ -228,56 +228,56 @@
 
       {
         text: "التقديم",
-        img: "introduction.webp",
+        img: "1.png",
         caption: "دور الصندوق في منظومة الإسكان",
         sublinks: [
           {
             href: "introduction.html",
             text: "المقدمة",
-            img: "introduction.webp",
+            img: "1.png",
             caption: "دور الصندوق في منظومة الإسكان"
           },
           {
             href: "chairman-message.html",
             text: "رسالة رئيس مجلس الإدارة",
-            img: "chairman-message.webp",
+            img: "1.png",
             caption: "كلمة عن مسيرة الصندوق"
           },
           {
             href: "ceo-message.html",
             text: "رسالة الرئيس التنفيذي",
-            img: "chairman-message.webp",
+            img: "1.png",
             caption: "رسالة من الرئيس التنفيذي"
           },
           {
             href: "board-members.html",
             text: "أعضاء مجلس الإدارة",
-            img: "board-hero.webp",
+            img: "1.png",
             caption: "قيادة الصندوق العقاري"
           },
           {
             href: "definitions.html",
             text: "التعريفات",
-            img: "definitions-hero.webp",
+            img: "1.png",
             caption: "المصطلحات الواردة في التقرير"
           }
         ]
       },
       {
         text: "الملخص التنفيذي",
-        img: "executive-summary.webp",
+        img: "2.png",
         caption: "نظرة شاملة على إنجازات العام",
         sublinks: [
           {
             href: "executive-summary-1.html",
             text: "الملخص التنفيذي 1",
-            img: "executive-summary.webp",
+            img: "2.png",
             caption: "نظرة شاملة على إنجازات العام"
           },
           {
             href: "executive-summary.html",
             text: "الملخص التنفيذي 2",
-            img: "executive-summary.webp",
+            img: "2.png",
             caption: "نظرة شاملة على إنجازات العام"
           }
         ]
@@ -285,117 +285,118 @@
       {
         href: "strategic-direction.html",
         text: "التوجه الاستراتيجي",
-        img: "strategic-direction.webp",
+        img: "3.png",
         caption: "أربع ركائز · رؤية 2030"
       },
       {
         href: "performance-summary.html",
         text: "موجز الأداء",
-        img: "performance-summary.webp",
+        img: "4.png",
         caption: "أكثر من 920,000 أسرة منذ 2017"
       },
       {
         href: "current-state.html",
         text: "الوضع الراهن",
-        img: "current-state.webp",
+        img: "5.png",
         caption: "الوضع الحالي لقطاع الإسكان"
       },
       {
         text: "أبرز الأعمال والإنجازات",
-        img: "challenges-and-support.webp",
+        img: "6.png",
         caption: "أبرز الأعمال والإنجازات",
         sublinks: [
           {
             href: "fund-operational-capital-achievements-2025-1.html",
             text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 1",
-            img: "challenges-and-support.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "fund-operational-capital-achievements-2025-2.html",
             text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 2",
-            img: "digital-achievements-.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "fund-operational-capital-achievements-2025-3.html",
             text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 3",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "fund-operational-capital-achievements-2025-4.html",
             text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 4",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "fund-operational-capital-achievements-2025-5.html",
             text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 5",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "fund-operational-capital-achievements-2025-6.html",
             text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 6",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "digital-achievements-2025-1.html",
             text: "التحول الرقمي 1",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "digital-achievements-2025-2.html",
             text: "التحول الرقمي 2",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "digital-achievements-2025-3.html",
             text: "التحول الرقمي 3",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
           {
             href: "digital-achievements-2025-4.html",
             text: "التحول الرقمي 4",
-            img: "government-enablers.webp",
+            img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
         ]
       },
       {
         text: "الشركات التابعة",
-        img: "image%20(49).png",
+        img: "9.png",
         caption: "الشركات التابعة",
         sublinks: [
           {
             href: "subsidiaries.html",
             text: "الشركات التابعة",
-            img: "image%20(49).png",
+            img: "9.png",
             caption: "الشركات التابعة"
           },
           {
             href: "subsidiaries-appendix.html",
             text: "الملاحق 1",
-            img: "appendix-hero-bg.webp",
+            img: "9.png",
             caption: "خدمات المحافظ والتحصيل والاسترداد"
           },
           {
             href: "subsidiaries-appendix-2.html",
             text: "الملاحق 2",
-            img: "appx2-hero-bg.webp",
+            img: "9.png",
             caption: "المنتجات والشراكات والأثر الاجتماعي"
           }
         ]
       },
+
       {
         href: "conclusion.html",
         text: "الخاتمة",
-        img: "conclusion.webp",
+        img: "11.png",
         caption: "خلاصة عام 2025م"
       },
     ]
@@ -410,56 +411,56 @@
 
         {
           text: "Presentation",
-          img: "introduction.webp",
+          img: "1.png",
           caption: "The Fund's role in the housing ecosystem",
           sublinks: [
             {
               href: "introduction.html",
               text: "Introduction",
-              img: "introduction.webp",
+              img: "1.png",
               caption: "The Fund's role in the housing ecosystem"
             },
             {
               href: "chairman-message.html",
               text: "Chairman's Message",
-              img: "chairman-message.webp",
+              img: "1.png",
               caption: "A word on the Fund's journey"
             },
             {
               href: "ceo-message.html",
               text: "CEO's Message",
-              img: "chairman-message.webp",
+              img: "1.png",
               caption: "A message from the CEO"
             },
             {
               href: "board-members.html",
               text: "Board of Directors",
-              img: "board-hero.webp",
+              img: "1.png",
               caption: "REDF leadership"
             },
             {
               href: "definitions.html",
               text: "Definitions",
-              img: "definitions-hero.webp",
+              img: "1.png",
               caption: "Terms used in the report"
             }
           ]
         },
         {
           text: "Executive Summary",
-          img: "executive-summary.webp",
+          img: "2.png",
           caption: "A comprehensive look at the year's achievements",
           sublinks: [
             {
               href: "executive-summary-1.html",
               text: "Executive Summary 1",
-              img: "executive-summary.webp",
+              img: "2.png",
               caption: "A comprehensive look at the year's achievements"
             },
             {
               href: "executive-summary.html",
               text: "Executive Summary 2",
-              img: "executive-summary.webp",
+              img: "2.png",
               caption: "A comprehensive look at the year's achievements"
             }
           ]
@@ -467,109 +468,109 @@
         {
           href: "strategic-direction.html",
           text: "Strategic Direction",
-          img: "strategic-direction.webp",
+          img: "3.png",
           caption: "Four Pillars · Vision 2030"
         },
         {
           href: "performance-summary.html",
           text: "Performance Summary",
-          img: "performance-summary.webp",
+          img: "4.png",
           caption: "More than 920,000 families since 2017"
         },
         {
           href: "current-state.html",
           text: "Current State",
-          img: "current-state.webp",
+          img: "5.png",
           caption: "The current status of the housing sector"
         },
         {
           text: "Key Achievements",
-          img: "challenges-and-support.webp",
+          img: "6.png",
           caption: "Major works and accomplishments",
           sublinks: [
             {
               href: "fund-operational-capital-achievements-2025-1.html",
               text: "Operational and Capital Activities and Achievements 1",
-              img: "challenges-and-support.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "fund-operational-capital-achievements-2025-2.html",
               text: "Operational and Capital Activities and Achievements 2",
-              img: "digital-achievements-.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "fund-operational-capital-achievements-2025-3.html",
               text: "Operational and Capital Activities and Achievements 3",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "fund-operational-capital-achievements-2025-4.html",
               text: "Operational and Capital Activities and Achievements 4",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "fund-operational-capital-achievements-2025-5.html",
               text: "Operational and Capital Activities and Achievements 5",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "fund-operational-capital-achievements-2025-6.html",
               text: "Operational and Capital Activities and Achievements 6",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "digital-achievements-2025-1.html",
               text: "Digital Transformation 1",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "digital-achievements-2025-2.html",
               text: " Digital Transformation 2",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "digital-achievements-2025-3.html",
               text: " Digital Transformation 3",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
             {
               href: "digital-achievements-2025-4.html",
               text: " Digital Transformation 4",
-              img: "government-enablers.webp",
+              img: "6.png",
               caption: "Key Achievements",
             },
           ]
         },
         {
           text: "Subsidiaries",
-          img: "image%20(49).png",
+          img: "9.png",
           caption: "Subsidiary Companies",
           sublinks: [
             {
               href: "subsidiaries.html",
               text: "Subsidiaries",
-              img: "image%20(49).png",
+              img: "9.png",
               caption: "Subsidiary Companies"
             },
             {
               href: "subsidiaries-appendix.html",
               text: "Appendices 1",
-              img: "appendix-hero-bg.webp",
+              img: "9.png",
               caption: "Portfolio, collection and recovery services"
             },
             {
               href: "subsidiaries-appendix-2.html",
               text: "Appendices 2",
-              img: "appx2-hero-bg.webp",
+              img: "9.png",
               caption: "Products, partnerships and social impact"
             }
           ]
@@ -577,12 +578,11 @@
         {
           href: "conclusion.html",
           text: "Conclusion",
-          img: "conclusion.webp",
+          img: "11.png",
           caption: "Summary of the year 2025"
         },
       ];
   }
-
   initStaggeredMenu();
 
   function initStaggeredMenu() {
@@ -591,6 +591,7 @@
     const root = inSubdir ? "../" : "";
     const currentFilename = () => (window.location.pathname.split("/").pop() || "index.html");
 
+    const lang = isAR ? "ar" : "en"
     const config = isAR ?
       {
         title: "تصفح التقرير",
@@ -646,27 +647,46 @@
     const menu = initMenu || document.createElement("div");
     menu.setAttribute("data-lenis-prevent", "");
 
+
+    // قبل الـ template، احسب الـ initial preview
+    const activeTopLink = config.links.find(link => {
+      if (link.href && isCurrentLink(link.href)) return true;
+      if (link.sublinks) return link.sublinks.some(sub => isCurrentLink(sub.href));
+      return false;
+    });
+
+
     if (!initMenu) {
       menu.className = "staggered-menu";
       menu.id = "staggered-menu";
     }
 
+    const initialImg = activeTopLink?.img
+      ?? (isAR ? "hero.webp" : "hero-en.webp");
 
     menu.setAttribute("role", "dialog");
     menu.setAttribute("aria-modal", "true");
     menu.setAttribute("aria-label", config.title);
     menu.setAttribute("hidden", "");
     menu.innerHTML = `
-      <div class="staggered-menu__top">
-        <a href="${root}${isAR ? "ar/" : ""}index.html" class="staggered-menu__brand">
-          <img src="assets/logo.png" alt="" />
-          <span><small style="opacity:.6;font-weight:400;font-size:11px;letter-spacing:.06em">${config.brandSub}</small></span>
-        </a>
-        <button type="button" class="staggered-menu__close" data-menu-close>
-          <span>${config.labelOpen}</span>
-          <span class="staggered-menu__close-x" aria-hidden="true"></span>
-        </button>
-      </div>
+      <header class="site-header" data-header>
+        <nav class="nav" data-nav aria-label="${isAR ? "القائمة الرئيسية" : "Main Menu"}">
+          <a href="${lang}/index.html" class="nav__brand" aria-label="${config.brand}">
+            <img src="assets/logo.webp" alt="${config.brand}" width="768" height="242" />
+            <span class = "brand-sub">
+            ${config.brandSub}
+            </span>
+          </a>
+
+          <div class="nav__cta">
+            <a href="${config.langOther.href}" class="nav__lang" aria-label="${isAR ? "English" : "العربية"}" lang="${isAR ? "en" : "ar"}">${config.langOther.code}</a>
+            <button type="button" class="menu-trigger" data-menu-trigger data-menu-close aria-label="${isAR ? "إغلاق القائمة" : "Close menu"}" >
+              <span>${config.labelOpen}</span>
+              <span class="menu-trigger__icon" aria-hidden="true"></span>
+            </button>
+          </div>
+        </nav>
+      </header>
 
       <div class="staggered-menu__body">
         <ul class="staggered-menu__list" role="list">
@@ -725,13 +745,40 @@
               `;
       }
     }).join("")}
+    <li>
+    ${isAR ?
+        `
+    <div class="n-download-btn">
+        <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
+          حمل التقرير الكامل
+
+         <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.20833 9.20833V16.4583M12.8333 12.8333L9.20833 16.4583L5.58333 12.8333M15.25 22.5H3.16667C1.83198 22.5 0.75 21.4181 0.75 20.0833V3.16667C0.75 1.83198 1.83198 0.75 3.16667 0.75H9.91617C10.2366 0.75 10.544 0.87731 10.7706 1.10391L17.3127 7.64609C17.5393 7.87269 17.6667 8.18004 17.6667 8.5005V20.0833C17.6667 21.4181 16.5847 22.5 15.25 22.5Z" stroke="#019591" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+        </a>
+      </div>`
+        :
+        `
+   <div class="n-download-btn">
+        <a class="footer-download__link" href="assets/pdf/ar/MT-final.pdf" download>
+          Download Full Report
+         <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.20833 9.20833V16.4583M12.8333 12.8333L9.20833 16.4583L5.58333 12.8333M15.25 22.5H3.16667C1.83198 22.5 0.75 21.4181 0.75 20.0833V3.16667C0.75 1.83198 1.83198 0.75 3.16667 0.75H9.91617C10.2366 0.75 10.544 0.87731 10.7706 1.10391L17.3127 7.64609C17.5393 7.87269 17.6667 8.18004 17.6667 8.5005V20.0833C17.6667 21.4181 16.5847 22.5 15.25 22.5Z" stroke="#019591" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+        </a>
+      </div>`
+      }
+    </li>
         </ul>
 
         <aside class="staggered-menu__preview" aria-hidden="true">
-        
-        <img class="staggered-menu__preview-img is-active" 
-        data-img="${isAR ? "hero.webp" : "hero-en.webp"}"
-                 src="assets/${isAR ? "hero.webp" : "hero-en.webp"}" alt="" loading="lazy" />
+          <img class="staggered-menu__preview-img is-active" 
+       data-img="${initialImg}"
+       src="assets/${initialImg}" 
+       alt="" loading="lazy" />
         </aside>
       </div>
 
@@ -757,6 +804,11 @@
     let closeTimer = null;
     const closeDuration = reduceMotion ? 0 : 900;
 
+    const linksList = document.querySelector(".staggered-menu__list")
+
+    linksList.addEventListener("mouseleave", () => {
+      setPreview(initialImg, initialCaption)
+    })
     const open = () => {
       lastFocused = document.activeElement;
       window.clearTimeout(closeTimer);
@@ -834,15 +886,22 @@
     });
 
     // Dropdown toggles
-    document.querySelectorAll('[data-dropdown-toggle]').forEach(toggle => {
-      console.log("toggle = ", toggle)
+    // الكود الصحيح:
+    menu.querySelectorAll('[data-dropdown-toggle]').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
-        // منع الرابط من الانتقال لصفحة أخرى عند الضغط لفتح القائمة
         e.preventDefault();
+        e.stopPropagation();
 
-        // كود فتح وإغلاق القائمة المنسدلة الخاص بك هنا، مثال:
         const parentLi = toggle.closest('.staggered-menu__dropdown');
-        parentLi.classList.toggle('is-open'); // أو الكلاس المسؤول عن الفتح عندك
+        if (parentLi) {
+          // (اختياري) إغلاق باقي القوائم المنسدلة المفتوحة
+          // menu.querySelectorAll('.staggered-menu__dropdown').forEach(item => {
+          //   if (item !== parentLi) item.classList.remove('is-open');
+          // });
+
+          // تبديل حالة الفتح والإغلاق للقائمة الفرعية الحالية
+          parentLi.classList.toggle('is-open');
+        }
       });
     });
     const previewImgs = menu.querySelectorAll(".staggered-menu__preview-img");
@@ -877,6 +936,8 @@
 
 
   }
+
+
 
 
   // footer genreated
