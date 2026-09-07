@@ -214,11 +214,30 @@
 }
 
 .con-outlook__text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.con-outlook__text p,
+.con-outlook__text li {
     font-weight: 400;
     font-size: clamp(1rem, 1.2vw + 0.8rem, 1.125rem);
     line-height: 1.7;
     color: #526F6F;
     text-align: justify;
+}
+
+.con-outlook__text p {
+    margin: 0;
+}
+
+.con-outlook__list {
+    margin: 0;
+    padding-inline-start: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 @media (max-width: 992px) {
