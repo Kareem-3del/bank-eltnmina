@@ -592,7 +592,7 @@ h3.crr-aside__list-tile {
     z-index: 9;
 }
 
-@media(min-width:961px) {
+@media(min-width:769px) {
 
     .org-wrap,
     .sub-level-box,
