@@ -25,6 +25,11 @@
     color: #fff;
 }
 
+/* RTL: the section number leads on the right, before the title */
+[dir="rtl"] .fca7-hero__num {
+    order: -1;
+}
+
 .fca7-hero__num {
     flex-shrink: 0;
     font-family: "Cairo", sans-serif;
@@ -79,6 +84,14 @@
 
 .fca7-campaigns__col--wide .fca7-campaigns__poster {
     margin-top: 12px;
+}
+
+/* Multi-column: sink the tall poster so its bottom lines up with the
+   last image in the neighbouring columns (the slack moves above it). */
+@media (min-width: 901px) {
+    .fca7-campaigns__col--wide .fca7-campaigns__poster {
+        margin-top: auto;
+    }
 }
 
 .fca7-campaigns__item h3 {
@@ -248,34 +261,50 @@
     color: #fff;
     font-family: "Cairo", sans-serif;
     font-weight: 700;
-    font-size: 18px;
-    padding: 14px 16px;
-    text-align: end;
+    font-size: 20px;
+    line-height: 32px;
+    padding: 3px 16px;
+    text-align: start;
     white-space: nowrap;
 }
 
+/* Figma column rhythm: 40 / 314 / 457 / 426 of 1229 */
 .fca7-table th:first-child {
-    text-align: center;
-    width: 56px;
+    width: 40px;
+    padding-inline: 12px;
+}
+
+.fca7-table th:nth-child(2) {
+    width: 26%;
+}
+
+.fca7-table th:nth-child(3) {
+    width: 37%;
 }
 
 .fca7-table td {
-    padding: 12px 16px;
+    padding: 10px 16px;
     font-family: "Cairo", sans-serif;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 11px;
+    line-height: 1.5;
     color: #5e7278;
-    text-align: end;
-    vertical-align: top;
-    border-inline-start: 1px solid rgba(94, 114, 120, 0.15);
+    text-align: start;
+    vertical-align: middle;
 }
 
 .fca7-table td:first-child {
-    text-align: center;
-    font-weight: 700;
-    color: #313335;
-    border-inline-start: 0;
+    padding-inline: 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* White 2px dividers after الجهة and اسم الاتفاقية, through the header too */
+.fca7-table th:nth-child(2),
+.fca7-table th:nth-child(3),
+.fca7-table td[data-col="party"],
+.fca7-table td[data-col="name"] {
+    border-inline-end: 2px solid #fff;
 }
 
 .fca7-table tbody tr:nth-child(odd) {
@@ -287,9 +316,7 @@
 }
 
 .fca7-table td[data-col="party"] {
-    font-weight: 600;
-    color: #313335;
-    white-space: nowrap;
+    font-size: 12px;
 }
 
 .fca7-table td[data-col="name"] {
@@ -298,7 +325,6 @@
 
 .fca7-table td[data-col="goal"] {
     min-width: 320px;
-    text-align: justify;
 }
 
 /* —— معارض الصور مع تعليقات (اتفاقيات موقّعة) —— */
