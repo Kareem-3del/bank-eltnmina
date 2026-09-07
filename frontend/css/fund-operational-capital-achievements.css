@@ -276,3 +276,11 @@ body {
         flex-basis: 100%;
     }
 }
+
+.chert-dec {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 32px;
+    color: #5E7278;
+}

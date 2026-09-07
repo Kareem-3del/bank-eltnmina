@@ -1232,6 +1232,10 @@ html.lenis body {
   background: #E8F8F6;
 }
 
+.footer-download__link svg {
+  transform: scale(-1);
+}
+
 .footer-download__link svg path {
   stroke: currentColor;
 }
