@@ -5,6 +5,22 @@
     --level-2_sub__width: 144px;
 }
 
+/* Hero — this page's title/description are smaller than the shared .c-hero
+   defaults (which are sized for large statement heroes elsewhere), so scope
+   the override here instead of touching the shared component. */
+.c-hero__title {
+    font-size: clamp(32px, 3.5vw + 1rem, 60px);
+    line-height: 1.2;
+}
+
+.c-hero__desc {
+    font-weight: 400;
+    font-size: clamp(15px, 0.6vw + 0.85rem, 20px);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+}
+
 .table-char {
     width: var(--box-width);
 }

@@ -42,6 +42,21 @@
     line-height: clamp(24px, 1.5vw + 1rem, 33px);
 }
 
+.con-challenges-sec {
+    background-color: #ffffff;
+}
+
+.con-challenges-box {
+    background-color: #6FC4C0;
+    border-top: 3px solid #00BCB2;
+    padding: clamp(24px, 4vw, 48px);
+}
+
+.con-challenges-box .con-content {
+    color: #FFFFFF;
+    text-align: justify;
+}
+
 .con-divider {
     align-self: center;
     width: 64px;
@@ -192,7 +207,7 @@
 .con-outlook__title {
     flex-shrink: 0;
     max-width: 360px;
-    font-weight: 700;
+    font-weight: 800;
     font-size: clamp(28px, 3vw + 1rem, 36px);
     line-height: 1.2;
     color: #00BCB2 !important;
