@@ -159,7 +159,11 @@ h2.org-sec-title_title {
 .crr-aside__list-box.box-icon {
     width: 40px;
     height: 40px;
-    display: none;
+}
+
+.crr-aside__list-box.box-icon img {
+    width: 22px;
+    height: 22px;
 }
 
 h3.crr-aside__list-tile {
