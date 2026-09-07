@@ -1232,7 +1232,7 @@ html.lenis body {
   background: #E8F8F6;
 }
 
-.footer-download__link svg {
+[dir="ltr"] .footer-download__link svg {
   transform: scale(-1);
 }
 

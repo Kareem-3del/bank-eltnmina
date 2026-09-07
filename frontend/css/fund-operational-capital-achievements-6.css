@@ -108,13 +108,14 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    width: fit-content;
 }
 
 .last-boxes ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 1rem;
     font-size: clamp(14px, 2vw, 18px);
     color: #5E7278;
 }
@@ -148,7 +149,7 @@
     }
 
     .last-boxes ul li {
-        justify-content: center;
+        /* justify-content: center; */
         gap: 1rem;
     }
 
@@ -192,7 +193,7 @@
     }
 
     .last-boxes ul li {
-        justify-content: center;
+        /* justify-content: center; */
         gap: 1rem;
     }
 
