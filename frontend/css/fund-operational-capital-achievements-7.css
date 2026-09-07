@@ -110,6 +110,7 @@
     font-size: 16px;
     line-height: 1.9;
     color: #5e7278;
+    text-align: start !important;
 }
 
 .fca7-campaigns__poster {
@@ -379,5 +380,33 @@
     .fca7-table th,
     .fca7-table td {
         font-size: 12px;
+    }
+}
+
+
+
+p.fc-7-p {
+    font-weight: 400;
+    font-size: 16px;
+    /* Smaller base size for mobile */
+    line-height: 26px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Tablets and up */
+@media (min-width: 768px) {
+    p.fc-7-p {
+        font-size: 17px;
+        line-height: 29px;
+    }
+}
+
+/* Laptops/Desktops and up */
+@media (min-width: 1024px) {
+    p.fc-7-p {
+        font-size: 18px;
+        /* Your original size */
+        line-height: 32px;
     }
 }
