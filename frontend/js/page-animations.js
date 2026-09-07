@@ -709,7 +709,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(clone);
         const finalWidth = clone.getBoundingClientRect().width;
         clone.remove();
-        el.style.width = `${Math.ceil(finalWidth) + 1}px`;
+        // Reserve the width in em, not px, so it follows the responsive
+        // font-size (media queries / device toggle) instead of freezing at
+        // whatever size the counter was first measured at.
+        const fontPx = parseFloat(getComputedStyle(el).fontSize) || 16;
+        el.style.width = `${((finalWidth + 1) / fontPx).toFixed(3)}em`;
         el.style.display = "inline-block";
         el.style.whiteSpace = "nowrap";
     }
