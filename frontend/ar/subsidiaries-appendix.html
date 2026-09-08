@@ -13,7 +13,7 @@
   <title>الملاحق — الشركات التابعة — التقرير السنوي 2025</title>
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
-  <link rel="preload" as="image" href="assets/appendix-hero-bg.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/appendix-hero-people.webp" fetchpriority="high" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +25,7 @@
 
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/subsidiaries.css?v=6" />
-  <link rel="stylesheet" href="css/subsidiaries-appendix.css?v=3" />
+  <link rel="stylesheet" href="css/subsidiaries-appendix.css?v=7" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/ar.css" />
 
@@ -41,14 +41,14 @@
   <meta property="og:description"
     content="رؤيتنا، رسالتنا، الركائز الاستراتيجية، وخدمات الشركة الوطنية المساندة لخدمات التمويل ضمن التقرير السنوي 2025." />
   <meta property="og:url" content="https://yourdomain.com/ar/subsidiaries-appendix.html" />
-  <meta property="og:image" content="https://yourdomain.com/assets/appendix-hero-bg.png" />
+  <meta property="og:image" content="https://yourdomain.com/assets/appendix-hero-people.webp" />
   <meta property="og:image:alt" content="صندوق التنمية العقارية — الملاحق" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="الملاحق — الشركات التابعة — التقرير السنوي 2025" />
   <meta name="twitter:description"
     content="رؤيتنا، رسالتنا، الركائز الاستراتيجية، وخدمات الشركة الوطنية المساندة لخدمات التمويل ضمن التقرير السنوي 2025." />
-  <meta name="twitter:image" content="https://yourdomain.com/assets/appendix-hero-bg.png" />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/appendix-hero-people.webp" />
 </head>
 
 <body class="page-subs">
@@ -69,11 +69,11 @@
     </nav>
   </header>
 
-  <main id="main" class="subsidiaries-appendix">
+  <main id="main" class="subsidiaries-appendix appx-v2">
     <section class="c-hero c-hero--appendix" aria-labelledby="appx-hero-title">
       <div class="c-hero__overlay"></div>
       <div class="c-hero__image-wrapper">
-        <img src="assets/appendix-hero-bg.png" class="c-hero__img" alt="صندوق التنمية العقارية" fetchpriority="high" />
+        <img src="assets/appendix-hero-people.webp" class="c-hero__img c-hero__img--flip" alt="صندوق التنمية العقارية" fetchpriority="high" />
       </div>
       <div class="container h-100">
         <div class="c-hero__content">
@@ -96,26 +96,32 @@
 
     <section class="appx-about" aria-labelledby="appx-about-title">
       <div class="container">
-        <div class="appx-about__header reveal">
-          <p class="appx-goals__kicker" id="appx-about-title">عن الشركة</p>
-        </div>
+        <p class="appx-kicker reveal" id="appx-about-title">عن الشركة</p>
         <div class="appx-about__grid">
-          <article class="appx-about__card reveal" aria-labelledby="appx-about-mission">
-            <img class="appx-about__icon" src="assets/appx-icon-mission.png" alt="" width="146" height="133"
-              loading="lazy" />
-            <h3 id="appx-about-mission" class="appx-about__card-title">رسالتنا</h3>
-            <p class="appx-about__card-desc">
-              نُمكّن الشركاء من التفرغ لجوهر أعمالهم عبر تقديم خدمات مساندة، مؤتمتة، متوافقة مع التشريعات، تعزز جودة
-              تجربة العميل، وتزيد كفاءة التشغيل.
-            </p>
+          <article class="appx-about__item reveal" aria-labelledby="appx-about-mission">
+            <div class="appx-about__head">
+              <img class="appx-about__icon" src="assets/appx-icon-mission.png" alt="" width="289" height="265"
+                loading="lazy" />
+              <h3 id="appx-about-mission" class="appx-about__title">رسالتنا</h3>
+            </div>
+            <div class="appx-about__card">
+              <p class="appx-about__desc">
+                نُمكّن الشركاء من التفرغ لجوهر أعمالهم عبر تقديم خدمات مساندة، مؤتمتة، متوافقة مع التشريعات، تعزز جودة
+                تجربة العميل، وتزيد كفاءة التشغيل.
+              </p>
+            </div>
           </article>
-          <article class="appx-about__card reveal" aria-labelledby="appx-about-vision">
-            <img class="appx-about__icon" src="assets/appx-icon-vision.png" alt="" width="138" height="153"
-              loading="lazy" />
-            <h3 id="appx-about-vision" class="appx-about__card-title">رؤيتنا</h3>
-            <p class="appx-about__card-desc">
-              أن نكون منصة الخدمة الموحدة الأكثر موثوقية في سوق التمويل السعودي.
-            </p>
+          <article class="appx-about__item appx-about__item--vision reveal" aria-labelledby="appx-about-vision">
+            <div class="appx-about__head">
+              <img class="appx-about__icon" src="assets/appx-icon-vision.png" alt="" width="274" height="304"
+                loading="lazy" />
+              <h3 id="appx-about-vision" class="appx-about__title">رؤيتنا</h3>
+            </div>
+            <div class="appx-about__card">
+              <p class="appx-about__desc">
+                أن نكون منصة الخدمة الموحدة الأكثر موثوقية في سوق التمويل السعودي.
+              </p>
+            </div>
           </article>
         </div>
       </div>
@@ -162,16 +168,16 @@
     <section class="appx-services" aria-labelledby="appx-services-title">
       <div class="container">
         <div class="appx-services__header reveal">
-          <p class="appx-goals__kicker">خدماتنا</p>
-          <h2 id="appx-services-title" class="appx-goals__title">حلول متكاملة عبر ثلاثة محاور</h2>
+          <p class="appx-kicker appx-kicker--light">خدماتنا</p>
+          <h2 id="appx-services-title" class="appx-services__heading">حلول متكاملة عبر ثلاثة محاور</h2>
         </div>
-
         <div class="appx-services__grid">
           <article class="appx-services__card reveal" aria-labelledby="appx-service-portfolio">
-            <img class="appx-services__icon" src="assets/appx-icon-portfolio.png" alt="" width="89" height="91"
-              loading="lazy" />
-            <h3 id="appx-service-portfolio" class="appx-services__card-title">خدمات المحافظ:</h3>
-            <ul class="appx-services__card-list">
+            <div class="appx-services__head">
+              <img class="appx-services__icon" src="assets/appx-icon-portfolio.png" alt="" width="213" height="217" loading="lazy" />
+              <h3 id="appx-service-portfolio" class="appx-services__title">خدمات المحافظ:</h3>
+            </div>
+            <ul class="appx-services__list">
               <li>إدارة المحافظ</li>
               <li>خدمات المستفيدين</li>
               <li>إدارة المستندات</li>
@@ -182,10 +188,11 @@
           </article>
 
           <article class="appx-services__card reveal" aria-labelledby="appx-service-collection">
-            <img class="appx-services__icon" src="assets/appx-icon-collection.png" alt="" width="98" height="108"
-              loading="lazy" />
-            <h3 id="appx-service-collection" class="appx-services__card-title">خدمات التحصيل:</h3>
-            <ul class="appx-services__card-list">
+            <div class="appx-services__head">
+              <img class="appx-services__icon" src="assets/appx-icon-collection.png" alt="" width="206" height="228" loading="lazy" />
+              <h3 id="appx-service-collection" class="appx-services__title">خدمات التحصيل:</h3>
+            </div>
+            <ul class="appx-services__list">
               <li>إدارة المتأخرات والسداد</li>
               <li>إعادة جدولة الأقساط</li>
               <li>تحديثات سمة</li>
@@ -196,29 +203,17 @@
           </article>
 
           <article class="appx-services__card reveal" aria-labelledby="appx-service-recovery">
-            <img class="appx-services__icon" src="assets/appx-icon-recovery.png" alt="" width="111" height="101"
-              loading="lazy" />
-            <h3 id="appx-service-recovery" class="appx-services__card-title">خدمات الاسترداد:</h3>
-            <ul class="appx-services__card-list">
+            <div class="appx-services__head">
+              <img class="appx-services__icon" src="assets/appx-icon-recovery.png" alt="" width="212" height="194" loading="lazy" />
+              <h3 id="appx-service-recovery" class="appx-services__title">خدمات الاسترداد:</h3>
+            </div>
+            <ul class="appx-services__list">
               <li>خدمات التقاضي والترافع</li>
               <li>خدمات الإفراغ ونقل الصكوك</li>
               <li>تنفيذ السندات المالية</li>
               <li>الدعاوى وتنفيذ الرهون</li>
             </ul>
           </article>
-        </div>
-
-        <div class="appx-goals__cta">
-          <a class="btn btn--pill" href="assets/pdf/ar/subsidiaries.pdf" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <path d="M8 12.6667L3.33333 8L8 3.33333" stroke="#00BCB2" stroke-width="1.33333" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M12.6667 8H3.33333" stroke="#00BCB2" stroke-width="1.33333" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-            استعرض التقرير الكامل
-          </a>
         </div>
       </div>
     </section>
