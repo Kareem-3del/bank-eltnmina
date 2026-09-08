@@ -18,7 +18,7 @@
 import puppeteer from "puppeteer";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readdir, unlink } from "node:fs/promises";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FRONTEND = resolve(__dirname, "../../frontend");
@@ -26,24 +26,38 @@ const OUT_ROOT = resolve(FRONTEND, "assets/pdf");
 const BASE = process.env.BASE || "http://localhost:8124";
 const WIDTH = 1440;
 
-// Every content page (index.html is the home — it has no per-page PDF, matching
-// actions.js which omits the download-page button there). MT-final.pdf is the
+// Every content page is discovered from disk: <lang>/*.html minus index.html
+// (the home — actions.js omits the download-page button there) and any
+// underscore-prefixed scratch file (e.g. en/_index.html). MT-final.pdf is the
 // original 172-page report and is intentionally left alone.
-const SLUGS = [
-  "introduction", "chairman-message", "ceo-message",
-  "executive-summary-1", "executive-summary",
-  "strategic-direction", "performance-summary", "current-state",
-  "housing-support-program", "housing-support-empowerment-achievements",
-  "digital-achievements", "government-enablers", "training-programs",
-  "notable-achievements", "subsidized-finance-cost",
-  "opportunities-and-enablers", "subsidiaries", "challenges-and-support",
-  "conclusion",
-];
+const PROTECTED_PDFS = new Set(["MT-final.pdf"]);
+
+async function discoverSlugs(lang) {
+  const files = await readdir(resolve(FRONTEND, lang));
+  return files
+    .filter((f) => f.endsWith(".html") && f !== "index.html" && !f.startsWith("_"))
+    .map((f) => f.replace(/\.html$/, ""))
+    .sort();
+}
+
+// Delete per-page PDFs whose page no longer exists (pages get renamed/split
+// between report revisions; a stale PDF would silently ship the old content).
+async function pruneStale(lang, slugs) {
+  const dir = resolve(OUT_ROOT, lang);
+  let files = [];
+  try { files = await readdir(dir); } catch { return; }
+  const keep = new Set([...PROTECTED_PDFS, ...slugs.map((s) => `${s}.pdf`)]);
+  for (const f of files) {
+    if (!f.endsWith(".pdf") || keep.has(f)) continue;
+    await unlink(resolve(dir, f));
+    console.log(`PRUNE ${lang}/${f}  (no ${lang}/${f.replace(/\.pdf$/, ".html")})`);
+  }
+}
 
 const argLang = process.argv[2];
 const argSlug = process.argv[3];
 const LANGS = argLang ? [argLang] : ["en", "ar"];
-const slugsFor = () => (argSlug ? [argSlug] : SLUGS);
+const slugsFor = async (lang) => (argSlug ? [argSlug] : discoverSlugs(lang));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -96,7 +110,15 @@ async function renderOne(browser, lang, slug) {
   // Finalize: everything to its end-state, remove transient chrome.
   await page.evaluate(() => {
     try { window.ScrollTrigger?.getAll().forEach((t) => t.kill()); } catch {}
+    // Stop every running/looping tween (pulse loops, draw-on-scroll yoyo
+    // timelines) so nothing moves between now and the print snapshot.
+    try { window.gsap?.globalTimeline.getChildren(true, true, true).forEach((t) => t.kill()); } catch {}
     try { window.__lenis?.destroy?.(); } catch {}
+    // Freeze CSS keyframe/transition animations (anim-float-up, anim-pulse…)
+    // at their resting state instead of whatever frame print happens to hit.
+    const freeze = document.createElement("style");
+    freeze.textContent = "*, *::before, *::after { animation: none !important; transition: none !important; }";
+    document.head.appendChild(freeze);
     const sel = ".anim-element, .reveal, .row-trigger, [data-gsap-img]";
     try {
       window.gsap?.set(sel, { clearProps: "all" });
@@ -157,7 +179,9 @@ const browser = await puppeteer.launch({
 
 let ok = 0, fail = 0;
 for (const lang of LANGS) {
-  for (const slug of slugsFor()) {
+  const slugs = await slugsFor(lang);
+  if (!argSlug) await pruneStale(lang, slugs);
+  for (const slug of slugs) {
     try {
       const { height } = await renderOne(browser, lang, slug);
       console.log(`OK   ${lang}/${slug}.pdf  (${height}px tall)`);

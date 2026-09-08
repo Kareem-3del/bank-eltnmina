@@ -65,15 +65,21 @@ regenerate it**). The per-page PDFs are committed into `frontend/` so the webhoo
 deploy ships them like any other asset.
 
 Those per-page PDFs are rendered from the live pages by `deploy/pdfgen/`. The
-pages are GSAP/ScrollTrigger driven (sections reveal on scroll, counters animate
-from 0, Chart.js draws on init), so the generator emulates `prefers-reduced-motion`,
-force-loads images, scroll-sweeps to fire every trigger, forces all reveal
-elements + charts to their final state, then prints one continuous tall page
-(matching the single-page format of the originals). Regenerate after redesigning
-pages:
+generator discovers pages from disk (every `frontend/<lang>/*.html` except
+`index.html` and underscore-prefixed scratch files), so a new or renamed page is
+picked up automatically, and it **prunes** any `<slug>.pdf` whose page no longer
+exists (`MT-final.pdf` is protected). The pages are GSAP/ScrollTrigger driven
+(sections reveal on scroll, counters animate from 0, Chart.js draws on init), so
+the generator emulates `prefers-reduced-motion`, force-loads images, scroll-sweeps
+to fire every trigger, kills every tween and freezes CSS keyframes, forces all
+reveal elements + charts to their final state, then prints one continuous tall
+page (matching the single-page format of the originals). Regenerate after adding,
+renaming, or redesigning pages, and commit the resulting PDFs:
 
 ```sh
-cd deploy/pdfgen && npm install            # one-time (downloads Chromium)
+cd deploy/pdfgen && npm install            # one-time (downloads Chromium; if the
+                                           # zip only half-extracts, unzip it by hand
+                                           # into ~/.cache/puppeteer/chrome/<ver>/)
 cd ../../frontend && python3 -m http.server 8124 &   # serve the site locally
 cd ../deploy/pdfgen && node generate.mjs   # all langs/pages  (or: node generate.mjs en strategic-direction)
 ```
