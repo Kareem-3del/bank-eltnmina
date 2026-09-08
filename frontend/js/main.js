@@ -993,14 +993,14 @@
     const data = isAR ? {
       dir: "rtl",
       logo: "assets/logo-white.png",
-      downloadText: "استعرض التقرير السنوي 2025م",
+      downloadText: "استعرض التقرير الكامل",
       pdfPath: "assets/pdf/ar/MT-final.pdf",
       ariaLabel: "محتويات التقرير",
       menu: generatedLinks("ar")
     } : {
       dir: "ltr",
       logo: "assets/logo-white.png",
-      downloadText: "View Annual Report 2025",
+      downloadText: "View Full Report",
       pdfPath: "assets/pdf/en/MT-final.pdf",
       ariaLabel: "Report contents",
       menu: generatedLinks("en")
