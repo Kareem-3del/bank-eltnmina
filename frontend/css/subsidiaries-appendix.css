@@ -27,11 +27,6 @@
   object-position: center 30%;
 }
 
-/* الصفحة العربية: قسم الركائز هو المحتوى الوحيد بين الترويسة والتذييل */
-.appx-goals--solo {
-  padding-block: clamp(72px, 10vw, 140px);
-}
-
 /* —— قسم الركائز الاستراتيجية —— */
 .appx-goals {
   padding-block: clamp(40px, 6vw, 72px);
@@ -403,5 +398,212 @@
 @media (max-width: 560px) {
   .appx-goals__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   الصفحة العربية — تصميم Figma (main.appx-v2)
+   شريط أبيض «عن الشركة» بأيقونات بجانب العناوين، ثم الركائز، ثم «خدماتنا»
+   ببطاقات مُحدَّدة بإطار أبيض وعناوين مُصفّة يميناً.
+   ========================================================================== */
+.appx-v2 .appx-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 28px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+.appx-v2 .appx-kicker::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 40px;
+  height: 2px;
+  background: currentColor;
+}
+
+.appx-v2 .appx-kicker--light {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* —— عن الشركة —— */
+.appx-v2 .appx-about {
+  padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 6vw, 80px);
+  background-color: #ffffff;
+}
+
+.appx-v2 .appx-about__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 5vw, 72px);
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx-v2 .appx-about__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.appx-v2 .appx-about__head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.appx-v2 .appx-about__icon {
+  width: auto;
+  height: clamp(56px, 6vw, 76px);
+  object-fit: contain;
+}
+
+.appx-v2 .appx-about__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--c-primary-container, #00bcb2);
+}
+
+/* استثناء مقصود لقاعدة الزوايا الحادة: بطاقات Figma لهذا القسم مُدوّرة قليلاً */
+.appx-v2 .appx-about__card {
+  box-sizing: border-box;
+  width: min(100%, 520px);
+  padding: 28px 30px;
+  background: linear-gradient(160deg, #ffffff 0%, #f6fbfb 100%);
+  border: 1px solid #e9f3f3;
+  border-radius: 8px;
+  box-shadow: 0 14px 34px -16px rgba(15, 52, 61, 0.22);
+}
+
+.appx-v2 .appx-about__desc {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: justify;
+  color: #4b4f51;
+}
+
+/* —— الركائز —— */
+.appx-v2 .appx-goals {
+  padding-block: clamp(40px, 5vw, 64px);
+}
+
+/* —— خدماتنا —— */
+.appx-v2 .appx-services {
+  padding: clamp(24px, 3vw, 40px) 0 clamp(56px, 7vw, 96px);
+  background-color: var(--bg-main);
+}
+
+.appx-v2 .appx-services__header {
+  max-width: 1252px;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+  text-align: start;
+}
+
+.appx-v2 .appx-services__heading {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.appx-v2 .appx-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1252px;
+  margin-inline: auto;
+}
+
+.appx-v2 .appx-services__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 26px 32px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.appx-v2 .appx-services__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.appx-v2 .appx-services__icon {
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+.appx-v2 .appx-services__title {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.appx-v2 .appx-services__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.appx-v2 .appx-services__list li {
+  position: relative;
+  padding-inline-start: 18px;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.appx-v2 .appx-services__list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .appx-v2 .appx-services__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 720px) {
+  .appx-v2 .appx-about__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .appx-v2 .appx-about__card {
+    width: 100%;
   }
 }
