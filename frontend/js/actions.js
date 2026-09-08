@@ -122,11 +122,15 @@
       nameEn: "Digital Transformation 4",
     },
     {
-      href: "digital-achievements-2025-5.html",
-      nameAr: "التحول الرقمي 5",
-      nameEn: "Digital Transformation 5",
+      href: "human-capital-development.html",
+      nameEn: "Human Capital Development",
+      nameAr: "تطوير رأس المال البشري"
     },
-
+    {
+      href: "human-capital-development-2.html",
+      nameEn: "Human Capital Development 2",
+      nameAr: "تطوير رأس المال البشري 2",
+    },
     {
       href: "subsidiaries.html",
       nameAr: "الشركات التابعة",

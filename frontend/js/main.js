@@ -378,8 +378,14 @@
             caption: "أبرز الأعمال والإنجازات",
           },
           {
-            href: "digital-achievements-2025-5.html",
-            text: "التحول الرقمي 5",
+            href: "human-capital-development.html",
+            text: "تطوير رأس المال البشري",
+            img: "6.png",
+            caption: "أبرز الأعمال والإنجازات",
+          },
+          {
+            href: "human-capital-development-2.html",
+            text: " تطوير رأس المال البشري 2",
             img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
@@ -573,10 +579,16 @@
               caption: "Key Achievements",
             },
             {
-              href: "digital-achievements-2025-5.html",
-              text: " Digital Transformation 5",
+              href: "human-capital-development.html",
+              text: "Human Capital Development",
               img: "6.png",
-              caption: "Key Achievements",
+              caption: "أبرز الأعمال والإنجازات",
+            },
+            {
+              href: "human-capital-development-2.html",
+              text: "Human Capital Development 2",
+              img: "6.png",
+              caption: "أبرز الأعمال والإنجازات",
             },
           ]
         },
