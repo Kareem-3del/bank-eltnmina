@@ -60,8 +60,11 @@ gh api -X PATCH repos/Kareem-3del/bank-eltnmina/hooks/636588703 \
 `js/actions.js` injects the floating side actions (prev / next / download-page /
 download-full-report). "Download this page" points at
 `assets/pdf/<lang>/<slug>.pdf`; "download full report" points at
-`assets/pdf/<lang>/MT-final.pdf` (the original 172-page report — **do not
-regenerate it**). The per-page PDFs are committed into `frontend/` so the webhook
+`assets/pdf/<lang>/MT-final-web.pdf`, a 110-dpi web copy (~13 MB) of the
+original `MT-final.pdf` (65 MB, kept untouched for print — **do not regenerate
+it**). The web copy exists because the host serves ~0.8 MB/s, so the 65 MB
+original fails on mobile. Rebuild it with PyMuPDF `rewrite_images(dpi_target=110,
+quality=70)` if the original ever changes. The per-page PDFs are committed into `frontend/` so the webhook
 deploy ships them like any other asset.
 
 Those per-page PDFs are rendered from the live pages by `deploy/pdfgen/`. The

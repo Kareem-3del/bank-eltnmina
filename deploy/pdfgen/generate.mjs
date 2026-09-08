@@ -72,7 +72,11 @@ async function renderOne(browser, lang, slug) {
   ]);
 
   const url = `${BASE}/${lang}/${slug}.html`;
-  await page.goto(url, { waitUntil: "networkidle0", timeout: 90000 });
+  const resp = await page.goto(url, { waitUntil: "networkidle0", timeout: 90000 });
+  // A missing page would otherwise print the server's 404 as a "valid" PDF.
+  if (!resp || resp.status() !== 200) {
+    throw new Error(`HTTP ${resp ? resp.status() : "no response"} for ${url}`);
+  }
 
   const reduced = await page.evaluate(
     () => matchMedia("(prefers-reduced-motion: reduce)").matches
