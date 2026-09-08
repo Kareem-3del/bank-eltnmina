@@ -102,12 +102,6 @@
       nameEn: "Operational and Capital Activities and Achievements 6",
     },
     {
-      href: "fund-operational-capital-achievements-2025-7.html",
-      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 7",
-      nameEn: "Operational and Capital Activities and Achievements 7",
-    },
-
-    {
       href: "digital-achievements-2025-1.html",
       nameAr: "التحول الرقمي 1",
       nameEn: "Digital Transformation 1",
@@ -126,6 +120,11 @@
       href: "digital-achievements-2025-4.html",
       nameAr: "التحول الرقمي 4",
       nameEn: "Digital Transformation 4",
+    },
+    {
+      href: "digital-achievements-2025-5.html",
+      nameAr: "التحول الرقمي 5",
+      nameEn: "Digital Transformation 5",
     },
 
     {

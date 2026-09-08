@@ -377,6 +377,12 @@
             img: "6.png",
             caption: "أبرز الأعمال والإنجازات",
           },
+          {
+            href: "digital-achievements-2025-5.html",
+            text: "التحول الرقمي 5",
+            img: "6.png",
+            caption: "أبرز الأعمال والإنجازات",
+          },
         ]
       },
       {
@@ -543,12 +549,6 @@
               caption: "Key Achievements",
             },
             {
-              href: "fund-operational-capital-achievements-2025-7.html",
-              text: "Operational and Capital Activities and Achievements 7",
-              img: "6.png",
-              caption: "Key Achievements",
-            },
-            {
               href: "digital-achievements-2025-1.html",
               text: "Digital Transformation 1",
               img: "6.png",
@@ -569,6 +569,12 @@
             {
               href: "digital-achievements-2025-4.html",
               text: " Digital Transformation 4",
+              img: "6.png",
+              caption: "Key Achievements",
+            },
+            {
+              href: "digital-achievements-2025-5.html",
+              text: " Digital Transformation 5",
               img: "6.png",
               caption: "Key Achievements",
             },

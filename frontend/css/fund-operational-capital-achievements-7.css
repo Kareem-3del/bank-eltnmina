@@ -75,6 +75,10 @@
     gap: 20px;
 }
 
+[dir="ltr"] .fca7-campaigns__col {
+    justify-content: space-between;
+}
+
 .fca7-campaigns__img {
     width: 100%;
     height: auto;

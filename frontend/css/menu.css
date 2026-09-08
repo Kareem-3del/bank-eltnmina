@@ -631,7 +631,7 @@
   align-items: baseline;
   gap: 16px;
   padding: 12px 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
   font-size: 0.9em;
   transition: color 0.2s ease, background 0.2s ease;
