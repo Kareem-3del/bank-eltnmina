@@ -112,6 +112,7 @@
     line-height: 16px;
     letter-spacing: 0px;
     color: #576767;
+    margin-bottom: 16px;
 }
 
 .legend .mark {
@@ -120,7 +121,7 @@
 }
 
 .legend:first-child .mark {
-    background: #DFF2F1;
+    background: #00BCB2;
 }
 
 .legend:last-child .mark {
@@ -552,7 +553,6 @@
     grid-template-columns: repeat(2, 1fr);
     /* تقسيم الصندوق إلى عمودين متساويين */
     gap: 20px 40px;
-    direction: rtl;
 }
 
 /* تنسيق أعمدة الشهادات */
@@ -576,7 +576,6 @@
     font-size: clamp(14px, 1.6vw, 16px);
     /* حجم متجاوب ليتناسب مع الشاشات المختلفة */
     color: #5F5B5C;
-    text-align: right;
     flex: 1;
 }
 
