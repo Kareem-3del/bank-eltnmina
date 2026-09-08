@@ -1254,3 +1254,516 @@
         height: auto;
     } */
 }
+/* =====================================================================
+   Housing support program page (Figma "أبرز الأعمال والإنجازات")
+   Tokens: teal #00BCB2, text #5C7070 / #5E7278, tint #CFE3E2 / #DFF2F1
+   ===================================================================== */
+.hs-page,
+:root {
+    --hs-teal: #00BCB2;
+    --hs-text: #5C7070;
+    --hs-text-2: #5E7278;
+    --hs-tint: #CFE3E2;
+    --hs-tint-2: #DFF2F1;
+    --hs-row-alt: #FAFBFB;
+    --hs-line: #E2E9E9;
+}
+
+/* Section titles: Cairo 700 48/48, teal */
+.sc-title__title {
+    font-family: var(--ff-sans);
+    font-size: clamp(1.75rem, 3.4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.48px;
+    color: var(--hs-teal);
+}
+
+.sc-title .title-box {
+    gap: 0;
+}
+
+/* Intro paragraph: Cairo 400 18/26, teal, justified */
+.sc-title__dec {
+    font-family: var(--ff-sans);
+    font-size: clamp(1rem, 1.3vw, 18px);
+    line-height: 26px;
+    text-align: justify;
+    color: var(--hs-teal);
+}
+
+.sc-title__dec .riyal {
+    width: 0.8em;
+    height: 0.8em;
+    margin-inline: 0.15em;
+}
+
+/* Section rhythm (Figma: hero→57, panels→64, products heading→48, pentagon→113, table→90) */
+.hs-program-sec {
+    padding-block: 57px 64px;
+}
+
+.hs-products {
+    padding-block: 0 113px;
+}
+
+.hs-products .sc-title {
+    margin-bottom: 48px;
+}
+
+.hs-support-sec {
+    padding-block: 0 49px;
+}
+
+/* ---------- Down payment + monthly support panels ---------- */
+.hs-support {
+    display: grid;
+    grid-template-columns: minmax(280px, 501fr) minmax(0, 801fr);
+    gap: 40px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.hs-panel {
+    min-width: 0;
+}
+
+.hs-panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 50px;
+    background: var(--hs-teal);
+    color: #fff;
+}
+
+.hs-panel__head h3 {
+    font-family: var(--ff-sans);
+    font-weight: 800;
+    font-size: clamp(1.1rem, 1.8vw, 25px);
+    line-height: 1;
+    color: #fff;
+}
+
+.hs-panel__icon {
+    width: 33px;
+    height: 33px;
+    flex-shrink: 0;
+    color: #fff;
+}
+
+.hs-panel__icon--cash {
+    width: 48px;
+    height: 32px;
+}
+
+.hs-panel__sub {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-sans);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--hs-text-2);
+    margin-top: 10px;
+}
+
+/* Down payment cards: 241x213, tint bg */
+.hs-advance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 36px;
+}
+
+.hs-advance__card {
+    background: var(--hs-tint);
+    min-height: 213px;
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.hs-advance__value {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--ff-sans);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 2.6vw, 38px);
+    line-height: 32px;
+    color: var(--hs-teal);
+    white-space: nowrap;
+}
+
+.hs-advance__value .riyal {
+    width: 25px;
+    height: 28px;
+    margin: 0;
+    transform: none;
+}
+
+.hs-advance__note {
+    font-family: var(--ff-sans);
+    font-weight: 600;
+    font-size: 15.5px;
+    line-height: 22px;
+    color: var(--hs-text-2);
+}
+
+.hs-advance__cond {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.hs-advance__cond .num {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.hs-advance__cond strong {
+    font-weight: 700;
+}
+
+.hs-advance__cond .riyal {
+    width: 14px;
+    height: 16px;
+    margin: 0;
+    transform: none;
+}
+
+/* Monthly tiers table */
+.hs-tiers {
+    width: 100%;
+}
+
+.hs-tiers__caption {
+    min-height: 40px;
+    padding: 4px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hs-tint);
+    font-family: var(--ff-sans);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--hs-text-2);
+}
+
+.hs-tiers__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-family: var(--ff-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--hs-text-2);
+}
+
+.hs-tiers__row>div {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    text-align: center;
+    border-inline-start: 1px solid var(--hs-teal);
+}
+
+.hs-tiers__row>div:first-child {
+    border-inline-start: 0;
+}
+
+.hs-tiers__row--head {
+    background: var(--hs-teal);
+    color: #fff;
+    font-size: 19px;
+    line-height: 29px;
+}
+
+.hs-tiers__row--head>div {
+    height: auto;
+    min-height: 62px;
+    padding: 4px 6px;
+    border-inline-start: 1px solid #fff;
+}
+
+/* caption + head are children 1-2, so data rows start at 3: white, tint, white… */
+.hs-tiers__row:not(.hs-tiers__row--head):nth-child(odd) {
+    background: #fff;
+}
+
+.hs-tiers__row:not(.hs-tiers__row--head):nth-child(even) {
+    background: var(--hs-tint);
+}
+
+.hs-tiers__row:not(.hs-tiers__row--head):nth-child(even)>div {
+    border-inline-start-color: #fff;
+}
+
+/* ---------- Housing products (pentagon) ---------- */
+.hs-products .content-img {
+    margin-top: 0;
+}
+
+.hs-products .content-img img {
+    max-width: min(100%, 983px);
+    margin: auto;
+}
+
+/* ---------- Support programs table (Figma Group 610) ---------- */
+.hs-support-sec .support-table {
+    margin-top: 90px;
+    box-shadow: none;
+}
+
+.hs-support-sec .support-table .t-row {
+    grid-template-columns: 42px minmax(0, 1fr) repeat(3, 141px);
+    font-family: var(--ff-sans);
+    border-bottom: 0;
+}
+
+.hs-support-sec .support-table .t-row>div {
+    padding: 0;
+}
+
+.hs-support-sec .support-table .t-row>div:nth-child(n) {
+    grid-column: auto;
+    text-align: start;
+}
+
+/* header: 2 rows of 56px; title cell spans both */
+.hs-support-sec .support-table .t-row.t-head--grouped {
+    background: var(--hs-teal);
+    grid-template-rows: 56px 56px;
+}
+
+.hs-support-sec .support-table .t-row.t-head--grouped>.t-head__title {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 1.9vw, 27px);
+    text-align: center;
+    border-inline-end: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hs-support-sec .support-table .t-row.t-head--grouped>.t-head__group {
+    grid-column: span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hs-support-sec .support-table .t-row.t-head--grouped>.t-head__col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* body rows: 89px, tint / alt-white */
+.hs-support-sec .support-table .t-body {
+    min-height: 89px;
+}
+
+.hs-support-sec .support-table .t-body>div {
+    background: var(--hs-tint-2);
+    border: 0;
+    justify-content: center;
+}
+
+.hs-support-sec .support-table .t-body:nth-child(odd)>div {
+    background: var(--hs-row-alt);
+    border-top: 1px solid var(--hs-line);
+    border-bottom: 1px solid var(--hs-line);
+}
+
+/* number column (42px) then the title/desc stack cell */
+.hs-support-sec .support-table .t-body>div:nth-child(1) {
+    font-family: "IBM Plex Sans Arabic", var(--ff-sans);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--hs-text);
+    justify-content: center;
+    text-align: center;
+}
+
+.hs-support-sec .support-table .t-body>div:nth-child(2) {
+    justify-content: flex-start;
+    gap: 0;
+    padding-inline-end: 16px;
+}
+
+.hs-support-sec .support-table .t-body>div:nth-child(2)>.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-block: 10px;
+    width: 100%;
+}
+
+.hs-support-sec .support-table .t-body h3 {
+    font-family: var(--ff-sans);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--hs-teal) !important;
+}
+
+.hs-support-sec .support-table p {
+    font-family: var(--ff-sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: justify;
+    color: var(--hs-text) !important;
+}
+
+/* state cells: whole cell is the state, no pill */
+.hs-support-sec .support-table .t-body>div:nth-child(n+3) {
+    border-inline-start: 1px solid #fff;
+}
+
+.hs-support-sec .support-table .t-body:nth-child(odd)>div:nth-child(n+3) {
+    border-inline-start-color: var(--hs-line);
+}
+
+.hs-support-sec .support-table .state {
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    font-family: var(--ff-sans);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 16px;
+    color: var(--hs-teal);
+}
+
+.hs-support-sec .support-table .state.not-support {
+    color: var(--hs-text);
+}
+
+.hs-support-sec .support-table .state {
+    line-height: 1.2;
+    padding: 0 6px;
+    text-align: center;
+}
+
+/* inline riyal amounts inside table descriptions */
+.hs-support-sec .support-table .hs-amt {
+    white-space: nowrap;
+    font-weight: 600 !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    text-align: inherit !important;
+}
+
+.hs-support-sec .support-table .hs-amt .riyal {
+    width: 0.8em;
+    height: 0.8em;
+    margin-inline-end: 0.15em;
+}
+
+/* EN labels are longer: wider product columns, single-line states */
+[lang="en"] .hs-support-sec .support-table .t-row {
+    grid-template-columns: 42px minmax(0, 1fr) repeat(3, 168px);
+}
+
+[lang="en"] .hs-support-sec .support-table .state {
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+[lang="en"] .hs-support-sec .support-table .t-row.t-head--grouped>.t-head__col {
+    white-space: nowrap;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .hs-support-sec .support-table .t-row,
+    [lang="en"] .hs-support-sec .support-table .t-row {
+        grid-template-columns: 42px minmax(0, 1fr) repeat(3, 120px);
+    }
+
+    .hs-support-sec .support-table .state,
+    [lang="en"] .hs-support-sec .support-table .state {
+        font-size: 16px;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 992px) {
+    .hs-support-sec .support-table .t-row,
+    [lang="en"] .hs-support-sec .support-table .t-row {
+        min-width: 860px;
+        grid-template-columns: 42px minmax(0, 1fr) repeat(3, 130px);
+    }
+
+    [lang="en"] .hs-support-sec .support-table .state {
+        white-space: nowrap;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hs-support {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .hs-program-sec {
+        padding-block: 40px 48px;
+    }
+
+    .hs-products {
+        padding-block: 0 64px;
+    }
+
+    .hs-support-sec .support-table {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hs-advance {
+        grid-template-columns: 1fr;
+    }
+
+    .hs-advance__card {
+        min-height: 0;
+    }
+
+    .hs-tiers__caption,
+    .hs-tiers__row--head {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .hs-tiers__row {
+        font-size: 14px;
+    }
+
+    .hs-panel__sub {
+        font-size: 16px;
+    }
+}

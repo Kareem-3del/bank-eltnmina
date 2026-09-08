@@ -175,85 +175,186 @@
                             <li class="c-hero__breadcrumb-item c-hero__breadcrumb-item--active" aria-current="page">
                                 Key Activities and Achievements
                             </li>
-                            <li class="c-hero__breadcrumb-item c-hero__breadcrumb-item--active" aria-current="page">
-                                Housing Support Program
-                            </li>
                         </ol>
                     </nav>
-                    <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
-                        Key Activities and Achievements
-                    </h1>
+                    <div>
+                        <h1 class="c-hero__title anim-element" data-anim="fade-up" data-delay="0.5">
+                            Key Activities & Achievements:
+                        </h1>
+                        <p class="c-hero__desc anim-element" data-anim="fade-up" data-delay="0.7">
+                            Operational and Capital Activities and Achievements during the Year 2025
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ===================== head sec ===================== -->
-        <section class="section">
+        <section class="section hs-program-sec">
             <div class="container">
                 <div class="sc-title">
                     <div class="title-box anim-element" data-anim="fade-up" data-delay="0.1">
-                        <div class="icon-box">
-                            <img src="assets/h-w.png" />
-                        </div>
                         <h2 class="sc-title__title">
                             Housing Support Program
                         </h2>
                     </div>
 
                     <p class="sc-title__dec anim-element" data-anim="fade-up" data-delay="0.3">
-                        The Housing Support Program
-                        provides a streamlined
-                        homeownership experience by
-                        offering integrated financing
-                        solutions. These are led by nonrefundable support
-                        packages of SAR 100,000 or
-                        SAR 150,000, determined
-                        according to the income matrix.
-                        This is complemented by flexible financing options designed to
-                        meet beneficiaries' needs and
-                        accelerate their journey toward
-                        homeownership with confidence
+                        The Housing Support Program provides a streamlined homeownership experience by offering
+                        integrated financing solutions. These are led by nonrefundable support packages of
+                        <span class="num"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>100,000</span> or <span class="num"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>150,000</span>, determined
+                        according to the income matrix. This is complemented by flexible financing options designed
+                        to meet beneficiaries' needs and accelerate their journey toward homeownership with confidence
                         and stability.
                     </p>
                 </div>
 
-                <div class="content-img anim-element" data-anim="zoom-in" data-delay="0.5"> <img
-                        src="assets/housing-en.webp" />
+                <!-- Down payment + monthly support -->
+                <div class="hs-support">
+                    <div class="hs-panel hs-panel--advance anim-element" data-anim="fade-up" data-delay="0.2">
+                        <div class="hs-panel__head">
+                            <h3>Down Payment</h3>
+                            <svg class="hs-panel__icon hs-panel__icon--cash" viewBox="0 0 48 32" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="square"
+                                stroke-linejoin="miter" aria-hidden="true">
+                                <rect x="1" y="7" width="40" height="24" />
+                                <path d="M7 1h40v24" />
+                                <circle cx="21" cy="19" r="5" />
+                                <path d="M6 12v14M36 12v14" />
+                            </svg>
+                        </div>
+                        <div class="hs-advance">
+                            <div class="hs-advance__card">
+                                <div class="hs-advance__value" dir="ltr"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg><span class="num" data-counter="100000"
+                                        data-duration="2.5">0</span></div>
+                                <p class="hs-advance__note">Based on beneficiary salary<br /><span
+                                        class="hs-advance__cond"><span class="num"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg><strong>10,000</strong></span>
+                                        and above</span></p>
+                            </div>
+                            <div class="hs-advance__card">
+                                <div class="hs-advance__value" dir="ltr"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg><span class="num" data-counter="150000"
+                                        data-duration="2.5">0</span></div>
+                                <p class="hs-advance__note">Based on beneficiary salary<br /><span
+                                        class="hs-advance__cond">Less than <span
+                                            class="num"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg><strong>10,000</strong></span></span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hs-panel hs-panel--monthly anim-element" data-anim="fade-up" data-delay="0.35">
+                        <div class="hs-panel__head">
+                            <h3>Monthly Support</h3>
+                            <svg class="hs-panel__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                                <path d="M3 13h4l2 3h6l2-3h4" />
+                                <path d="M5 13V6h14v7" />
+                                <path d="M9 9h6" />
+                                <path d="M3 13v6h18v-6" />
+                            </svg>
+                        </div>
+                        <p class="hs-panel__sub">Monthly financial support (nonrefundable)</p>
+                        <div class="hs-tiers">
+                            <div class="hs-tiers__caption">Monthly support is determined by the beneficiary's net income
+                            </div>
+                            <div class="hs-tiers__row hs-tiers__row--head">
+                                <div>Salary Bracket<br />(Riyals)</div>
+                                <div>Monthly Support Value<br />(Riyals)</div>
+                                <div>Total Support Value<br />(over 20 years)</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">3,000</div>
+                                <div class="num">1,350</div>
+                                <div class="num">324,000</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">4,000</div>
+                                <div class="num">1,206</div>
+                                <div class="num">289,440</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">5,000</div>
+                                <div class="num">1,073</div>
+                                <div class="num">257,520</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">6,000</div>
+                                <div class="num">955</div>
+                                <div class="num">229,200</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">7,000</div>
+                                <div class="num">850</div>
+                                <div class="num">204,000</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">8,000</div>
+                                <div class="num">757</div>
+                                <div class="num">181,680</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">9,000</div>
+                                <div class="num">673</div>
+                                <div class="num">161,520</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">10,000</div>
+                                <div class="num">599</div>
+                                <div class="num">143,760</div>
+                            </div>
+                            <div class="hs-tiers__row">
+                                <div class="num">10,000+</div>
+                                <div class="num">416</div>
+                                <div class="num">100,000</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== Housing products ===================== -->
+        <section class="section hs-products">
+            <div class="container">
+                <div class="sc-title">
+                    <div class="title-box anim-element" data-anim="fade-up" data-delay="0.1">
+                        <h2 class="sc-title__title">
+                            Housing Products
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="content-img anim-element" data-anim="zoom-in" data-delay="0.3"> <img
+                        src="assets/housing-en.webp"
+                        alt="Housing Support Program products: Readymade Unit, Off Plan Sales, Self Build" />
+                </div>
+
             </div>
         </section>
 
         <!-- =====================Support sec ===================== -->
-        <section class="section bg-main">
+        <section class="section hs-support-sec">
             <div class="container">
                 <div class="sc-title">
                     <div class="title-box anim-element" data-anim="fade-up" data-delay="0.1">
-                        <div class="icon-box">
-                            <img src="assets/h-mon-g.png" />
-                        </div>
                         <h2 class="sc-title__title">
-                            Supportive Programs
-                            and Financing
-                            Solutions
+                            Supportive Programs and Financing Solutions
                         </h2>
                     </div>
                 </div>
 
                 <div class="support-table anim-table">
-                    <div class="t-head t-row row-trigger">
-                        <div>#</div>
-                        <div>Supportive Programs and Initiatives</div>
-                        <div>Readymade Units</div>
-                        <div>Self Build</div>
-                        <div>Off Plan Sales</div>
+                    <div class="t-head t-row row-trigger t-head--grouped">
+                        <div class="t-head__title">Supportive Programs and Initiatives</div>
+                        <div class="t-head__group">Products Offered by the Fund</div>
+                        <div class="t-head__col">Readymade Units</div>
+                        <div class="t-head__col">Self Build</div>
+                        <div class="t-head__col">Off Plan Sales</div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>1</div>
+                        <div class="num">1</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/currncy.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>Tamkeen Program</h3>
                                 <p>
@@ -264,31 +365,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>2</div>
+                        <div class="num">2</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/sh.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Default Support Program
@@ -303,37 +395,28 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>3</div>
+                        <div class="num">3</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/ch-circle.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Additional Financial Support for Ministry of Defense Military Personnel
                                 </h3>
                                 <p>
-                                    This initiative aims to provide additional financial support of SAR 160,000 as an
+                                    This initiative aims to provide additional financial support of <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>160,000</span> as an
                                     interest free loan (Qard
                                     Hasan) for military personnel within the Ministry of Defense, to be utilised as a
                                     down payment for
@@ -342,31 +425,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>4</div>
+                        <div class="num">4</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/bocket-g.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Your Installment Equals Your Support (Qistak Yusawi Da’mak)
@@ -374,38 +448,29 @@
                                 <p>
                                     A financing solution for both Off Plan Sales and Self Build products. It reduces the
                                     monthly installment to
-                                    equal the monthly support value or SAR 400 for the Support Packages Program during
+                                    equal the monthly support value or <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>400</span> for the Support Packages Program during
                                     the construction
                                     phase.
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>5</div>
+                        <div class="num">5</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/trend-down.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Real Estate Finance Profit Reduction Program
@@ -420,31 +485,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>6</div>
+                        <div class="num">6</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/star.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Mazaya Program
@@ -457,31 +513,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>7</div>
+                        <div class="num">7</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/key.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Easy Mortgage Program
@@ -491,36 +538,27 @@
                                     financing institutions when purchasing a property through a real estate loan.
                                     The down payment for eligible beneficiaries is reduced to 5% of the funded property
                                     value instead of 10%. This is facilitated by the REDF's commitment to providing
-                                    a guarantee equivalent to 5% of the property value, up to a maximum of SAR 40,000.
+                                    a guarantee equivalent to 5% of the property value, up to a maximum of <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>40,000</span>.
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>8</div>
+                        <div class="num">8</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/regt.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Easy Installment Program
@@ -528,39 +566,30 @@
                                 <p>
                                     A supportive program for the Off Plan Sales product, offered in cooperation with the
                                     National Housing Company (NHC). It is designed for a specific segment of
-                                    "Sakani" beneficiaries (those with a monthly income of SAR 10,000 or less) by
+                                    "Sakani" beneficiaries (those with a monthly income of <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>10,000</span> or less) by
                                     providing additional support for selected projects in the form of an extra discount
                                     on
-                                    the unit price, reaching up to SAR 100,000.
+                                    the unit price, reaching up to <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>100,000</span>.
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>9</div>
+                        <div class="num">9</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/dirs.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Debt Transfer Program
@@ -574,31 +603,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>10</div>
+                        <div class="num">10</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/gift.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     In-Kind Support
@@ -610,31 +630,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>11</div>
+                        <div class="num">11</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/home.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Usufruct Ending in Ownership Product (Developmental Housing)
@@ -650,31 +661,22 @@
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                     </div>
 
                     <div class="t-body t-row row-trigger">
-                        <div>12</div>
+                        <div class="num">12</div>
                         <div>
-                            <div class="box">
-                                <img src="assets/bulding.svg" />
-                            </div>
                             <div class="stack">
                                 <h3>
                                     Dhara (Affordable) Sakan Plus Product
@@ -682,28 +684,22 @@
                                 <p>
                                     A program offered by the REDF in cooperation with the Developmental Housing
                                     Foundation (Sakan). It aims to empower low income individuals (with monthly
-                                    incomes between SAR 3,000 and SAR 7,000) to obtain real estate financing and own a
-                                    home by providing additional support from "Sakan" of up to SAR 120,000 per
+                                    incomes between <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>3,000</span> and <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>7,000</span>) to obtain real estate financing and own a
+                                    home by providing additional support from "Sakan" of up to <span class="hs-amt"><svg class="riyal" aria-hidden="true"><use href="#riyal" /></svg>120,000</span> per
                                     beneficiary, thereby reducing the financial burden on the beneficiaries.
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <div class="state">
-                                <img src="assets/check.svg" />
-                                Supports
+                            <div class="state">Supports
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                         <div>
-                            <div class="state not-support">
-                                <img src="assets/close.svg" />
-                                Does Not Support
+                            <div class="state not-support">Does Not Support
                             </div>
                         </div>
                     </div>
