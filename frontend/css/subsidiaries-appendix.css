@@ -21,6 +21,17 @@
   color: #ffffff;
 }
 
+/* الصفحة العربية: الترويسة بصورة الأشخاص (معكوسة أفقياً لتناسب اتجاه RTL) */
+.c-hero__img--flip {
+  transform: scaleX(-1);
+  object-position: center 30%;
+}
+
+/* الصفحة العربية: قسم الركائز هو المحتوى الوحيد بين الترويسة والتذييل */
+.appx-goals--solo {
+  padding-block: clamp(72px, 10vw, 140px);
+}
+
 /* —— قسم الركائز الاستراتيجية —— */
 .appx-goals {
   padding-block: clamp(40px, 6vw, 72px);
