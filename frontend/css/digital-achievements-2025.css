@@ -4,7 +4,7 @@
     /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
     line-height: 1.8;
     color: #00BCB2;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .wrap {
@@ -560,7 +560,7 @@
     font-weight: 400;
     font-size: clamp(16px, 2vw, 24px);
     line-height: 1.8;
-    text-align: justify;
+    /* text-align: justify; */
     color: #03B9B2;
 
 }

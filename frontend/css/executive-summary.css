@@ -1975,15 +1975,18 @@
 }
 
 .es-digital-card>span {
-  margin-top: 18px;
+  margin-top: clamp(12px, 3vw, 18px);
   color: #6b7280;
   font-family: "Cairo", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.75px;
+  font-size: clamp(12px, 2.5vw, 18px);
+  /* حجم خط متجاوب */
+  line-height: 1.55;
+  /* يفضل استخدام قيم نسبية للـ line-height مع الخطوط المتجاوبة */
+  letter-spacing: -0.5px;
   width: min(416px, 100%);
+  /* هذه الخاصية متجاوبة بالفعل وتعمل بشكل ممتاز */
 }
 
 .es-photo-band {

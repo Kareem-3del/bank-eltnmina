@@ -58,7 +58,7 @@
     font-weight: 600;
     font-size: clamp(16px, 3vw, 28px);
     line-height: 1.9;
-    text-align: justify;
+    /* text-align: justify; */
     color: #FFFFFF;
 }
 

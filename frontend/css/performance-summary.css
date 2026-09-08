@@ -109,7 +109,7 @@
     letter-spacing: 0;
     color: #fff;
     max-width: 903px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 /* Ghost numeral. A real flex child rather than an absolutely-positioned

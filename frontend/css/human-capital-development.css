@@ -527,7 +527,6 @@
     font-weight: 400;
     font-size: clamp(15px, 1.8vw, 18px);
     line-height: 1.6;
-    text-align: center;
     color: #FFFFFF;
 }
 
@@ -636,7 +635,7 @@
 }
 
 .ac-container p {
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .ac-images-grid {

@@ -431,7 +431,7 @@
     line-height: 32px;
     letter-spacing: 0;
     color: #00BCB2;
-    text-align: justify;
+    /* text-align: justify; */
     text-justify: inter-word;
 }
 

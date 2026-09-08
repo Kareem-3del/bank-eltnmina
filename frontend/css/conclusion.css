@@ -14,7 +14,7 @@
     font-size: clamp(20px, 1.5vw + 1rem, 30px);
     line-height: clamp(28px, 2vw + 1rem, 33px);
     color: #FFFFFF !important;
-    text-align: justify;
+    /* text-align: justify; */
     border-radius: 0;
 }
 
@@ -54,7 +54,7 @@
 
 .con-challenges-box .con-content {
     color: #FFFFFF;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .con-divider {
@@ -178,7 +178,7 @@
     font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
     line-height: 1.7;
     color: #FFFFFF;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 @media (max-width: 768px) {
@@ -225,7 +225,7 @@
     font-size: clamp(1rem, 1.2vw + 0.8rem, 1.125rem);
     line-height: 1.7;
     color: #526F6F;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .con-outlook__text p {

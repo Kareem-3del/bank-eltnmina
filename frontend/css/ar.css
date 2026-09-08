@@ -42,7 +42,7 @@
 [lang="ar"] .vm__body,
 [lang="ar"] .quote__text,
 [lang="ar"] .pillar-row__desc {
-  text-align: justify;
+  /* text-align: justify; */
   text-justify: auto;
   hanging-punctuation: first last;
 }
@@ -205,9 +205,6 @@
 }
 
 /* Inverted visual panel: ensure title in AR stays heavy (Almarai 800) */
-[lang="ar"]
-  .pillar-row__visual--inverted
-  ~ .pillar-row__content
-  .pillar-row__title {
+[lang="ar"] .pillar-row__visual--inverted~.pillar-row__content .pillar-row__title {
   font-weight: 800;
 }

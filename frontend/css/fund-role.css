@@ -83,7 +83,7 @@
 
 @media(min-width:1024px) {
     .intro-box__desc {
-        text-align: justify;
+        /* text-align: justify; */
     }
 }
 
@@ -292,7 +292,7 @@
     line-height: 31px;
     font-weight: var(--fw-regular, 400);
     color: #657578;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .intro-report__col {

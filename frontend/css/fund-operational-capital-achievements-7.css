@@ -43,6 +43,14 @@
     padding-block: clamp(40px, 6vw, 72px);
 }
 
+.fca7-section h2 {
+    text-align: center;
+}
+
+.fca7-section p.sc-title__dec {
+    text-align: center;
+}
+
 .fca7-section--teal {
     background: var(--c-primary-container, #00bcb2);
     color: #fff;
@@ -187,7 +195,7 @@
     font-weight: 400;
     font-size: clamp(14px, 1.15vw, 16px);
     line-height: 1.9;
-    text-align: justify;
+    /* text-align: justify; */
     color: #fff;
 }
 

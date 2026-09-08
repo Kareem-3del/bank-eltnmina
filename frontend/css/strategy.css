@@ -70,7 +70,7 @@
   font-size: clamp(15px, 1.2vw + 0.6rem, 18.5px);
   line-height: clamp(26px, 2.5vw, 35px);
   color: #00BCB2;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .sd-framework__goals {
@@ -79,7 +79,7 @@
   font-size: clamp(15px, 1.2vw + 0.6rem, 18.5px);
   line-height: clamp(26px, 2.2vw, 34px);
   color: #ffffff;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .sd-framework__goals strong {
@@ -353,7 +353,7 @@
   font-weight: 700;
   font-size: 30px;
   line-height: 36px;
-  text-align: justify;
+  /* text-align: justify; */
   color: #00BCB2;
   margin: 0;
 }

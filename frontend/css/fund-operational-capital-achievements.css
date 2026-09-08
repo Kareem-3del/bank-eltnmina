@@ -29,7 +29,7 @@ body {
     /* تصغير حجم النص تدريجياً في الموبايل والتابلت */
     line-height: 1.9;
     color: #00BCB2;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .sc-title__subtitle {
@@ -250,6 +250,10 @@ body {
     font-size: 34px;
     line-height: 28px;
     color: #0FB9B2;
+}
+
+.qt-wrapper>div span {
+    text-align: center;
 }
 
 .qt-wrapper>div:first-child {
