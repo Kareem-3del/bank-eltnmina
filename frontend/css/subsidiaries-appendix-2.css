@@ -427,11 +427,12 @@
   color: #313335;
 }
 
+/* صورة المصافحة: على اليسار في العربية وعلى اليمين في الإنجليزية (جهة النهاية المنطقية) */
 .appx2-partners__handshake {
   position: absolute;
   inset-inline-end: 0px;
   bottom: -16px;
-  width: clamp(160px, 16vw, 256px);
+  width: clamp(160px, 12vw, 256px);
   opacity: 0.7;
   pointer-events: none;
   z-index: 999;

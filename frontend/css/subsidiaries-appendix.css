@@ -22,8 +22,8 @@
 }
 
 /* الصفحة العربية: الترويسة بصورة الأشخاص (معكوسة أفقياً لتناسب اتجاه RTL) */
+/* الانعكاس الأفقي مدمج في ملف الصورة نفسه (لا transform هنا حتى لا يتعارض مع تكبير GSAP) */
 .c-hero__img--flip {
-  transform: scaleX(-1);
   object-position: center 30%;
 }
 
@@ -506,7 +506,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 34px;
-  text-align: right;
+  text-align: start;
   color: #5f5b5c;
 }
 
@@ -542,7 +542,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
-  text-align: right;
+  text-align: start;
   color: #00bcb2;
 }
 
@@ -557,7 +557,7 @@
   font-weight: 300;
   font-size: 15.2px;
   line-height: 30px;
-  text-align: right;
+  text-align: start;
   color: #404345;
 }
 
@@ -604,6 +604,8 @@
   width: 370px;
   min-height: 352px;
   padding: 30px 30px 28px 24px;
+  align-items: stretch;
+  text-align: start;
   background: transparent;
   border: 1px solid #ffffff;
 }
@@ -660,6 +662,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 1.6;
+  text-align: start;
   color: #ffffff;
 }
 
