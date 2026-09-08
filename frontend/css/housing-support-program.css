@@ -1684,17 +1684,44 @@
     margin-inline-end: 0.15em;
 }
 
+/* EN labels are longer: wider product columns, single-line states */
+[lang="en"] .hs-support-sec .support-table .t-row {
+    grid-template-columns: 42px minmax(0, 1fr) repeat(3, 168px);
+}
+
+[lang="en"] .hs-support-sec .support-table .state {
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+[lang="en"] .hs-support-sec .support-table .t-row.t-head--grouped>.t-head__col {
+    white-space: nowrap;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
-    .hs-support-sec .support-table .t-row {
-        grid-template-columns: 42px minmax(0, 1fr) repeat(3, 110px);
+    .hs-support-sec .support-table .t-row,
+    [lang="en"] .hs-support-sec .support-table .t-row {
+        grid-template-columns: 42px minmax(0, 1fr) repeat(3, 120px);
+    }
+
+    .hs-support-sec .support-table .state,
+    [lang="en"] .hs-support-sec .support-table .state {
+        font-size: 16px;
+        white-space: normal;
     }
 }
 
 @media (max-width: 992px) {
-    .hs-support-sec .support-table .t-row {
+    .hs-support-sec .support-table .t-row,
+    [lang="en"] .hs-support-sec .support-table .t-row {
         min-width: 860px;
-        grid-template-columns: 42px minmax(0, 1fr) repeat(3, 120px);
+        grid-template-columns: 42px minmax(0, 1fr) repeat(3, 130px);
+    }
+
+    [lang="en"] .hs-support-sec .support-table .state {
+        white-space: nowrap;
+        font-size: 15px;
     }
 }
 
