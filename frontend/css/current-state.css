@@ -212,6 +212,7 @@ h3.crr-aside__list-tile {
 /* Organizational Structure */
 .org-sec {
     overflow: hidden;
+    background-color: #D3EFEC !important;
 }
 
 /* Org chart — responsive inline SVG (bilingual, EN/AR).

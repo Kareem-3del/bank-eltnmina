@@ -238,6 +238,12 @@
             caption: "دور الصندوق في منظومة الإسكان"
           },
           {
+            href: "introduction-2.html",
+            text: "المقدمة 2",
+            img: "1.png",
+            caption: "دور الصندوق في منظومة الإسكان"
+          },
+          {
             href: "chairman-message.html",
             text: "رسالة رئيس مجلس الإدارة",
             img: "1.png",
@@ -423,6 +429,12 @@
             {
               href: "introduction.html",
               text: "Introduction",
+              img: "1.png",
+              caption: "The Fund's role in the housing ecosystem"
+            },
+            {
+              href: "introduction-2.html",
+              text: "Introduction 2",
               img: "1.png",
               caption: "The Fund's role in the housing ecosystem"
             },

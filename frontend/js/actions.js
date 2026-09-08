@@ -22,6 +22,11 @@
       href: "introduction.html",
     },
     {
+      nameAr: "المقدمة 2",
+      nameEn: "Introduction 2",
+      href: "introduction-2.html",
+    },
+    {
       nameAr: "رسالة رئيس مجلس الإدارة",
       nameEn: "Chairman's Message",
       href: "chairman-message.html",
