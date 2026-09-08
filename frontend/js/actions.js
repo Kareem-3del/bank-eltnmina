@@ -96,6 +96,11 @@
       nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 6",
       nameEn: "Operational and Capital Activities and Achievements 6",
     },
+    {
+      href: "fund-operational-capital-achievements-2025-7.html",
+      nameAr: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 7",
+      nameEn: "Operational and Capital Activities and Achievements 7",
+    },
 
     {
       href: "digital-achievements-2025-1.html",

@@ -342,6 +342,12 @@
             caption: "أبرز الأعمال والإنجازات",
           },
           {
+            href: "fund-operational-capital-achievements-2025-7.html",
+            text: "أعمال وإنجازات الصندوق التشغيلية والرأسمالية 7",
+            img: "6.png",
+            caption: "أبرز الأعمال والإنجازات",
+          },
+          {
             href: "digital-achievements-2025-1.html",
             text: "التحول الرقمي 1",
             img: "6.png",
@@ -521,6 +527,12 @@
             {
               href: "fund-operational-capital-achievements-2025-6.html",
               text: "Operational and Capital Activities and Achievements 6",
+              img: "6.png",
+              caption: "Key Achievements",
+            },
+            {
+              href: "fund-operational-capital-achievements-2025-7.html",
+              text: "Operational and Capital Activities and Achievements 7",
               img: "6.png",
               caption: "Key Achievements",
             },
