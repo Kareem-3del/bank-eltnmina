@@ -198,7 +198,7 @@
 
   // مسارات الـ PDF الموجهة ديناميكياً بناءً على لغة واسم الصفحة الحالية
   const pagePdf = `assets/pdf/${lang}/${slug}.pdf`;
-  const fullPdf = `assets/pdf/${lang}/MT-final.pdf`;
+  const fullPdf = `assets/pdf/${lang}/MT-final-web.pdf`;
 
   // الأيقونات الرسومية الأنيقة (Feather SVG Icons)
   const ICONS = {
