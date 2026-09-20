@@ -816,6 +816,7 @@ body {
 }
 
 @media (max-width: 560px) {
+
   .home-final-metrics__grid--four,
   .home-final-metrics__grid--two {
     grid-template-columns: 1fr;
@@ -2416,6 +2417,7 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 }
 
 @media (max-width: 900px) {
+
   .new-hero .anim-element,
   .new-hero .hero-title__inner,
   .strategy-sec .anim-element,
@@ -2604,4 +2606,14 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
   .home-final-metrics__grid--two {
     margin-inline: calc(var(--container-pad) * -1);
   }
+}
+
+.es-financing-banner__riyal {
+  width: clamp(36px, 5vw, 56px);
+  height: clamp(36px, 5vw, 56px);
+  flex-shrink: 0;
+  color: #ffffff;
+  transform: translateY(8px);
+  display: inline;
+  margin: 0 4px;
 }

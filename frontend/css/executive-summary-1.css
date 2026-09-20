@@ -320,7 +320,7 @@
   justify-content: center;
   padding-right: clamp(32px, 5vw, 52px);
   --es1-hr-num-fs: clamp(32px, 8vw, 50px);
-  --es1-hr-unit-fs: clamp(16px, 4vw, 20px);
+  --es1-hr-unit-fs: clamp(18px, 4vw, 24px);
   --es1-hr-fig-gap: 0.45em;
   --es1-hr-fig-w: calc(var(--es1-hr-num-fs) * 4.05);
 }
@@ -363,7 +363,7 @@
 
 .es1-board--hr .es1-board__col:first-child .es1-stat__num {
   grid-column: 1;
-  font-size: 1em;
+  font-size: 1.2em;
   width: auto;
   flex: none;
   text-align: center;
@@ -398,7 +398,7 @@
 .es1-board--hr .es1-stat__num {
   font-family: "Cairo", "Almarai", sans-serif;
   font-weight: 800;
-  font-size: 50px;
+  font-size: 60px;
   line-height: 1;
   color: #8dcfc5;
   letter-spacing: -0.02em;
@@ -445,7 +445,7 @@
   margin: 0;
   font-family: "Cairo", "Almarai", sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   text-align: right;
@@ -855,7 +855,7 @@
   }
 
   .es1-board--hr .es1-stat__desc {
-    font-size: clamp(15px, 3.5vw, 18px);
+    font-size: clamp(16px, 3.5vw, 20px);
     line-height: 24px;
   }
 }

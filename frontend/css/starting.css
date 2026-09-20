@@ -124,7 +124,7 @@
 
 .starting-sec__boxes .starting-sec__box-desc {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0px;
     color: #576375 !important;
 }
@@ -137,9 +137,6 @@
         /* تقليل الفجوة الكبيرة بين النص والصورة */
     }
 
-    .starting-sec {
-        padding-bottom: 0;
-    }
 
     .starting-sec__img {
         width: 100%;
