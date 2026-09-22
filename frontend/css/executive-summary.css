@@ -1556,7 +1556,7 @@
   font-weight: 800;
   font-size: 18px;
   line-height: 28px;
-  letter-spacing: -0.75px;
+  letter-spacing: 0; /* non-zero spacing breaks Arabic lam-alef ligatures */
 }
 
 /* Satisfaction section — full-width teal band (Figma) */
@@ -1984,7 +1984,7 @@
   /* حجم خط متجاوب */
   line-height: 1.55;
   /* يفضل استخدام قيم نسبية للـ line-height مع الخطوط المتجاوبة */
-  letter-spacing: -0.5px;
+  letter-spacing: 0; /* non-zero spacing breaks Arabic lam-alef ligatures */
   width: min(416px, 100%);
   /* هذه الخاصية متجاوبة بالفعل وتعمل بشكل ممتاز */
 }
