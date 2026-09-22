@@ -622,11 +622,20 @@
     gap: 4px;
 }
 
+[dir="ltr"] .cert-name {
+    align-items: flex-start;
+}
+
 .cert-name::before {
     content: "";
     height: 4px;
     width: 4px;
     background: #5F5B5C;
+    flex-shrink: 0
+}
+
+[dir="ltr"] ::before {
+    transform: translateY(6px);
 }
 
 .ac-container {
