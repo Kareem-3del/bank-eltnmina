@@ -449,6 +449,101 @@
     }
 }
 
+/* "1 of 2" / "2 of 2" marker: the message runs across two sections. */
+.msg-part {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #00BCB2;
+}
+
+.msg-part::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: currentColor;
+}
+
+.msg-part__cur {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.msg-part--cont {
+    display: flex;
+    margin: 0 0 clamp(20px, 3vw, 32px);
+}
+
+.msg-sec.bg-main .msg-part {
+    color: #FFFFFF;
+}
+
+/* Progressive read-more on mobile (driven by initMessageReadMore in
+   page-animations.js). The mask fades the cut line on any background. */
+.msg-clamp {
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 72px), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 72px), transparent);
+}
+
+.msg-clamp.is-expanded {
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+.msg-more-btn {
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 12px 28px;
+    min-height: 44px;
+    border: 1.5px solid currentColor;
+    border-radius: 0;
+    background: transparent;
+    color: #00BCB2;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.msg-more-btn:hover,
+.msg-more-btn:focus-visible {
+    background: #00BCB2;
+    color: #FFFFFF;
+}
+
+.msg-more-btn:focus-visible {
+    outline: 2px solid #01938e;
+    outline-offset: 2px;
+}
+
+.msg-sec.bg-main .msg-more-btn {
+    color: #FFFFFF;
+}
+
+.msg-sec.bg-main .msg-more-btn:hover,
+.msg-sec.bg-main .msg-more-btn:focus-visible {
+    background: #FFFFFF;
+    color: #00BCB2;
+}
+
+.msg-more-btn[hidden] {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .msg-clamp {
+        transition: none;
+    }
+}
+
 .msg-sec.bg-main .text-col h3,
 .msg-sec.bg-main .text-col p {
     color: #FFFFFF;
