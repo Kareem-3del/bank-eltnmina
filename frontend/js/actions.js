@@ -49,10 +49,10 @@
     {
       nameAr: "الملخص التنفيذي 1",
       nameEn: "Executive Summary 1",
-      href: "executive-summary-1.html",
+      href: "executive-summary.html",
     },
     {
-      href: "executive-summary.html",
+      href: "executive-summary-1.html",
       nameAr: "الملخص التنفيذي 2",
       nameEn: "Executive Summary 2",
     },

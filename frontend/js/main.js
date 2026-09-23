@@ -275,13 +275,13 @@
         caption: "نظرة شاملة على إنجازات العام",
         sublinks: [
           {
-            href: "executive-summary-1.html",
+            href: "executive-summary.html",
             text: "الملخص التنفيذي 1",
             img: "2.png",
             caption: "نظرة شاملة على إنجازات العام"
           },
           {
-            href: "executive-summary.html",
+            href: "executive-summary-1.html",
             text: "الملخص التنفيذي 2",
             img: "2.png",
             caption: "نظرة شاملة على إنجازات العام"
@@ -476,13 +476,13 @@
           caption: "A comprehensive look at the year's achievements",
           sublinks: [
             {
-              href: "executive-summary-1.html",
+              href: "executive-summary.html",
               text: "Executive Summary 1",
               img: "2.png",
               caption: "A comprehensive look at the year's achievements"
             },
             {
-              href: "executive-summary.html",
+              href: "executive-summary-1.html",
               text: "Executive Summary 2",
               img: "2.png",
               caption: "A comprehensive look at the year's achievements"
