@@ -207,6 +207,110 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    /* ------ Progressive read-more for message sections (mobile) --------- */
+    // On narrow screens each [data-ceo-message] body is clamped to a few lines;
+    // every tap on the button reveals the next chunk, and once fully open the
+    // button collapses it back. Height-based because the copy is split into
+    // print columns mid-sentence, so paragraph-based chunking would cut badly.
+    function initMessageReadMore() {
+        const mq = window.matchMedia("(max-width: 768px)");
+        const FIRST_LINES = 10;
+        const STEP_LINES = 12;
+        const items = [];
+
+        document.querySelectorAll("[data-ceo-message] .board-sec").forEach((sec) => {
+            const bodies = Array.from(sec.children).filter((el) => !el.classList.contains("board-img"));
+            if (!bodies.length) return;
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "msg-more-btn";
+            btn.hidden = true;
+            sec.appendChild(btn);
+            items.push({ sec, bodies, btn, body: null, shown: 0 });
+        });
+        if (!items.length) return;
+
+        const lineHeight = (body) => {
+            const p = body.querySelector(".text-col p");
+            return (p && parseFloat(getComputedStyle(p).lineHeight)) || 32;
+        };
+
+        const refresh = () => {
+            if (window.ScrollTrigger) ScrollTrigger.refresh();
+        };
+
+        const render = (item) => {
+            const { body, btn } = item;
+            const full = body.scrollHeight;
+            if (item.shown >= full) {
+                body.style.maxHeight = "none";
+                body.classList.add("is-expanded");
+                btn.textContent = labels[lang].less;
+                btn.setAttribute("aria-expanded", "true");
+            } else {
+                body.style.maxHeight = item.shown + "px";
+                body.classList.remove("is-expanded");
+                btn.textContent = labels[lang].more;
+                btn.setAttribute("aria-expanded", "false");
+            }
+            setTimeout(refresh, reduceMotion ? 0 : 550);
+        };
+
+        const teardown = (item) => {
+            if (!item.body) return;
+            item.body.classList.remove("msg-clamp", "is-expanded");
+            item.body.style.maxHeight = "";
+            item.btn.hidden = true;
+            item.body = null;
+        };
+
+        const setup = (item) => {
+            teardown(item);
+            // .desktop-sec / .mobile-sec duplicates: clamp whichever is visible.
+            const body = item.bodies.find((el) => getComputedStyle(el).display !== "none");
+            if (!body) return;
+            const lh = lineHeight(body);
+            const first = Math.round(lh * FIRST_LINES);
+            // Not worth clamping if it would hide only a couple of lines.
+            if (body.scrollHeight <= first + lh * 3) return;
+            item.body = body;
+            item.step = Math.round(lh * STEP_LINES);
+            item.first = first;
+            item.shown = first;
+            body.classList.add("msg-clamp");
+            if (!body.id) body.id = "msg-body-" + items.indexOf(item);
+            item.btn.setAttribute("aria-controls", body.id);
+            item.btn.hidden = false;
+            render(item);
+        };
+
+        items.forEach((item) => {
+            item.btn.addEventListener("click", () => {
+                if (!item.body) return;
+                if (item.body.classList.contains("is-expanded")) {
+                    item.shown = item.first;
+                    render(item);
+                    const top = item.sec.closest("[data-ceo-message]").getBoundingClientRect().top + window.scrollY - 80;
+                    if (window.__lenis) window.__lenis.scrollTo(top);
+                    else window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+                } else {
+                    item.shown = Math.min(item.shown + item.step, item.body.scrollHeight);
+                    render(item);
+                }
+            });
+        });
+
+        const apply = () => items.forEach((item) => (mq.matches ? setup(item) : teardown(item)));
+        apply();
+        refresh();
+        mq.addEventListener("change", () => {
+            apply();
+            refresh();
+        });
+    }
+
+    initMessageReadMore();
+
     /* ------ Target-vs-Achieved bracket SVGs — draw-on-scroll ----------- */
     // Each .pie-sec holds an SVG made of two right-angle "bracket" strokes
     // (outer = target / white, inner = achieved / #EEE9E9) plus the % value
