@@ -429,8 +429,6 @@
     width: 100%;
     border-collapse: collapse;
     font-family: 'Cairo', sans-serif;
-    direction: rtl;
-    text-align: right;
     background-color: #FFFFFF;
 }
 
@@ -634,8 +632,8 @@
     flex-shrink: 0
 }
 
-[dir="ltr"] ::before {
-    transform: translateY(6px);
+[dir="ltr"] .cert-name::before {
+    transform: translateY(10px);
 }
 
 .ac-container {
