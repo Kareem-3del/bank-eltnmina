@@ -469,6 +469,13 @@
     background: currentColor;
 }
 
+/* Flex row follows the page direction: current part sits on the right in AR. */
+.msg-part__frac {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
 .msg-part__cur {
     font-weight: 700;
     font-size: 20px;
