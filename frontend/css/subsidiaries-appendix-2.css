@@ -68,14 +68,15 @@
   align-items: center;
   gap: 8px;
   margin-inline-end: -24px;
-  margin-bottom: -2px;
+  margin-bottom: 16px;
 }
 
 .appx2-about__icon {
   flex-shrink: 0;
   width: auto;
   height: auto;
-  max-height: 153px;
+  /* max-height: 153px; */
+  max-height: 120px;
   object-fit: contain;
 }
 
