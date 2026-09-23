@@ -892,3 +892,44 @@
         padding: 14px 20px;
     }
 }
+
+.detials-sec .chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.legend-sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #576767;
+    margin-bottom: 16px;
+}
+
+.legend .mark {
+    width: 12px;
+    height: 12px;
+}
+
+.legend:first-child .mark {
+    background: #DFF2F1;
+}
+
+.legend:last-child .mark {
+    background: #00BCB2;
+
+}
