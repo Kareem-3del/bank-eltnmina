@@ -121,11 +121,12 @@
 }
 
 .legend:first-child .mark {
-    background: #00BCB2;
+    background: #DFF2F1;
 }
 
 .legend:last-child .mark {
-    background: #DFF2F1;
+    background: #00BCB2;
+
 }
 
 .chart-sec .boxes {
