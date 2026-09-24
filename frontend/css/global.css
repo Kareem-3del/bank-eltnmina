@@ -134,6 +134,22 @@ section {
   color: var(--c-text-main) !important;
 }
 
+
+@media(max-width:768px) {
+  .sm-bg-main {
+    background-color: var(--bg-main) !important;
+  }
+
+  .sm-bg-main :is(h3, p, h2, h1) {
+    color: var(--c-text-main) !important;
+  }
+
+
+  .sm-bg-main .msg-part__frac span {
+    color: #FFF !important
+  }
+}
+
 /* ------ Reset ------------------------------------------------------------- */
 *,
 *::before,

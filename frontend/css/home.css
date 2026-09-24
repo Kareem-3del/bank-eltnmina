@@ -2617,3 +2617,21 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
   display: inline;
   margin: 0 4px;
 }
+
+@media(min-width:1024px) {
+  .msg-full-link-wrap {
+    display: none !important;
+  }
+}
+
+@media(max-width:1023px) {
+  .msg-sec-desktop {
+    display: none !important;
+  }
+
+  .sm-bg-main .msg-full-link {
+    border: 1.5px solid #FFF;
+    background-color: #fff;
+    color: #00BCB2;
+  }
+}
