@@ -459,7 +459,7 @@
     font-weight: 400;
 }
 
-.msg-part__frac > span:not(.msg-part__cur) {
+.msg-part__frac>span:not(.msg-part__cur) {
     opacity: 0.7;
 }
 
@@ -1082,12 +1082,9 @@
 }
 
 .msg-sec--ceo-page h3 {
-    color: rgba(140, 148, 148, 0.85);
+    color: #00BCB4;
 }
 
-.msg-sec--ceo-page p {
-    color: rgba(140, 148, 148, 0.85);
-}
 
 @media(min-width:1025px) {
     .text-col .box {
