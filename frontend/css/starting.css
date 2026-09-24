@@ -450,52 +450,58 @@
 }
 
 /* "1/2" / "2/2" marker: the message runs across two sections.
-   Grid: label on its own row, then the rule (::before) + fraction. */
+   One row: label, thin rule (::before), fraction. Flex follows the page
+   direction, so in AR the label sits on the right and the current part
+   number reads first. */
 .msg-part {
-    display: inline-grid;
-    grid-template-columns: auto auto;
+    display: inline-flex;
     align-items: center;
-    column-gap: 12px;
-    row-gap: 8px;
-    margin-top: 12px;
-    font-size: 16px;
+    gap: 14px;
+    margin-top: 14px;
     line-height: 1;
-    font-weight: 400;
     color: #00BCB2;
 }
 
 .msg-part__label {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    font-size: 14px;
+    order: -1;
+    font-size: 15px;
     font-weight: 700;
-    opacity: 0.85;
+}
+
+[dir="ltr"] .msg-part__label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
 }
 
 .msg-part::before {
     content: "";
-    grid-row: 2;
-    width: 32px;
-    height: 2px;
+    width: 40px;
+    height: 1px;
     background: currentColor;
+    opacity: 0.5;
 }
 
-/* Flex row follows the page direction: current part sits on the right in AR. */
 .msg-part__frac {
-    grid-row: 2;
     display: inline-flex;
     align-items: baseline;
-    gap: 2px;
+    gap: 3px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.msg-part__frac > span:not(.msg-part__cur) {
+    opacity: 0.7;
 }
 
 .msg-part__cur {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .msg-part--cont {
-    display: grid;
-    justify-content: start;
+    display: flex;
+    width: fit-content;
     margin: 0 0 clamp(20px, 3vw, 32px);
 }
 
