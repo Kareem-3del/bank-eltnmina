@@ -208,18 +208,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     /* ------ Progressive read-more for message sections (mobile) --------- */
-    // On narrow screens the message body is clamped to a few lines and every
-    // tap reveals the next chunk. On the message pages the two sections are
-    // one continuous letter, so they share a single button: the second
-    // section stays hidden until the first is fully open, then the button
-    // carries on inside it, and "show less" folds the whole letter back.
+    // On narrow screens the message body is clamped to a few lines. On the
+    // message pages the two sections are one continuous letter, so they share
+    // a single button: the second section stays hidden, one tap opens the
+    // whole letter (the button moves to its end), and one tap folds it back.
     // Height-based because the copy is split into print columns mid-sentence.
     // Home excerpts ([data-full-link]) are only clamped; their link opens the
     // full message instead.
     function initMessageReadMore() {
         const mq = window.matchMedia("(max-width: 768px)");
         const FIRST_LINES = 10;
-        const STEP_LINES = 12;
         const items = [];
 
         document.querySelectorAll("[data-ceo-message] .board-sec").forEach((sec) => {
@@ -298,7 +296,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // Not worth clamping if it would hide only a couple of lines.
             if (body.scrollHeight <= first + lh * 3) return;
             item.body = body;
-            item.step = Math.round(lh * STEP_LINES);
             item.first = first;
             item.shown = first;
             body.classList.add("msg-clamp");
@@ -328,8 +325,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     return;
                 }
-                item.shown = Math.min(item.shown + item.step, item.body.scrollHeight);
-                render(item);
+                // Open everything from here to the end of the letter.
+                const rest = chain.includes(item) ? chain.slice(chain.indexOf(item)) : [item];
+                rest.forEach((part) => {
+                    part.section.classList.remove("msg-sec--pending");
+                    part.shown = Infinity;
+                });
+                rest.forEach(render);
             });
         });
 
