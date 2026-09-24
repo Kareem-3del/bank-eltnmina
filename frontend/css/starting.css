@@ -662,11 +662,6 @@
     padding-bottom: 30px;
 }
 
-.msg-sec--ceo-home .msg-sec__title h2 {
-    font-size: clamp(2.25rem, 4vw, 4rem);
-    line-height: 1.15;
-}
-
 .msg-sec--ceo-home .board-sec {
     gap: clamp(24px, 4vw, 56px);
 }
