@@ -2627,7 +2627,7 @@ html.is-anim-ready [data-strategy] .divider-2 .pin {
 @media(max-width:1023px) {
 
   .msg-sec-desktop,
-  .msg-part__frac {
+  .msg-part__frac.home-frac {
     display: none !important;
   }
 

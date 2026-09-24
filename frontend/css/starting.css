@@ -157,7 +157,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
     .starting-sec__top {
         padding-bottom: 24px;
         margin-bottom: 32px;
@@ -439,7 +439,7 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
     .desktop-sec {
         display: none;
     }
@@ -580,7 +580,7 @@
     color: #00BCB2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
     .msg-full-link-wrap {
         justify-content: flex-start;
         margin-top: 20px;
@@ -821,7 +821,7 @@
 }
 
 /* 2. للشاشات الصغيرة (الموبايل) */
-@media (max-width: 768px) {
+@media (max-width: 840px) {
     .msg-sec__top {
         flex-direction: column;
         align-items: stretch;
@@ -1036,7 +1036,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
     .msg-sec_img2 {
         transform: translate(0, 0);
         margin-bottom: 20px;
