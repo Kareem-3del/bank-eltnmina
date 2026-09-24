@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/ar.css" />
-  <link rel="stylesheet" href="css/starting.css?v=12" />
+  <link rel="stylesheet" href="css/starting.css?v=13" />
 
 
   <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar/index.html" />
@@ -236,16 +236,17 @@
       </p>
     </section>
 
-    <section class="msg-sec section " data-ceo-message>
+    <section class="msg-sec section " data-ceo-message data-full-link>
       <div class=" container">
         <div class="msg-sec__top anim-element" data-anim="fade-up">
-          <div class="msg-sec__title">
+          <div class="msg-sec__title msg-sec__title--part">
             <h2>
               رسالة
               <span>
                 رئيس مجلس الإدارة
               </span>
             </h2>
+            <span class="msg-part__frac" aria-label="1/2"><span class="msg-part__cur">1</span><span>/</span><span>2</span></span>
           </div>
           <!-- <div class="msg-sec__num">02</div> -->
         </div>
@@ -255,12 +256,10 @@
 
           <div class="board-img anim-float-up">
             <div class="board-top anim-element" data-anim="zoom-in" data-delay="0.6">
-              <img src="assets/figma-home/chairman-portrait.png" alt="معالي الأستاذ ماجد بن عبدالله الحقيل" />
+              <a class="board-link" href="ar/chairman-message.html"><img src="assets/figma-home/chairman-portrait.png" alt="معالي الأستاذ ماجد بن عبدالله الحقيل" /></a>
             </div>
             <div class="board-name anim-element" data-anim="fade-up" data-delay="0.4">
-              <h3>
-                معالي الأستاذ / ماجد بن عبدالله الحقيل
-              </h3>
+              <h3><a class="board-link" href="ar/chairman-message.html">معالي الأستاذ / ماجد بن عبدالله الحقيل</a></h3>
               <p>
                 وزير البلديات والإسكان
                 <br />
@@ -308,21 +307,26 @@
 
         </div>
 
+                <div class="msg-full-link-wrap">
+          <a class="msg-full-link" href="ar/chairman-message.html">اقرأ الرسالة كاملة<svg class="msg-full-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
+
         <!-- <img src="assets/_ceo.webp" alt="صندوق التنمية العقارية - عن الصندوق" /> -->
 
     </section>
 
     <!-- ===================== رسالة الرئيس التنفذي ===================== -->
-    <section class="msg-sec msg-sec--ceo-home bg-main section " data-ceo-message>
+    <section class="msg-sec msg-sec--ceo-home bg-main section " data-ceo-message data-full-link>
       <div class=" container">
         <div class="msg-sec__top anim-element" data-anim="fade-up">
-          <div class="msg-sec__title">
+          <div class="msg-sec__title msg-sec__title--part">
             <h2>
               رسالة
               <span>
                 الرئيس التنفيذي
               </span>
             </h2>
+            <span class="msg-part__frac" aria-label="1/2"><span class="msg-part__cur">1</span><span>/</span><span>2</span></span>
           </div>
           <!-- <div class="msg-sec__num">02</div> -->
         </div>
@@ -331,12 +335,10 @@
 
           <div class="board-img  anim-float-up">
             <div class="board-top anim-element" data-anim="zoom-in" data-delay="0.6">
-              <img src="assets/figma-home/ceo-portrait.png" alt="م. لؤي بن محمد الناهض" />
+              <a class="board-link" href="ar/ceo-message.html"><img src="assets/figma-home/ceo-portrait.png" alt="م. لؤي بن محمد الناهض" /></a>
             </div>
             <div class="board-name anim-element" data-anim="fade-up" data-delay="0.4">
-              <h3>
-                م. لؤي بن محمد الناهض
-              </h3>
+              <h3><a class="board-link" href="ar/ceo-message.html">م. لؤي بن محمد الناهض</a></h3>
               <p>
                 الرئيس التنفيذي
                 <br />
@@ -385,6 +387,10 @@
           </div>
 
 
+        </div>
+
+                <div class="msg-full-link-wrap">
+          <a class="msg-full-link" href="ar/ceo-message.html">اقرأ الرسالة كاملة<svg class="msg-full-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
 
         <!-- <img src="assets/_ceo.webp" alt="صندوق التنمية العقارية - عن الصندوق" /> -->
@@ -778,7 +784,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/page-animations.js?v=9"></script>
+  <script src="js/page-animations.js?v=10"></script>
   <script src="js/actions.js"></script>
 </body>
 

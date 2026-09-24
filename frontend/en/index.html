@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="css/home.css?v=6" />
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/menu.css" />
-  <link rel="stylesheet" href="css/starting.css?v=12" />
+  <link rel="stylesheet" href="css/starting.css?v=13" />
 
 
   <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar/index.html" />
@@ -339,16 +339,17 @@
       </p>
     </section>
 
-    <section class="msg-sec section msg-sec--css-justify" data-ceo-message>
+    <section class="msg-sec section msg-sec--css-justify" data-ceo-message data-full-link>
       <div class=" container">
         <div class="msg-sec__top anim-element" data-anim="fade-up">
-          <div class="msg-sec__title">
+          <div class="msg-sec__title msg-sec__title--part">
             <h2>
               Chairman's
               <span>
                 Message
               </span>
             </h2>
+            <span class="msg-part__frac" aria-label="1/2"><span class="msg-part__cur">1</span><span>/</span><span>2</span></span>
           </div>
           <!-- <div class="msg-sec__num">02</div> -->
         </div>
@@ -357,12 +358,10 @@
 
           <div class="board-img  anim-float-up">
             <div class="board-top anim-element" data-anim="zoom-in" data-delay="0.6">
-              <img src="assets/_ceo.webp" alt="ceo-img" />
+              <a class="board-link" href="en/chairman-message.html"><img src="assets/_ceo.webp" alt="ceo-img" /></a>
             </div>
             <div class="board-name anim-element" data-anim="fade-up" data-delay="0.4">
-              <h3>
-                H.E. Mr. Majed bin Abdullah Al-Hogail
-              </h3>
+              <h3><a class="board-link" href="en/chairman-message.html">H.E. Mr. Majed bin Abdullah Al-Hogail</a></h3>
               <p>
                 Minister of Municipalities and Housing,
                 <br />
@@ -456,20 +455,25 @@
           </div>
         </div>
 
+                <div class="msg-full-link-wrap">
+          <a class="msg-full-link" href="en/chairman-message.html">Read the full message<svg class="msg-full-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
+
         <!-- <img src="assets/_ceo.webp" alt="صندوق التنمية العقارية - عن الصندوق" /> -->
 
     </section>
 
-    <section class="msg-sec bg-main section msg-sec--css-justify" data-ceo-message>
+    <section class="msg-sec bg-main section msg-sec--css-justify" data-ceo-message data-full-link>
       <div class=" container">
         <div class="msg-sec__top anim-element" data-anim="fade-up">
-          <div class="msg-sec__title">
+          <div class="msg-sec__title msg-sec__title--part">
             <h2>
               CEO's Message
               <span>
                 Message
               </span>
             </h2>
+            <span class="msg-part__frac" aria-label="1/2"><span class="msg-part__cur">1</span><span>/</span><span>2</span></span>
           </div>
           <!-- <div class="msg-sec__num">02</div> -->
         </div>
@@ -478,12 +482,10 @@
 
           <div class="board-img">
             <div class="board-top anim-element" data-anim="zoom-in" data-delay="0.6">
-              <img src="assets/cto.webp" alt="cto-img" />
+              <a class="board-link" href="en/ceo-message.html"><img src="assets/cto.webp" alt="cto-img" /></a>
             </div>
             <div class="board-name anim-element" data-anim="fade-up" data-delay="0.4">
-              <h3>
-                Eng. Loaye Mohammed Al-Nahedh
-              </h3>
+              <h3><a class="board-link" href="en/ceo-message.html">Eng. Loaye Mohammed Al-Nahedh</a></h3>
               <p>
                 Chief Executive Officer,
                 <br />
@@ -529,6 +531,10 @@
               </div>
             </div>
           </div>
+        </div>
+
+                <div class="msg-full-link-wrap">
+          <a class="msg-full-link" href="en/ceo-message.html">Read the full message<svg class="msg-full-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
 
         <!-- <img src="assets/_ceo.webp" alt="صندوق التنمية العقارية - عن الصندوق" /> -->
@@ -1287,7 +1293,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js?v=3"></script>
-  <script src="js/page-animations.js?v=9"></script>
+  <script src="js/page-animations.js?v=10"></script>
   <script src="js/actions.js?v=3"></script>
 </body>
 

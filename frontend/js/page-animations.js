@@ -226,7 +226,9 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.className = "msg-more-btn";
             btn.hidden = true;
             sec.appendChild(btn);
-            items.push({ sec, bodies, btn, body: null, shown: 0 });
+            // Home excerpts link to the full message page instead of expanding.
+            const linkOnly = sec.closest("[data-ceo-message]").hasAttribute("data-full-link");
+            items.push({ sec, bodies, btn, linkOnly, body: null, shown: 0 });
         });
         if (!items.length) return;
 
@@ -280,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
             body.classList.add("msg-clamp");
             if (!body.id) body.id = "msg-body-" + items.indexOf(item);
             item.btn.setAttribute("aria-controls", body.id);
-            item.btn.hidden = false;
+            item.btn.hidden = item.linkOnly;
             render(item);
         };
 
