@@ -1179,3 +1179,19 @@
   });
 
 })();
+
+/* Lazy images (loading="lazy") change the page height as they arrive, which
+   would leave ScrollTrigger start/end positions stale. Re-measure once per
+   burst of loads. */
+(() => {
+  let timer;
+  const schedule = () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => window.ScrollTrigger && window.ScrollTrigger.refresh(), 200);
+  };
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+      if (!img.complete) img.addEventListener("load", schedule, { once: true });
+    });
+  });
+})();
