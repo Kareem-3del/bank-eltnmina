@@ -449,21 +449,32 @@
     }
 }
 
-/* "1 of 2" / "2 of 2" marker: the message runs across two sections. */
+/* "1/2" / "2/2" marker: the message runs across two sections.
+   Grid: label on its own row, then the rule (::before) + fraction. */
 .msg-part {
-    display: inline-flex;
+    display: inline-grid;
+    grid-template-columns: auto auto;
     align-items: center;
-    gap: 12px;
+    column-gap: 12px;
+    row-gap: 8px;
     margin-top: 12px;
     font-size: 16px;
     line-height: 1;
     font-weight: 400;
-    letter-spacing: 0.04em;
     color: #00BCB2;
+}
+
+.msg-part__label {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.85;
 }
 
 .msg-part::before {
     content: "";
+    grid-row: 2;
     width: 32px;
     height: 2px;
     background: currentColor;
@@ -471,6 +482,7 @@
 
 /* Flex row follows the page direction: current part sits on the right in AR. */
 .msg-part__frac {
+    grid-row: 2;
     display: inline-flex;
     align-items: baseline;
     gap: 2px;
@@ -482,7 +494,8 @@
 }
 
 .msg-part--cont {
-    display: flex;
+    display: grid;
+    justify-content: start;
     margin: 0 0 clamp(20px, 3vw, 32px);
 }
 
