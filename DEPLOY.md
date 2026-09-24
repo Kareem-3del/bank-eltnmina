@@ -55,6 +55,37 @@ gh api -X PATCH repos/Kareem-3del/bank-eltnmina/hooks/636588703 \
   -f 'config[content_type]=json'
 ```
 
+## Performance: images and caching
+
+**Images.** Hero banners came out of design at 3000–6000 px and 5–17 MB each
+(~200 MB referenced in total), on a host that serves ~0.8 MB/s. Before
+committing new or replaced images, run:
+
+```sh
+python3 deploy/perf/optimize_images.py --dry-run   # report only
+python3 deploy/perf/optimize_images.py             # convert + rewrite refs
+```
+
+It resizes every referenced raster over 120 KB (wide banners to 2560 px wide,
+everything else to 1600 px on the long side), re-encodes to WebP q80 (alpha
+kept), rewrites the references in `frontend/{ar,en}/*.html`, `css/`, `js/`,
+and deletes the PNG/JPEG originals it replaced (they remain in git history).
+The webhook then deploys the result like any other change.
+
+**Lazy loading.** Every `<img>` after the first `<section>` of `<main>` carries
+`loading="lazy" decoding="async"`; `js/main.js` refreshes ScrollTrigger as they
+arrive. Keep the attribute off hero/above-the-fold images, and only preload
+an image in `<head>` if that page actually shows it.
+
+**nginx.** `deploy/nginx.conf` is the source of truth for
+`/opt/redf-demo/nginx.conf` (30-day cache for images/fonts/PDFs, revalidated
+HTML/CSS/JS, gzip). The webhook does not ship it; after editing:
+
+```sh
+scp -P 2222 deploy/nginx.conf root@76.13.151.228:/opt/redf-demo/nginx.conf
+ssh kareem 'docker exec redf-demo nginx -t && docker exec redf-demo nginx -s reload'
+```
+
 ## Per-page PDFs (the floating "download this page" button)
 
 `js/actions.js` injects the floating side actions (prev / next / download-page /
