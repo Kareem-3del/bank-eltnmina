@@ -449,39 +449,8 @@
     }
 }
 
-/* "1/2" / "2/2" marker: the message runs across two sections.
-   One row: label, thin rule (::before), fraction. Flex follows the page
-   direction, so in AR the label sits on the right and the current part
-   number reads first. */
-.msg-part {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 14px;
-    line-height: 1;
-    color: #00BCB2;
-}
-
-.msg-part__label {
-    order: -1;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-[dir="ltr"] .msg-part__label {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 13px;
-}
-
-.msg-part::before {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
-}
-
+/* Part-number fraction ("1/2"). Flex follows the page direction, so in AR
+   the current part number sits on the right. */
 .msg-part__frac {
     display: inline-flex;
     align-items: baseline;
@@ -499,14 +468,10 @@
     font-size: 22px;
 }
 
-.msg-part--cont {
-    display: flex;
-    width: fit-content;
-    margin: 0 0 clamp(20px, 3vw, 32px);
-}
-
-.msg-sec.bg-main .msg-part {
-    color: #FFFFFF;
+/* Continuation section of a message, hidden on mobile until the shared
+   read-more reaches it (initMessageReadMore). */
+.msg-sec--pending {
+    display: none;
 }
 
 /* Part number beside the section title ("title  1/2"). */
@@ -515,6 +480,15 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 12px 20px;
+}
+
+/* bg-main titles are pushed to one side with auto margins; inside the flex
+   row that would split the title from its number. */
+.msg-sec__title--part h2,
+[dir="rtl"] .msg-sec.bg-main .msg-sec__title--part h2,
+[dir="ltr"] .msg-sec.bg-main .msg-sec__title--part h2 {
+    margin: 0;
+    max-width: none;
 }
 
 .msg-sec__title--part .msg-part__frac {

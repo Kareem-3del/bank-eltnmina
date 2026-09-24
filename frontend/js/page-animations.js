@@ -208,10 +208,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     /* ------ Progressive read-more for message sections (mobile) --------- */
-    // On narrow screens each [data-ceo-message] body is clamped to a few lines;
-    // every tap on the button reveals the next chunk, and once fully open the
-    // button collapses it back. Height-based because the copy is split into
-    // print columns mid-sentence, so paragraph-based chunking would cut badly.
+    // On narrow screens the message body is clamped to a few lines and every
+    // tap reveals the next chunk. On the message pages the two sections are
+    // one continuous letter, so they share a single button: the second
+    // section stays hidden until the first is fully open, then the button
+    // carries on inside it, and "show less" folds the whole letter back.
+    // Height-based because the copy is split into print columns mid-sentence.
+    // Home excerpts ([data-full-link]) are only clamped; their link opens the
+    // full message instead.
     function initMessageReadMore() {
         const mq = window.matchMedia("(max-width: 768px)");
         const FIRST_LINES = 10;
@@ -226,11 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.className = "msg-more-btn";
             btn.hidden = true;
             sec.appendChild(btn);
-            // Home excerpts link to the full message page instead of expanding.
-            const linkOnly = sec.closest("[data-ceo-message]").hasAttribute("data-full-link");
-            items.push({ sec, bodies, btn, linkOnly, body: null, shown: 0 });
+            const section = sec.closest("[data-ceo-message]");
+            items.push({ sec, section, bodies, btn, linkOnly: section.hasAttribute("data-full-link"), body: null, shown: 0 });
         });
         if (!items.length) return;
+
+        // The message pages' sections, in reading order.
+        const chain = items.filter((item) => !item.linkOnly);
 
         const lineHeight = (body) => {
             const p = body.querySelector(".text-col p");
@@ -241,17 +247,32 @@ document.addEventListener("DOMContentLoaded", () => {
             if (window.ScrollTrigger) ScrollTrigger.refresh();
         };
 
+        const isFull = (item) => !item.body || item.shown >= item.body.scrollHeight;
+
         const render = (item) => {
             const { body, btn } = item;
-            const full = body.scrollHeight;
-            if (item.shown >= full) {
-                body.style.maxHeight = "none";
-                body.classList.add("is-expanded");
-                btn.textContent = labels[lang].less;
-                btn.setAttribute("aria-expanded", "true");
+            const next = chain[chain.indexOf(item) + 1];
+            if (isFull(item)) {
+                if (body) {
+                    body.style.maxHeight = "none";
+                    body.classList.add("is-expanded");
+                }
+                if (next) {
+                    // Hand over to the next section of the same letter.
+                    btn.hidden = true;
+                    if (next.section.classList.contains("msg-sec--pending")) {
+                        next.section.classList.remove("msg-sec--pending");
+                        render(next);
+                    }
+                } else {
+                    btn.hidden = item.linkOnly || (!body && chain.length < 2);
+                    btn.textContent = labels[lang].less;
+                    btn.setAttribute("aria-expanded", "true");
+                }
             } else {
                 body.style.maxHeight = item.shown + "px";
                 body.classList.remove("is-expanded");
+                btn.hidden = item.linkOnly;
                 btn.textContent = labels[lang].more;
                 btn.setAttribute("aria-expanded", "false");
             }
@@ -259,10 +280,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const teardown = (item) => {
+            item.section.classList.remove("msg-sec--pending");
+            item.btn.hidden = true;
             if (!item.body) return;
             item.body.classList.remove("msg-clamp", "is-expanded");
             item.body.style.maxHeight = "";
-            item.btn.hidden = true;
             item.body = null;
         };
 
@@ -282,33 +304,47 @@ document.addEventListener("DOMContentLoaded", () => {
             body.classList.add("msg-clamp");
             if (!body.id) body.id = "msg-body-" + items.indexOf(item);
             item.btn.setAttribute("aria-controls", body.id);
-            item.btn.hidden = item.linkOnly;
-            render(item);
+        };
+
+        const collapseChain = () => {
+            chain.forEach((item, i) => {
+                if (item.body) item.shown = item.first;
+                if (i > 0) item.section.classList.add("msg-sec--pending");
+                item.btn.hidden = true;
+            });
+            render(chain[0]);
+            const top = chain[0].section.getBoundingClientRect().top + window.scrollY - 80;
+            if (window.__lenis) window.__lenis.scrollTo(top);
+            else window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
         };
 
         items.forEach((item) => {
             item.btn.addEventListener("click", () => {
-                if (!item.body) return;
-                if (item.body.classList.contains("is-expanded")) {
-                    item.shown = item.first;
-                    render(item);
-                    const top = item.sec.closest("[data-ceo-message]").getBoundingClientRect().top + window.scrollY - 80;
-                    if (window.__lenis) window.__lenis.scrollTo(top);
-                    else window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
-                } else {
-                    item.shown = Math.min(item.shown + item.step, item.body.scrollHeight);
-                    render(item);
+                if (isFull(item)) {
+                    if (chain.includes(item)) collapseChain();
+                    else {
+                        item.shown = item.first;
+                        render(item);
+                    }
+                    return;
                 }
+                item.shown = Math.min(item.shown + item.step, item.body.scrollHeight);
+                render(item);
             });
         });
 
-        const apply = () => items.forEach((item) => (mq.matches ? setup(item) : teardown(item)));
-        apply();
-        refresh();
-        mq.addEventListener("change", () => {
-            apply();
+        const apply = () => {
+            items.forEach((item) => (mq.matches ? setup(item) : teardown(item)));
+            if (mq.matches) {
+                // Measure every section first, then hide the continuations.
+                chain.forEach((item, i) => i > 0 && item.section.classList.add("msg-sec--pending"));
+                if (chain.length) render(chain[0]);
+                items.filter((item) => item.linkOnly && item.body).forEach(render);
+            }
             refresh();
-        });
+        };
+        apply();
+        mq.addEventListener("change", apply);
     }
 
     initMessageReadMore();
