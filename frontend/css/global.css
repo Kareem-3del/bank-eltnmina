@@ -135,7 +135,7 @@ section {
 }
 
 
-@media(max-width:768px) {
+@media(max-width:840px) {
   .sm-bg-main {
     background-color: var(--bg-main) !important;
   }

@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Home excerpts ([data-full-link]) are only clamped; their link opens the
     // full message instead.
     function initMessageReadMore() {
-        const mq = window.matchMedia("(max-width: 768px)");
+        const mq = window.matchMedia("(max-width: 840px)");
         const FIRST_LINES = 10;
         const items = [];
 
